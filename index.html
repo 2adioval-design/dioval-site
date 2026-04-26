@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="dark" />
+<title>DIOVAL.COM — Author Universe</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{overflow-x:hidden;background:#0a0a0a;color:#f0ebe3;font-family:'Inter',system-ui,sans-serif;}
+
+/* ===== PAGE TRANSITIONS ===== */
+.page-section{display:none;opacity:0;transition:opacity 300ms ease;min-height:100vh;width:100%;}
+.page-section.active{display:block;}
+.page-section.visible{opacity:1;}
+
+/* ===== SHARED NAV ===== */
+#main-nav{position:fixed;top:0;left:0;right:0;height:60px;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1rem,4vw,3rem);transition:background 0.3s ease,box-shadow 0.3s ease;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
+#main-nav.solid{background:rgba(10,10,10,0.92);box-shadow:0 1px 20px rgba(0,0,0,0.5);}
+.nav-logo{font-family:'Playfair Display',Georgia,serif;font-size:1.35rem;font-weight:700;letter-spacing:4px;transition:color 0.3s ease;cursor:pointer;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:3px;text-decoration:none;color:#c9d1d9;transition:color 0.3s ease;position:relative;padding-bottom:4px;}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;transition:width 0.3s ease,background 0.3s ease;}
+.nav-links a.active::after{width:100%;}
+#hamburger-btn{display:none;background:none;border:none;color:#f0ebe3;cursor:pointer;padding:8px;}
+
+/* Mobile Nav Overlay */
+#mobile-overlay{position:fixed;inset:0;z-index:2000;background:rgba(10,10,10,0.97);backdrop-filter:blur(20px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;opacity:0;pointer-events:none;transition:opacity 0.3s ease;}
+#mobile-overlay.open{opacity:1;pointer-events:auto;}
+#mobile-overlay a{font-family:'Playfair Display',Georgia,serif;font-size:1.5rem;letter-spacing:6px;text-decoration:none;color:#f0ebe3;transition:color 0.3s ease;}
+#mobile-close-btn{position:absolute;top:1rem;right:1.5rem;background:none;border:none;color:#f0ebe3;cursor:pointer;padding:8px;}
+
+@media(max-width:767px){
+  .nav-links{display:none!important;}
+  #hamburger-btn{display:block;}
+}
+
+/* ===== PAGE 1: HOME ===== */
+.page-home{background:#0a0a0a;font-family:'Inter',sans-serif;}
+.page-home h1,.page-home h2,.page-home h3,.page-home h4{font-family:'Playfair Display',Georgia,serif;}
+
+.hero-bg{background:radial-gradient(ellipse at center,#141210 0%,#0a0a0a 70%);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem 1.5rem;}
+
+@keyframes shimmer{0%{background-position:-200% center;}100%{background-position:200% center;}}
+.shimmer-text{background:linear-gradient(90deg,#c9a84c 0%,#f5e6b8 25%,#c9a84c 50%,#f5e6b8 75%,#c9a84c 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 3s linear infinite;}
+
+.portal-card{width:300px;background:#141414;border:1px solid;border-radius:1rem;padding:2rem;transition:transform 0.3s ease,border-color 0.3s ease,box-shadow 0.3s ease;cursor:pointer;}
+.portal-card:hover{transform:scale(1.02);}
+
+.about-monogram{font-family:'Playfair Display',Georgia,serif;font-size:clamp(5rem,10vw,8rem);color:#c9a84c;border:1px solid rgba(201,168,76,0.3);padding:2rem 3rem;display:inline-block;}
+
+/* ===== PAGE 2: NOVELS ===== */
+.page-novels{background:#0d0208;font-family:'Crimson Text',Georgia,serif;}
+.page-novels h1,.page-novels h2,.page-novels h3,.page-novels h4{font-family:'Playfair Display',Georgia,serif;}
+.page-novels .small-label{font-family:'Inter',sans-serif;}
+
+.novels-bg{background:radial-gradient(ellipse at center,rgba(139,26,26,0.08) 0%,#0d0208 70%),radial-gradient(1px 1px at 20% 30%,rgba(255,255,255,0.03) 0%,transparent 100%),radial-gradient(1px 1px at 80% 70%,rgba(255,255,255,0.02) 0%,transparent 100%);background-color:#0d0208;}
+
+.css-book-cover{width:280px;min-height:420px;background:linear-gradient(180deg,#0d0208,#1a0a10);border:1px solid #d4a574;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:2rem 1.5rem;position:relative;box-shadow:0 0 30px rgba(212,165,116,0.15);flex-shrink:0;}
+
+.lore-card{background:#1a0a10;border:1px solid rgba(139,26,26,0.25);border-radius:1rem;padding:2rem;flex:1;min-width:250px;}
+
+/* ===== PAGE 3: POETRY ===== */
+.page-poetry{background:#0a0806;font-family:'EB Garamond','Georgia',serif;}
+.page-poetry h1,.page-poetry h2,.page-poetry h3,.page-poetry h4{font-family:'Playfair Display',Georgia,serif;}
+.page-poetry .small-label{font-family:'Inter',sans-serif;}
+
+.poetry-bg{background:radial-gradient(ellipse at 30% 20%,rgba(184,115,51,0.04) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(184,115,51,0.03) 0%,transparent 50%);background-color:#0a0806;}
+
+.river-card{background:#1a1510;border:1px solid rgba(184,115,51,0.2);border-radius:1rem;padding:2rem;flex:1;min-width:280px;transition:border-color 0.3s ease;}
+.river-card:hover{border-color:rgba(184,115,51,0.5);}
+
+.poem-container{max-width:600px;margin:0 auto;padding:3rem 1.5rem;border-top:1px solid rgba(184,115,51,0.15);border-bottom:1px solid rgba(184,115,51,0.15);text-align:center;}
+.poem-container+.poem-container{border-top:none;}
+.poem-body{font-family:'EB Garamond','Georgia',serif;font-size:1.15rem;line-height:2;color:#f0e6d6;white-space:pre-line;}
+
+/* ===== PAGE 4: TECH ===== */
+.page-tech{background:#0a0a0a;font-family:'Inter',sans-serif;}
+.page-tech h1,.page-tech h2,.page-tech h3{font-family:'JetBrains Mono','Courier New',monospace;}
+.page-tech .mono{font-family:'JetBrains Mono','Courier New',monospace;}
+
+.tech-bg{background:repeating-linear-gradient(0deg,transparent,transparent 59px,#151515 59px,#151515 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,#151515 59px,#151515 60px);background-color:#0a0a0a;}
+
+.terminal-window{background:#0d1117;border:1px solid #1a3a2a;border-radius:0.75rem;overflow:hidden;}
+.terminal-chrome{display:flex;gap:6px;padding:12px 16px;background:#161b22;border-bottom:1px solid #1a3a2a;}
+.terminal-dot{width:12px;height:12px;border-radius:50%;}
+.terminal-body{padding:1.5rem;font-family:'JetBrains Mono','Courier New',monospace;font-size:0.9rem;line-height:1.8;color:#00ff88;}
+
+@keyframes blink{0%,50%{border-color:#00ff88;}51%,100%{border-color:transparent;}}
+.cursor-blink{border-right:2px solid #00ff88;animation:blink 1s step-end infinite;padding-right:4px;}
+
+.skill-card{background:#0d1117;border:1px solid #1a3a2a;border-radius:0.75rem;padding:1.5rem;transition:border-color 0.3s ease,box-shadow 0.3s ease;}
+.skill-card:hover{border-color:#00ff88;box-shadow:0 0 20px rgba(0,255,136,0.08);}
+
+.tech-tag{display:inline-block;border:1px solid rgba(0,255,136,0.3);border-radius:9999px;padding:0.2rem 0.75rem;font-family:'JetBrains Mono','Courier New',monospace;font-size:0.7rem;color:#00ff88;margin:0.2rem;}
+
+@keyframes pulse-dot{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.pulse-green{animation:pulse-dot 1.5s ease-in-out infinite;}
+
+/* ===== PAGE 5: BIOGRAPHY ===== */
+.page-bio{background:#080b12;font-family:Georgia,'Times New Roman',serif;color:#e2e6ef;}
+.page-bio h1,.page-bio h2,.page-bio h3,.page-bio h4{font-family:'Playfair Display',Georgia,serif;}
+.page-bio .bio-label{font-family:'Inter',sans-serif;}
+
+.bio-bg{
+  background:
+    radial-gradient(ellipse at 50% 30%,rgba(123,138,184,0.06) 0%,transparent 60%),
+    radial-gradient(ellipse at 50% 80%,rgba(123,138,184,0.03) 0%,transparent 50%),
+    repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(123,138,184,0.015) 39px,rgba(123,138,184,0.015) 40px);
+  background-color:#080b12;
+}
+
+/* Timeline */
+.bio-timeline{position:relative;padding-left:40px;max-width:800px;margin:0 auto;}
+.bio-timeline::before{content:'';position:absolute;left:15px;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,#7b8ab8 10%,#7b8ab8 90%,transparent);}
+.bio-timeline-entry{position:relative;margin-bottom:2.5rem;}
+.bio-timeline-entry::before{content:'';position:absolute;left:-29px;top:6px;width:8px;height:8px;border-radius:50%;background:#7b8ab8;border:2px solid #080b12;box-shadow:0 0 0 2px #7b8ab8;}
+.bio-timeline-year{font-family:'Inter',sans-serif;font-size:0.7rem;letter-spacing:3px;color:#7b8ab8;text-transform:uppercase;margin-bottom:0.5rem;}
+.bio-timeline-title{font-family:'Playfair Display',Georgia,serif;font-size:1.15rem;color:#a0b4d4;margin-bottom:0.5rem;}
+.bio-timeline-text{font-family:Georgia,'Times New Roman',serif;font-size:0.95rem;color:#e2e6ef;line-height:1.85;}
+
+/* Identity cards */
+.bio-identity-card{background:#141a28;border:1px solid #1e2538;border-radius:1rem;padding:2rem;flex:1;min-width:260px;transition:border-color 0.3s ease,box-shadow 0.3s ease;}
+
+/* Philosophy block */
+.bio-creed-block{background:#0f1420;border-left:4px solid #7b8ab8;border-radius:0 1rem 1rem 0;padding:clamp(2rem,4vw,4rem);max-width:800px;margin:0 auto;}
+.bio-creed-block p{font-family:Georgia,'Times New Roman',serif;font-size:clamp(1rem,2vw,1.15rem);line-height:2;color:#e2e6ef;white-space:pre-line;}
+
+/* Bio stat */
+.bio-stat-num{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,4vw,3rem);color:#a0b4d4;font-weight:700;}
+.bio-stat-label{font-family:'Inter',sans-serif;font-size:0.75rem;color:#6b7490;margin-top:0.25rem;}
+
+/* Bio social buttons */
+.bio-social-btn{width:40px;height:40px;border-radius:50%;border:1px solid rgba(123,138,184,0.4);display:flex;align-items:center;justify-content:center;color:#7b8ab8;text-decoration:none;font-size:0.7rem;font-weight:700;font-family:'Inter',sans-serif;transition:background 0.3s ease,color 0.3s ease,border-color 0.3s ease;}
+.bio-social-btn:hover{background:rgba(123,138,184,0.15);border-color:#7b8ab8;}
+
+@media(max-width:640px){
+  .bio-timeline{padding-left:32px;}
+  .bio-timeline::before{left:11px;}
+  .bio-timeline-entry::before{left:-25px;}
+}
+
+/* ===== INTERSECTION OBSERVER FADE ===== */
+.fade-in-section{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.fade-in-section.in-view{opacity:1;transform:translateY(0);}
+
+/* ===== FOOTER ===== */
+.home-footer a{transition:background 0.3s ease,color 0.3s ease;}
+</style>
+</head>
+<body data-id="0">
+<app-icon data-id="1" hidden data-icon="feather" data-palette="Dark"></app-icon>
+
+<!-- ===== NAVIGATION ===== -->
+<nav data-id="2" id="main-nav">
+  <span data-id="3" class="nav-logo" id="nav-logo-text">DIOVAL</span>
+  <ul data-id="4" class="nav-links" id="desktop-nav">
+    <li data-id="5"><a data-id="6" href="#home" data-page="home" data-accent="#c9a84c">HOME</a></li>
+    <li data-id="7"><a data-id="8" href="#bio" data-page="bio" data-accent="#7b8ab8">BIO</a></li>
+    <li data-id="9"><a data-id="10" href="#novels" data-page="novels" data-accent="#8b1a1a">NOVELS</a></li>
+    <li data-id="11"><a data-id="12" href="#poetry" data-page="poetry" data-accent="#b87333">POETRY</a></li>
+    <li data-id="13"><a data-id="14" href="#tech" data-page="tech" data-accent="#00ff88">TECH</a></li>
+  </ul>
+  <button data-id="15" id="hamburger-btn" aria-label="Open menu"><i data-id="16" data-lucide="menu" class="w-6 h-6"></i></button>
+</nav>
+
+<!-- Mobile Overlay -->
+<div data-id="17" id="mobile-overlay">
+  <button data-id="18" id="mobile-close-btn" aria-label="Close menu"><i data-id="19" data-lucide="x" class="w-7 h-7"></i></button>
+  <a data-id="20" href="#home" class="mobile-nav-link" data-page="home">HOME</a>
+  <a data-id="21" href="#bio" class="mobile-nav-link" data-page="bio">BIO</a>
+  <a data-id="22" href="#novels" class="mobile-nav-link" data-page="novels">NOVELS</a>
+  <a data-id="23" href="#poetry" class="mobile-nav-link" data-page="poetry">POETRY</a>
+  <a data-id="24" href="#tech" class="mobile-nav-link" data-page="tech">TECH</a>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 1: HOME                                                  -->
+<!-- ============================================================ -->
+<div data-id="25" id="page-home" class="page-section page-home active visible">
+
+  <!-- Hero -->
+  <section data-id="26" class="hero-bg">
+    <p data-id="27" class="small-label" style="font-family:'Inter',sans-serif;font-size:0.7rem;letter-spacing:6px;color:#9a958d;margin-bottom:1.5rem;text-transform:uppercase;">NOVELIST · POET · ARCHITECT</p>
+    <h1 data-id="28" class="shimmer-text" style="font-size:clamp(2.5rem,8vw,5rem);font-family:'Playfair Display',Georgia,serif;font-weight:700;letter-spacing:2px;margin-bottom:1.25rem;">AURELIO DIOVAL</h1>
+    <p data-id="29" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#9a958d;font-size:clamp(0.95rem,2vw,1.2rem);max-width:500px;margin-bottom:3rem;">"I did not write these poems. They escaped."</p>
+
+    <!-- Portal Cards -->
+    <div data-id="30" style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;max-width:1400px;margin:0 auto;">
+
+      <!-- Card 0: Bio -->
+      <div data-id="31" class="portal-card" data-nav="bio" style="border-color:rgba(123,138,184,0.25);" id="portal-bio-card">
+        <div data-id="32" style="width:50px;height:3px;background:#7b8ab8;margin-bottom:1.25rem;"></div>
+        <h3 data-id="33" style="color:#e8e0d8;font-size:1.25rem;letter-spacing:3px;margin-bottom:0.5rem;font-family:'Playfair Display',Georgia,serif;">BIO</h3>
+        <p data-id="34" style="color:#7b8ab8;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:0.9rem;margin-bottom:0.75rem;">The Man Behind the Names</p>
+        <p data-id="35" style="color:#9a958d;font-size:0.85rem;line-height:1.7;margin-bottom:1.25rem;">Aurelio Dioval. Mr. Ex The Last Poet. The architect. One man. Three fires.</p>
+        <span data-id="36" style="color:#7b8ab8;font-size:0.8rem;letter-spacing:1px;cursor:pointer;">Read the Story →</span>
+      </div>
+
+      <!-- Card 1: Novels -->
+      <div data-id="37" class="portal-card" data-nav="novels" style="border-color:rgba(139,26,26,0.25);" id="portal-novels-card">
+        <div data-id="38" style="width:50px;height:3px;background:#8b1a1a;margin-bottom:1.25rem;"></div>
+        <h3 data-id="39" style="color:#e8e0d8;font-size:1.25rem;letter-spacing:3px;margin-bottom:0.5rem;font-family:'Playfair Display',Georgia,serif;">NOVELS</h3>
+        <p data-id="40" style="color:#8b1a1a;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:0.9rem;margin-bottom:0.75rem;">The Light of Woza Saga</p>
+        <p data-id="41" style="color:#9a958d;font-size:0.85rem;line-height:1.7;margin-bottom:1.25rem;">Where archangels walk among humans and love defies heaven itself.</p>
+        <span data-id="42" style="color:#8b1a1a;font-size:0.8rem;letter-spacing:1px;cursor:pointer;">Enter the Kingdom →</span>
+      </div>
+
+      <!-- Card 2: Poetry -->
+      <div data-id="43" class="portal-card" data-nav="poetry" style="border-color:rgba(184,115,51,0.25);" id="portal-poetry-card">
+        <div data-id="44" style="width:50px;height:3px;background:#b87333;margin-bottom:1.25rem;"></div>
+        <h3 data-id="45" style="color:#e8e0d8;font-size:1.25rem;letter-spacing:3px;margin-bottom:0.5rem;font-family:'Playfair Display',Georgia,serif;">POETRY</h3>
+        <p data-id="46" style="color:#b87333;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:0.9rem;margin-bottom:0.75rem;">Wine, Sea, and Fire — by Mr. Ex The Last Poet</p>
+        <p data-id="47" style="color:#9a958d;font-size:0.85rem;line-height:1.7;margin-bottom:1.25rem;">Persian fire. Arabian ink. Portuguese sea. One voice.</p>
+        <span data-id="48" style="color:#b87333;font-size:0.8rem;letter-spacing:1px;cursor:pointer;">Read the Poems →</span>
+      </div>
+
+      <!-- Card 3: Tech -->
+      <div data-id="49" class="portal-card" data-nav="tech" style="border-color:rgba(0,255,136,0.25);" id="portal-tech-card">
+        <div data-id="50" style="width:50px;height:3px;background:#00ff88;margin-bottom:1.25rem;"></div>
+        <h3 data-id="51" style="color:#e8e0d8;font-size:1.25rem;letter-spacing:3px;margin-bottom:0.5rem;font-family:'Playfair Display',Georgia,serif;">TECH</h3>
+        <p data-id="52" style="color:#00ff88;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:0.9rem;margin-bottom:0.75rem;">Systems &amp; Code</p>
+        <p data-id="53" style="color:#9a958d;font-size:0.85rem;line-height:1.7;margin-bottom:1.25rem;">The same precision that builds worlds of fiction builds systems in code.</p>
+        <span data-id="54" style="color:#00ff88;font-size:0.8rem;letter-spacing:1px;cursor:pointer;">View the Stack →</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section data-id="55" class="fade-in-section" style="max-width:1100px;margin:0 auto;padding:5rem 2rem;">
+    <div data-id="56" style="display:flex;flex-wrap:wrap;gap:4rem;align-items:flex-start;">
+      <div data-id="57" style="flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+        <div data-id="58" class="about-monogram">AD</div>
+      </div>
+      <div data-id="59" style="flex:1;min-width:280px;">
+        <p data-id="60" style="color:#f0ebe3;line-height:1.85;font-size:0.95rem;margin-bottom:1.25rem;">Aurelio Dioval writes the way storms arrive — without apology. Born between cultures and raised on the edge of silence, he builds worlds where archangels walk among humans, where love is both forbidden and holy, and where the body is scripture no government can censor.</p>
+        <p data-id="61" style="color:#f0ebe3;line-height:1.85;font-size:0.95rem;margin-bottom:1.25rem;">His debut novel, <em data-id="62">The Light of Woza</em>, launched a dark fantasy saga of discipline, power, and the breaking of balance — now available on Kindle. Writing as <strong data-id="63" style="color:#b87333;">Mr. Ex The Last Poet</strong>, his poetry collection <em data-id="64">Wine, Sea, and Fire</em> fuses three ancient rivers — the Persian fire of Rumi, the Arabian ink of Qabbani, and the Portuguese sea of Camões — into a voice that burns whether or not anyone is watching.</p>
+        <p data-id="65" style="color:#f0ebe3;line-height:1.85;font-size:0.95rem;margin-bottom:1.5rem;">When he is not writing, he is building — architecting technology with the same precision he brings to prose. Code and verse share a spine: structure that serves beauty.</p>
+        <p data-id="66" style="color:#9a958d;font-size:0.85rem;letter-spacing:1px;">Washington State · support@dioval.com</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (Home only) -->
+  <footer data-id="67" class="home-footer fade-in-section" style="border-top:1px solid rgba(201,168,76,0.2);padding:2rem clamp(1.5rem,4vw,3rem);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;max-width:1200px;margin:0 auto;">
+    <p data-id="68" style="color:#9a958d;font-size:0.8rem;">© 2026 Aurelio Dioval. All rights reserved.</p>
+    <div data-id="69" style="display:flex;gap:1rem;align-items:center;">
+      <a data-id="70" href="https://www.amazon.com/stores/author/B0GXY5C3QZ" target="_blank" rel="noopener noreferrer" style="width:36px;height:36px;border-radius:50%;border:1px solid rgba(201,168,76,0.4);display:flex;align-items:center;justify-content:center;color:#c9a84c;text-decoration:none;font-size:0.7rem;font-weight:700;font-family:'Inter',sans-serif;" title="Amazon Author">A</a>
+      <a data-id="71" href="mailto:support@dioval.com" style="width:36px;height:36px;border-radius:50%;border:1px solid rgba(201,168,76,0.4);display:flex;align-items:center;justify-content:center;color:#c9a84c;text-decoration:none;" title="Email"><i data-id="72" data-lucide="mail" class="w-4 h-4"></i></a>
+      <a data-id="73" href="https://www.dioval.com" target="_blank" rel="noopener noreferrer" style="width:36px;height:36px;border-radius:50%;border:1px solid rgba(201,168,76,0.4);display:flex;align-items:center;justify-content:center;color:#c9a84c;text-decoration:none;" title="Website"><i data-id="74" data-lucide="globe" class="w-4 h-4"></i></a>
+    </div>
+    <p data-id="75" style="width:100%;text-align:center;color:#6b5d54;font-size:0.7rem;margin-top:0.5rem;">Made by Copilot</p>
+  </footer>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 5: BIOGRAPHY                                             -->
+<!-- ============================================================ -->
+<div data-id="76" id="page-bio" class="page-section page-bio bio-bg">
+
+  <!-- Section 1: Page Header -->
+  <section data-id="77" class="fade-in-section" style="padding-top:120px;text-align:center;padding-left:2rem;padding-right:2rem;">
+    <p data-id="78" class="bio-label" style="font-size:0.7rem;letter-spacing:6px;color:#7b8ab8;text-transform:uppercase;margin-bottom:1.5rem;">THE MAN BEHIND THE NAMES</p>
+    <h1 data-id="79" style="font-size:clamp(2.2rem,7vw,4rem);color:#a0b4d4;letter-spacing:4px;font-weight:700;">AURELIO DIOVAL</h1>
+    <div data-id="80" style="width:120px;height:1px;background:linear-gradient(90deg,transparent,#7b8ab8,transparent);margin:1.5rem auto;"></div>
+    <p data-id="81" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#6b7490;font-size:1.05rem;">Novelist · Poet · Architect</p>
+  </section>
+
+  <!-- Section 2: Timeline / Life Story -->
+  <section data-id="82" style="max-width:900px;margin:4rem auto;padding:0 2rem;">
+    <h2 data-id="83" class="fade-in-section" style="color:#a0b4d4;font-size:1.5rem;letter-spacing:4px;margin-bottom:2.5rem;">Origin</h2>
+
+    <div data-id="84" class="bio-timeline">
+      <!-- Entry 1 -->
+      <div data-id="85" class="bio-timeline-entry fade-in-section">
+        <p data-id="86" class="bio-timeline-year">Chapter I</p>
+        <h3 data-id="87" class="bio-timeline-title">The Beginning</h3>
+        <p data-id="88" class="bio-timeline-text">Born between cultures, raised on the edge of silence. Language was never just a tool — it was survival. Before there were books, there were letters never sent, words swallowed to keep the peace, and stories whispered to no one.</p>
+      </div>
+
+      <!-- Entry 2 -->
+      <div data-id="89" class="bio-timeline-entry fade-in-section">
+        <p data-id="90" class="bio-timeline-year">Chapter II</p>
+        <h3 data-id="91" class="bio-timeline-title">The Builder</h3>
+        <p data-id="92" class="bio-timeline-text">Technology came first. Not as passion but as discipline. The architecture of systems — databases, servers, interfaces — taught a fundamental truth: structure serves beauty. Code taught patience. Debugging taught humility. Shipping taught courage.</p>
+      </div>
+
+      <!-- Entry 3 -->
+      <div data-id="93" class="bio-timeline-entry fade-in-section">
+        <p data-id="94" class="bio-timeline-year">Chapter III</p>
+        <h3 data-id="95" class="bio-timeline-title">The Poet Awakens</h3>
+        <p data-id="96" class="bio-timeline-text">Mr. Ex The Last Poet was not chosen. The name arrived the way storms arrive — without permission. Poetry became the place where the unspeakable could finally speak. Rumi showed the door. Qabbani kicked it open. Camões stood in the ocean and refused to drown. The voice that emerged from these three rivers was something new.</p>
+      </div>
+
+      <!-- Entry 4 -->
+      <div data-id="97" class="bio-timeline-entry fade-in-section">
+        <p data-id="98" class="bio-timeline-year">Chapter IV</p>
+        <h3 data-id="99" class="bio-timeline-title">The Novelist</h3>
+        <p data-id="100" class="bio-timeline-text">The Light of Woza began as a question: What happens when the most powerful being in existence is ordered to love? Aurelio Dioval was born to answer it. Not a pen name — an identity. The one who builds kingdoms on paper and burns them down with truth.</p>
+      </div>
+
+      <!-- Entry 5 -->
+      <div data-id="101" class="bio-timeline-entry fade-in-section">
+        <p data-id="102" class="bio-timeline-year">Chapter V</p>
+        <h3 data-id="103" class="bio-timeline-title">Now</h3>
+        <p data-id="104" class="bio-timeline-text">Washington State. Still building. Still burning. Book One is live. Book Two is complete. Wine, Sea, and Fire is being forged. The empire is rising — one line, one system, one story at a time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: The Identities -->
+  <section data-id="105" style="max-width:1100px;margin:4rem auto;padding:0 2rem;">
+    <h2 data-id="106" class="fade-in-section" style="text-align:center;color:#a0b4d4;font-size:1.5rem;letter-spacing:4px;margin-bottom:2.5rem;">The Names</h2>
+
+    <div data-id="107" class="fade-in-section" style="display:flex;flex-wrap:wrap;gap:1.5rem;">
+      <!-- Card 1: Aurelio Dioval -->
+      <div data-id="108" class="bio-identity-card" data-hover-accent="#c9a84c">
+        <p data-id="109" class="bio-label" style="font-size:0.65rem;letter-spacing:3px;color:#c9a84c;text-transform:uppercase;margin-bottom:0.75rem;">THE NOVELIST</p>
+        <h3 data-id="110" style="color:#e2e6ef;font-size:1.3rem;letter-spacing:2px;margin-bottom:1rem;">Aurelio Dioval</h3>
+        <p data-id="111" style="color:#e2e6ef;font-size:0.9rem;line-height:1.85;margin-bottom:1.25rem;">The worldbuilder. The one who constructs kingdoms with discipline and tears them apart with truth. Creator of the Woza saga — where archangels love, power corrupts, and balance is the only thing between heaven and ruin.</p>
+        <p data-id="112" class="bio-label" style="font-size:0.8rem;color:#6b7490;">The Light of Woza: Book One · Book Two (Complete)</p>
+      </div>
+
+      <!-- Card 2: Mr. Ex The Last Poet -->
+      <div data-id="113" class="bio-identity-card" data-hover-accent="#b87333">
+        <p data-id="114" class="bio-label" style="font-size:0.65rem;letter-spacing:3px;color:#b87333;text-transform:uppercase;margin-bottom:0.75rem;">THE POET</p>
+        <h3 data-id="115" style="color:#e2e6ef;font-size:1.3rem;letter-spacing:2px;margin-bottom:1rem;">Mr. Ex The Last Poet</h3>
+        <p data-id="116" style="color:#e2e6ef;font-size:0.9rem;line-height:1.85;margin-bottom:1.25rem;">The voice that burns. Fusing Persian fire, Arabian ink, and Portuguese sea into something the world has not heard before. He does not ask permission to adore. He does not wait. He is not prayer — he is fate.</p>
+        <p data-id="117" class="bio-label" style="font-size:0.8rem;color:#6b7490;">Wine, Sea, and Fire: Poems in the Voice of Three Rivers</p>
+      </div>
+
+      <!-- Card 3: The Architect -->
+      <div data-id="118" class="bio-identity-card" data-hover-accent="#00ff88">
+        <p data-id="119" class="bio-label" style="font-size:0.65rem;letter-spacing:3px;color:#00ff88;text-transform:uppercase;margin-bottom:0.75rem;">THE TECHNOLOGIST</p>
+        <h3 data-id="120" style="color:#e2e6ef;font-size:1.3rem;letter-spacing:2px;margin-bottom:1rem;">The Architect</h3>
+        <p data-id="121" style="color:#e2e6ef;font-size:0.9rem;line-height:1.85;margin-bottom:1.25rem;">The builder of systems. Full-stack architect who approaches code with the same precision he brings to prose. React, Node.js, Python, AI — every component measured against a higher order.</p>
+        <p data-id="122" class="bio-label" style="font-size:0.8rem;color:#6b7490;">dioval.com · Publishing Infrastructure · Creative Tech</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Philosophy / Creed -->
+  <section data-id="123" style="max-width:900px;margin:4rem auto;padding:0 2rem;">
+    <h2 data-id="124" class="fade-in-section" style="text-align:center;color:#a0b4d4;font-size:1.5rem;letter-spacing:4px;margin-bottom:2.5rem;">Creed</h2>
+
+    <div data-id="125" class="bio-creed-block fade-in-section">
+      <p data-id="126">I believe that structure serves beauty.
+That code and verse share a spine.
+That love, at its most dangerous, is the only thing worth writing about.
+That a man can build kingdoms in fiction and systems in code
+and still kneel before a poem that breaks him open.
+
+I am not the loudest voice.
+I am the one you notice
+when everything else goes quiet.
+
+I am not for everyone.
+But for the one who knows the difference
+between being seen and being understood —
+I am unforgettable.</p>
+      <p data-id="127" style="color:#c9a84c;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:0.95rem;margin-top:2rem;text-align:right;">— Aurelio Dioval</p>
+    </div>
+  </section>
+
+  <!-- Section 5: By the Numbers -->
+  <section data-id="128" class="fade-in-section" style="max-width:900px;margin:4rem auto;padding:0 2rem;">
+    <div data-id="129" style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;">
+      <div data-id="130" style="text-align:center;flex:1;min-width:120px;">
+        <p data-id="131" class="bio-stat-num">2</p>
+        <p data-id="132" class="bio-stat-label">Pen Names</p>
+      </div>
+      <div data-id="133" style="text-align:center;flex:1;min-width:120px;">
+        <p data-id="134" class="bio-stat-num">3</p>
+        <p data-id="135" class="bio-stat-label">Published Works</p>
+      </div>
+      <div data-id="136" style="text-align:center;flex:1;min-width:120px;">
+        <p data-id="137" class="bio-stat-num">3</p>
+        <p data-id="138" class="bio-stat-label">Rivers of Influence</p>
+      </div>
+      <div data-id="139" style="text-align:center;flex:1;min-width:120px;">
+        <p data-id="140" class="bio-stat-num">1</p>
+        <p data-id="141" class="bio-stat-label">Empire Rising</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Contact -->
+  <section data-id="142" class="fade-in-section" style="max-width:700px;margin:4rem auto;padding:0 2rem;text-align:center;">
+    <h2 data-id="143" style="color:#a0b4d4;font-size:1.3rem;letter-spacing:3px;margin-bottom:1.5rem;">Reach Out</h2>
+    <a data-id="144" href="mailto:support@dioval.com" style="color:#c9a84c;font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.1rem,2.5vw,1.4rem);text-decoration:none;display:block;margin-bottom:0.5rem;transition:color 0.3s ease;">support@dioval.com</a>
+    <p data-id="145" style="color:#6b7490;font-size:0.85rem;margin-bottom:1.5rem;">www.dioval.com</p>
+    <div data-id="146" style="display:flex;gap:1rem;justify-content:center;align-items:center;">
+      <a data-id="147" href="https://www.amazon.com/stores/author/B0GXY5C3QZ" target="_blank" rel="noopener noreferrer" class="bio-social-btn" title="Amazon Author">A</a>
+      <a data-id="148" href="mailto:support@dioval.com" class="bio-social-btn" title="Email"><i data-id="149" data-lucide="mail" class="w-4 h-4"></i></a>
+      <a data-id="150" href="https://www.dioval.com" target="_blank" rel="noopener noreferrer" class="bio-social-btn" title="Website"><i data-id="151" data-lucide="globe" class="w-4 h-4"></i></a>
+    </div>
+  </section>
+
+  <div data-id="152" class="fade-in-section" style="text-align:center;padding:3rem 0 2rem;">
+    <a data-id="153" href="#home" class="back-home-link" style="color:#6b7490;font-size:0.8rem;text-decoration:none;font-family:'Inter',sans-serif;">← Back to Home</a>
+  </div>
+
+  <footer data-id="154" style="text-align:center;padding:1rem;color:#6b7490;font-size:0.7rem;font-family:'Inter',sans-serif;">Made by Copilot</footer>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 2: NOVELS                                                -->
+<!-- ============================================================ -->
+<div data-id="155" id="page-novels" class="page-section page-novels novels-bg">
+
+  <!-- Page Header -->
+  <section data-id="156" style="padding-top:120px;text-align:center;padding-left:2rem;padding-right:2rem;">
+    <h1 data-id="157" class="fade-in-section" style="font-size:clamp(2rem,6vw,3.5rem);color:#8b1a1a;letter-spacing:8px;">THE KINGDOMS</h1>
+    <div data-id="158" class="fade-in-section" style="width:200px;height:1px;background:linear-gradient(90deg,transparent,#8b1a1a,transparent);margin:1.5rem auto;"></div>
+    <p data-id="159" class="fade-in-section" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#d4a574;font-size:1.1rem;">The Light of Woza Saga</p>
+  </section>
+
+  <!-- Book One Feature Card -->
+  <section data-id="160" class="fade-in-section" style="max-width:1000px;margin:3rem auto;padding:0 1.5rem;">
+    <div data-id="161" style="background:#1a0a10;border:1px solid rgba(139,26,26,0.2);border-radius:1rem;padding:clamp(1.5rem,4vw,3rem);display:flex;flex-wrap:wrap;gap:2.5rem;align-items:flex-start;">
+
+      <!-- CSS Book Cover -->
+      <div data-id="162" class="css-book-cover" style="margin:0 auto;">
+        <div data-id="163">
+          <p data-id="164" style="font-family:'Inter',sans-serif;font-size:0.6rem;letter-spacing:3px;color:#d4a574;text-transform:uppercase;text-align:center;">Book One of the Woza Saga</p>
+        </div>
+        <div data-id="165" style="text-align:center;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;">
+          <svg data-id="166" width="80" height="120" viewBox="0 0 80 120" fill="#1a1a1a" xmlns="http://www.w3.org/2000/svg">
+            <ellipse data-id="167" cx="40" cy="12" rx="10" ry="12"/>
+            <path data-id="168" d="M26 24 L54 24 L58 50 L52 50 L50 38 L44 100 L48 118 L46 120 L36 120 L34 118 L36 100 L30 38 L28 50 L22 50 Z"/>
+            <path data-id="169" d="M26 24 L16 55 L22 57 L28 40" fill="#1a1a1a"/>
+            <path data-id="170" d="M54 24 L64 55 L58 57 L52 40" fill="#1a1a1a"/>
+          </svg>
+          <h2 data-id="171" style="font-family:'Playfair Display',Georgia,serif;font-size:1.3rem;color:#d4a574;letter-spacing:2px;line-height:1.3;">THE LIGHT<br data-id="172">OF WOZA</h2>
+          <div data-id="173" style="width:60%;height:1px;background:#d4a574;opacity:0.5;"></div>
+          <p data-id="174" style="font-style:italic;color:#6b5d54;font-size:0.75rem;">Where discipline meets destiny</p>
+        </div>
+        <p data-id="175" style="font-family:'Inter',sans-serif;font-size:0.6rem;letter-spacing:3px;color:#d4a574;text-transform:uppercase;font-variant:small-caps;">AURELIO DIOVAL</p>
+      </div>
+
+      <!-- Book Details -->
+      <div data-id="176" style="flex:1;min-width:280px;">
+        <span data-id="177" class="small-label" style="font-size:0.65rem;letter-spacing:3px;color:#8b1a1a;text-transform:uppercase;">THE KINGDOM OF WOZA</span>
+        <h2 data-id="178" style="font-size:clamp(1.5rem,3vw,2rem);color:#e8e0d8;margin:0.75rem 0 0.25rem;">The Light of Woza</h2>
+        <p data-id="179" style="font-style:italic;color:#6b5d54;margin-bottom:0.75rem;">A Tale of Two Destinies</p>
+        <span data-id="180" style="display:inline-block;border:1px solid #8b1a1a;color:#8b1a1a;font-size:0.7rem;padding:0.2rem 0.75rem;border-radius:9999px;margin-bottom:1.25rem;font-family:'Inter',sans-serif;">Book One</span>
+
+        <div data-id="181" style="color:#e8e0d8;font-size:0.9rem;line-height:1.85;margin-bottom:1.5rem;">
+          <p data-id="182" style="margin-bottom:0.75rem;">In a world where power is never allowed to exist without balance, Woza stands apart. It is not a kingdom built on conquest, but on discipline — where every ruler stands beside a shadow, and every decision is measured against a higher order known only as the Light.</p>
+          <p data-id="183" style="margin-bottom:0.75rem;">For generations, this system has held. Until something changes. Sarif is not meant to be different. He is meant to serve — silent, unseen, and bound to protect. But from the moment he is placed within the royal structure of Woza, it becomes clear: He is not like the others.</p>
+          <p data-id="184" style="margin-bottom:0.75rem;">He does not follow the pattern. He does not fit within the system. And for the first time in its history... Woza begins to shift. Bound to Princess Anna not as a follower, but as something closer to an equal — Sarif's existence challenges the very foundation of balance itself.</p>
+          <p data-id="185">Beyond the borders of Woza, ambition grows unchecked. A rising force seeks power without discipline. Control without restraint. And a darkness begins to spread — one that does not destroy... but corrupts.</p>
+        </div>
+
+        <p data-id="186" class="small-label" style="color:#6b5d54;font-size:0.8rem;margin-bottom:1rem;">Dark Fantasy · 136 Pages · April 2026</p>
+
+        <div data-id="187" style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem;">
+          <span data-id="188" style="border:1px solid #8b1a1a;color:#8b1a1a;font-size:0.7rem;padding:0.3rem 0.75rem;border-radius:9999px;font-family:'Inter',sans-serif;">Kindle: $8.00</span>
+          <span data-id="189" style="border:1px solid #8b1a1a;color:#8b1a1a;font-size:0.7rem;padding:0.3rem 0.75rem;border-radius:9999px;font-family:'Inter',sans-serif;">Paperback: $8.00</span>
+          <span data-id="190" style="background:#8b1a1a;color:#e8e0d8;font-size:0.7rem;padding:0.3rem 0.75rem;border-radius:9999px;font-family:'Inter',sans-serif;">FREE with Kindle Unlimited</span>
+        </div>
+
+        <div data-id="191" style="display:flex;flex-wrap:wrap;gap:0.75rem;">
+          <a data-id="192" href="https://www.amazon.com/dp/B0GX34NMD6" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#d4a574;color:#0d0208;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;padding:0.7rem 1.5rem;border-radius:0.5rem;text-decoration:none;letter-spacing:1px;transition:opacity 0.3s;">Read on Amazon</a>
+          <a data-id="193" href="https://www.amazon.com/dp/B0GX34NMD6" target="_blank" rel="noopener noreferrer" style="display:inline-block;border:1px solid #8b1a1a;color:#8b1a1a;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:500;padding:0.65rem 1.5rem;border-radius:0.5rem;text-decoration:none;letter-spacing:1px;transition:all 0.3s;">Get Paperback</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Book Two Teaser -->
+  <section data-id="194" class="fade-in-section" style="max-width:800px;margin:2.5rem auto;padding:0 1.5rem;">
+    <div data-id="195" style="background:#1a0a10;border:1px solid rgba(139,26,26,0.12);border-radius:1rem;padding:2.5rem;text-align:center;">
+      <span data-id="196" class="small-label" style="font-size:0.65rem;letter-spacing:3px;color:#8b1a1a;text-transform:uppercase;">BOOK TWO</span>
+      <p data-id="197" style="color:#d4a574;font-size:0.85rem;margin:0.75rem 0 1rem;font-family:'Inter',sans-serif;">COMPLETED — Release Date TBA</p>
+      <p data-id="198" style="color:#e8e0d8;font-size:0.95rem;line-height:1.85;max-width:650px;margin:0 auto 1.5rem;">The balance has shattered. Sarif and Anna face a world where the rules that protected Woza no longer hold. Alliances fracture. New powers rise. And the Light itself begins to question what it created. Book Two completes what Book One ignited.</p>
+      <a data-id="199" href="mailto:support@dioval.com?subject=Notify%20Me%20-%20Woza%20Book%20Two" style="display:inline-block;border:1px solid #8b1a1a;color:#8b1a1a;font-family:'Inter',sans-serif;font-size:0.8rem;padding:0.6rem 1.5rem;border-radius:0.5rem;text-decoration:none;letter-spacing:1px;">Get Notified</a>
+    </div>
+  </section>
+
+  <!-- World Lore -->
+  <section data-id="200" class="fade-in-section" style="max-width:1000px;margin:3rem auto;padding:0 1.5rem 4rem;">
+    <div data-id="201" style="display:flex;flex-wrap:wrap;gap:1.25rem;">
+      <div data-id="202" class="lore-card">
+        <h4 data-id="203" style="color:#8b1a1a;letter-spacing:3px;font-size:0.9rem;margin-bottom:0.75rem;">The Light</h4>
+        <p data-id="204" style="color:#e8e0d8;font-size:0.9rem;line-height:1.7;">A higher order that governs Woza. Not a god. Not a law. Something between.</p>
+      </div>
+      <div data-id="205" class="lore-card" style="border-color:rgba(212,165,116,0.2);">
+        <h4 data-id="206" style="color:#d4a574;letter-spacing:3px;font-size:0.9rem;margin-bottom:0.75rem;">The Archangel</h4>
+        <p data-id="207" style="color:#e8e0d8;font-size:0.9rem;line-height:1.7;">Sarif. The most powerful of his kind. Bound to protect. Built to love. Forbidden to be both.</p>
+      </div>
+      <div data-id="208" class="lore-card">
+        <h4 data-id="209" style="color:#8b1a1a;letter-spacing:3px;font-size:0.9rem;margin-bottom:0.75rem;">The Princess</h4>
+        <p data-id="210" style="color:#e8e0d8;font-size:0.9rem;line-height:1.7;">Anna. Not a damsel. A force. The one the Light chose — and the one who will challenge it.</p>
+      </div>
+    </div>
+  </section>
+
+  <div data-id="211" class="fade-in-section" style="text-align:center;padding-bottom:3rem;">
+    <a data-id="212" href="#home" class="back-home-link" style="color:#6b5d54;font-size:0.8rem;text-decoration:none;font-family:'Inter',sans-serif;">← Back to Home</a>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 3: POETRY                                                -->
+<!-- ============================================================ -->
+<div data-id="213" id="page-poetry" class="page-section page-poetry poetry-bg">
+
+  <!-- Page Header -->
+  <section data-id="214" style="padding-top:120px;text-align:center;padding-left:2rem;padding-right:2rem;">
+    <h1 data-id="215" class="fade-in-section" style="font-size:clamp(1.8rem,5vw,3rem);color:#b87333;letter-spacing:6px;">WINE, SEA, AND FIRE</h1>
+    <p data-id="216" class="fade-in-section" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#d4a574;font-size:1.05rem;margin-top:1rem;">Poems in the Voice of Three Rivers</p>
+    <p data-id="217" class="fade-in-section" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#b87333;font-size:clamp(1.1rem,2.5vw,1.4rem);margin-top:1rem;letter-spacing:1px;">by Mr. Ex The Last Poet</p>
+    <div data-id="218" class="fade-in-section" style="width:200px;height:1px;background:linear-gradient(90deg,transparent,#b87333,transparent);margin:1.5rem auto;"></div>
+    <p data-id="219" class="fade-in-section" style="color:#8a7d6f;font-size:0.85rem;font-style:italic;font-family:'Inter',sans-serif;">Collection in progress — select poems available</p>
+  </section>
+
+  <!-- Three Rivers -->
+  <section data-id="220" class="fade-in-section" style="max-width:1050px;margin:3rem auto;padding:0 1.5rem;">
+    <div data-id="221" style="display:flex;flex-wrap:wrap;gap:1.25rem;">
+
+      <!-- Persian Fire -->
+      <div data-id="222" class="river-card">
+        <svg data-id="223" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:1rem;">
+          <path data-id="224" d="M20 4 C20 4 10 16 10 24 C10 30 14.5 36 20 36 C25.5 36 30 30 30 24 C30 16 20 4 20 4Z" stroke="#b87333" stroke-width="1.5" fill="none"/>
+          <path data-id="225" d="M20 14 C20 14 15 22 15 26 C15 29 17 32 20 32 C23 32 25 29 25 26 C25 22 20 14 20 14Z" fill="rgba(184,115,51,0.2)"/>
+        </svg>
+        <h3 data-id="226" style="color:#b87333;letter-spacing:3px;font-size:0.9rem;margin-bottom:0.5rem;">RUMI</h3>
+        <p data-id="227" class="small-label" style="color:#8a7d6f;font-size:0.75rem;margin-bottom:1.25rem;font-family:'Inter',sans-serif;">Mystical Ecstasy · Ego Annihilation · Divine Union</p>
+        <p data-id="228" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#f0e6d6;font-size:1rem;line-height:1.8;">"I did not drink the wine.<br data-id="229">The wine drank me.<br data-id="230">And what remained<br data-id="231">was neither cup nor man —<br data-id="232">just song."</p>
+        <div data-id="233" style="width:100%;height:1px;background:rgba(184,115,51,0.2);margin-top:1.5rem;"></div>
+      </div>
+
+      <!-- Arabian Ink -->
+      <div data-id="234" class="river-card">
+        <svg data-id="235" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:1rem;">
+          <path data-id="236" d="M12 36 L16 8 C16 8 17 4 20 4 C23 4 24 8 24 8 L28 36" stroke="#b87333" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path data-id="237" d="M20 4 L20 2" stroke="#b87333" stroke-width="1.5" stroke-linecap="round"/>
+          <circle data-id="238" cx="20" cy="36" r="2" fill="#b87333" opacity="0.4"/>
+        </svg>
+        <h3 data-id="239" style="color:#b87333;letter-spacing:3px;font-size:0.9rem;margin-bottom:0.5rem;">QABBANI</h3>
+        <p data-id="240" class="small-label" style="color:#8a7d6f;font-size:0.75rem;margin-bottom:1.25rem;font-family:'Inter',sans-serif;">Bold Desire · Love as Revolution · The Body as Scripture</p>
+        <p data-id="241" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#f0e6d6;font-size:1rem;line-height:1.8;">"I don't ask permission<br data-id="242">to adore you.<br data-id="243">Love, in its purest form,<br data-id="244">is disobedient."</p>
+        <div data-id="245" style="width:100%;height:1px;background:rgba(184,115,51,0.2);margin-top:1.5rem;"></div>
+      </div>
+
+      <!-- Portuguese Sea -->
+      <div data-id="246" class="river-card">
+        <svg data-id="247" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:1rem;">
+          <path data-id="248" d="M4 20 Q10 14 16 20 Q22 26 28 20 Q34 14 40 20" stroke="#b87333" stroke-width="1.5" fill="none"/>
+          <path data-id="249" d="M4 28 Q10 22 16 28 Q22 34 28 28 Q34 22 40 28" stroke="#b87333" stroke-width="1" fill="none" opacity="0.5"/>
+          <path data-id="250" d="M4 12 Q10 6 16 12 Q22 18 28 12 Q34 6 40 12" stroke="#b87333" stroke-width="1" fill="none" opacity="0.5"/>
+        </svg>
+        <h3 data-id="251" style="color:#b87333;letter-spacing:3px;font-size:0.9rem;margin-bottom:0.5rem;">CAMÕES</h3>
+        <p data-id="252" class="small-label" style="color:#8a7d6f;font-size:0.75rem;margin-bottom:1.25rem;font-family:'Inter',sans-serif;">Oceanic Saudade · Epic Longing · Noble Suffering</p>
+        <p data-id="253" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#f0e6d6;font-size:1rem;line-height:1.8;">"Saudade is not about missing someone.<br data-id="254">It is about having loved so fully<br data-id="255">that even the absence<br data-id="256">is beautiful."</p>
+        <div data-id="257" style="width:100%;height:1px;background:rgba(184,115,51,0.2);margin-top:1.5rem;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Selected Verses -->
+  <section data-id="258" style="max-width:900px;margin:3rem auto;padding:0 1.5rem;">
+    <h2 data-id="259" class="fade-in-section" style="text-align:center;color:#b87333;font-size:1.5rem;letter-spacing:4px;margin-bottom:2.5rem;">Selected Verses</h2>
+
+    <!-- Poem 1 -->
+    <div data-id="260" class="poem-container fade-in-section">
+      <h3 data-id="261" style="color:#d4a574;font-size:1.15rem;margin-bottom:1.5rem;letter-spacing:2px;">When the Soul Speaks</h3>
+      <p data-id="262" class="poem-body">Do not ask if I am whole.
+The wine glass is cracked
+but I still offer what remains.
+
+I am not healed.
+I am not pure.
+I am the temple after the fire
+and you are asking if the flame still dances.
+
+It does.
+But only for those
+who kneel barefoot.
+
+If you wish to love me
+do not come for the incense.
+Come for the ashes.</p>
+      <p data-id="263" style="color:#8a7d6f;font-size:0.8rem;font-style:italic;margin-top:1.5rem;font-family:'Inter',sans-serif;">— Mr. Ex The Last Poet, from Section I: The Reed's Lament</p>
+    </div>
+
+    <!-- Poem 2 -->
+    <div data-id="264" class="poem-container fade-in-section">
+      <h3 data-id="265" style="color:#d4a574;font-size:1.15rem;margin-bottom:1.5rem;letter-spacing:2px;">I Don't Ask Permission</h3>
+      <p data-id="266" class="poem-body">I don't ask permission
+to adore you.
+Love, in its purest form,
+is disobedient.
+
+I didn't rehearse this.
+I didn't plan the trembling
+or the way your name
+rewrites my pulse.
+
+Darling,
+I was not built to wait.
+I am not prayer —
+I am fate.</p>
+      <p data-id="267" style="color:#8a7d6f;font-size:0.8rem;font-style:italic;margin-top:1.5rem;font-family:'Inter',sans-serif;">— Mr. Ex The Last Poet, from Section II: The Body's Scripture</p>
+    </div>
+
+    <!-- Poem 3 -->
+    <div data-id="268" class="poem-container fade-in-section">
+      <h3 data-id="269" style="color:#d4a574;font-size:1.15rem;margin-bottom:1.5rem;letter-spacing:2px;">The Creed of My Blood and Breath</h3>
+      <p data-id="270" class="poem-body">I am no more
+than dust suspended by grace —
+but this dust has teeth.
+
+I do not ask the sky for permission to rise.
+I do not beg the sun for its warmth.
+I stand
+because the One who made me
+did not make me to kneel to anything
+that is not Him.
+
+This is not a poem.
+This is not a performance.
+This is my blood.
+This is my breath.
+And the angels have written it down.</p>
+      <p data-id="271" style="color:#8a7d6f;font-size:0.8rem;font-style:italic;margin-top:1.5rem;font-family:'Inter',sans-serif;">— Mr. Ex The Last Poet, from Section III: The Navigator's Saudade</p>
+    </div>
+  </section>
+
+  <!-- Closing Quote -->
+  <section data-id="272" class="fade-in-section" style="max-width:700px;margin:2rem auto;padding:3rem 2rem;text-align:center;">
+    <p data-id="273" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#b87333;font-size:clamp(1rem,2.5vw,1.25rem);line-height:1.8;">"These poems were born in the collision of three rivers — Persian fire, Arabian ink, and Portuguese sea. They belong to no one woman and every soul that has burned."</p>
+    <p data-id="274" style="color:#d4a574;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:0.95rem;margin-top:1.25rem;">— Mr. Ex The Last Poet</p>
+  </section>
+
+  <div data-id="275" class="fade-in-section" style="text-align:center;padding-bottom:3rem;">
+    <a data-id="276" href="#home" class="back-home-link" style="color:#8a7d6f;font-size:0.8rem;text-decoration:none;font-family:'Inter',sans-serif;">← Back to Home</a>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 4: TECH                                                  -->
+<!-- ============================================================ -->
+<div data-id="277" id="page-tech" class="page-section page-tech tech-bg">
+
+  <!-- Page Header -->
+  <section data-id="278" style="max-width:1200px;margin:0 auto;padding:120px 2rem 0;">
+    <h1 data-id="279" class="fade-in-section" style="color:#00ff88;font-size:clamp(1.8rem,4vw,2.5rem);letter-spacing:2px;">// THE ARCHITECT</h1>
+    <p data-id="280" class="fade-in-section mono" style="color:#00cc6a;font-size:0.85rem;margin-top:0.75rem;">&gt; aurelio.dioval --stack full-stack --mode build<span data-id="281" class="cursor-blink"></span></p>
+    <div data-id="282" class="fade-in-section" style="width:100%;height:1px;background:#00ff88;opacity:0.3;margin-top:1.5rem;"></div>
+  </section>
+
+  <!-- Terminal Introduction -->
+  <section data-id="283" class="fade-in-section" style="max-width:1200px;margin:2.5rem auto;padding:0 2rem;">
+    <div data-id="284" class="terminal-window">
+      <div data-id="285" class="terminal-chrome">
+        <div data-id="286" class="terminal-dot" style="background:#ff5f57;"></div>
+        <div data-id="287" class="terminal-dot" style="background:#febc2e;"></div>
+        <div data-id="288" class="terminal-dot" style="background:#28c840;"></div>
+      </div>
+      <div data-id="289" class="terminal-body">
+        <p data-id="290" style="color:#6e7681;">$ whoami</p>
+        <p data-id="291">&gt; Aurelio Dioval — Full-Stack Architect</p>
+        <br data-id="292">
+        <p data-id="293" style="color:#6e7681;">$ cat philosophy.txt</p>
+        <p data-id="294">&gt; "The same precision that builds worlds of fiction</p>
+        <p data-id="295">&gt; also builds systems in code. Architecture is</p>
+        <p data-id="296">&gt; architecture — whether the material is language</p>
+        <p data-id="297">&gt; or logic."</p>
+        <br data-id="298">
+        <p data-id="299" style="color:#6e7681;">$ ls skills/</p>
+        <p data-id="300">&gt; frontend/   backend/   ai/   cloud/   publishing/</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Grid -->
+  <section data-id="301" style="max-width:1200px;margin:3rem auto;padding:0 2rem;">
+    <h2 data-id="302" class="fade-in-section mono" style="color:#00ff88;font-size:1.1rem;margin-bottom:1.5rem;letter-spacing:1px;">// CAPABILITIES</h2>
+    <div data-id="303" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem;">
+
+      <!-- Frontend -->
+      <div data-id="304" class="skill-card fade-in-section">
+        <div data-id="305" style="color:#00ff88;margin-bottom:1rem;"><i data-id="306" data-lucide="monitor" class="w-6 h-6"></i></div>
+        <h3 data-id="307" class="mono" style="color:#c9d1d9;font-size:0.95rem;margin-bottom:0.75rem;">frontend/</h3>
+        <p data-id="308" style="color:#c9d1d9;font-size:0.85rem;margin-bottom:0.75rem;font-family:'Inter',sans-serif;">Front-End Engineering</p>
+        <div data-id="309" style="margin-bottom:1rem;">
+          <span data-id="310" class="tech-tag">React</span><span data-id="311" class="tech-tag">Next.js</span><span data-id="312" class="tech-tag">TypeScript</span><span data-id="313" class="tech-tag">Tailwind</span><span data-id="314" class="tech-tag">HTML/CSS</span>
+        </div>
+        <p data-id="315" style="color:#6e7681;font-size:0.8rem;line-height:1.6;font-family:'Inter',sans-serif;">Building interfaces that feel as intentional as prose. Every pixel earned.</p>
+      </div>
+
+      <!-- Backend -->
+      <div data-id="316" class="skill-card fade-in-section">
+        <div data-id="317" style="color:#00ff88;margin-bottom:1rem;"><i data-id="318" data-lucide="server" class="w-6 h-6"></i></div>
+        <h3 data-id="319" class="mono" style="color:#c9d1d9;font-size:0.95rem;margin-bottom:0.75rem;">backend/</h3>
+        <p data-id="320" style="color:#c9d1d9;font-size:0.85rem;margin-bottom:0.75rem;font-family:'Inter',sans-serif;">Back-End Systems</p>
+        <div data-id="321" style="margin-bottom:1rem;">
+          <span data-id="322" class="tech-tag">Node.js</span><span data-id="323" class="tech-tag">Python</span><span data-id="324" class="tech-tag">PostgreSQL</span><span data-id="325" class="tech-tag">REST APIs</span><span data-id="326" class="tech-tag">GraphQL</span>
+        </div>
+        <p data-id="327" style="color:#6e7681;font-size:0.8rem;line-height:1.6;font-family:'Inter',sans-serif;">Scalable architecture with the discipline of a kingdom — every component measured against a higher order.</p>
+      </div>
+
+      <!-- AI -->
+      <div data-id="328" class="skill-card fade-in-section">
+        <div data-id="329" style="color:#00ff88;margin-bottom:1rem;"><i data-id="330" data-lucide="brain" class="w-6 h-6"></i></div>
+        <h3 data-id="331" class="mono" style="color:#c9d1d9;font-size:0.95rem;margin-bottom:0.75rem;">ai/</h3>
+        <p data-id="332" style="color:#c9d1d9;font-size:0.85rem;margin-bottom:0.75rem;font-family:'Inter',sans-serif;">AI &amp; Automation</p>
+        <div data-id="333" style="margin-bottom:1rem;">
+          <span data-id="334" class="tech-tag">Machine Learning</span><span data-id="335" class="tech-tag">NLP</span><span data-id="336" class="tech-tag">LLMs</span><span data-id="337" class="tech-tag">Automation</span><span data-id="338" class="tech-tag">Data</span>
+        </div>
+        <p data-id="339" style="color:#6e7681;font-size:0.8rem;line-height:1.6;font-family:'Inter',sans-serif;">Leveraging artificial intelligence to build systems that think. From language models to workflow automation.</p>
+      </div>
+
+      <!-- Publishing -->
+      <div data-id="340" class="skill-card fade-in-section">
+        <div data-id="341" style="color:#00ff88;margin-bottom:1rem;"><i data-id="342" data-lucide="book-open" class="w-6 h-6"></i></div>
+        <h3 data-id="343" class="mono" style="color:#c9d1d9;font-size:0.95rem;margin-bottom:0.75rem;">publishing/</h3>
+        <p data-id="344" style="color:#c9d1d9;font-size:0.85rem;margin-bottom:0.75rem;font-family:'Inter',sans-serif;">Digital Publishing</p>
+        <div data-id="345" style="margin-bottom:1rem;">
+          <span data-id="346" class="tech-tag">KDP</span><span data-id="347" class="tech-tag">Web</span><span data-id="348" class="tech-tag">SEO</span><span data-id="349" class="tech-tag">Analytics</span><span data-id="350" class="tech-tag">Branding</span>
+        </div>
+        <p data-id="351" style="color:#6e7681;font-size:0.8rem;line-height:1.6;font-family:'Inter',sans-serif;">Architecting the full pipeline — from manuscript to marketplace. The infrastructure behind an independent author's empire.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metrics -->
+  <section data-id="352" class="fade-in-section" style="max-width:1200px;margin:3rem auto;padding:0 2rem;">
+    <h2 data-id="353" class="mono" style="color:#00ff88;font-size:1.1rem;margin-bottom:1.5rem;letter-spacing:1px;">// METRICS</h2>
+    <div data-id="354" style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;">
+      <div data-id="355" style="text-align:center;flex:1;min-width:120px;">
+        <p data-id="356" class="mono" style="color:#00ff88;font-size:clamp(2rem,4vw,3rem);font-weight:700;">10+</p>
+        <p data-id="357" class="mono" style="color:#6e7681;font-size:0.75rem;">years.building</p>
+      </div>
+      <div data-id="358" style="text-align:center;flex:1;min-width:120px;">
+        <p data-id="359" class="mono" style="color:#00ff88;font-size:clamp(2rem,4vw,3rem);font-weight:700;">3</p>
+        <p data-id="360" class="mono" style="color:#6e7681;font-size:0.75rem;">works.published</p>
+      </div>
+      <div data-id="361" style="text-align:center;flex:1;min-width:120px;">
+        <p data-id="362" class="mono" style="color:#00ff88;font-size:clamp(2rem,4vw,3rem);font-weight:700;">∞</p>
+        <p data-id="363" class="mono" style="color:#6e7681;font-size:0.75rem;">lines.written</p>
+      </div>
+      <div data-id="364" style="text-align:center;flex:1;min-width:120px;">
+        <p data-id="365" class="mono" style="color:#00ff88;font-size:clamp(2rem,4vw,3rem);font-weight:700;">1</p>
+        <p data-id="366" class="mono" style="color:#6e7681;font-size:0.75rem;">empire.rising</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Project -->
+  <section data-id="367" class="fade-in-section" style="max-width:1200px;margin:3rem auto;padding:0 2rem;">
+    <h2 data-id="368" class="mono" style="color:#00ff88;font-size:1.1rem;margin-bottom:1.5rem;letter-spacing:1px;">// FEATURED_PROJECT</h2>
+    <div data-id="369" class="terminal-window" style="padding:0;">
+      <div data-id="370" class="terminal-chrome">
+        <div data-id="371" class="terminal-dot" style="background:#ff5f57;"></div>
+        <div data-id="372" class="terminal-dot" style="background:#febc2e;"></div>
+        <div data-id="373" class="terminal-dot" style="background:#28c840;"></div>
+      </div>
+      <div data-id="374" style="padding:2rem;">
+        <div data-id="375" style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;">
+          <h3 data-id="376" class="mono" style="color:#00ff88;font-size:1.3rem;">dioval.com</h3>
+          <span data-id="377" style="display:inline-flex;align-items:center;gap:0.4rem;background:rgba(0,255,136,0.1);border:1px solid rgba(0,255,136,0.3);border-radius:9999px;padding:0.2rem 0.75rem;font-size:0.7rem;color:#00ff88;font-family:'JetBrains Mono','Courier New',monospace;">
+            <span data-id="378" class="pulse-green" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#00ff88;"></span>
+            LIVE
+          </span>
+        </div>
+        <p data-id="379" style="color:#c9d1d9;font-size:0.9rem;line-height:1.7;margin-bottom:1rem;font-family:'Inter',sans-serif;">Full-stack author platform — designed, built, and deployed. Dark luxury frontend. Content management. Responsive across all devices.</p>
+        <div data-id="380" style="margin-bottom:0.5rem;">
+          <span data-id="381" class="tech-tag">HTML/CSS</span><span data-id="382" class="tech-tag">JavaScript</span><span data-id="383" class="tech-tag">Responsive</span><span data-id="384" class="tech-tag">SEO</span><span data-id="385" class="tech-tag">Dark Theme</span><span data-id="386" class="tech-tag">Performance</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Terminal -->
+  <section data-id="387" class="fade-in-section" style="max-width:1200px;margin:3rem auto;padding:0 2rem;">
+    <div data-id="388" class="terminal-window">
+      <div data-id="389" class="terminal-chrome">
+        <div data-id="390" class="terminal-dot" style="background:#ff5f57;"></div>
+        <div data-id="391" class="terminal-dot" style="background:#febc2e;"></div>
+        <div data-id="392" class="terminal-dot" style="background:#28c840;"></div>
+      </div>
+      <div data-id="393" class="terminal-body">
+        <p data-id="394" style="color:#6e7681;">$ contact --method email</p>
+        <p data-id="395">&gt; <a data-id="396" href="mailto:support@dioval.com" style="color:#00ff88;text-decoration:none;">support@dioval.com</a></p>
+        <br data-id="397">
+        <p data-id="398" style="color:#6e7681;">$ open --link amazon-author</p>
+        <p data-id="399">&gt; <a data-id="400" href="https://www.amazon.com/stores/author/B0GXY5C3QZ" target="_blank" rel="noopener noreferrer" style="color:#00ff88;text-decoration:none;">https://www.amazon.com/stores/author/B0GXY5C3QZ</a></p>
+        <br data-id="401">
+        <p data-id="402" style="color:#6e7681;">$ echo "Available for freelance, collaborations, and technical partnerships."</p>
+        <p data-id="403">&gt; Available for freelance, collaborations, and technical partnerships.</p>
+      </div>
+    </div>
+  </section>
+
+  <div data-id="404" class="fade-in-section" style="text-align:center;padding:3rem 0;">
+    <a data-id="405" href="#home" class="back-home-link mono" style="color:#00cc6a;font-size:0.85rem;text-decoration:none;">cd ~/</a>
+  </div>
+
+  <footer data-id="406" style="text-align:center;padding:1rem;color:#6e7681;font-size:0.7rem;font-family:'Inter',sans-serif;">Made by Copilot</footer>
+</div>
+
+<script>
+  lucide.createIcons();
+
+  // ===== PAGE ROUTING =====
+  var VALID_PAGES = ['home', 'bio', 'novels', 'poetry', 'tech'];
+
+  var PAGE_ACCENTS = {
+    home: '#c9a84c',
+    bio: '#7b8ab8',
+    novels: '#8b1a1a',
+    poetry: '#b87333',
+    tech: '#00ff88'
+  };
+
+  var currentPage = 'home';
+  var isTransitioning = false;
+
+  function getPageFromHash() {
+    var hash = window.location.hash.replace('#', '') || 'home';
+    return VALID_PAGES.indexOf(hash) !== -1 ? hash : 'home';
+  }
+
+  function navigateTo(page, pushState) {
+    if (page === currentPage || isTransitioning) return;
+    isTransitioning = true;
+
+    var oldSection = document.getElementById('page-' + currentPage);
+    var newSection = document.getElementById('page-' + page);
+
+    // Fade out old
+    oldSection.classList.remove('visible');
+
+    setTimeout(function() {
+      oldSection.classList.remove('active');
+      newSection.classList.add('active');
+
+      // Scroll to top
+      window.scrollTo(0, 0);
+
+      // Small delay to allow DOM to paint
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          newSection.classList.add('visible');
+          currentPage = page;
+          updateNav(page);
+          updateNavSolid();
+          observeNewPage();
+          isTransitioning = false;
+        });
+      });
+    }, 300);
+
+    if (pushState !== false) {
+      window.location.hash = page;
+    }
+  }
+
+  function updateNav(page) {
+    var accent = PAGE_ACCENTS[page];
+    document.getElementById('nav-logo-text').style.color = accent;
+
+    // Desktop nav links
+    document.querySelectorAll('#desktop-nav a').forEach(function(link) {
+      var linkPage = link.getAttribute('data-page');
+      if (linkPage === page) {
+        link.classList.add('active');
+        link.style.color = accent;
+      } else {
+        link.classList.remove('active');
+        link.style.color = '#c9d1d9';
+      }
+    });
+
+    // Update active underline colors via style injection
+    updateActiveStyles(page);
+  }
+
+  // Dynamic style for active underline
+  var dynamicStyle = document.createElement('style');
+  document.head.appendChild(dynamicStyle);
+
+  function updateActiveStyles(page) {
+    var accent = PAGE_ACCENTS[page];
+    dynamicStyle.textContent = '.nav-links a.active::after { background: ' + accent + '; width: 100%; }';
+  }
+
+  // Hover effects on nav links
+  document.querySelectorAll('#desktop-nav a').forEach(function(link) {
+    var targetPage = link.getAttribute('data-page');
+    var targetAccent = link.getAttribute('data-accent');
+
+    link.addEventListener('mouseenter', function() {
+      if (!link.classList.contains('active')) {
+        link.style.color = targetAccent;
+      }
+    });
+    link.addEventListener('mouseleave', function() {
+      if (!link.classList.contains('active')) {
+        link.style.color = '#c9d1d9';
+      }
+    });
+
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      navigateTo(targetPage);
+      closeMobileMenu();
+    });
+  });
+
+  // Mobile nav links
+  document.querySelectorAll('.mobile-nav-link').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var page = link.getAttribute('data-page');
+      closeMobileMenu();
+      setTimeout(function() { navigateTo(page); }, 200);
+    });
+  });
+
+  // Hamburger
+  document.getElementById('hamburger-btn').addEventListener('click', function() {
+    document.getElementById('mobile-overlay').classList.add('open');
+  });
+
+  function closeMobileMenu() {
+    document.getElementById('mobile-overlay').classList.remove('open');
+  }
+  document.getElementById('mobile-close-btn').addEventListener('click', closeMobileMenu);
+
+  // Hash change (back/forward)
+  window.addEventListener('hashchange', function() {
+    var page = getPageFromHash();
+    navigateTo(page, false);
+  });
+
+  // Scroll: make nav solid
+  function updateNavSolid() {
+    var nav = document.getElementById('main-nav');
+    if (currentPage !== 'home' || window.scrollY > 40) {
+      nav.classList.add('solid');
+    } else {
+      nav.classList.remove('solid');
+    }
+  }
+  window.addEventListener('scroll', updateNavSolid);
+
+  // Portal cards
+  document.querySelectorAll('.portal-card[data-nav]').forEach(function(card) {
+    card.addEventListener('click', function() {
+      navigateTo(card.getAttribute('data-nav'));
+    });
+  });
+
+  // Back to home links
+  document.querySelectorAll('.back-home-link').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      navigateTo('home');
+    });
+  });
+
+  // Portal card hover effects
+  document.querySelectorAll('.portal-card').forEach(function(card) {
+    var style = card.style;
+    var borderColor = style.borderColor;
+    card.addEventListener('mouseenter', function() {
+      style.borderColor = borderColor.replace('0.25', '0.6');
+    });
+    card.addEventListener('mouseleave', function() {
+      style.borderColor = borderColor;
+    });
+  });
+
+  // Bio identity card hover effects
+  document.querySelectorAll('.bio-identity-card').forEach(function(card) {
+    var hoverAccent = card.getAttribute('data-hover-accent');
+    card.addEventListener('mouseenter', function() {
+      card.style.borderColor = hoverAccent;
+      card.style.boxShadow = '0 0 20px ' + hoverAccent + '15';
+    });
+    card.addEventListener('mouseleave', function() {
+      card.style.borderColor = '#1e2538';
+      card.style.boxShadow = 'none';
+    });
+  });
+
+  // ===== INTERSECTION OBSERVER =====
+  function observeNewPage() {
+    var sections = document.querySelectorAll('#page-' + currentPage + ' .fade-in-section');
+    sections.forEach(function(el) {
+      el.classList.remove('in-view');
+      observer.observe(el);
+    });
+  }
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  // ===== INIT =====
+  function init() {
+    var page = getPageFromHash();
+    currentPage = page;
+
+    // Show the right page immediately
+    document.querySelectorAll('.page-section').forEach(function(s) {
+      s.classList.remove('active', 'visible');
+    });
+    var section = document.getElementById('page-' + page);
+    section.classList.add('active');
+    requestAnimationFrame(function() {
+      section.classList.add('visible');
+    });
+
+    updateNav(page);
+    updateNavSolid();
+
+    // Observe fade-in elements on all pages initially displayed
+    observeNewPage();
+
+    // Also observe home page elements if starting on home
+    document.querySelectorAll('.fade-in-section').forEach(function(el) {
+      observer.observe(el);
+    });
+  }
+
+  init();
+</script>
+</body>
+</html>
