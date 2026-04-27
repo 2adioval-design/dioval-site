@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://dioval.com/sitemap.xml
+
+# Aurelio Dioval - Official Site
+# dioval.com

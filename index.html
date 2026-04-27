@@ -1,1234 +1,1123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="color-scheme" content="dark" />
-<title>DIOVAL.COM — Author Universe</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/lucide@1.8.0/dist/umd/lucide.min.js"></script>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
-
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{overflow-x:hidden;background:#0a0a0a;color:#f0ebe3;font-family:'Inter',system-ui,sans-serif;}
-
-/* ===== PAGE TRANSITIONS ===== */
-.page-section{display:none;opacity:0;transition:opacity 300ms ease;min-height:100vh;width:100%;}
-.page-section.active{display:block;}
-.page-section.visible{opacity:1;}
-
-/* ===== SHARED NAV ===== */
-#main-nav{position:fixed;top:0;left:0;right:0;height:60px;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1rem,4vw,3rem);transition:background 0.3s ease,box-shadow 0.3s ease;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
-#main-nav.solid{background:rgba(10,10,10,0.92);box-shadow:0 1px 20px rgba(0,0,0,0.5);}
-.nav-logo{font-family:'Playfair Display',Georgia,serif;font-size:1.35rem;font-weight:700;letter-spacing:4px;transition:color 0.3s ease;cursor:pointer;}
-.nav-links{display:flex;gap:2rem;list-style:none;}
-.nav-links a{font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:3px;text-decoration:none;color:#c9d1d9;transition:color 0.3s ease;position:relative;padding-bottom:4px;}
-.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;transition:width 0.3s ease,background 0.3s ease;}
-.nav-links a.active::after{width:100%;}
-#hamburger-btn{display:none;background:none;border:none;color:#f0ebe3;cursor:pointer;padding:8px;}
-
-/* Mobile Nav Overlay */
-#mobile-overlay{position:fixed;inset:0;z-index:2000;background:rgba(10,10,10,0.97);backdrop-filter:blur(20px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;opacity:0;pointer-events:none;transition:opacity 0.3s ease;}
-#mobile-overlay.open{opacity:1;pointer-events:auto;}
-#mobile-overlay a{font-family:'Playfair Display',Georgia,serif;font-size:1.5rem;letter-spacing:6px;text-decoration:none;color:#f0ebe3;transition:color 0.3s ease;}
-#mobile-close-btn{position:absolute;top:1rem;right:1.5rem;background:none;border:none;color:#f0ebe3;cursor:pointer;padding:8px;}
-
-@media(max-width:767px){
-  .nav-links{display:none!important;}
-  #hamburger-btn{display:block;}
-}
-
-/* ===== PAGE 1: HOME ===== */
-.page-home{background:#0a0a0a;font-family:'Inter',sans-serif;}
-.page-home h1,.page-home h2,.page-home h3,.page-home h4{font-family:'Playfair Display',Georgia,serif;}
-
-.hero-bg{background:radial-gradient(ellipse at center,#141210 0%,#0a0a0a 70%);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem 1.5rem;}
-
-@keyframes shimmer{0%{background-position:-200% center;}100%{background-position:200% center;}}
-.shimmer-text{background:linear-gradient(90deg,#c9a84c 0%,#f5e6b8 25%,#c9a84c 50%,#f5e6b8 75%,#c9a84c 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 3s linear infinite;}
-
-.portal-card{width:300px;background:#141414;border:1px solid;border-radius:1rem;padding:2rem;transition:transform 0.3s ease,border-color 0.3s ease,box-shadow 0.3s ease;cursor:pointer;}
-.portal-card:hover{transform:scale(1.02);}
-
-.about-monogram{font-family:'Playfair Display',Georgia,serif;font-size:clamp(5rem,10vw,8rem);color:#c9a84c;border:1px solid rgba(201,168,76,0.3);padding:2rem 3rem;display:inline-block;}
-
-/* ===== PAGE 2: NOVELS ===== */
-.page-novels{background:#0d0208;font-family:'Crimson Text',Georgia,serif;}
-.page-novels h1,.page-novels h2,.page-novels h3,.page-novels h4{font-family:'Playfair Display',Georgia,serif;}
-.page-novels .small-label{font-family:'Inter',sans-serif;}
-
-.novels-bg{background:radial-gradient(ellipse at center,rgba(139,26,26,0.08) 0%,#0d0208 70%),radial-gradient(1px 1px at 20% 30%,rgba(255,255,255,0.03) 0%,transparent 100%),radial-gradient(1px 1px at 80% 70%,rgba(255,255,255,0.02) 0%,transparent 100%);background-color:#0d0208;}
-
-.css-book-cover{width:280px;min-height:420px;background:linear-gradient(180deg,#0d0208,#1a0a10);border:1px solid #d4a574;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:2rem 1.5rem;position:relative;box-shadow:0 0 30px rgba(212,165,116,0.15);flex-shrink:0;}
-
-.lore-card{background:#1a0a10;border:1px solid rgba(139,26,26,0.25);border-radius:1rem;padding:2rem;flex:1;min-width:250px;}
-
-/* ===== PAGE 3: POETRY ===== */
-.page-poetry{background:#0a0806;font-family:'EB Garamond','Georgia',serif;}
-.page-poetry h1,.page-poetry h2,.page-poetry h3,.page-poetry h4{font-family:'Playfair Display',Georgia,serif;}
-.page-poetry .small-label{font-family:'Inter',sans-serif;}
-
-.poetry-bg{background:radial-gradient(ellipse at 30% 20%,rgba(184,115,51,0.04) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(184,115,51,0.03) 0%,transparent 50%);background-color:#0a0806;}
-
-.river-card{background:#1a1510;border:1px solid rgba(184,115,51,0.2);border-radius:1rem;padding:2rem;flex:1;min-width:280px;transition:border-color 0.3s ease;}
-.river-card:hover{border-color:rgba(184,115,51,0.5);}
-
-.poem-container{max-width:600px;margin:0 auto;padding:3rem 1.5rem;border-top:1px solid rgba(184,115,51,0.15);border-bottom:1px solid rgba(184,115,51,0.15);text-align:center;}
-.poem-container+.poem-container{border-top:none;}
-.poem-body{font-family:'EB Garamond','Georgia',serif;font-size:1.15rem;line-height:2;color:#f0e6d6;white-space:pre-line;}
-
-/* ===== PAGE 4: TECH — ENGR.FM ===== */
-.page-tech{
-  background:#0a0f1a;
-  font-family:'Inter',sans-serif;
-  color:#f1f5f9;
-}
-.page-tech h1,.page-tech h2,.page-tech h3,.page-tech h4{font-family:'Playfair Display',Georgia,serif;}
-
-.tech-bg{
-  background:
-    radial-gradient(ellipse at 50% 30%,rgba(59,130,246,0.03) 0%,transparent 60%),
-    repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(59,130,246,0.02) 59px,rgba(59,130,246,0.02) 60px),
-    repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(59,130,246,0.02) 59px,rgba(59,130,246,0.02) 60px);
-  background-color:#0a0f1a;
-}
-
-.page-tech .engr-section-border{border-top:1px solid #1e293b;}
-
-.page-tech .engr-label{
-  font-family:'Inter',sans-serif;
-  font-size:0.7rem;
-  letter-spacing:4px;
-  text-transform:uppercase;
-  margin-bottom:1rem;
-}
-
-.page-tech .engr-btn-filled{
-  display:inline-block;
-  font-family:'Inter',sans-serif;
-  font-size:0.85rem;
-  font-weight:600;
-  padding:0.8rem 2rem;
-  border-radius:0.5rem;
-  text-decoration:none;
-  transition:opacity 0.3s ease,transform 0.2s ease;
-  cursor:pointer;
-}
-.page-tech .engr-btn-filled:hover{opacity:0.9;transform:translateY(-1px);}
-
-.page-tech .engr-btn-outline{
-  display:inline-block;
-  font-family:'Inter',sans-serif;
-  font-size:0.85rem;
-  font-weight:500;
-  padding:0.8rem 2rem;
-  border-radius:0.5rem;
-  text-decoration:none;
-  border:1px solid #3b82f6;
-  color:#3b82f6;
-  transition:background 0.3s ease,color 0.3s ease;
-  cursor:pointer;
-}
-.page-tech .engr-btn-outline:hover{background:rgba(59,130,246,0.1);}
-
-.page-tech .engr-pill{
-  display:inline-block;
-  font-family:'Inter',sans-serif;
-  font-size:0.65rem;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  padding:0.25rem 0.75rem;
-  border-radius:9999px;
-  border:1px solid;
-}
-
-/* Season cards */
-.page-tech .season-card{
-  background:#111827;
-  border-left:4px solid;
-  border-radius:0 0.75rem 0.75rem 0;
-  padding:2rem 2.5rem;
-  margin-bottom:1.5rem;
-  transition:background 0.3s ease,transform 0.3s ease;
-}
-.page-tech .season-card:hover{
-  background:#1a2332;
-  transform:translateX(4px);
-}
-
-/* Episode cards */
-.page-tech .episode-card{
-  background:#111827;
-  border:1px solid #1e293b;
-  border-radius:0.75rem;
-  padding:2rem;
-  flex:1;
-  min-width:260px;
-  transition:border-color 0.3s ease,box-shadow 0.3s ease;
-}
-.page-tech .episode-card:hover{
-  border-color:#3b82f6;
-  box-shadow:0 0 20px rgba(59,130,246,0.1);
-}
-
-/* Rules grid */
-.page-tech .rules-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:2rem;
-}
-@media(max-width:640px){
-  .page-tech .rules-grid{grid-template-columns:1fr;}
-}
-
-/* Timeline for episode format */
-.page-tech .format-timeline{position:relative;padding-left:140px;}
-.page-tech .format-timeline::before{
-  content:'';position:absolute;left:120px;top:0;bottom:0;width:1px;background:#1e293b;
-}
-.page-tech .format-entry{position:relative;margin-bottom:2.5rem;}
-.page-tech .format-entry::before{
-  content:'';position:absolute;left:-24px;top:6px;width:8px;height:8px;border-radius:50%;background:#3b82f6;border:2px solid #0a0f1a;box-shadow:0 0 0 2px #3b82f6;
-}
-.page-tech .format-time{
-  position:absolute;left:-140px;top:0;width:100px;text-align:right;
-  font-family:'Inter',sans-serif;font-size:0.75rem;color:#3b82f6;font-weight:500;
-}
-
-@media(max-width:640px){
-  .page-tech .format-timeline{padding-left:90px;}
-  .page-tech .format-timeline::before{left:70px;}
-  .page-tech .format-time{left:-90px;width:60px;font-size:0.65rem;}
-  .page-tech .format-entry::before{left:-24px;}
-}
-
-/* About card columns */
-.page-tech .about-cols{display:flex;flex-wrap:wrap;gap:3rem;align-items:center;}
-.page-tech .about-col-left{flex:0 0 250px;text-align:center;}
-.page-tech .about-col-right{flex:1;min-width:280px;}
-
-@media(max-width:767px){
-  .page-tech .about-cols{flex-direction:column;}
-  .page-tech .about-col-left{flex:none;width:100%;}
-}
-
-/* ===== PAGE 5: BIOGRAPHY ===== */
-.page-bio{background:#080b12;font-family:Georgia,'Times New Roman',serif;color:#e2e6ef;}
-.page-bio h1,.page-bio h2,.page-bio h3,.page-bio h4{font-family:'Playfair Display',Georgia,serif;}
-.page-bio .bio-label{font-family:'Inter',sans-serif;}
-
-.bio-bg{
-  background:
-    radial-gradient(ellipse at 50% 30%,rgba(123,138,184,0.06) 0%,transparent 60%),
-    radial-gradient(ellipse at 50% 80%,rgba(123,138,184,0.03) 0%,transparent 50%),
-    repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(123,138,184,0.015) 39px,rgba(123,138,184,0.015) 40px);
-  background-color:#080b12;
-}
-
-/* Timeline */
-.bio-timeline{position:relative;padding-left:40px;max-width:800px;margin:0 auto;}
-.bio-timeline::before{content:'';position:absolute;left:15px;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,#7b8ab8 10%,#7b8ab8 90%,transparent);}
-.bio-timeline-entry{position:relative;margin-bottom:2.5rem;}
-.bio-timeline-entry::before{content:'';position:absolute;left:-29px;top:6px;width:8px;height:8px;border-radius:50%;background:#7b8ab8;border:2px solid #080b12;box-shadow:0 0 0 2px #7b8ab8;}
-.bio-timeline-year{font-family:'Inter',sans-serif;font-size:0.7rem;letter-spacing:3px;color:#7b8ab8;text-transform:uppercase;margin-bottom:0.5rem;}
-.bio-timeline-title{font-family:'Playfair Display',Georgia,serif;font-size:1.15rem;color:#a0b4d4;margin-bottom:0.5rem;}
-.bio-timeline-text{font-family:Georgia,'Times New Roman',serif;font-size:0.95rem;color:#e2e6ef;line-height:1.85;}
-
-/* Identity cards */
-.bio-identity-card{background:#141a28;border:1px solid #1e2538;border-radius:1rem;padding:2rem;flex:1;min-width:260px;transition:border-color 0.3s ease,box-shadow 0.3s ease;}
-
-/* Philosophy block */
-.bio-creed-block{background:#0f1420;border-left:4px solid #7b8ab8;border-radius:0 1rem 1rem 0;padding:clamp(2rem,4vw,4rem);max-width:800px;margin:0 auto;}
-.bio-creed-block p{font-family:Georgia,'Times New Roman',serif;font-size:clamp(1rem,2vw,1.15rem);line-height:2;color:#e2e6ef;white-space:pre-line;}
-
-/* Bio stat */
-.bio-stat-num{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,4vw,3rem);color:#a0b4d4;font-weight:700;}
-.bio-stat-label{font-family:'Inter',sans-serif;font-size:0.75rem;color:#6b7490;margin-top:0.25rem;}
-
-/* Bio social buttons */
-.bio-social-btn{width:40px;height:40px;border-radius:50%;border:1px solid rgba(123,138,184,0.4);display:flex;align-items:center;justify-content:center;color:#7b8ab8;text-decoration:none;font-size:0.7rem;font-weight:700;font-family:'Inter',sans-serif;transition:background 0.3s ease,color 0.3s ease,border-color 0.3s ease;}
-.bio-social-btn:hover{background:rgba(123,138,184,0.15);border-color:#7b8ab8;}
-
-@media(max-width:640px){
-  .bio-timeline{padding-left:32px;}
-  .bio-timeline::before{left:11px;}
-  .bio-timeline-entry::before{left:-25px;}
-}
-
-/* ===== INTERSECTION OBSERVER FADE ===== */
-.fade-in-section{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.fade-in-section.in-view{opacity:1;transform:translateY(0);}
-
-/* ===== FOOTER ===== */
-.home-footer a{transition:background 0.3s ease,color 0.3s ease;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <title>Aurelio Dioval - Novelist, Poet, Cybersecurity Architect | CCO Certifications | ENGR.FM</title>
+    <meta name="description" content="Official site of Aurelio Dioval. Author of The Light of Woza saga, creator of CCO Certifications (Certified Cyber Operator), ENGR.FM, and CyberOps doctrine.">
+    <meta property="og:title" content="Aurelio Dioval - Novelist, Poet, Cybersecurity Architect">
+    <meta property="og:description" content="Creator of CCO Certifications, The Light of Woza saga, ENGR.FM, and CyberOps doctrine.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dioval.com">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dioval.com">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aurelio Dioval",
+      "url": "https://dioval.com",
+      "jobTitle": "Novelist, Poet, Cybersecurity Architect",
+      "knowsAbout": ["Dark Fantasy", "Poetry", "Cybersecurity", "CyberOps", "Network Engineering"],
+      "brand": [
+        { "@type": "Brand", "name": "CCO Certifications" },
+        { "@type": "Brand", "name": "ENGR.FM" },
+        { "@type": "Brand", "name": "Diotech Group" }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "WA",
+        "addressCountry": "US"
+      }
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: { DEFAULT: '#0a0a0a', elevated: '#111111', card: '#1a1a1a', surface: '#222222' },
+            gold: { DEFAULT: '#c9a84c', dark: '#a68a3a', light: '#e0c96e' },
+            txt: { primary: '#f5f5f5', secondary: '#a0a0a0', muted: '#666666' },
+            crimson: '#8b1a1a',
+            bronze: '#b87333',
+            cyber: '#3b82f6',
+            cco: '#10b981',
+            labpurple: '#7c3aed',
+            danger: '#dc2626'
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'serif'],
+            body: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    };
+    </script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+      body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #f5f5f5; overflow-x: hidden; }
+      .font-display { font-family: 'Playfair Display', serif; }
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #111111; }
+      ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #c9a84c; }
+      .gold-line { height: 3px; background: linear-gradient(90deg, transparent, #c9a84c, transparent); }
+      .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; letter-spacing: 0.05em; }
+      @media (max-width: 768px) { .section-title { font-size: 1.75rem; } }
+      .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+      .fade-in.visible { opacity: 1; transform: translateY(0); }
+      .lab-card { border-left: 4px solid; padding: 1rem 1.25rem; background: #1a1a1a; border-radius: 0 8px 8px 0; transition: transform 0.2s, box-shadow 0.2s; }
+      .lab-card:hover { transform: translateX(4px); box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+      .hero-bg { background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 60%), #0a0a0a; }
+      .nav-link { position: relative; transition: color 0.3s; }
+      .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #c9a84c; transition: width 0.3s; }
+      .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+      .nav-link:hover, .nav-link.active { color: #c9a84c; }
+      .phase-card { background: linear-gradient(135deg, #1a1a1a, #222222); border: 1px solid #333; border-radius: 12px; padding: 1.5rem; }
+      .cco-level-card { background: #111111; border: 1px solid #333; border-radius: 16px; overflow: hidden; }
+      .cco-level-header { padding: 2rem; }
+      .cco-level-body { padding: 0 2rem 2rem; }
+      .bounce-arrow { animation: bounce 2s infinite; }
+      @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+      @keyframes pulse-gold { 0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.4); } 50% { box-shadow: 0 0 20px 5px rgba(201,168,76,0.1); } }
+      .new-badge { animation: pulse-gold 2s infinite; }
+      .pipeline-step { position: relative; }
+      .pipeline-step::after { content: ''; position: absolute; right: -1.5rem; top: 50%; transform: translateY(-50%); color: #c9a84c; font-size: 1.25rem; font-weight: 700; }
+      .pipeline-step:last-child::after { display: none; }
+      @media (max-width: 768px) { .pipeline-step::after { display: none; } }
+    </style>
 </head>
-<body data-id="0">
-<app-icon data-id="1" hidden data-icon="feather" data-palette="Dark"></app-icon>
+<body class="bg-bg font-body text-txt-primary">
+    <app-icon hidden data-icon="shield" data-palette="Dark"></app-icon>
 
-<!-- ===== NAVIGATION ===== -->
-<nav data-id="2" id="main-nav">
-  <span data-id="3" class="nav-logo" id="nav-logo-text">DIOVAL</span>
-  <ul data-id="4" class="nav-links" id="desktop-nav">
-    <li data-id="5"><a data-id="6" href="#home" data-page="home" data-accent="#c9a84c">HOME</a></li>
-    <li data-id="7"><a data-id="8" href="#bio" data-page="bio" data-accent="#7b8ab8">BIO</a></li>
-    <li data-id="9"><a data-id="10" href="#novels" data-page="novels" data-accent="#8b1a1a">NOVELS</a></li>
-    <li data-id="11"><a data-id="12" href="#poetry" data-page="poetry" data-accent="#b87333">POETRY</a></li>
-    <li data-id="13"><a data-id="14" href="#tech" data-page="tech" data-accent="#3b82f6">TECH</a></li>
-  </ul>
-  <button data-id="15" id="hamburger-btn" aria-label="Open menu"><i data-id="16" data-lucide="menu" class="w-6 h-6"></i></button>
-</nav>
-
-<!-- Mobile Overlay -->
-<div data-id="17" id="mobile-overlay">
-  <button data-id="18" id="mobile-close-btn" aria-label="Close menu"><i data-id="19" data-lucide="x" class="w-7 h-7"></i></button>
-  <a data-id="20" href="#home" class="mobile-nav-link" data-page="home">HOME</a>
-  <a data-id="21" href="#bio" class="mobile-nav-link" data-page="bio">BIO</a>
-  <a data-id="22" href="#novels" class="mobile-nav-link" data-page="novels">NOVELS</a>
-  <a data-id="23" href="#poetry" class="mobile-nav-link" data-page="poetry">POETRY</a>
-  <a data-id="24" href="#tech" class="mobile-nav-link" data-page="tech">TECH</a>
-</div>
-
-<!-- ============================================================ -->
-<!-- PAGE 1: HOME                                                  -->
-<!-- ============================================================ -->
-<div data-id="25" id="page-home" class="page-section page-home active visible">
-
-  <!-- Hero -->
-  <section data-id="26" class="hero-bg">
-    <p data-id="27" class="small-label" style="font-family:'Inter',sans-serif;font-size:0.7rem;letter-spacing:6px;color:#9a958d;margin-bottom:1.5rem;text-transform:uppercase;">NOVELIST · POET · ARCHITECT</p>
-    <h1 data-id="28" class="shimmer-text" style="font-size:clamp(2.5rem,8vw,5rem);font-family:'Playfair Display',Georgia,serif;font-weight:700;letter-spacing:2px;margin-bottom:1.25rem;">AURELIO DIOVAL</h1>
-    <p data-id="29" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#9a958d;font-size:clamp(0.95rem,2vw,1.2rem);max-width:500px;margin-bottom:3rem;">"I did not write these poems. They escaped."</p>
-
-    <!-- Portal Cards -->
-    <div data-id="30" style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;max-width:1400px;margin:0 auto;">
-
-      <!-- Card 0: Bio -->
-      <div data-id="31" class="portal-card" data-nav="bio" style="border-color:rgba(123,138,184,0.25);" id="portal-bio-card">
-        <div data-id="32" style="width:50px;height:3px;background:#7b8ab8;margin-bottom:1.25rem;"></div>
-        <h3 data-id="33" style="color:#e8e0d8;font-size:1.25rem;letter-spacing:3px;margin-bottom:0.5rem;font-family:'Playfair Display',Georgia,serif;">BIO</h3>
-        <p data-id="34" style="color:#7b8ab8;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:0.9rem;margin-bottom:0.75rem;">The Man Behind the Names</p>
-        <p data-id="35" style="color:#9a958d;font-size:0.85rem;line-height:1.7;margin-bottom:1.25rem;">Aurelio Dioval. Mr. Ex The Last Poet. The architect. One man. Three fires.</p>
-        <span data-id="36" style="color:#7b8ab8;font-size:0.8rem;letter-spacing:1px;cursor:pointer;">Read the Story →</span>
-      </div>
-
-      <!-- Card 1: Novels -->
-      <div data-id="37" class="portal-card" data-nav="novels" style="border-color:rgba(139,26,26,0.25);" id="portal-novels-card">
-        <div data-id="38" style="width:50px;height:3px;background:#8b1a1a;margin-bottom:1.25rem;"></div>
-        <h3 data-id="39" style="color:#e8e0d8;font-size:1.25rem;letter-spacing:3px;margin-bottom:0.5rem;font-family:'Playfair Display',Georgia,serif;">NOVELS</h3>
-        <p data-id="40" style="color:#8b1a1a;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:0.9rem;margin-bottom:0.75rem;">The Light of Woza Saga</p>
-        <p data-id="41" style="color:#9a958d;font-size:0.85rem;line-height:1.7;margin-bottom:1.25rem;">Where archangels walk among humans and love defies heaven itself.</p>
-        <span data-id="42" style="color:#8b1a1a;font-size:0.8rem;letter-spacing:1px;cursor:pointer;">Enter the Kingdom →</span>
-      </div>
-
-      <!-- Card 2: Poetry -->
-      <div data-id="43" class="portal-card" data-nav="poetry" style="border-color:rgba(184,115,51,0.25);" id="portal-poetry-card">
-        <div data-id="44" style="width:50px;height:3px;background:#b87333;margin-bottom:1.25rem;"></div>
-        <h3 data-id="45" style="color:#e8e0d8;font-size:1.25rem;letter-spacing:3px;margin-bottom:0.5rem;font-family:'Playfair Display',Georgia,serif;">POETRY</h3>
-        <p data-id="46" style="color:#b87333;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:0.9rem;margin-bottom:0.75rem;">Wine, Sea, and Fire — by Mr. Ex The Last Poet</p>
-        <p data-id="47" style="color:#9a958d;font-size:0.85rem;line-height:1.7;margin-bottom:1.25rem;">Persian fire. Arabian ink. Portuguese sea. One voice.</p>
-        <span data-id="48" style="color:#b87333;font-size:0.8rem;letter-spacing:1px;cursor:pointer;">Read the Poems →</span>
-      </div>
-
-      <!-- Card 3: Tech / ENGR.FM -->
-      <div data-id="49" class="portal-card" data-nav="tech" style="border-color:rgba(59,130,246,0.25);" id="portal-tech-card">
-        <div data-id="50" style="width:50px;height:3px;background:#3b82f6;margin-bottom:1.25rem;"></div>
-        <div data-id="51" style="margin-bottom:1rem;">
-          <svg data-id="52" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle data-id="53" cx="18" cy="18" r="5" stroke="#3b82f6" stroke-width="1.5" fill="rgba(59,130,246,0.15)"/>
-            <path data-id="54" d="M18 8 A10 10 0 0 1 28 18" stroke="#3b82f6" stroke-width="1.2" stroke-linecap="round" fill="none"/>
-            <path data-id="55" d="M18 8 A10 10 0 0 0 8 18" stroke="#3b82f6" stroke-width="1.2" stroke-linecap="round" fill="none"/>
-            <path data-id="56" d="M18 4 A14 14 0 0 1 32 18" stroke="#3b82f6" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.5"/>
-            <path data-id="57" d="M18 4 A14 14 0 0 0 4 18" stroke="#3b82f6" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.5"/>
-          </svg>
+    <!-- NAVIGATION -->
+    <nav id="main-nav-r8k2" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.15);">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16 md:h-20">
+            <a href="#home" class="font-display text-xl md:text-2xl font-bold text-gold tracking-wider">DIOVAL</a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#home" class="nav-link text-sm font-medium tracking-widest uppercase text-txt-secondary" data-nav="home">Home</a>
+                <a href="#bio" class="nav-link text-sm font-medium tracking-widest uppercase text-txt-secondary" data-nav="bio">Bio</a>
+                <a href="#novels" class="nav-link text-sm font-medium tracking-widest uppercase text-txt-secondary" data-nav="novels">Novels</a>
+                <a href="#poetry" class="nav-link text-sm font-medium tracking-widest uppercase text-txt-secondary" data-nav="poetry">Poetry</a>
+                <a href="#tech" class="nav-link text-sm font-medium tracking-widest uppercase text-txt-secondary" data-nav="tech">Tech</a>
+                <a href="#cco" class="nav-link text-sm font-medium tracking-widest uppercase text-txt-secondary" data-nav="cco">CCO</a>
+                <a href="#labs" class="nav-link text-sm font-medium tracking-widest uppercase text-txt-secondary" data-nav="labs">Labs</a>
+            </div>
+            <button id="hamburger-btn-x9m1" class="md:hidden p-2 text-txt-secondary hover:text-gold transition-colors">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
         </div>
-        <h3 data-id="58" style="color:#e8e0d8;font-size:1.25rem;letter-spacing:3px;margin-bottom:0.5rem;font-family:'Playfair Display',Georgia,serif;">TECH</h3>
-        <p data-id="59" style="color:#3b82f6;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:0.9rem;margin-bottom:0.75rem;">ENGR.FM — The 150K Engineering Path</p>
-        <p data-id="60" style="color:#9a958d;font-size:0.85rem;line-height:1.7;margin-bottom:1.25rem;">A structured engineering training program disguised as a podcast. Five seasons. One transformation. We don't talk about tech — we build engineers.</p>
-        <span data-id="61" style="color:#3b82f6;font-size:0.8rem;letter-spacing:1px;cursor:pointer;">Enter ENGR.FM →</span>
-      </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- About Section -->
-  <section data-id="62" class="fade-in-section" style="max-width:1100px;margin:0 auto;padding:5rem 2rem;">
-    <div data-id="63" style="display:flex;flex-wrap:wrap;gap:4rem;align-items:flex-start;">
-      <div data-id="64" style="flex-shrink:0;display:flex;align-items:center;justify-content:center;">
-        <div data-id="65" class="about-monogram">AD</div>
-      </div>
-      <div data-id="66" style="flex:1;min-width:280px;">
-        <p data-id="67" style="color:#f0ebe3;line-height:1.85;font-size:0.95rem;margin-bottom:1.25rem;">Aurelio Dioval writes the way storms arrive — without apology. Born between cultures and raised on the edge of silence, he builds worlds where archangels walk among humans, where love is both forbidden and holy, and where the body is scripture no government can censor.</p>
-        <p data-id="68" style="color:#f0ebe3;line-height:1.85;font-size:0.95rem;margin-bottom:1.25rem;">His debut novel, <em data-id="69">The Light of Woza</em>, launched a dark fantasy saga of discipline, power, and the breaking of balance — now available on Kindle. Writing as <strong data-id="70" style="color:#b87333;">Mr. Ex The Last Poet</strong>, his poetry collection <em data-id="71">Wine, Sea, and Fire</em> fuses three ancient rivers — the Persian fire of Rumi, the Arabian ink of Qabbani, and the Portuguese sea of Camões — into a voice that burns whether or not anyone is watching.</p>
-        <p data-id="72" style="color:#f0ebe3;line-height:1.85;font-size:0.95rem;margin-bottom:1.5rem;">When he is not writing, he is building — architecting technology with the same precision he brings to prose. Code and verse share a spine: structure that serves beauty.</p>
-        <p data-id="73" style="color:#9a958d;font-size:0.85rem;letter-spacing:1px;">Washington State · support@dioval.com</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer (Home only) -->
-  <footer data-id="74" class="home-footer fade-in-section" style="border-top:1px solid rgba(201,168,76,0.2);padding:2rem clamp(1.5rem,4vw,3rem);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;max-width:1200px;margin:0 auto;">
-    <p data-id="75" style="color:#9a958d;font-size:0.8rem;">© 2026 Aurelio Dioval. All rights reserved.</p>
-    <div data-id="76" style="display:flex;gap:1rem;align-items:center;">
-      <a data-id="77" href="https://www.amazon.com/stores/author/B0GXY5C3QZ" target="_blank" rel="noopener noreferrer" style="width:36px;height:36px;border-radius:50%;border:1px solid rgba(201,168,76,0.4);display:flex;align-items:center;justify-content:center;color:#c9a84c;text-decoration:none;font-size:0.7rem;font-weight:700;font-family:'Inter',sans-serif;" title="Amazon Author">A</a>
-      <a data-id="78" href="mailto:support@dioval.com" style="width:36px;height:36px;border-radius:50%;border:1px solid rgba(201,168,76,0.4);display:flex;align-items:center;justify-content:center;color:#c9a84c;text-decoration:none;" title="Email"><i data-id="79" data-lucide="mail" class="w-4 h-4"></i></a>
-      <a data-id="80" href="https://www.dioval.com" target="_blank" rel="noopener noreferrer" style="width:36px;height:36px;border-radius:50%;border:1px solid rgba(201,168,76,0.4);display:flex;align-items:center;justify-content:center;color:#c9a84c;text-decoration:none;" title="Website"><i data-id="81" data-lucide="globe" class="w-4 h-4"></i></a>
-    </div>
-    <p data-id="82" style="width:100%;text-align:center;color:#6b5d54;font-size:0.7rem;margin-top:0.5rem;">Made by Copilot</p>
-  </footer>
-</div>
-
-<!-- ============================================================ -->
-<!-- PAGE 5: BIOGRAPHY                                             -->
-<!-- ============================================================ -->
-<div data-id="83" id="page-bio" class="page-section page-bio bio-bg">
-
-  <!-- Section 1: Page Header -->
-  <section data-id="84" class="fade-in-section" style="padding-top:120px;text-align:center;padding-left:2rem;padding-right:2rem;">
-    <p data-id="85" class="bio-label" style="font-size:0.7rem;letter-spacing:6px;color:#7b8ab8;text-transform:uppercase;margin-bottom:1.5rem;">THE MAN BEHIND THE NAMES</p>
-    <h1 data-id="86" style="font-size:clamp(2.2rem,7vw,4rem);color:#a0b4d4;letter-spacing:4px;font-weight:700;">AURELIO DIOVAL</h1>
-    <div data-id="87" style="width:120px;height:1px;background:linear-gradient(90deg,transparent,#7b8ab8,transparent);margin:1.5rem auto;"></div>
-    <p data-id="88" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#6b7490;font-size:1.05rem;">Novelist · Poet · Architect</p>
-  </section>
-
-  <!-- Section 2: Timeline / Life Story -->
-  <section data-id="89" style="max-width:900px;margin:4rem auto;padding:0 2rem;">
-    <h2 data-id="90" class="fade-in-section" style="color:#a0b4d4;font-size:1.5rem;letter-spacing:4px;margin-bottom:2.5rem;">Origin</h2>
-
-    <div data-id="91" class="bio-timeline">
-      <div data-id="92" class="bio-timeline-entry fade-in-section">
-        <p data-id="93" class="bio-timeline-year">Chapter I</p>
-        <h3 data-id="94" class="bio-timeline-title">The Beginning</h3>
-        <p data-id="95" class="bio-timeline-text">Born between cultures, raised on the edge of silence. Language was never just a tool — it was survival. Before there were books, there were letters never sent, words swallowed to keep the peace, and stories whispered to no one.</p>
-      </div>
-      <div data-id="96" class="bio-timeline-entry fade-in-section">
-        <p data-id="97" class="bio-timeline-year">Chapter II</p>
-        <h3 data-id="98" class="bio-timeline-title">The Builder</h3>
-        <p data-id="99" class="bio-timeline-text">Technology came first. Not as passion but as discipline. The architecture of systems — databases, servers, interfaces — taught a fundamental truth: structure serves beauty. Code taught patience. Debugging taught humility. Shipping taught courage.</p>
-      </div>
-      <div data-id="100" class="bio-timeline-entry fade-in-section">
-        <p data-id="101" class="bio-timeline-year">Chapter III</p>
-        <h3 data-id="102" class="bio-timeline-title">The Poet Awakens</h3>
-        <p data-id="103" class="bio-timeline-text">Mr. Ex The Last Poet was not chosen. The name arrived the way storms arrive — without permission. Poetry became the place where the unspeakable could finally speak. Rumi showed the door. Qabbani kicked it open. Camões stood in the ocean and refused to drown. The voice that emerged from these three rivers was something new.</p>
-      </div>
-      <div data-id="104" class="bio-timeline-entry fade-in-section">
-        <p data-id="105" class="bio-timeline-year">Chapter IV</p>
-        <h3 data-id="106" class="bio-timeline-title">The Novelist</h3>
-        <p data-id="107" class="bio-timeline-text">The Light of Woza began as a question: What happens when the most powerful being in existence is ordered to love? Aurelio Dioval was born to answer it. Not a pen name — an identity. The one who builds kingdoms on paper and burns them down with truth.</p>
-      </div>
-      <div data-id="108" class="bio-timeline-entry fade-in-section">
-        <p data-id="109" class="bio-timeline-year">Chapter V</p>
-        <h3 data-id="110" class="bio-timeline-title">Now</h3>
-        <p data-id="111" class="bio-timeline-text">Washington State. Still building. Still burning. Book One is live. Book Two is complete. Wine, Sea, and Fire is being forged. The empire is rising — one line, one system, one story at a time.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 3: The Identities -->
-  <section data-id="112" style="max-width:1100px;margin:4rem auto;padding:0 2rem;">
-    <h2 data-id="113" class="fade-in-section" style="text-align:center;color:#a0b4d4;font-size:1.5rem;letter-spacing:4px;margin-bottom:2.5rem;">The Names</h2>
-    <div data-id="114" class="fade-in-section" style="display:flex;flex-wrap:wrap;gap:1.5rem;">
-      <div data-id="115" class="bio-identity-card" data-hover-accent="#c9a84c">
-        <p data-id="116" class="bio-label" style="font-size:0.65rem;letter-spacing:3px;color:#c9a84c;text-transform:uppercase;margin-bottom:0.75rem;">THE NOVELIST</p>
-        <h3 data-id="117" style="color:#e2e6ef;font-size:1.3rem;letter-spacing:2px;margin-bottom:1rem;">Aurelio Dioval</h3>
-        <p data-id="118" style="color:#e2e6ef;font-size:0.9rem;line-height:1.85;margin-bottom:1.25rem;">The worldbuilder. The one who constructs kingdoms with discipline and tears them apart with truth. Creator of the Woza saga — where archangels love, power corrupts, and balance is the only thing between heaven and ruin.</p>
-        <p data-id="119" class="bio-label" style="font-size:0.8rem;color:#6b7490;">The Light of Woza: Book One · Book Two (Complete)</p>
-      </div>
-      <div data-id="120" class="bio-identity-card" data-hover-accent="#b87333">
-        <p data-id="121" class="bio-label" style="font-size:0.65rem;letter-spacing:3px;color:#b87333;text-transform:uppercase;margin-bottom:0.75rem;">THE POET</p>
-        <h3 data-id="122" style="color:#e2e6ef;font-size:1.3rem;letter-spacing:2px;margin-bottom:1rem;">Mr. Ex The Last Poet</h3>
-        <p data-id="123" style="color:#e2e6ef;font-size:0.9rem;line-height:1.85;margin-bottom:1.25rem;">The voice that burns. Fusing Persian fire, Arabian ink, and Portuguese sea into something the world has not heard before. He does not ask permission to adore. He does not wait. He is not prayer — he is fate.</p>
-        <p data-id="124" class="bio-label" style="font-size:0.8rem;color:#6b7490;">Wine, Sea, and Fire: Poems in the Voice of Three Rivers</p>
-      </div>
-      <div data-id="125" class="bio-identity-card" data-hover-accent="#3b82f6">
-        <p data-id="126" class="bio-label" style="font-size:0.65rem;letter-spacing:3px;color:#3b82f6;text-transform:uppercase;margin-bottom:0.75rem;">THE TECHNOLOGIST</p>
-        <h3 data-id="127" style="color:#e2e6ef;font-size:1.3rem;letter-spacing:2px;margin-bottom:1rem;">The Architect</h3>
-        <p data-id="128" style="color:#e2e6ef;font-size:0.9rem;line-height:1.85;margin-bottom:1.25rem;">The builder of systems. Full-stack architect who approaches code with the same precision he brings to prose. React, Node.js, Python, AI — every component measured against a higher order.</p>
-        <p data-id="129" class="bio-label" style="font-size:0.8rem;color:#6b7490;">dioval.com · Publishing Infrastructure · Creative Tech</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 4: Philosophy / Creed -->
-  <section data-id="130" style="max-width:900px;margin:4rem auto;padding:0 2rem;">
-    <h2 data-id="131" class="fade-in-section" style="text-align:center;color:#a0b4d4;font-size:1.5rem;letter-spacing:4px;margin-bottom:2.5rem;">Creed</h2>
-    <div data-id="132" class="bio-creed-block fade-in-section">
-      <p data-id="133">I believe that structure serves beauty.
-That code and verse share a spine.
-That love, at its most dangerous, is the only thing worth writing about.
-That a man can build kingdoms in fiction and systems in code
-and still kneel before a poem that breaks him open.
-
-I am not the loudest voice.
-I am the one you notice
-when everything else goes quiet.
-
-I am not for everyone.
-But for the one who knows the difference
-between being seen and being understood —
-I am unforgettable.</p>
-      <p data-id="134" style="color:#c9a84c;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:0.95rem;margin-top:2rem;text-align:right;">— Aurelio Dioval</p>
-    </div>
-  </section>
-
-  <!-- Section 5: By the Numbers -->
-  <section data-id="135" class="fade-in-section" style="max-width:900px;margin:4rem auto;padding:0 2rem;">
-    <div data-id="136" style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;">
-      <div data-id="137" style="text-align:center;flex:1;min-width:120px;">
-        <p data-id="138" class="bio-stat-num">2</p>
-        <p data-id="139" class="bio-stat-label">Pen Names</p>
-      </div>
-      <div data-id="140" style="text-align:center;flex:1;min-width:120px;">
-        <p data-id="141" class="bio-stat-num">3</p>
-        <p data-id="142" class="bio-stat-label">Published Works</p>
-      </div>
-      <div data-id="143" style="text-align:center;flex:1;min-width:120px;">
-        <p data-id="144" class="bio-stat-num">3</p>
-        <p data-id="145" class="bio-stat-label">Rivers of Influence</p>
-      </div>
-      <div data-id="146" style="text-align:center;flex:1;min-width:120px;">
-        <p data-id="147" class="bio-stat-num">1</p>
-        <p data-id="148" class="bio-stat-label">Empire Rising</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 6: Contact -->
-  <section data-id="149" class="fade-in-section" style="max-width:700px;margin:4rem auto;padding:0 2rem;text-align:center;">
-    <h2 data-id="150" style="color:#a0b4d4;font-size:1.3rem;letter-spacing:3px;margin-bottom:1.5rem;">Reach Out</h2>
-    <a data-id="151" href="mailto:support@dioval.com" style="color:#c9a84c;font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.1rem,2.5vw,1.4rem);text-decoration:none;display:block;margin-bottom:0.5rem;transition:color 0.3s ease;">support@dioval.com</a>
-    <p data-id="152" style="color:#6b7490;font-size:0.85rem;margin-bottom:1.5rem;">www.dioval.com</p>
-    <div data-id="153" style="display:flex;gap:1rem;justify-content:center;align-items:center;">
-      <a data-id="154" href="https://www.amazon.com/stores/author/B0GXY5C3QZ" target="_blank" rel="noopener noreferrer" class="bio-social-btn" title="Amazon Author">A</a>
-      <a data-id="155" href="mailto:support@dioval.com" class="bio-social-btn" title="Email"><i data-id="156" data-lucide="mail" class="w-4 h-4"></i></a>
-      <a data-id="157" href="https://www.dioval.com" target="_blank" rel="noopener noreferrer" class="bio-social-btn" title="Website"><i data-id="158" data-lucide="globe" class="w-4 h-4"></i></a>
-    </div>
-  </section>
-
-  <div data-id="159" class="fade-in-section" style="text-align:center;padding:3rem 0 2rem;">
-    <a data-id="160" href="#home" class="back-home-link" style="color:#6b7490;font-size:0.8rem;text-decoration:none;font-family:'Inter',sans-serif;">← Back to Home</a>
-  </div>
-
-  <footer data-id="161" style="text-align:center;padding:1rem;color:#6b7490;font-size:0.7rem;font-family:'Inter',sans-serif;">Made by Copilot</footer>
-</div>
-
-<!-- ============================================================ -->
-<!-- PAGE 2: NOVELS                                                -->
-<!-- ============================================================ -->
-<div data-id="162" id="page-novels" class="page-section page-novels novels-bg">
-
-  <!-- Page Header -->
-  <section data-id="163" style="padding-top:120px;text-align:center;padding-left:2rem;padding-right:2rem;">
-    <h1 data-id="164" class="fade-in-section" style="font-size:clamp(2rem,6vw,3.5rem);color:#8b1a1a;letter-spacing:8px;">THE KINGDOMS</h1>
-    <div data-id="165" class="fade-in-section" style="width:200px;height:1px;background:linear-gradient(90deg,transparent,#8b1a1a,transparent);margin:1.5rem auto;"></div>
-    <p data-id="166" class="fade-in-section" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#d4a574;font-size:1.1rem;">The Light of Woza Saga</p>
-  </section>
-
-  <!-- Book One Feature Card -->
-  <section data-id="167" class="fade-in-section" style="max-width:1000px;margin:3rem auto;padding:0 1.5rem;">
-    <div data-id="168" style="background:#1a0a10;border:1px solid rgba(139,26,26,0.2);border-radius:1rem;padding:clamp(1.5rem,4vw,3rem);display:flex;flex-wrap:wrap;gap:2.5rem;align-items:flex-start;">
-      <div data-id="169" class="css-book-cover" style="margin:0 auto;">
-        <div data-id="170">
-          <p data-id="171" style="font-family:'Inter',sans-serif;font-size:0.6rem;letter-spacing:3px;color:#d4a574;text-transform:uppercase;text-align:center;">Book One of the Woza Saga</p>
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu-j4v8" class="fixed inset-0 z-[60] hidden" style="background:rgba(10,10,10,0.98);backdrop-filter:blur(20px);">
+        <div class="flex flex-col items-center justify-center h-full gap-8">
+            <button id="mobile-close-p2q5" class="absolute top-5 right-5 p-2 text-txt-secondary hover:text-gold">
+                <i data-lucide="x" class="w-7 h-7"></i>
+            </button>
+            <a href="#home" class="mobile-nav-link text-2xl font-display font-semibold tracking-widest text-txt-secondary hover:text-gold transition-colors">HOME</a>
+            <a href="#bio" class="mobile-nav-link text-2xl font-display font-semibold tracking-widest text-txt-secondary hover:text-gold transition-colors">BIO</a>
+            <a href="#novels" class="mobile-nav-link text-2xl font-display font-semibold tracking-widest text-txt-secondary hover:text-gold transition-colors">NOVELS</a>
+            <a href="#poetry" class="mobile-nav-link text-2xl font-display font-semibold tracking-widest text-txt-secondary hover:text-gold transition-colors">POETRY</a>
+            <a href="#tech" class="mobile-nav-link text-2xl font-display font-semibold tracking-widest text-txt-secondary hover:text-gold transition-colors">TECH</a>
+            <a href="#cco" class="mobile-nav-link text-2xl font-display font-semibold tracking-widest text-txt-secondary hover:text-gold transition-colors">CCO</a>
+            <a href="#labs" class="mobile-nav-link text-2xl font-display font-semibold tracking-widest text-txt-secondary hover:text-gold transition-colors">LABS</a>
         </div>
-        <div data-id="172" style="text-align:center;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;">
-          <svg data-id="173" width="80" height="120" viewBox="0 0 80 120" fill="#1a1a1a" xmlns="http://www.w3.org/2000/svg">
-            <ellipse data-id="174" cx="40" cy="12" rx="10" ry="12"/>
-            <path data-id="175" d="M26 24 L54 24 L58 50 L52 50 L50 38 L44 100 L48 118 L46 120 L36 120 L34 118 L36 100 L30 38 L28 50 L22 50 Z"/>
-            <path data-id="176" d="M26 24 L16 55 L22 57 L28 40" fill="#1a1a1a"/>
-            <path data-id="177" d="M54 24 L64 55 L58 57 L52 40" fill="#1a1a1a"/>
-          </svg>
-          <h2 data-id="178" style="font-family:'Playfair Display',Georgia,serif;font-size:1.3rem;color:#d4a574;letter-spacing:2px;line-height:1.3;">THE LIGHT<br data-id="179">OF WOZA</h2>
-          <div data-id="180" style="width:60%;height:1px;background:#d4a574;opacity:0.5;"></div>
-          <p data-id="181" style="font-style:italic;color:#6b5d54;font-size:0.75rem;">Where discipline meets destiny</p>
+    </div>
+
+    <main>
+    <!-- ======================= SECTION 1: HOME ======================= -->
+    <section id="home" class="relative min-h-screen flex flex-col justify-center hero-bg">
+        <div class="gold-line w-full absolute top-0 left-0"></div>
+        <div class="max-w-5xl mx-auto px-6 md:px-8 text-center pt-24 pb-16">
+            <p class="text-gold text-xs md:text-sm tracking-[0.35em] md:tracking-[0.5em] font-semibold mb-6 fade-in">NOVELIST · POET · ARCHITECT</p>
+            <h1 class="font-display text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight leading-[0.9] mb-6 fade-in" style="text-shadow: 0 0 80px rgba(201,168,76,0.1);">AURELIO<br>DIOVAL</h1>
+            <p class="text-txt-muted text-base md:text-lg tracking-[0.2em] mb-10 fade-in">One Man. Three Fires.</p>
+            <p class="font-display italic text-gold/80 text-lg md:text-xl max-w-xl mx-auto fade-in">"I did not write these poems. They escaped."</p>
+            <div class="mt-16 bounce-arrow text-txt-muted">
+                <i data-lucide="chevron-down" class="w-6 h-6 mx-auto"></i>
+            </div>
         </div>
-        <p data-id="182" style="font-family:'Inter',sans-serif;font-size:0.6rem;letter-spacing:3px;color:#d4a574;text-transform:uppercase;font-variant:small-caps;">AURELIO DIOVAL</p>
-      </div>
-      <div data-id="183" style="flex:1;min-width:280px;">
-        <span data-id="184" class="small-label" style="font-size:0.65rem;letter-spacing:3px;color:#8b1a1a;text-transform:uppercase;">THE KINGDOM OF WOZA</span>
-        <h2 data-id="185" style="font-size:clamp(1.5rem,3vw,2rem);color:#e8e0d8;margin:0.75rem 0 0.25rem;">The Light of Woza</h2>
-        <p data-id="186" style="font-style:italic;color:#6b5d54;margin-bottom:0.75rem;">A Tale of Two Destinies</p>
-        <span data-id="187" style="display:inline-block;border:1px solid #8b1a1a;color:#8b1a1a;font-size:0.7rem;padding:0.2rem 0.75rem;border-radius:9999px;margin-bottom:1.25rem;font-family:'Inter',sans-serif;">Book One</span>
-        <div data-id="188" style="color:#e8e0d8;font-size:0.9rem;line-height:1.85;margin-bottom:1.5rem;">
-          <p data-id="189" style="margin-bottom:0.75rem;">In a world where power is never allowed to exist without balance, Woza stands apart. It is not a kingdom built on conquest, but on discipline — where every ruler stands beside a shadow, and every decision is measured against a higher order known only as the Light.</p>
-          <p data-id="190" style="margin-bottom:0.75rem;">For generations, this system has held. Until something changes. Sarif is not meant to be different. He is meant to serve — silent, unseen, and bound to protect. But from the moment he is placed within the royal structure of Woza, it becomes clear: He is not like the others.</p>
-          <p data-id="191" style="margin-bottom:0.75rem;">He does not follow the pattern. He does not fit within the system. And for the first time in its history... Woza begins to shift. Bound to Princess Anna not as a follower, but as something closer to an equal — Sarif's existence challenges the very foundation of balance itself.</p>
-          <p data-id="192">Beyond the borders of Woza, ambition grows unchecked. A rising force seeks power without discipline. Control without restraint. And a darkness begins to spread — one that does not destroy... but corrupts.</p>
+
+        <!-- 5 CARDS -->
+        <div class="max-w-6xl mx-auto px-4 md:px-8 pb-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5">
+            <a href="#bio" class="block bg-bg-card rounded-xl p-5 border border-transparent hover:border-gold/40 transition-all duration-300 hover:-translate-y-1 fade-in" style="border-top:3px solid #c9a84c;">
+                <div class="flex items-center gap-2 mb-2"><i data-lucide="user" class="w-4 h-4 text-gold"></i><span class="text-xs tracking-widest text-gold font-semibold">BIO</span></div>
+                <p class="text-sm text-txt-secondary">The Man Behind the Names</p>
+            </a>
+            <a href="#novels" class="block bg-bg-card rounded-xl p-5 border border-transparent hover:border-crimson/40 transition-all duration-300 hover:-translate-y-1 fade-in" style="border-top:3px solid #8b1a1a;">
+                <div class="flex items-center gap-2 mb-2"><i data-lucide="book-open" class="w-4 h-4 text-crimson"></i><span class="text-xs tracking-widest text-crimson font-semibold">NOVELS</span></div>
+                <p class="text-sm text-txt-secondary">The Light of Woza</p>
+            </a>
+            <a href="#poetry" class="block bg-bg-card rounded-xl p-5 border border-transparent hover:border-bronze/40 transition-all duration-300 hover:-translate-y-1 fade-in" style="border-top:3px solid #b87333;">
+                <div class="flex items-center gap-2 mb-2"><i data-lucide="feather" class="w-4 h-4 text-bronze"></i><span class="text-xs tracking-widest text-bronze font-semibold">POETRY</span></div>
+                <p class="text-sm text-txt-secondary">Wine, Sea, and Fire</p>
+            </a>
+            <a href="#tech" class="block bg-bg-card rounded-xl p-5 border border-transparent hover:border-cyber/40 transition-all duration-300 hover:-translate-y-1 fade-in" style="border-top:3px solid #3b82f6;">
+                <div class="flex items-center gap-2 mb-2"><i data-lucide="cpu" class="w-4 h-4 text-cyber"></i><span class="text-xs tracking-widest text-cyber font-semibold">TECH</span></div>
+                <p class="text-sm text-txt-secondary">ENGR.FM</p>
+            </a>
+            <a href="#cco" class="relative block bg-bg-card rounded-xl p-5 border border-transparent hover:border-cco/40 transition-all duration-300 hover:-translate-y-1 fade-in" style="border-top:3px solid #10b981;">
+                <span class="absolute -top-2 -right-2 bg-cco text-bg text-[10px] font-bold px-2 py-0.5 rounded-full new-badge">NEW</span>
+                <div class="flex items-center gap-2 mb-2"><i data-lucide="shield-check" class="w-4 h-4 text-cco"></i><span class="text-xs tracking-widest text-cco font-semibold">CCO</span></div>
+                <p class="text-sm text-txt-secondary">CCO Certifications</p>
+            </a>
         </div>
-        <p data-id="193" class="small-label" style="color:#6b5d54;font-size:0.8rem;margin-bottom:1rem;">Dark Fantasy · 136 Pages · April 2026</p>
-        <div data-id="194" style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem;">
-          <span data-id="195" style="border:1px solid #8b1a1a;color:#8b1a1a;font-size:0.7rem;padding:0.3rem 0.75rem;border-radius:9999px;font-family:'Inter',sans-serif;">Kindle: $8.00</span>
-          <span data-id="196" style="border:1px solid #8b1a1a;color:#8b1a1a;font-size:0.7rem;padding:0.3rem 0.75rem;border-radius:9999px;font-family:'Inter',sans-serif;">Paperback: $8.00</span>
-          <span data-id="197" style="background:#8b1a1a;color:#e8e0d8;font-size:0.7rem;padding:0.3rem 0.75rem;border-radius:9999px;font-family:'Inter',sans-serif;">FREE with Kindle Unlimited</span>
+    </section>
+
+    <!-- ======================= SECTION 2: BIO ======================= -->
+    <section id="bio" class="py-20 md:py-28 bg-bg-elevated">
+        <div class="max-w-6xl mx-auto px-4 md:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title text-txt-primary">THE ARCHITECT</h2>
+                <div class="w-24 h-[3px] bg-gold mx-auto mt-4"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16">
+                <!-- The Novelist -->
+                <div class="bg-bg-card rounded-2xl p-6 md:p-8 border border-bg-surface hover:border-gold/30 transition-all fade-in">
+                    <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-5">
+                        <i data-lucide="pen-tool" class="w-5 h-5 text-gold"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-1 text-txt-primary">The Novelist</h3>
+                    <p class="text-gold text-sm mb-4">Aurelio Dioval</p>
+                    <p class="text-txt-secondary text-sm leading-relaxed">Creator of dark fantasy worlds where kingdoms burn and legacies are forged in war. Author of <span class="text-txt-primary font-medium">The Light of Woza</span> saga - an epic where fire is not destruction, but truth. Each page a battlefield, each chapter a throne claimed or lost.</p>
+                </div>
+                <!-- The Poet -->
+                <div class="bg-bg-card rounded-2xl p-6 md:p-8 border border-bg-surface hover:border-bronze/30 transition-all fade-in">
+                    <div class="w-12 h-12 rounded-full bg-bronze/10 flex items-center justify-center mb-5">
+                        <i data-lucide="feather" class="w-5 h-5 text-bronze"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-1 text-txt-primary">The Poet</h3>
+                    <p class="text-bronze text-sm mb-4">Mr. Ex The Last Poet</p>
+                    <p class="text-txt-secondary text-sm leading-relaxed">Three rivers of fire converge in one voice: <span class="text-txt-primary font-medium">Persian fire</span> from the mystics, <span class="text-txt-primary font-medium">Arabian ink</span> from the desert poets, and the <span class="text-txt-primary font-medium">Portuguese sea</span> from the explorers. Wine, longing, and eternity - written as only the last poet can.</p>
+                </div>
+                <!-- The Technologist -->
+                <div class="bg-bg-card rounded-2xl p-6 md:p-8 border border-bg-surface hover:border-cyber/30 transition-all fade-in">
+                    <div class="w-12 h-12 rounded-full bg-cyber/10 flex items-center justify-center mb-5">
+                        <i data-lucide="cpu" class="w-5 h-5 text-cyber"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-1 text-txt-primary">The Technologist</h3>
+                    <p class="text-cyber text-sm mb-4">The Architect</p>
+                    <p class="text-txt-secondary text-sm leading-relaxed">CCIE-track engineer. CyberOps strategist. Creator of <span class="text-txt-primary font-medium">ENGR.FM</span> - the 150K engineering learning path - and <span class="text-txt-primary font-medium">CCO Certifications</span>, the industry's first doctrine-based cybersecurity certification. Systems thinker. Infrastructure builder.</p>
+                </div>
+            </div>
+            <div class="text-center fade-in">
+                <p class="text-txt-muted text-sm tracking-[0.3em] uppercase">2 Pen Names · 3 Published Works · 1 Empire Rising</p>
+            </div>
         </div>
-        <div data-id="198" style="display:flex;flex-wrap:wrap;gap:0.75rem;">
-          <a data-id="199" href="https://www.amazon.com/dp/B0GX34NMD6" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#d4a574;color:#0d0208;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;padding:0.7rem 1.5rem;border-radius:0.5rem;text-decoration:none;letter-spacing:1px;transition:opacity 0.3s;">Read on Amazon</a>
-          <a data-id="200" href="https://www.amazon.com/dp/B0GX34NMD6" target="_blank" rel="noopener noreferrer" style="display:inline-block;border:1px solid #8b1a1a;color:#8b1a1a;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:500;padding:0.65rem 1.5rem;border-radius:0.5rem;text-decoration:none;letter-spacing:1px;transition:all 0.3s;">Get Paperback</a>
+    </section>
+
+    <!-- ======================= SECTION 3: NOVELS ======================= -->
+    <section id="novels" class="py-20 md:py-28 bg-bg">
+        <div class="max-w-6xl mx-auto px-4 md:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title text-txt-primary">THE KINGDOMS</h2>
+                <div class="w-24 h-[3px] bg-crimson mx-auto mt-4"></div>
+            </div>
+
+            <!-- Book One -->
+            <div class="bg-bg-card rounded-2xl border border-crimson/20 overflow-hidden mb-8 fade-in">
+                <div class="p-6 md:p-10" style="border-top:3px solid #8b1a1a;">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="flex-shrink-0 w-full md:w-48">
+                            <div class="w-full md:w-48 h-64 md:h-72 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg, #1a0808, #3d1111, #8b1a1a);">
+                                <div class="text-center">
+                                    <i data-lucide="flame" class="w-10 h-10 text-crimson/70 mx-auto mb-3"></i>
+                                    <p class="font-display text-lg font-bold text-txt-primary">THE LIGHT</p>
+                                    <p class="font-display text-sm text-txt-primary/70">OF WOZA</p>
+                                    <p class="text-[10px] text-crimson/60 mt-2 tracking-widest">BOOK ONE</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex flex-wrap items-center gap-3 mb-3">
+                                <span class="text-xs font-semibold tracking-widest text-crimson uppercase">Book One</span>
+                                <span class="text-xs bg-crimson/20 text-crimson px-2 py-0.5 rounded">Dark Fantasy</span>
+                                <span class="text-xs text-txt-muted">136 Pages</span>
+                                <span class="text-xs text-txt-muted">April 2026</span>
+                            </div>
+                            <h3 class="font-display text-2xl md:text-3xl font-bold mb-4">The Light of Woza</h3>
+                            <p class="text-txt-secondary text-sm md:text-base leading-relaxed mb-6">In a world where fire is memory and kingdoms are built on the bones of forgotten gods, one name echoes across every battlefield - <span class="text-txt-primary font-medium">Woza</span>. This is not a story about a hero. This is a story about the light that burns when empires refuse to die. When thrones crack beneath the weight of betrayal, and the only path forward is through the fire itself.</p>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="inline-flex items-center gap-2 bg-bg-surface rounded-lg px-4 py-2.5 text-sm font-medium">
+                                    <i data-lucide="tablet-smartphone" class="w-4 h-4 text-gold"></i> Kindle - $8
+                                </span>
+                                <span class="inline-flex items-center gap-2 bg-bg-surface rounded-lg px-4 py-2.5 text-sm font-medium">
+                                    <i data-lucide="book-open" class="w-4 h-4 text-gold"></i> Paperback - $8
+                                </span>
+                                <span class="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-lg px-4 py-2.5 text-sm font-medium text-gold">
+                                    <i data-lucide="sparkles" class="w-4 h-4"></i> FREE on Kindle Unlimited
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book Two -->
+            <div class="bg-bg-card rounded-2xl border border-bg-surface p-6 md:p-10 fade-in">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 rounded-lg bg-crimson/10 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="book-marked" class="w-6 h-6 text-crimson/50"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-display text-xl font-bold">Book Two</h3>
+                        <p class="text-txt-secondary text-sm mt-1"><span class="text-cco font-semibold">COMPLETED</span> - Release Date TBA</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Book Two Teaser -->
-  <section data-id="201" class="fade-in-section" style="max-width:800px;margin:2.5rem auto;padding:0 1.5rem;">
-    <div data-id="202" style="background:#1a0a10;border:1px solid rgba(139,26,26,0.12);border-radius:1rem;padding:2.5rem;text-align:center;">
-      <span data-id="203" class="small-label" style="font-size:0.65rem;letter-spacing:3px;color:#8b1a1a;text-transform:uppercase;">BOOK TWO</span>
-      <p data-id="204" style="color:#d4a574;font-size:0.85rem;margin:0.75rem 0 1rem;font-family:'Inter',sans-serif;">COMPLETED — Release Date TBA</p>
-      <p data-id="205" style="color:#e8e0d8;font-size:0.95rem;line-height:1.85;max-width:650px;margin:0 auto 1.5rem;">The balance has shattered. Sarif and Anna face a world where the rules that protected Woza no longer hold. Alliances fracture. New powers rise. And the Light itself begins to question what it created. Book Two completes what Book One ignited.</p>
-      <a data-id="206" href="mailto:support@dioval.com?subject=Notify%20Me%20-%20Woza%20Book%20Two" style="display:inline-block;border:1px solid #8b1a1a;color:#8b1a1a;font-family:'Inter',sans-serif;font-size:0.8rem;padding:0.6rem 1.5rem;border-radius:0.5rem;text-decoration:none;letter-spacing:1px;">Get Notified</a>
-    </div>
-  </section>
+    <!-- ======================= SECTION 4: POETRY ======================= -->
+    <section id="poetry" class="py-20 md:py-28 bg-bg-elevated">
+        <div class="max-w-6xl mx-auto px-4 md:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title text-txt-primary">WINE, SEA, AND FIRE</h2>
+                <div class="w-24 h-[3px] bg-bronze mx-auto mt-4"></div>
+                <p class="text-bronze text-sm tracking-widest mt-4">BY MR. EX THE LAST POET</p>
+            </div>
 
-  <!-- World Lore -->
-  <section data-id="207" class="fade-in-section" style="max-width:1000px;margin:3rem auto;padding:0 1.5rem 4rem;">
-    <div data-id="208" style="display:flex;flex-wrap:wrap;gap:1.25rem;">
-      <div data-id="209" class="lore-card">
-        <h4 data-id="210" style="color:#8b1a1a;letter-spacing:3px;font-size:0.9rem;margin-bottom:0.75rem;">The Light</h4>
-        <p data-id="211" style="color:#e8e0d8;font-size:0.9rem;line-height:1.7;">A higher order that governs Woza. Not a god. Not a law. Something between.</p>
-      </div>
-      <div data-id="212" class="lore-card" style="border-color:rgba(212,165,116,0.2);">
-        <h4 data-id="213" style="color:#d4a574;letter-spacing:3px;font-size:0.9rem;margin-bottom:0.75rem;">The Archangel</h4>
-        <p data-id="214" style="color:#e8e0d8;font-size:0.9rem;line-height:1.7;">Sarif. The most powerful of his kind. Bound to protect. Built to love. Forbidden to be both.</p>
-      </div>
-      <div data-id="215" class="lore-card">
-        <h4 data-id="216" style="color:#8b1a1a;letter-spacing:3px;font-size:0.9rem;margin-bottom:0.75rem;">The Princess</h4>
-        <p data-id="217" style="color:#e8e0d8;font-size:0.9rem;line-height:1.7;">Anna. Not a damsel. A force. The one the Light chose — and the one who will challenge it.</p>
-      </div>
-    </div>
-  </section>
+            <div class="max-w-3xl mx-auto text-center mb-14 fade-in">
+                <p class="text-txt-secondary leading-relaxed md:text-lg">Three rivers of influence converge in one voice. Each poem carries the weight of civilizations, the ache of longing, and the fire of revelation. This is not modern poetry - it is ancient fire resurrected in modern ink.</p>
+            </div>
 
-  <div data-id="218" class="fade-in-section" style="text-align:center;padding-bottom:3rem;">
-    <a data-id="219" href="#home" class="back-home-link" style="color:#6b5d54;font-size:0.8rem;text-decoration:none;font-family:'Inter',sans-serif;">← Back to Home</a>
-  </div>
-</div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-14">
+                <!-- Rumi -->
+                <div class="bg-bg-card rounded-2xl p-6 md:p-8 border border-bg-surface hover:border-bronze/30 transition-all text-center fade-in">
+                    <div class="w-16 h-16 rounded-full bg-bronze/10 flex items-center justify-center mx-auto mb-5">
+                        <i data-lucide="flame" class="w-7 h-7 text-bronze"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-2">Persian Fire</h3>
+                    <p class="text-bronze text-sm mb-3">The River of Rumi</p>
+                    <p class="text-txt-secondary text-sm leading-relaxed">Mysticism. Ecstasy. The divine intoxication that burns the ego and leaves only truth. The Sufi flame that dances between lover and Beloved - where every wound is a door and every silence is a prayer.</p>
+                </div>
+                <!-- Qabbani -->
+                <div class="bg-bg-card rounded-2xl p-6 md:p-8 border border-bg-surface hover:border-bronze/30 transition-all text-center fade-in">
+                    <div class="w-16 h-16 rounded-full bg-bronze/10 flex items-center justify-center mx-auto mb-5">
+                        <i data-lucide="pen-line" class="w-7 h-7 text-bronze"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-2">Arabian Ink</h3>
+                    <p class="text-bronze text-sm mb-3">The River of Qabbani</p>
+                    <p class="text-txt-secondary text-sm leading-relaxed">Desire. Defiance. The politics of the body and the battlefield of love. Nizar's ink bleeds with the fury of a man who refused to separate the revolution from the rose - sharp, sensual, unapologetic.</p>
+                </div>
+                <!-- Camoes -->
+                <div class="bg-bg-card rounded-2xl p-6 md:p-8 border border-bg-surface hover:border-bronze/30 transition-all text-center fade-in">
+                    <div class="w-16 h-16 rounded-full bg-bronze/10 flex items-center justify-center mx-auto mb-5">
+                        <i data-lucide="waves" class="w-7 h-7 text-bronze"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-2">Portuguese Sea</h3>
+                    <p class="text-bronze text-sm mb-3">The River of Camoes</p>
+                    <p class="text-txt-secondary text-sm leading-relaxed">Exile. Longing. The saudade of a man who sailed the world and carried his homeland in every verse. The ocean as metaphor for everything lost and everything still worth reaching for.</p>
+                </div>
+            </div>
 
-<!-- ============================================================ -->
-<!-- PAGE 3: POETRY                                                -->
-<!-- ============================================================ -->
-<div data-id="220" id="page-poetry" class="page-section page-poetry poetry-bg">
-
-  <!-- Page Header -->
-  <section data-id="221" style="padding-top:120px;text-align:center;padding-left:2rem;padding-right:2rem;">
-    <h1 data-id="222" class="fade-in-section" style="font-size:clamp(1.8rem,5vw,3rem);color:#b87333;letter-spacing:6px;">WINE, SEA, AND FIRE</h1>
-    <p data-id="223" class="fade-in-section" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#d4a574;font-size:1.05rem;margin-top:1rem;">Poems in the Voice of Three Rivers</p>
-    <p data-id="224" class="fade-in-section" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#b87333;font-size:clamp(1.1rem,2.5vw,1.4rem);margin-top:1rem;letter-spacing:1px;">by Mr. Ex The Last Poet</p>
-    <div data-id="225" class="fade-in-section" style="width:200px;height:1px;background:linear-gradient(90deg,transparent,#b87333,transparent);margin:1.5rem auto;"></div>
-    <p data-id="226" class="fade-in-section" style="color:#8a7d6f;font-size:0.85rem;font-style:italic;font-family:'Inter',sans-serif;">Collection in progress — select poems available</p>
-  </section>
-
-  <!-- Three Rivers -->
-  <section data-id="227" class="fade-in-section" style="max-width:1050px;margin:3rem auto;padding:0 1.5rem;">
-    <div data-id="228" style="display:flex;flex-wrap:wrap;gap:1.25rem;">
-      <div data-id="229" class="river-card">
-        <svg data-id="230" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:1rem;">
-          <path data-id="231" d="M20 4 C20 4 10 16 10 24 C10 30 14.5 36 20 36 C25.5 36 30 30 30 24 C30 16 20 4 20 4Z" stroke="#b87333" stroke-width="1.5" fill="none"/>
-          <path data-id="232" d="M20 14 C20 14 15 22 15 26 C15 29 17 32 20 32 C23 32 25 29 25 26 C25 22 20 14 20 14Z" fill="rgba(184,115,51,0.2)"/>
-        </svg>
-        <h3 data-id="233" style="color:#b87333;letter-spacing:3px;font-size:0.9rem;margin-bottom:0.5rem;">RUMI</h3>
-        <p data-id="234" class="small-label" style="color:#8a7d6f;font-size:0.75rem;margin-bottom:1.25rem;font-family:'Inter',sans-serif;">Mystical Ecstasy · Ego Annihilation · Divine Union</p>
-        <p data-id="235" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#f0e6d6;font-size:1rem;line-height:1.8;">"I did not drink the wine.<br data-id="236">The wine drank me.<br data-id="237">And what remained<br data-id="238">was neither cup nor man —<br data-id="239">just song."</p>
-        <div data-id="240" style="width:100%;height:1px;background:rgba(184,115,51,0.2);margin-top:1.5rem;"></div>
-      </div>
-      <div data-id="241" class="river-card">
-        <svg data-id="242" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:1rem;">
-          <path data-id="243" d="M12 36 L16 8 C16 8 17 4 20 4 C23 4 24 8 24 8 L28 36" stroke="#b87333" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <path data-id="244" d="M20 4 L20 2" stroke="#b87333" stroke-width="1.5" stroke-linecap="round"/>
-          <circle data-id="245" cx="20" cy="36" r="2" fill="#b87333" opacity="0.4"/>
-        </svg>
-        <h3 data-id="246" style="color:#b87333;letter-spacing:3px;font-size:0.9rem;margin-bottom:0.5rem;">QABBANI</h3>
-        <p data-id="247" class="small-label" style="color:#8a7d6f;font-size:0.75rem;margin-bottom:1.25rem;font-family:'Inter',sans-serif;">Bold Desire · Love as Revolution · The Body as Scripture</p>
-        <p data-id="248" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#f0e6d6;font-size:1rem;line-height:1.8;">"I don't ask permission<br data-id="249">to adore you.<br data-id="250">Love, in its purest form,<br data-id="251">is disobedient."</p>
-        <div data-id="252" style="width:100%;height:1px;background:rgba(184,115,51,0.2);margin-top:1.5rem;"></div>
-      </div>
-      <div data-id="253" class="river-card">
-        <svg data-id="254" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:1rem;">
-          <path data-id="255" d="M4 20 Q10 14 16 20 Q22 26 28 20 Q34 14 40 20" stroke="#b87333" stroke-width="1.5" fill="none"/>
-          <path data-id="256" d="M4 28 Q10 22 16 28 Q22 34 28 28 Q34 22 40 28" stroke="#b87333" stroke-width="1" fill="none" opacity="0.5"/>
-          <path data-id="257" d="M4 12 Q10 6 16 12 Q22 18 28 12 Q34 6 40 12" stroke="#b87333" stroke-width="1" fill="none" opacity="0.5"/>
-        </svg>
-        <h3 data-id="258" style="color:#b87333;letter-spacing:3px;font-size:0.9rem;margin-bottom:0.5rem;">CAMÕES</h3>
-        <p data-id="259" class="small-label" style="color:#8a7d6f;font-size:0.75rem;margin-bottom:1.25rem;font-family:'Inter',sans-serif;">Oceanic Saudade · Epic Longing · Noble Suffering</p>
-        <p data-id="260" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#f0e6d6;font-size:1rem;line-height:1.8;">"Saudade is not about missing someone.<br data-id="261">It is about having loved so fully<br data-id="262">that even the absence<br data-id="263">is beautiful."</p>
-        <div data-id="264" style="width:100%;height:1px;background:rgba(184,115,51,0.2);margin-top:1.5rem;"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Selected Verses -->
-  <section data-id="265" style="max-width:900px;margin:3rem auto;padding:0 1.5rem;">
-    <h2 data-id="266" class="fade-in-section" style="text-align:center;color:#b87333;font-size:1.5rem;letter-spacing:4px;margin-bottom:2.5rem;">Selected Verses</h2>
-
-    <div data-id="267" class="poem-container fade-in-section">
-      <h3 data-id="268" style="color:#d4a574;font-size:1.15rem;margin-bottom:1.5rem;letter-spacing:2px;">When the Soul Speaks</h3>
-      <p data-id="269" class="poem-body">Do not ask if I am whole.
-The wine glass is cracked
-but I still offer what remains.
-
-I am not healed.
-I am not pure.
-I am the temple after the fire
-and you are asking if the flame still dances.
-
-It does.
-But only for those
-who kneel barefoot.
-
-If you wish to love me
-do not come for the incense.
-Come for the ashes.</p>
-      <p data-id="270" style="color:#8a7d6f;font-size:0.8rem;font-style:italic;margin-top:1.5rem;font-family:'Inter',sans-serif;">— Mr. Ex The Last Poet, from Section I: The Reed's Lament</p>
-    </div>
-
-    <div data-id="271" class="poem-container fade-in-section">
-      <h3 data-id="272" style="color:#d4a574;font-size:1.15rem;margin-bottom:1.5rem;letter-spacing:2px;">I Don't Ask Permission</h3>
-      <p data-id="273" class="poem-body">I don't ask permission
-to adore you.
-Love, in its purest form,
-is disobedient.
-
-I didn't rehearse this.
-I didn't plan the trembling
-or the way your name
-rewrites my pulse.
-
-Darling,
-I was not built to wait.
-I am not prayer —
-I am fate.</p>
-      <p data-id="274" style="color:#8a7d6f;font-size:0.8rem;font-style:italic;margin-top:1.5rem;font-family:'Inter',sans-serif;">— Mr. Ex The Last Poet, from Section II: The Body's Scripture</p>
-    </div>
-
-    <div data-id="275" class="poem-container fade-in-section">
-      <h3 data-id="276" style="color:#d4a574;font-size:1.15rem;margin-bottom:1.5rem;letter-spacing:2px;">The Creed of My Blood and Breath</h3>
-      <p data-id="277" class="poem-body">I am no more
-than dust suspended by grace —
-but this dust has teeth.
-
-I do not ask the sky for permission to rise.
-I do not beg the sun for its warmth.
-I stand
-because the One who made me
-did not make me to kneel to anything
-that is not Him.
-
-This is not a poem.
-This is not a performance.
-This is my blood.
-This is my breath.
-And the angels have written it down.</p>
-      <p data-id="278" style="color:#8a7d6f;font-size:0.8rem;font-style:italic;margin-top:1.5rem;font-family:'Inter',sans-serif;">— Mr. Ex The Last Poet, from Section III: The Navigator's Saudade</p>
-    </div>
-  </section>
-
-  <!-- Closing Quote -->
-  <section data-id="279" class="fade-in-section" style="max-width:700px;margin:2rem auto;padding:3rem 2rem;text-align:center;">
-    <p data-id="280" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#b87333;font-size:clamp(1rem,2.5vw,1.25rem);line-height:1.8;">"These poems were born in the collision of three rivers — Persian fire, Arabian ink, and Portuguese sea. They belong to no one woman and every soul that has burned."</p>
-    <p data-id="281" style="color:#d4a574;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:0.95rem;margin-top:1.25rem;">— Mr. Ex The Last Poet</p>
-  </section>
-
-  <div data-id="282" class="fade-in-section" style="text-align:center;padding-bottom:3rem;">
-    <a data-id="283" href="#home" class="back-home-link" style="color:#8a7d6f;font-size:0.8rem;text-decoration:none;font-family:'Inter',sans-serif;">← Back to Home</a>
-  </div>
-</div>
-
-<!-- ============================================================ -->
-<!-- PAGE 4: TECH — ENGR.FM                                        -->
-<!-- ============================================================ -->
-<div data-id="284" id="page-tech" class="page-section page-tech tech-bg">
-
-  <!-- SECTION 1: HERO -->
-  <section data-id="285" class="fade-in-section" style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 2rem 4rem;">
-    <p data-id="286" class="engr-label" style="letter-spacing:6px;color:#3b82f6;margin-bottom:1.5rem;">AURELIUS DIOVAL PRESENTS</p>
-    <h1 data-id="287" style="font-size:clamp(3rem,8vw,5rem);color:#f1f5f9;letter-spacing:2px;font-weight:700;margin-bottom:0.75rem;">ENGR.FM</h1>
-    <p data-id="288" style="font-weight:300;font-size:clamp(1rem,3vw,1.5rem);color:#94a3b8;letter-spacing:4px;text-transform:uppercase;margin-bottom:2rem;">The 150K Engineering Path</p>
-    <div data-id="289" style="width:80px;height:1px;background:#3b82f6;margin:0 auto 2rem;"></div>
-    <p data-id="290" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(1.1rem,2.5vw,1.5rem);color:#f59e0b;max-width:500px;">"We don't talk about tech. We build engineers."</p>
-    <div data-id="291" style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2.5rem;">
-      <a data-id="292" href="#" class="engr-btn-filled" style="background:#3b82f6;color:#ffffff;">Start Episode 1</a>
-      <a data-id="293" href="mailto:support@dioval.com?subject=ENGR.FM%20Learning%20Path" class="engr-btn-outline">Download Learning Path</a>
-    </div>
-    <p data-id="294" style="font-size:0.75rem;color:#475569;margin-top:1.5rem;">Available in English · Portuguese · Spanish</p>
-  </section>
-
-  <!-- SECTION 2: ABOUT THE PODCAST -->
-  <section data-id="295" class="engr-section-border" style="max-width:800px;margin:0 auto;padding:6rem 2rem;">
-    <p data-id="296" class="engr-label fade-in-section" style="color:#3b82f6;">WHAT THIS IS</p>
-    <h2 data-id="297" class="fade-in-section" style="font-size:clamp(1.5rem,4vw,2.2rem);color:#f1f5f9;margin-bottom:2rem;">This is not a podcast. This is a system.</h2>
-    <p data-id="298" class="fade-in-section" style="font-size:1rem;line-height:1.8;color:#cbd5e1;max-width:700px;">ENGR.FM is a structured engineering training program designed to take you from beginner to elite-level professional. Each episode builds on the last. Each season is a complete learning track. If you follow the system, you will not stay average.</p>
-    <p data-id="299" class="fade-in-section" style="font-size:1rem;line-height:1.8;color:#cbd5e1;max-width:700px;margin-top:1.5rem;">Most tech podcasts talk about technology. This one trains engineers in real time. No filler. No interviews about morning routines. Just deep, sequential, production-grade technical education — delivered by someone who builds in production, not in slides.</p>
-    <div data-id="300" class="fade-in-section" style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;margin-top:3rem;">
-      <div data-id="301" style="text-align:center;flex:1;min-width:120px;">
-        <p data-id="302" style="font-family:'Playfair Display',Georgia,serif;font-size:1.875rem;color:#3b82f6;font-weight:700;">5</p>
-        <p data-id="303" style="font-size:0.8rem;color:#94a3b8;margin-top:0.25rem;">Learning Tracks</p>
-      </div>
-      <div data-id="304" style="text-align:center;flex:1;min-width:120px;">
-        <p data-id="305" style="font-family:'Playfair Display',Georgia,serif;font-size:1.875rem;color:#f59e0b;font-weight:700;">150K+</p>
-        <p data-id="306" style="font-size:0.8rem;color:#94a3b8;margin-top:0.25rem;">Target Salary</p>
-      </div>
-      <div data-id="307" style="text-align:center;flex:1;min-width:120px;">
-        <p data-id="308" style="font-family:'Playfair Display',Georgia,serif;font-size:1.875rem;color:#10b981;font-weight:700;">3</p>
-        <p data-id="309" style="font-size:0.8rem;color:#94a3b8;margin-top:0.25rem;">Languages</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 3: LEARNING TRACKS (SEASONS) -->
-  <section data-id="310" class="engr-section-border" style="max-width:1100px;margin:0 auto;padding:6rem 2rem;">
-    <p data-id="311" class="engr-label fade-in-section" style="color:#3b82f6;">CURRICULUM</p>
-    <h2 data-id="312" class="fade-in-section" style="font-size:clamp(1.5rem,4vw,2.2rem);color:#f1f5f9;margin-bottom:1rem;">Five Seasons. One Transformation.</h2>
-    <p data-id="313" class="fade-in-section" style="font-size:1rem;color:#94a3b8;margin-bottom:3rem;">Each season is a complete learning track. Follow them in order.</p>
-
-    <!-- Season 1 -->
-    <div data-id="314" class="season-card fade-in-section" style="border-left-color:#3b82f6;">
-      <div data-id="315" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0.5rem;">
-        <span data-id="316" style="font-size:0.7rem;letter-spacing:3px;color:#3b82f6;text-transform:uppercase;">SEASON 01</span>
-        <span data-id="317" class="engr-pill" style="border-color:#3b82f6;color:#3b82f6;">FOUNDATIONS</span>
-      </div>
-      <h3 data-id="318" style="font-size:1.3rem;color:#f1f5f9;margin:0.8rem 0;">Foundations of Real Engineers</h3>
-      <p data-id="319" style="font-size:0.9rem;color:#94a3b8;line-height:1.7;">Networking fundamentals at an elite level. TCP/IP mastery. Real troubleshooting thinking. This is where fake engineers get exposed and real ones get built.</p>
-    </div>
-
-    <!-- Season 2 -->
-    <div data-id="320" class="season-card fade-in-section" style="border-left-color:#8b5cf6;">
-      <div data-id="321" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0.5rem;">
-        <span data-id="322" style="font-size:0.7rem;letter-spacing:3px;color:#8b5cf6;text-transform:uppercase;">SEASON 02</span>
-        <span data-id="323" class="engr-pill" style="border-color:#8b5cf6;color:#8b5cf6;">INFRASTRUCTURE</span>
-      </div>
-      <h3 data-id="324" style="font-size:1.3rem;color:#f1f5f9;margin:0.8rem 0;">Enterprise Infrastructure</h3>
-      <p data-id="325" style="font-size:0.9rem;color:#94a3b8;line-height:1.7;">Routing and switching at scale. Design thinking — not just configurations. Failure scenarios that separate senior engineers from junior ones. You'll learn to think in systems.</p>
-    </div>
-
-    <!-- Season 3 -->
-    <div data-id="326" class="season-card fade-in-section" style="border-left-color:#ef4444;">
-      <div data-id="327" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0.5rem;">
-        <span data-id="328" style="font-size:0.7rem;letter-spacing:3px;color:#ef4444;text-transform:uppercase;">SEASON 03</span>
-        <span data-id="329" class="engr-pill" style="border-color:#ef4444;color:#ef4444;">SECURITY</span>
-      </div>
-      <h3 data-id="330" style="font-size:1.3rem;color:#f1f5f9;margin:0.8rem 0;">Cybersecurity Domination</h3>
-      <p data-id="331" style="font-size:0.9rem;color:#94a3b8;line-height:1.7;">Threat models. Real-world attack paths. Defensive architecture. This is where you learn to think like an attacker and build like a fortress. No certifications — capabilities.</p>
-    </div>
-
-    <!-- Season 4 -->
-    <div data-id="332" class="season-card fade-in-section" style="border-left-color:#10b981;">
-      <div data-id="333" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0.5rem;">
-        <span data-id="334" style="font-size:0.7rem;letter-spacing:3px;color:#10b981;text-transform:uppercase;">SEASON 04</span>
-        <span data-id="335" class="engr-pill" style="border-color:#10b981;color:#10b981;">CLOUD</span>
-      </div>
-      <h3 data-id="336" style="font-size:1.3rem;color:#f1f5f9;margin:0.8rem 0;">Cloud &amp; Modern Systems</h3>
-      <p data-id="337" style="font-size:0.9rem;color:#94a3b8;line-height:1.7;">Azure. AWS. Hybrid environments. Real enterprise deployments — not sandbox tutorials. You'll architect production-grade cloud infrastructure from scratch.</p>
-    </div>
-
-    <!-- Season 5 -->
-    <div data-id="338" class="season-card fade-in-section" style="border-left-color:#f59e0b;">
-      <div data-id="339" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0.5rem;">
-        <span data-id="340" style="font-size:0.7rem;letter-spacing:3px;color:#f59e0b;text-transform:uppercase;">SEASON 05</span>
-        <span data-id="341" class="engr-pill" style="border-color:#f59e0b;color:#f59e0b;">CAREER</span>
-      </div>
-      <h3 data-id="342" style="font-size:1.3rem;color:#f1f5f9;margin:0.8rem 0;">The $150K Mindset</h3>
-      <p data-id="343" style="font-size:0.9rem;color:#94a3b8;line-height:1.7;">Interviews. Positioning. Salary negotiation. Authority building. Technical skill gets you in the room. This season teaches you how to own it.</p>
-    </div>
-  </section>
-
-  <!-- SECTION 4: HOW TO USE THIS PODCAST -->
-  <section data-id="344" style="max-width:900px;margin:2rem auto 0;padding:0 2rem;">
-    <div data-id="345" class="fade-in-section" style="background:#0f172a;border:1px solid #1e293b;border-radius:1rem;padding:clamp(2rem,4vw,3.5rem);">
-      <p data-id="346" class="engr-label" style="color:#f59e0b;">THE RULES</p>
-      <h2 data-id="347" style="font-size:clamp(1.3rem,3vw,1.8rem);color:#f1f5f9;margin-bottom:2rem;">How to Use This Podcast</h2>
-      <div data-id="348" class="rules-grid">
-        <div data-id="349">
-          <p data-id="350" style="font-family:'Playfair Display',Georgia,serif;font-size:1.5rem;color:#3b82f6;margin-bottom:0.5rem;">01</p>
-          <h4 data-id="351" style="font-family:'Inter',sans-serif;color:#f1f5f9;font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Do Not Skip Episodes</h4>
-          <p data-id="352" style="color:#94a3b8;font-size:0.85rem;line-height:1.6;">This is sequential. Episode 12 assumes you mastered Episode 11. Skip ahead and you'll build on sand.</p>
+            <div class="text-center fade-in">
+                <p class="font-display italic text-bronze/70 text-lg max-w-xl mx-auto">"Three fires. One voice. No ashes."</p>
+            </div>
         </div>
-        <div data-id="353">
-          <p data-id="354" style="font-family:'Playfair Display',Georgia,serif;font-size:1.5rem;color:#3b82f6;margin-bottom:0.5rem;">02</p>
-          <h4 data-id="355" style="font-family:'Inter',sans-serif;color:#f1f5f9;font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Take Notes</h4>
-          <p data-id="356" style="color:#94a3b8;font-size:0.85rem;line-height:1.6;">Write it down. Draw diagrams. If you're just listening while driving, you're wasting your time.</p>
+    </section>
+
+    <!-- ======================= SECTION 5: TECH ======================= -->
+    <section id="tech" class="py-20 md:py-28 bg-bg">
+        <div class="max-w-6xl mx-auto px-4 md:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title text-txt-primary">ENGR.FM</h2>
+                <p class="text-cyber text-sm tracking-widest mt-3">THE 150K ENGINEERING PATH</p>
+                <div class="w-24 h-[3px] bg-cyber mx-auto mt-4"></div>
+            </div>
+
+            <div class="max-w-3xl mx-auto text-center mb-14 fade-in">
+                <p class="text-txt-secondary leading-relaxed md:text-lg">A complete, structured engineering curriculum designed to take you from zero to a $150K+ career in network engineering, cybersecurity, and cloud infrastructure. Five seasons. One transformation.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-14">
+                <div class="bg-bg-card rounded-xl p-5 border-t-3 border border-bg-surface fade-in" style="border-top:3px solid #3b82f6;">
+                    <div class="text-cyber text-xs font-bold tracking-widest mb-2">SEASON 1</div>
+                    <h4 class="font-display text-base font-semibold mb-2">Foundations</h4>
+                    <p class="text-txt-muted text-xs leading-relaxed">Networking fundamentals, TCP/IP, OSI model, Linux/Windows basics, lab environment setup.</p>
+                </div>
+                <div class="bg-bg-card rounded-xl p-5 border border-bg-surface fade-in" style="border-top:3px solid #3b82f6;">
+                    <div class="text-cyber text-xs font-bold tracking-widest mb-2">SEASON 2</div>
+                    <h4 class="font-display text-base font-semibold mb-2">Infrastructure</h4>
+                    <p class="text-txt-muted text-xs leading-relaxed">Routing, switching, VLANs, segmentation, enterprise network design, GNS3/EVE-NG labs.</p>
+                </div>
+                <div class="bg-bg-card rounded-xl p-5 border border-bg-surface fade-in" style="border-top:3px solid #3b82f6;">
+                    <div class="text-cyber text-xs font-bold tracking-widest mb-2">SEASON 3</div>
+                    <h4 class="font-display text-base font-semibold mb-2">Security</h4>
+                    <p class="text-txt-muted text-xs leading-relaxed">SOC operations, threat detection, SIEM/EDR, incident response, offensive fundamentals.</p>
+                </div>
+                <div class="bg-bg-card rounded-xl p-5 border border-bg-surface fade-in" style="border-top:3px solid #3b82f6;">
+                    <div class="text-cyber text-xs font-bold tracking-widest mb-2">SEASON 4</div>
+                    <h4 class="font-display text-base font-semibold mb-2">Cloud</h4>
+                    <p class="text-txt-muted text-xs leading-relaxed">AWS, Azure, GCP fundamentals, cloud security, containers, Kubernetes, CI/CD pipelines.</p>
+                </div>
+                <div class="bg-bg-card rounded-xl p-5 border border-bg-surface fade-in" style="border-top:3px solid #3b82f6;">
+                    <div class="text-cyber text-xs font-bold tracking-widest mb-2">SEASON 5</div>
+                    <h4 class="font-display text-base font-semibold mb-2">Career</h4>
+                    <p class="text-txt-muted text-xs leading-relaxed">Resume engineering, interview prep, salary negotiation, personal brand, career architecture.</p>
+                </div>
+            </div>
+
+            <div class="bg-bg-card rounded-2xl border border-cyber/20 p-6 md:p-8 text-center fade-in">
+                <div class="flex items-center justify-center gap-3 mb-3">
+                    <i data-lucide="link" class="w-5 h-5 text-cyber"></i>
+                    <h4 class="font-display text-lg font-semibold">The Connection</h4>
+                </div>
+                <p class="text-txt-secondary text-sm max-w-2xl mx-auto"><span class="text-cyber font-semibold">ENGR.FM</span> is the learning pipeline. <span class="text-cco font-semibold">CCO Certifications</span> are the proof. One builds you. The other validates you.</p>
+            </div>
         </div>
-        <div data-id="357">
-          <p data-id="358" style="font-family:'Playfair Display',Georgia,serif;font-size:1.5rem;color:#3b82f6;margin-bottom:0.5rem;">03</p>
-          <h4 data-id="359" style="font-family:'Inter',sans-serif;color:#f1f5f9;font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Complete the Assignments</h4>
-          <p data-id="360" style="color:#94a3b8;font-size:0.85rem;line-height:1.6;">Every episode ends with real work. Configure it. Break it. Fix it. That's where learning lives.</p>
+    </section>
+
+    <!-- ======================= SECTION 6: CCO CERTIFICATIONS ======================= -->
+    <section id="cco" class="py-20 md:py-28 bg-bg-elevated">
+        <div class="max-w-6xl mx-auto px-4 md:px-8">
+            <!-- Header -->
+            <div class="text-center mb-8 fade-in">
+                <p class="text-cco text-xs tracking-[0.4em] font-semibold mb-3">POWERED BY CYBEROPS</p>
+                <h2 class="section-title text-txt-primary">CCO CERTIFICATIONS</h2>
+                <div class="w-24 h-[3px] bg-cco mx-auto mt-4 mb-6"></div>
+                <p class="font-display text-xl md:text-2xl text-cco/90 mb-4">Certified Cyber Operator</p>
+                <p class="text-txt-secondary text-sm md:text-base max-w-3xl mx-auto leading-relaxed">Your books are not content. They are a complete cyber warfare doctrine. CCO is the system that turns readers into operators.</p>
+            </div>
+
+            <!-- CyberOps Doctrine Connection -->
+            <div class="bg-bg-card rounded-2xl border border-cco/20 p-6 md:p-8 mb-12 fade-in">
+                <div class="text-center mb-6">
+                    <h3 class="font-display text-lg md:text-xl font-semibold mb-2">CyberOps Doctrine Connection</h3>
+                    <p class="text-txt-secondary text-sm">This is where everything clicks - and where the CCO system becomes unmatched.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-bg-surface rounded-xl p-5 text-center border border-bg-surface hover:border-gold/30 transition-all">
+                        <div class="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="book-open" class="w-5 h-5 text-gold"></i>
+                        </div>
+                        <h4 class="font-semibold text-sm mb-1">Book 1 - The Foundation</h4>
+                        <p class="text-txt-muted text-xs">How systems are built, secured, and defended. The architecture of protection.</p>
+                    </div>
+                    <div class="bg-bg-surface rounded-xl p-5 text-center border border-bg-surface hover:border-crimson/30 transition-all">
+                        <div class="w-10 h-10 rounded-lg bg-crimson/10 flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="swords" class="w-5 h-5 text-crimson"></i>
+                        </div>
+                        <h4 class="font-semibold text-sm mb-1">Book 2 - The Arsenal</h4>
+                        <p class="text-txt-muted text-xs">How systems get attacked. Offensive tradecraft, exploitation, and breach methodology.</p>
+                    </div>
+                    <div class="bg-bg-surface rounded-xl p-5 text-center border border-bg-surface hover:border-cyber/30 transition-all">
+                        <div class="w-10 h-10 rounded-lg bg-cyber/10 flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="shield" class="w-5 h-5 text-cyber"></i>
+                        </div>
+                        <h4 class="font-semibold text-sm mb-1">Book 3 - The Bastion</h4>
+                        <p class="text-txt-muted text-xs">How systems are monitored, defended, and recovered. Detection and response doctrine.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alignment Table -->
+            <div class="overflow-x-auto mb-12 fade-in">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="border-b border-bg-surface">
+                            <th class="text-left py-3 px-4 text-cco font-semibold tracking-wider text-xs uppercase">CCO Level</th>
+                            <th class="text-left py-3 px-4 text-txt-secondary font-semibold tracking-wider text-xs uppercase">Book Alignment</th>
+                            <th class="text-left py-3 px-4 text-txt-secondary font-semibold tracking-wider text-xs uppercase">Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-bg-surface/50">
+                            <td class="py-3 px-4 font-semibold text-gold">CCO-1</td>
+                            <td class="py-3 px-4 text-txt-secondary">Book 1 + Parts of Book 2</td>
+                            <td class="py-3 px-4"><span class="bg-gold/10 text-gold text-xs px-2 py-1 rounded">Builder</span></td>
+                        </tr>
+                        <tr class="border-b border-bg-surface/50">
+                            <td class="py-3 px-4 font-semibold text-cyber">CCO-2</td>
+                            <td class="py-3 px-4 text-txt-secondary">Book 3 + Detection Ops</td>
+                            <td class="py-3 px-4"><span class="bg-cyber/10 text-cyber text-xs px-2 py-1 rounded">Defender</span></td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 font-semibold text-crimson">CCO-3</td>
+                            <td class="py-3 px-4 text-txt-secondary">Book 2 (Advanced) + All</td>
+                            <td class="py-3 px-4"><span class="bg-crimson/10 text-crimson text-xs px-2 py-1 rounded">Strategist</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ====== CCO-1 ====== -->
+            <div class="cco-level-card mb-10 fade-in">
+                <div class="cco-level-header" style="border-top:3px solid #c9a84c; background:linear-gradient(135deg, rgba(201,168,76,0.05), transparent);">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center">
+                            <i data-lucide="award" class="w-5 h-5 text-gold"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-xl md:text-2xl font-bold text-gold">CCO-1: CYBER FOUNDATIONS OPERATOR</h3>
+                        </div>
+                    </div>
+                    <p class="text-txt-secondary text-sm mt-3">You learn how systems actually work.</p>
+                    <p class="text-txt-muted text-xs mt-1"><strong class="text-txt-secondary">What You're Building:</strong> A person who understands infrastructure, not just tools.</p>
+                </div>
+                <div class="cco-level-body">
+                    <h4 class="text-xs tracking-widest text-gold font-semibold mb-4 uppercase">Core Learning</h4>
+                    <div class="space-y-3 mb-8">
+                        <div class="bg-bg-surface rounded-lg p-4">
+                            <h5 class="font-semibold text-sm mb-1">1. Foundations of Cyber Operations</h5>
+                            <p class="text-txt-muted text-xs">Threat landscape, SOC basics, CIA triad, Risk thinking</p>
+                        </div>
+                        <div class="bg-bg-surface rounded-lg p-4">
+                            <h5 class="font-semibold text-sm mb-1">2. Networking & Systems Reality</h5>
+                            <p class="text-txt-muted text-xs">TCP/IP deep dive, OSI applied to attacks, DNS as attack surface, Linux + Windows fundamentals</p>
+                        </div>
+                        <div class="bg-bg-surface rounded-lg p-4">
+                            <h5 class="font-semibold text-sm mb-1">3. Intro to Recon & Attack Thinking <span class="text-crimson text-[10px] ml-1">(From The Arsenal)</span></h5>
+                            <p class="text-txt-muted text-xs">Passive recon, DNS enumeration, OSINT fundamentals</p>
+                        </div>
+                    </div>
+
+                    <h4 class="text-xs tracking-widest text-gold font-semibold mb-4 uppercase">Process</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                        <div class="phase-card">
+                            <div class="text-gold text-xs font-bold mb-2">PHASE 1</div>
+                            <h5 class="font-semibold text-sm mb-1">Understanding Systems</h5>
+                            <p class="text-txt-muted text-xs">Learn how infrastructure works at every layer.</p>
+                        </div>
+                        <div class="phase-card">
+                            <div class="text-gold text-xs font-bold mb-2">PHASE 2</div>
+                            <h5 class="font-semibold text-sm mb-1">Build Lab</h5>
+                            <p class="text-txt-muted text-xs">Deploy real systems in a controlled environment.</p>
+                        </div>
+                        <div class="phase-card">
+                            <div class="text-gold text-xs font-bold mb-2">PHASE 3</div>
+                            <h5 class="font-semibold text-sm mb-1">Break & Fix</h5>
+                            <p class="text-txt-muted text-xs">Intentionally break systems. Learn to recover them.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-bg-surface rounded-lg p-5 mb-4">
+                        <h4 class="text-xs tracking-widest text-gold font-semibold mb-2 uppercase">Exam</h4>
+                        <p class="text-txt-secondary text-sm">Fix a broken network · Identify exposed services · Explain packet flow end-to-end</p>
+                    </div>
+                    <div class="bg-gold/5 border border-gold/20 rounded-lg p-4">
+                        <p class="text-gold text-sm font-medium"><i data-lucide="check-circle" class="w-4 h-4 inline mr-1"></i> Output: "You are no longer confused by infrastructure."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== CCO-2 ====== -->
+            <div class="cco-level-card mb-10 fade-in">
+                <div class="cco-level-header" style="border-top:3px solid #3b82f6; background:linear-gradient(135deg, rgba(59,130,246,0.05), transparent);">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-10 h-10 rounded-lg bg-cyber/10 flex items-center justify-center">
+                            <i data-lucide="shield-check" class="w-5 h-5 text-cyber"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-xl md:text-2xl font-bold text-cyber">CCO-2: CYBER DEFENSE OPERATOR</h3>
+                        </div>
+                    </div>
+                    <p class="text-txt-secondary text-sm mt-3">You learn how systems get attacked - and how to stop it.</p>
+                    <p class="text-txt-muted text-xs mt-1"><strong class="text-txt-secondary">What You're Building:</strong> Someone who can detect and respond to real threats.</p>
+                </div>
+                <div class="cco-level-body">
+                    <h4 class="text-xs tracking-widest text-cyber font-semibold mb-4 uppercase">Core Learning</h4>
+                    <div class="space-y-3 mb-8">
+                        <div class="bg-bg-surface rounded-lg p-4">
+                            <h5 class="font-semibold text-sm mb-1">1. SOC & Detection Engineering</h5>
+                            <p class="text-txt-muted text-xs">SIEM architecture, EDR deployment, Threat detection rules, SOC architecture and triage</p>
+                        </div>
+                        <div class="bg-bg-surface rounded-lg p-4">
+                            <h5 class="font-semibold text-sm mb-1">2. Malware & Threat Analysis</h5>
+                            <p class="text-txt-muted text-xs">Malware behavior analysis, Static + dynamic analysis, Ransomware mechanics and response</p>
+                        </div>
+                        <div class="bg-bg-surface rounded-lg p-4">
+                            <h5 class="font-semibold text-sm mb-1">3. Attack Techniques <span class="text-crimson text-[10px] ml-1">(From The Arsenal)</span></h5>
+                            <p class="text-txt-muted text-xs">Initial access vectors, Lateral movement patterns, Persistence mechanisms, Defense evasion tactics</p>
+                        </div>
+                        <div class="bg-bg-surface rounded-lg p-4">
+                            <h5 class="font-semibold text-sm mb-1">4. Real Attack Lifecycle</h5>
+                            <p class="text-txt-muted text-xs">Recon > Access > Exploit > Move > Persist > Exfiltrate - the complete kill chain</p>
+                        </div>
+                    </div>
+
+                    <h4 class="text-xs tracking-widest text-cyber font-semibold mb-4 uppercase">Process</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                        <div class="phase-card">
+                            <div class="text-cyber text-xs font-bold mb-2">PHASE 1</div>
+                            <h5 class="font-semibold text-sm mb-1">Detection</h5>
+                            <p class="text-txt-muted text-xs">Learn to see what attackers try to hide.</p>
+                        </div>
+                        <div class="phase-card">
+                            <div class="text-cyber text-xs font-bold mb-2">PHASE 2</div>
+                            <h5 class="font-semibold text-sm mb-1">Investigation</h5>
+                            <p class="text-txt-muted text-xs">Analyze evidence, timeline events, trace the attacker.</p>
+                        </div>
+                        <div class="phase-card">
+                            <div class="text-cyber text-xs font-bold mb-2">PHASE 3</div>
+                            <h5 class="font-semibold text-sm mb-1">Response</h5>
+                            <p class="text-txt-muted text-xs">Contain, eradicate, recover. Write the report.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-bg-surface rounded-lg p-5 mb-4">
+                        <h4 class="text-xs tracking-widest text-cyber font-semibold mb-2 uppercase">Exam</h4>
+                        <p class="text-txt-secondary text-sm">Live breach simulation - receive logs, detect the attack, respond in real-time, write a complete incident report.</p>
+                    </div>
+                    <div class="bg-cyber/5 border border-cyber/20 rounded-lg p-4">
+                        <p class="text-cyber text-sm font-medium"><i data-lucide="check-circle" class="w-4 h-4 inline mr-1"></i> Output: "You can protect real systems under pressure."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== CCO-3 ====== -->
+            <div class="cco-level-card mb-12 fade-in">
+                <div class="cco-level-header" style="border-top:3px solid #c9a84c; background:linear-gradient(135deg, rgba(201,168,76,0.08), transparent);">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-10 h-10 rounded-lg bg-gold/15 flex items-center justify-center">
+                            <i data-lucide="trophy" class="w-5 h-5 text-gold"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-xl md:text-2xl font-bold text-gold">CCO-3: CYBER WARFARE ARCHITECT</h3>
+                        </div>
+                    </div>
+                    <p class="text-txt-secondary text-sm mt-3">You think like the attacker - and design like the defender.</p>
+                    <p class="text-txt-muted text-xs mt-1"><strong class="text-txt-secondary">What You're Building:</strong> Strategic operators who understand the entire battlefield.</p>
+                </div>
+                <div class="cco-level-body">
+                    <h4 class="text-xs tracking-widest text-gold font-semibold mb-4 uppercase">Core Learning</h4>
+                    <div class="space-y-3 mb-8">
+                        <div class="bg-bg-surface rounded-lg p-4">
+                            <h5 class="font-semibold text-sm mb-1">1. Full Offensive Tradecraft</h5>
+                            <p class="text-txt-muted text-xs">Recon, Exploitation, Post-exploitation, Lateral movement, C2 infrastructure, Defense evasion</p>
+                        </div>
+                        <div class="bg-bg-surface rounded-lg p-4">
+                            <h5 class="font-semibold text-sm mb-1">2. Identity-Based Attacks <span class="bg-crimson text-white text-[9px] px-1.5 py-0.5 rounded ml-2 font-bold">CRITICAL</span></h5>
+                            <p class="text-txt-primary text-xs italic mb-1">"Identity is the new perimeter."</p>
+                            <p class="text-txt-muted text-xs">Token abuse, OAuth attack chains, Cloud identity compromise, Azure AD exploitation</p>
+                        </div>
+                        <div class="bg-bg-surface rounded-lg p-4">
+                            <h5 class="font-semibold text-sm mb-1">3. Cloud & Modern Attack Surface</h5>
+                            <p class="text-txt-muted text-xs">AWS/Azure attacks, CI/CD pipeline exploitation, Kubernetes compromise, Serverless attacks</p>
+                        </div>
+                        <div class="bg-bg-surface rounded-lg p-4">
+                            <h5 class="font-semibold text-sm mb-1">4. Red Team Methodology</h5>
+                            <p class="text-txt-muted text-xs">Adversary emulation, MITRE ATT&CK mapping, Engagement planning, Deconfliction</p>
+                        </div>
+                    </div>
+
+                    <h4 class="text-xs tracking-widest text-gold font-semibold mb-4 uppercase">Process</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                        <div class="phase-card">
+                            <div class="text-gold text-xs font-bold mb-2">PHASE 1</div>
+                            <h5 class="font-semibold text-sm mb-1">Break</h5>
+                            <p class="text-txt-muted text-xs">Compromise target systems.</p>
+                        </div>
+                        <div class="phase-card">
+                            <div class="text-gold text-xs font-bold mb-2">PHASE 2</div>
+                            <h5 class="font-semibold text-sm mb-1">Move</h5>
+                            <p class="text-txt-muted text-xs">Lateral movement and pivoting.</p>
+                        </div>
+                        <div class="phase-card">
+                            <div class="text-gold text-xs font-bold mb-2">PHASE 3</div>
+                            <h5 class="font-semibold text-sm mb-1">Control</h5>
+                            <p class="text-txt-muted text-xs">Establish persistence and C2.</p>
+                        </div>
+                        <div class="phase-card">
+                            <div class="text-gold text-xs font-bold mb-2">PHASE 4</div>
+                            <h5 class="font-semibold text-sm mb-1">Rebuild</h5>
+                            <p class="text-txt-muted text-xs">Design the defense that stops you.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-bg-surface rounded-lg p-5 mb-4">
+                        <h4 class="text-xs tracking-widest text-gold font-semibold mb-2 uppercase">Exam - Full Operation</h4>
+                        <p class="text-txt-secondary text-sm mb-2">Attack it · Compromise it · Defend it · Redesign it</p>
+                        <p class="text-txt-muted text-xs">+ BOARD DEFENSE - Present findings as CISO / Architect / Red Team Lead</p>
+                    </div>
+                    <div class="bg-gold/5 border border-gold/20 rounded-lg p-4">
+                        <p class="text-gold text-sm font-medium"><i data-lucide="check-circle" class="w-4 h-4 inline mr-1"></i> Output: "You control systems. You don't just work in them."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CCO Pipeline -->
+            <div class="bg-bg-card rounded-2xl border border-cco/20 p-6 md:p-8 mb-12 fade-in">
+                <h4 class="font-display text-lg font-semibold text-center mb-6">CCO Pipeline</h4>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-6">
+                    <div class="pipeline-step bg-bg-surface rounded-lg px-5 py-3 text-center">
+                        <div class="text-cyber text-xs font-bold mb-1">LEARN</div>
+                        <div class="text-txt-muted text-xs">ENGR.FM</div>
+                    </div>
+                    <div class="hidden md:block text-gold text-xl font-bold">></div>
+                    <div class="md:hidden text-gold text-xl font-bold">v</div>
+                    <div class="pipeline-step bg-bg-surface rounded-lg px-5 py-3 text-center">
+                        <div class="text-gold text-xs font-bold mb-1">BUILD</div>
+                        <div class="text-txt-muted text-xs">Labs</div>
+                    </div>
+                    <div class="hidden md:block text-gold text-xl font-bold">></div>
+                    <div class="md:hidden text-gold text-xl font-bold">v</div>
+                    <div class="pipeline-step bg-bg-surface rounded-lg px-5 py-3 text-center">
+                        <div class="text-bronze text-xs font-bold mb-1">APPLY</div>
+                        <div class="text-txt-muted text-xs">Scenarios</div>
+                    </div>
+                    <div class="hidden md:block text-gold text-xl font-bold">></div>
+                    <div class="md:hidden text-gold text-xl font-bold">v</div>
+                    <div class="pipeline-step bg-bg-surface rounded-lg px-5 py-3 text-center">
+                        <div class="text-cco text-xs font-bold mb-1">CERTIFY</div>
+                        <div class="text-txt-muted text-xs">CCO-1 to 3</div>
+                    </div>
+                    <div class="hidden md:block text-gold text-xl font-bold">></div>
+                    <div class="md:hidden text-gold text-xl font-bold">v</div>
+                    <div class="pipeline-step bg-bg-surface rounded-lg px-5 py-3 text-center">
+                        <div class="text-crimson text-xs font-bold mb-1">DEPLOY</div>
+                        <div class="text-txt-muted text-xs">Real Job</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why CCO Destroys Other Certs -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 fade-in">
+                <div class="bg-bg-card rounded-2xl p-6 border border-bg-surface">
+                    <h4 class="text-txt-muted text-xs tracking-widest font-semibold mb-4 uppercase">Most Certifications</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3"><i data-lucide="x" class="w-4 h-4 text-crimson flex-shrink-0"></i><span class="text-txt-secondary text-sm">Teach tools</span></div>
+                        <div class="flex items-center gap-3"><i data-lucide="x" class="w-4 h-4 text-crimson flex-shrink-0"></i><span class="text-txt-secondary text-sm">Test memory</span></div>
+                        <div class="flex items-center gap-3"><i data-lucide="x" class="w-4 h-4 text-crimson flex-shrink-0"></i><span class="text-txt-secondary text-sm">Multiple choice</span></div>
+                        <div class="flex items-center gap-3"><i data-lucide="x" class="w-4 h-4 text-crimson flex-shrink-0"></i><span class="text-txt-secondary text-sm">Expire in 3 years</span></div>
+                    </div>
+                </div>
+                <div class="bg-bg-card rounded-2xl p-6 border border-cco/30">
+                    <h4 class="text-cco text-xs tracking-widest font-semibold mb-4 uppercase">CCO Certifications</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-cco flex-shrink-0"></i><span class="text-txt-primary text-sm font-medium">Teaches thinking</span></div>
+                        <div class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-cco flex-shrink-0"></i><span class="text-txt-primary text-sm font-medium">Tests execution</span></div>
+                        <div class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-cco flex-shrink-0"></i><span class="text-txt-primary text-sm font-medium">Hands-on operations</span></div>
+                        <div class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-cco flex-shrink-0"></i><span class="text-txt-primary text-sm font-medium">Doctrine-based mastery</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center fade-in">
+                <p class="font-display text-xl md:text-2xl font-semibold mb-5">Ready to become a Certified Cyber Operator?</p>
+                <a href="#labs" class="inline-flex items-center gap-2 bg-cco hover:bg-cco/80 text-bg font-semibold px-8 py-3 rounded-lg transition-all text-sm tracking-wider">
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i> START YOUR PATH
+                </a>
+            </div>
         </div>
-        <div data-id="361">
-          <p data-id="362" style="font-family:'Playfair Display',Georgia,serif;font-size:1.5rem;color:#3b82f6;margin-bottom:0.5rem;">04</p>
-          <h4 data-id="363" style="font-family:'Inter',sans-serif;color:#f1f5f9;font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Build Alongside the Lessons</h4>
-          <p data-id="364" style="color:#94a3b8;font-size:0.85rem;line-height:1.6;">Set up a lab. Get your hands dirty. Passive listeners don't get hired.</p>
+    </section>
+
+    <!-- ======================= SECTION 7: LABS ======================= -->
+    <section id="labs" class="py-20 md:py-28 bg-bg">
+        <div class="max-w-6xl mx-auto px-4 md:px-8">
+            <!-- Header -->
+            <div class="text-center mb-6 fade-in">
+                <p class="text-labpurple text-xs tracking-[0.4em] font-semibold mb-3">HANDS-ON OPERATIONS</p>
+                <h2 class="section-title text-txt-primary">CCO LAB ENVIRONMENTS</h2>
+                <div class="w-24 h-[3px] bg-labpurple mx-auto mt-4 mb-6"></div>
+                <p class="text-txt-secondary md:text-lg mb-2">Every Lab. Every Chapter. From The Foundation to The Arsenal.</p>
+                <p class="text-labpurple font-semibold">34 hands-on labs built directly from the CyberOps doctrine.</p>
+            </div>
+
+            <!-- Lab Architecture Overview -->
+            <div class="bg-bg-card rounded-2xl border border-labpurple/30 p-6 md:p-8 mb-12 fade-in">
+                <h3 class="font-display text-lg font-semibold mb-5 flex items-center gap-2">
+                    <i data-lucide="server" class="w-5 h-5 text-labpurple"></i> Master Lab Stack
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">VirtualBox / VMware</span>
+                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">Kali Linux</span>
+                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">Ubuntu Server 22.04</span>
+                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">Windows Server 2022</span>
+                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">GNS3 / EVE-NG</span>
+                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">Wazuh SIEM</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">Velociraptor EDR</span>
+                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">pfSense</span>
+                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">AWS Free Tier</span>
+                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">Docker + Kubernetes</span>
+                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">Sliver C2</span>
+                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">OpenVAS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3 text-xs">
+                    <span class="bg-labpurple/10 text-labpurple rounded-lg px-4 py-2"><strong>Minimum:</strong> 16GB RAM, 256GB SSD</span>
+                    <span class="bg-labpurple/10 text-labpurple rounded-lg px-4 py-2"><strong>Recommended:</strong> 32GB RAM, 512GB SSD</span>
+                </div>
+            </div>
+
+            <!-- ====== CCO-1 LABS ====== -->
+            <div class="mb-14 fade-in">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-8 h-8 rounded bg-gold/10 flex items-center justify-center"><i data-lucide="award" class="w-4 h-4 text-gold"></i></div>
+                    <h3 class="font-display text-xl font-bold text-gold">CCO-1 LABS</h3>
+                    <span class="text-txt-muted text-xs">11 Labs</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="lab-card" style="border-left-color:#c9a84c;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-gold text-xs font-bold">Lab 1.1</span><span class="text-txt-muted text-[10px]">Book 1, Ch1</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Threat Modeling Workshop</h5>
+                        <p class="text-txt-muted text-xs mb-2">Build DFDs, apply STRIDE/PASTA methodologies, construct attack trees</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">TMT</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">draw.io</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#c9a84c;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-gold text-xs font-bold">Lab 1.2</span><span class="text-txt-muted text-[10px]">Book 1, Ch4</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Protocol Internals & Traffic Analysis</h5>
+                        <p class="text-txt-muted text-xs mb-2">Dissect traffic at every OSI layer, protocol deep-dive</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Wireshark</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">tcpdump</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Scapy</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#c9a84c;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-gold text-xs font-bold">Lab 1.3</span><span class="text-txt-muted text-[10px]">Book 1, Ch5</span></div>
+                        <h5 class="font-semibold text-sm mb-1">TLS & PKI Architecture</h5>
+                        <p class="text-txt-muted text-xs mb-2">Private CA, mutual TLS, TLS 1.3 handshake analysis</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">OpenSSL</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">step-ca</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#c9a84c;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-gold text-xs font-bold">Lab 1.4</span><span class="text-txt-muted text-[10px]">Book 1, Ch6</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Network Segmentation</h5>
+                        <p class="text-txt-muted text-xs mb-2">VLANs, VLAN hopping attacks, microsegmentation design</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">GNS3</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">pfSense</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#c9a84c;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-gold text-xs font-bold">Lab 1.5</span><span class="text-txt-muted text-[10px]">Book 1, Ch7</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Zero Trust Architecture</h5>
+                        <p class="text-txt-muted text-xs mb-2">PDP/PEP model implementation, CISA ZT maturity assessment</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">OPA</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Envoy</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#c9a84c;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-gold text-xs font-bold">Lab 1.6</span><span class="text-txt-muted text-[10px]">Book 1, Ch9</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Windows Security Internals</h5>
+                        <p class="text-txt-muted text-xs mb-2">Kernel, SRM, LSASS, WDAC, VBS, ETW tracing</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">WinServer</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Sysmon</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#c9a84c;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-gold text-xs font-bold">Lab 1.7</span><span class="text-txt-muted text-[10px]">Book 1, Ch10</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Linux Security Architecture</h5>
+                        <p class="text-txt-muted text-xs mb-2">SELinux, AppArmor, seccomp-BPF, eBPF observability</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Ubuntu</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">bpftrace</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Falco</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#c9a84c;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-gold text-xs font-bold">Lab 1.8</span><span class="text-txt-muted text-[10px]">Book 1, Ch15</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Identity Architecture</h5>
+                        <p class="text-txt-muted text-xs mb-2">AD, Entra ID hybrid join, OAuth/OIDC flows</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">AD DS</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Azure</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Keycloak</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#c9a84c;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-gold text-xs font-bold">Lab 1.9</span><span class="text-txt-muted text-[10px]">Book 1, Ch18</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Cloud Security Foundations</h5>
+                        <p class="text-txt-muted text-xs mb-2">AWS IAM, VPC, CloudTrail, CSPM baseline</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">AWS/Azure Free</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Prowler</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#c9a84c;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-gold text-xs font-bold">Lab 1.10</span><span class="text-txt-muted text-[10px]">Book 2, Ch1</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Passive Recon & OSINT</h5>
+                        <p class="text-txt-muted text-xs mb-2">DNS recon, certificate transparency, Google dorking</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Kali</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">theHarvester</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Shodan</span></div>
+                    </div>
+                    <div class="lab-card md:col-span-2" style="border-left-color:#c9a84c; background:linear-gradient(135deg, #1a1a1a, rgba(201,168,76,0.05));">
+                        <div class="flex items-center justify-between mb-1"><span class="text-gold text-xs font-bold">Lab 1.11 - CAPSTONE</span><span class="text-txt-muted text-[10px]">Books 1+2</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Architecture Review</h5>
+                        <p class="text-txt-muted text-xs mb-2">Fix 5 critical failures in a pre-built enterprise environment</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">5 VMs</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">3 hours</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== CCO-2 LABS ====== -->
+            <div class="mb-14 fade-in">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-8 h-8 rounded bg-cco/10 flex items-center justify-center"><i data-lucide="shield-check" class="w-4 h-4 text-cco"></i></div>
+                    <h3 class="font-display text-xl font-bold text-cco">CCO-2 LABS</h3>
+                    <span class="text-txt-muted text-xs">11 Labs</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="lab-card" style="border-left-color:#10b981;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-cco text-xs font-bold">Lab 2.1</span><span class="text-txt-muted text-[10px]">Book 2, Ch2</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Active Recon Detection</h5>
+                        <p class="text-txt-muted text-xs mb-2">Detect Nmap, Masscan, enumeration in SIEM</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Wazuh</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Suricata</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Zeek</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#10b981;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-cco text-xs font-bold">Lab 2.2</span><span class="text-txt-muted text-[10px]">Book 2, Ch3 + Book 1, Ch25</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Social Engineering Defense</h5>
+                        <p class="text-txt-muted text-xs mb-2">Phishing analysis, SPF/DKIM/DMARC validation</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">GoPhish</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Wazuh</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#10b981;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-cco text-xs font-bold">Lab 2.3</span><span class="text-txt-muted text-[10px]">Book 2, Ch5 + Book 1, Ch22</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Web Attack Detection</h5>
+                        <p class="text-txt-muted text-xs mb-2">Detect SQLi/XSS/SSRF, WAF + SIEM correlation</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">ModSecurity</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">DVWA</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">ELK</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#10b981;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-cco text-xs font-bold">Lab 2.4</span><span class="text-txt-muted text-[10px]">Book 2, Ch7</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Windows Post-Exploitation Detection</h5>
+                        <p class="text-txt-muted text-xs mb-2">Detect Mimikatz, Kerberos attacks, LOLBins abuse</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Velociraptor</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Sysmon</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Sigma</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#10b981;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-cco text-xs font-bold">Lab 2.5</span><span class="text-txt-muted text-[10px]">Book 2, Ch9</span></div>
+                        <h5 class="font-semibold text-sm mb-1">AD Attack Detection</h5>
+                        <p class="text-txt-muted text-xs mb-2">Detect ACL abuse, GPO attacks, ADCS exploitation</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">BloodHound</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Purple Knight</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#10b981;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-cco text-xs font-bold">Lab 2.6</span><span class="text-txt-muted text-[10px]">Book 2, Ch10+12</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Lateral Movement & C2 Detection</h5>
+                        <p class="text-txt-muted text-xs mb-2">Detect PtH/PtT, C2 beacons, DNS tunneling</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Zeek</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">RITA</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">JA3/JA4</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#10b981;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-cco text-xs font-bold">Lab 2.7</span><span class="text-txt-muted text-[10px]">Book 2, Ch21-23</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Malware Analysis</h5>
+                        <p class="text-txt-muted text-xs mb-2">Static/dynamic analysis, YARA rules, ATT&CK mapping</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">REMnux</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Ghidra</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">YARA</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#10b981;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-cco text-xs font-bold">Lab 2.8</span><span class="text-txt-muted text-[10px]">Book 2, Ch14-16</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Cloud Attack Detection</h5>
+                        <p class="text-txt-muted text-xs mb-2">Detect IAM exploit, S3 exfil, metadata abuse</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">CloudTrail</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Sentinel</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Prowler</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#10b981;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-cco text-xs font-bold">Lab 2.9</span><span class="text-txt-muted text-[10px]">Book 2, Ch19-20</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Container & K8s Detection</h5>
+                        <p class="text-txt-muted text-xs mb-2">Detect container escape, K8s RBAC abuse</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Falco</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Tetragon</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Trivy</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#10b981;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-cco text-xs font-bold">Lab 2.10</span><span class="text-txt-muted text-[10px]">Book 2, Ch13</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Defense Evasion Analysis</h5>
+                        <p class="text-txt-muted text-xs mb-2">AMSI bypass detection, fileless execution analysis</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Velociraptor</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Elastic EDR</span></div>
+                    </div>
+                    <div class="lab-card md:col-span-2" style="border-left-color:#10b981; background:linear-gradient(135deg, #1a1a1a, rgba(16,185,129,0.05));">
+                        <div class="flex items-center justify-between mb-1"><span class="text-cco text-xs font-bold">Lab 2.11 - CAPSTONE</span><span class="text-txt-muted text-[10px]">Full Kill Chain</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Live Breach Simulation</h5>
+                        <p class="text-txt-muted text-xs mb-2">Detect, contain, eradicate, write complete IR report</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">6+ VMs</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">4 hours</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== CCO-3 LABS ====== -->
+            <div class="mb-14 fade-in">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-8 h-8 rounded bg-danger/10 flex items-center justify-center"><i data-lucide="trophy" class="w-4 h-4 text-danger"></i></div>
+                    <h3 class="font-display text-xl font-bold text-danger">CCO-3 LABS</h3>
+                    <span class="text-txt-muted text-xs">12 Labs</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="lab-card" style="border-left-color:#dc2626;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.1</span><span class="text-txt-muted text-[10px]">Book 2, Ch1-2</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Full Recon Operation</h5>
+                        <p class="text-txt-muted text-xs mb-2">Passive + active recon, Nmap mastery, AD enumeration</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Kali</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Nmap</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Maltego</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#dc2626;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.2</span><span class="text-txt-muted text-[10px]">Book 2, Ch3-4</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Social Engineering & Initial Access</h5>
+                        <p class="text-txt-muted text-xs mb-2">Phishing infra, Responder/LLMNR, wireless attacks</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">GoPhish</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Evilginx</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Responder</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#dc2626;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.3</span><span class="text-txt-muted text-[10px]">Book 2, Ch5-6</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Web Exploitation & C2</h5>
+                        <p class="text-txt-muted text-xs mb-2">SQLi chains, SSRF pivot, deserialization RCE</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Burp</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">sqlmap</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Sliver</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#dc2626;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.4</span><span class="text-txt-muted text-[10px]">Book 2, Ch7-8</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Windows/Linux Post-Exploitation</h5>
+                        <p class="text-txt-muted text-xs mb-2">Credential harvesting, Kerberoasting, container escape</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Mimikatz</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Rubeus</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Impacket</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#dc2626;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.5</span><span class="text-txt-muted text-[10px]">Book 2, Ch9</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Active Directory Domination</h5>
+                        <p class="text-txt-muted text-xs mb-2">ACL abuse, ADCS ESC1-8, trust attacks, DCSync</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">BloodHound</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Certify</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">SharpHound</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#dc2626;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.6</span><span class="text-txt-muted text-[10px]">Book 2, Ch10-12</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Lateral Movement, Persistence & C2</h5>
+                        <p class="text-txt-muted text-xs mb-2">PtH/PtT, pivoting, full C2 infrastructure deployment</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Sliver/Mythic</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Ligolo-ng</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#dc2626;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.7</span><span class="text-txt-muted text-[10px]">Book 2, Ch13</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Defense Evasion Operations</h5>
+                        <p class="text-txt-muted text-xs mb-2">AV/EDR bypass, AMSI chains, fileless execution</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">ScareCrow</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Nim/Go loaders</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#dc2626;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.8</span><span class="text-txt-muted text-[10px]">Book 2, Ch14-18</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Cloud Attack Operations</h5>
+                        <p class="text-txt-muted text-xs mb-2">AWS/Azure/GCP attacks, OAuth phishing, CI/CD exploitation</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Pacu</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">ROADtools</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">CloudGoat</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#dc2626;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.9</span><span class="text-txt-muted text-[10px]">Book 2, Ch19-20</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Container & K8s Exploitation</h5>
+                        <p class="text-txt-muted text-xs mb-2">Container escape, pod escape, etcd dump</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">deepce</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">CDK</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">peirates</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#dc2626;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.10</span><span class="text-txt-muted text-[10px]">Book 2, Ch22-24</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Reverse Engineering</h5>
+                        <p class="text-txt-muted text-xs mb-2">x86-64 analysis, PE/ELF, crypto identification, protocol RE</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Ghidra</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">IDA Free</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">radare2</span></div>
+                    </div>
+                    <div class="lab-card" style="border-left-color:#dc2626;">
+                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.11</span><span class="text-txt-muted text-[10px]">Book 2, Ch25-28</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Red Team Full Operation</h5>
+                        <p class="text-txt-muted text-xs mb-2">Full engagement, infrastructure, ATT&CK mapping</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">10+ VMs</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">8 hours</span></div>
+                    </div>
+                    <div class="lab-card md:col-span-2" style="border-left-color:#dc2626; background:linear-gradient(135deg, #1a1a1a, rgba(220,38,38,0.06));">
+                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.12 - CAPSTONE: FULL OPERATION</span><span class="text-txt-muted text-[10px]">All Books</span></div>
+                        <h5 class="font-semibold text-sm mb-1">Attack > Document > Defend > Redesign > Board Defense</h5>
+                        <p class="text-txt-muted text-xs mb-2">Attack (2h) > Document (1h) > Defend (2h) > Redesign (2h) > Board Defense (1h)</p>
+                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">10+ VMs</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">8 hours</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 fade-in">
+                <div class="bg-bg-card rounded-xl p-5 text-center border border-bg-surface">
+                    <div class="text-2xl font-bold text-labpurple mb-1">34</div>
+                    <div class="text-txt-muted text-xs">Labs</div>
+                </div>
+                <div class="bg-bg-card rounded-xl p-5 text-center border border-bg-surface">
+                    <div class="text-2xl font-bold text-labpurple mb-1">60+</div>
+                    <div class="text-txt-muted text-xs">Chapters Covered</div>
+                </div>
+                <div class="bg-bg-card rounded-xl p-5 text-center border border-bg-surface">
+                    <div class="text-2xl font-bold text-labpurple mb-1">150+</div>
+                    <div class="text-txt-muted text-xs">Hours Hands-On</div>
+                </div>
+                <div class="bg-bg-card rounded-xl p-5 text-center border border-bg-surface">
+                    <div class="text-2xl font-bold text-labpurple mb-1">100%</div>
+                    <div class="text-txt-muted text-xs">Open-Source Tools</div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center fade-in">
+                <p class="font-display text-xl md:text-2xl font-semibold mb-5">Ready to start building?</p>
+                <a href="#cco" class="inline-flex items-center gap-2 bg-labpurple hover:bg-labpurple/80 text-white font-semibold px-8 py-3 rounded-lg transition-all text-sm tracking-wider">
+                    <i data-lucide="terminal" class="w-4 h-4"></i> Begin with CCO-1 Labs
+                </a>
+            </div>
         </div>
-      </div>
-      <p data-id="365" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:1rem;color:#f59e0b;text-align:center;margin-top:2rem;">"Passive listeners don't get hired."</p>
-    </div>
-  </section>
+    </section>
+    </main>
 
-  <!-- SECTION 5: EPISODE FORMAT -->
-  <section data-id="366" class="engr-section-border" style="max-width:900px;margin:6rem auto 0;padding:6rem 2rem 0;">
-    <p data-id="367" class="engr-label fade-in-section" style="color:#3b82f6;">EPISODE STRUCTURE</p>
-    <h2 data-id="368" class="fade-in-section" style="font-size:clamp(1.3rem,3vw,1.8rem);color:#f1f5f9;margin-bottom:2.5rem;">Every Episode. Same Discipline.</h2>
-
-    <div data-id="369" class="format-timeline fade-in-section">
-      <!-- Block 1 -->
-      <div data-id="370" class="format-entry">
-        <span data-id="371" class="format-time">2–3 min</span>
-        <h4 data-id="372" style="font-family:'Inter',sans-serif;color:#f1f5f9;font-weight:600;font-size:1rem;margin-bottom:0.4rem;">Opening</h4>
-        <p data-id="373" style="font-size:0.85rem;color:#94a3b8;line-height:1.6;margin-bottom:0.5rem;">Direct. Calm. Authoritative. No hype. Set the objective.</p>
-        <p data-id="374" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:0.85rem;color:#475569;">"Today, we're building your understanding of network segmentation at a level most engineers never reach."</p>
-      </div>
-      <!-- Block 2 -->
-      <div data-id="375" class="format-entry">
-        <span data-id="376" class="format-time">30–60 min</span>
-        <h4 data-id="377" style="font-family:'Inter',sans-serif;color:#f1f5f9;font-weight:600;font-size:1rem;margin-bottom:0.4rem;">Core Lesson</h4>
-        <p data-id="378" style="font-size:0.85rem;color:#94a3b8;line-height:1.6;">Deep teaching. Real-world scenarios. Whiteboard-style explanation. This is the meat.</p>
-      </div>
-      <!-- Block 3 -->
-      <div data-id="379" class="format-entry">
-        <span data-id="380" class="format-time">10–15 min</span>
-        <h4 data-id="381" style="font-family:'Inter',sans-serif;color:#f1f5f9;font-weight:600;font-size:1rem;margin-bottom:0.4rem;">Applied Thinking</h4>
-        <p data-id="382" style="font-size:0.85rem;color:#94a3b8;line-height:1.6;">Case study. Problem-solving. "This is what happens in production…"</p>
-      </div>
-      <!-- Block 4 -->
-      <div data-id="383" class="format-entry">
-        <span data-id="384" class="format-time">5–10 min</span>
-        <h4 data-id="385" style="font-family:'Inter',sans-serif;color:#f1f5f9;font-weight:600;font-size:1rem;margin-bottom:0.4rem;">Engineer Mindset</h4>
-        <p data-id="386" style="font-size:0.85rem;color:#94a3b8;line-height:1.6;">Discipline. Thinking patterns. Career positioning. The intangibles that separate good from elite.</p>
-      </div>
-      <!-- Block 5 -->
-      <div data-id="387" class="format-entry">
-        <span data-id="388" class="format-time">End</span>
-        <h4 data-id="389" style="font-family:'Inter',sans-serif;color:#f1f5f9;font-weight:600;font-size:1rem;margin-bottom:0.4rem;">Assignment</h4>
-        <p data-id="390" style="font-size:0.85rem;color:#94a3b8;line-height:1.6;margin-bottom:0.5rem;">Real action. Real work.</p>
-        <p data-id="391" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:0.85rem;color:#f59e0b;">"Go configure this. Break it. Fix it."</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 6: FEATURED EPISODES -->
-  <section data-id="392" class="engr-section-border" style="max-width:1000px;margin:6rem auto 0;padding:6rem 2rem 0;">
-    <p data-id="393" class="engr-label fade-in-section" style="color:#3b82f6;">START HERE</p>
-    <h2 data-id="394" class="fade-in-section" style="font-size:clamp(1.3rem,3vw,1.8rem);color:#f1f5f9;margin-bottom:2.5rem;">Featured Episodes</h2>
-
-    <div data-id="395" class="fade-in-section" style="display:flex;flex-wrap:wrap;gap:1.5rem;">
-      <!-- Episode 1 -->
-      <div data-id="396" class="episode-card">
-        <div data-id="397" style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.8rem;">
-          <span data-id="398" style="font-size:0.7rem;letter-spacing:3px;color:#3b82f6;text-transform:uppercase;">EP. 01</span>
-          <span data-id="399" class="engr-pill" style="border-color:#3b82f6;color:#3b82f6;font-size:0.6rem;">Season 1</span>
+    <!-- ======================= FOOTER ======================= -->
+    <footer class="bg-bg-elevated border-t border-bg-surface py-16">
+        <div class="max-w-6xl mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+                <div>
+                    <h4 class="font-display text-xl font-bold text-gold mb-4">AURELIO DIOVAL</h4>
+                    <p class="text-txt-secondary text-sm leading-relaxed">Novelist, poet, and cybersecurity architect. Creator of The Light of Woza saga, Mr. Ex The Last Poet, ENGR.FM, and the CCO Certification system. Building empires across ink, verse, and infrastructure.</p>
+                </div>
+                <div>
+                    <h4 class="text-xs tracking-widest text-txt-muted font-semibold mb-4 uppercase">Navigate</h4>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="#home" class="text-txt-secondary text-sm hover:text-gold transition-colors">Home</a>
+                        <a href="#tech" class="text-txt-secondary text-sm hover:text-gold transition-colors">Tech</a>
+                        <a href="#bio" class="text-txt-secondary text-sm hover:text-gold transition-colors">Bio</a>
+                        <a href="#cco" class="text-txt-secondary text-sm hover:text-gold transition-colors">CCO</a>
+                        <a href="#novels" class="text-txt-secondary text-sm hover:text-gold transition-colors">Novels</a>
+                        <a href="#labs" class="text-txt-secondary text-sm hover:text-gold transition-colors">Labs</a>
+                        <a href="#poetry" class="text-txt-secondary text-sm hover:text-gold transition-colors">Poetry</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xs tracking-widest text-txt-muted font-semibold mb-4 uppercase">Contact</h4>
+                    <div class="space-y-2">
+                        <p class="text-txt-secondary text-sm flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-gold"></i> support@dioval.com</p>
+                        <p class="text-txt-secondary text-sm flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-gold"></i> Washington State</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-bg-surface pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-txt-muted text-xs">&copy; 2026 Aurelio Dioval. All rights reserved.</p>
+                <p class="text-txt-muted text-xs">Operated by <span class="text-txt-secondary font-medium">Diotech Group</span></p>
+                <p class="text-txt-muted text-xs">Made by Copilot</p>
+            </div>
         </div>
-        <h3 data-id="400" style="font-size:1.1rem;color:#f1f5f9;margin-bottom:0.75rem;">How Engineers Actually Think</h3>
-        <p data-id="401" style="font-size:0.8rem;color:#94a3b8;line-height:1.6;margin-bottom:1.25rem;">The foundational episode. Before you touch a router, you need to understand how elite engineers approach problems.</p>
-        <a data-id="402" href="#" style="color:#3b82f6;font-size:0.8rem;text-decoration:none;font-weight:500;transition:opacity 0.3s;">Listen →</a>
-      </div>
-      <!-- Episode 2 -->
-      <div data-id="403" class="episode-card">
-        <div data-id="404" style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.8rem;">
-          <span data-id="405" style="font-size:0.7rem;letter-spacing:3px;color:#3b82f6;text-transform:uppercase;">EP. 05</span>
-          <span data-id="406" class="engr-pill" style="border-color:#3b82f6;color:#3b82f6;font-size:0.6rem;">Season 1</span>
-        </div>
-        <h3 data-id="407" style="font-size:1.1rem;color:#f1f5f9;margin-bottom:0.75rem;">TCP/IP — The Layer Most People Fake</h3>
-        <p data-id="408" style="font-size:0.8rem;color:#94a3b8;line-height:1.6;margin-bottom:1.25rem;">Everyone says they know TCP/IP. This episode proves most of them don't. Deep dive into what actually happens at Layer 3 and 4.</p>
-        <a data-id="409" href="#" style="color:#3b82f6;font-size:0.8rem;text-decoration:none;font-weight:500;transition:opacity 0.3s;">Listen →</a>
-      </div>
-      <!-- Episode 3 -->
-      <div data-id="410" class="episode-card">
-        <div data-id="411" style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.8rem;">
-          <span data-id="412" style="font-size:0.7rem;letter-spacing:3px;color:#8b5cf6;text-transform:uppercase;">EP. 12</span>
-          <span data-id="413" class="engr-pill" style="border-color:#8b5cf6;color:#8b5cf6;font-size:0.6rem;">Season 2</span>
-        </div>
-        <h3 data-id="414" style="font-size:1.1rem;color:#f1f5f9;margin-bottom:0.75rem;">Why Most Engineers Fail in Production</h3>
-        <p data-id="415" style="font-size:0.8rem;color:#94a3b8;line-height:1.6;margin-bottom:1.25rem;">Lab environments lie to you. This episode breaks down the gap between certification knowledge and production reality.</p>
-        <a data-id="416" href="#" style="color:#8b5cf6;font-size:0.8rem;text-decoration:none;font-weight:500;transition:opacity 0.3s;">Listen →</a>
-      </div>
-    </div>
+    </footer>
 
-    <div data-id="417" style="text-align:center;margin-top:2rem;">
-      <span data-id="418" class="engr-pill" style="border-color:#f59e0b;color:#f59e0b;padding:0.3rem 1rem;">Coming Soon</span>
-    </div>
-  </section>
+    <script>
+        lucide.createIcons();
 
-  <!-- SECTION 7: ABOUT AURELIUS DIOVAL -->
-  <section data-id="419" style="max-width:900px;margin:6rem auto 0;padding:0 2rem;">
-    <div data-id="420" class="fade-in-section" style="background:#0f172a;border:1px solid #1e293b;border-radius:1rem;padding:clamp(2rem,4vw,4rem);">
-      <div data-id="421" class="about-cols">
-        <!-- Left Column -->
-        <div data-id="422" class="about-col-left">
-          <svg data-id="423" width="200" height="250" viewBox="0 0 200 250" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Head silhouette - architectural/blueprint style -->
-            <path data-id="424" d="M100 30 C70 30 50 55 50 85 C50 100 55 112 65 122 L60 145 L75 140 L80 155 L85 145 L90 165 L100 160 L110 165 L115 145 L120 155 L125 140 L140 145 L135 122 C145 112 150 100 150 85 C150 55 130 30 100 30Z" stroke="#3b82f6" stroke-width="1.5" fill="none"/>
-            <!-- Internal neural/circuit lines -->
-            <path data-id="425" d="M80 55 L85 70 L95 65 L100 80 L110 72 L115 60" stroke="#3b82f6" stroke-width="0.8" fill="none" opacity="0.4"/>
-            <path data-id="426" d="M75 80 L85 85 L90 95 L100 90 L110 95 L115 85 L125 80" stroke="#3b82f6" stroke-width="0.8" fill="none" opacity="0.3"/>
-            <circle data-id="427" cx="85" cy="70" r="2" fill="rgba(59,130,246,0.3)"/>
-            <circle data-id="428" cx="100" cy="80" r="2" fill="rgba(59,130,246,0.3)"/>
-            <circle data-id="429" cx="115" cy="60" r="2" fill="rgba(245,158,11,0.4)"/>
-            <circle data-id="430" cx="90" cy="95" r="2" fill="rgba(59,130,246,0.3)"/>
-            <circle data-id="431" cx="110" cy="95" r="2" fill="rgba(245,158,11,0.4)"/>
-            <!-- Eye region -->
-            <ellipse data-id="432" cx="88" cy="78" rx="6" ry="4" stroke="#3b82f6" stroke-width="1" fill="none" opacity="0.5"/>
-            <ellipse data-id="433" cx="112" cy="78" rx="6" ry="4" stroke="#3b82f6" stroke-width="1" fill="none" opacity="0.5"/>
-            <circle data-id="434" cx="88" cy="78" r="1.5" fill="rgba(245,158,11,0.5)"/>
-            <circle data-id="435" cx="112" cy="78" r="1.5" fill="rgba(245,158,11,0.5)"/>
-            <!-- Grid lines extending from head (architectural) -->
-            <line data-id="436" x1="50" y1="85" x2="30" y2="85" stroke="#1e293b" stroke-width="0.8"/>
-            <line data-id="437" x1="150" y1="85" x2="170" y2="85" stroke="#1e293b" stroke-width="0.8"/>
-            <line data-id="438" x1="100" y1="30" x2="100" y2="10" stroke="#1e293b" stroke-width="0.8"/>
-            <!-- Measurement marks -->
-            <line data-id="439" x1="28" y1="30" x2="28" y2="145" stroke="#1e293b" stroke-width="0.5"/>
-            <line data-id="440" x1="25" y1="30" x2="31" y2="30" stroke="#1e293b" stroke-width="0.5"/>
-            <line data-id="441" x1="25" y1="145" x2="31" y2="145" stroke="#1e293b" stroke-width="0.5"/>
-            <!-- Base platform -->
-            <line data-id="442" x1="60" y1="170" x2="140" y2="170" stroke="#3b82f6" stroke-width="1" opacity="0.3"/>
-            <line data-id="443" x1="70" y1="175" x2="130" y2="175" stroke="#3b82f6" stroke-width="0.5" opacity="0.2"/>
-          </svg>
-          <p data-id="444" style="font-size:0.8rem;letter-spacing:4px;color:#f1f5f9;text-transform:uppercase;margin-top:1rem;">AURELIUS DIOVAL</p>
-          <p data-id="445" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:0.9rem;color:#94a3b8;margin-top:0.25rem;">The Architect</p>
-        </div>
-        <!-- Right Column -->
-        <div data-id="446" class="about-col-right">
-          <p data-id="447" class="engr-label" style="color:#3b82f6;">YOUR INSTRUCTOR</p>
-          <h2 data-id="448" style="font-size:1.3rem;color:#f1f5f9;margin-bottom:1.5rem;">Builder. Operator. Teacher. Strategist.</h2>
-          <p data-id="449" style="font-size:0.9rem;color:#cbd5e1;line-height:1.8;margin-bottom:1.25rem;">Aurelius Dioval is a CCIE-certified cybersecurity architect, pilot, and systems thinker who has built high-performance infrastructures across enterprise and government environments.</p>
-          <p data-id="450" style="font-size:0.9rem;color:#cbd5e1;line-height:1.8;margin-bottom:1.25rem;">ENGR.FM is his private classroom — designed to take individuals from zero to elite-level engineers earning $150K+. Not through motivation. Through architecture. Through systems. Through relentless precision.</p>
-          <p data-id="451" style="font-size:0.9rem;color:#cbd5e1;line-height:1.8;margin-bottom:1.5rem;">He is also the author of The Light of Woza (dark fantasy) and Wine, Sea, and Fire (poetry under the pen name Mr. Ex The Last Poet) — because the same mind that architects systems also builds worlds.</p>
-          <div data-id="452" style="display:flex;flex-wrap:wrap;gap:0.8rem;">
-            <span data-id="453" class="engr-pill" style="border-color:#3b82f6;color:#3b82f6;">CCIE Certified</span>
-            <span data-id="454" class="engr-pill" style="border-color:#3b82f6;color:#3b82f6;">Cybersecurity Architect</span>
-            <span data-id="455" class="engr-pill" style="border-color:#f59e0b;color:#f59e0b;">Licensed Pilot</span>
-            <span data-id="456" class="engr-pill" style="border-color:#10b981;color:#10b981;">Published Author</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        // Mobile menu
+        const hamburger = document.getElementById('hamburger-btn-x9m1');
+        const mobileMenu = document.getElementById('mobile-menu-j4v8');
+        const mobileClose = document.getElementById('mobile-close-p2q5');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
 
-  <!-- SECTION 8: CTA / BOTTOM -->
-  <section data-id="457" class="engr-section-border fade-in-section" style="max-width:800px;margin:6rem auto 0;padding:6rem 2rem;text-align:center;">
-    <h2 data-id="458" style="font-size:clamp(1.5rem,4vw,2.2rem);color:#f1f5f9;margin-bottom:1rem;">The System Is Waiting.</h2>
-    <p data-id="459" style="font-size:1rem;color:#94a3b8;max-width:500px;margin:0 auto 2rem;line-height:1.7;">Follow it. Build alongside it. And you will not stay average.</p>
-    <div data-id="460" style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:2rem;">
-      <a data-id="461" href="#" class="engr-btn-filled" style="background:#3b82f6;color:#ffffff;">Start Episode 1</a>
-      <a data-id="462" href="mailto:support@dioval.com?subject=ENGR.FM%20Learning%20Path" class="engr-btn-filled" style="background:#10b981;color:#0a0f1a;">Get the Learning Path</a>
-    </div>
-    <p data-id="463" style="font-size:0.75rem;color:#475569;margin-bottom:2rem;">support@dioval.com · www.dioval.com</p>
-    <a data-id="464" href="#home" class="back-home-link" style="color:#3b82f6;font-size:0.85rem;text-decoration:none;font-family:'Inter',sans-serif;">← Home</a>
-  </section>
-
-  <footer data-id="465" style="text-align:center;padding:2rem 1rem 1rem;color:#475569;font-size:0.7rem;font-family:'Inter',sans-serif;">Made by Copilot</footer>
-</div>
-
-<script>
-  lucide.createIcons();
-
-  // ===== PAGE ROUTING =====
-  var VALID_PAGES = ['home', 'bio', 'novels', 'poetry', 'tech'];
-
-  var PAGE_ACCENTS = {
-    home: '#c9a84c',
-    bio: '#7b8ab8',
-    novels: '#8b1a1a',
-    poetry: '#b87333',
-    tech: '#3b82f6'
-  };
-
-  var currentPage = 'home';
-  var isTransitioning = false;
-
-  function getPageFromHash() {
-    var hash = window.location.hash.replace('#', '') || 'home';
-    return VALID_PAGES.indexOf(hash) !== -1 ? hash : 'home';
-  }
-
-  function navigateTo(page, pushState) {
-    if (page === currentPage || isTransitioning) return;
-    isTransitioning = true;
-
-    var oldSection = document.getElementById('page-' + currentPage);
-    var newSection = document.getElementById('page-' + page);
-
-    oldSection.classList.remove('visible');
-
-    setTimeout(function() {
-      oldSection.classList.remove('active');
-      newSection.classList.add('active');
-
-      window.scrollTo(0, 0);
-
-      requestAnimationFrame(function() {
-        requestAnimationFrame(function() {
-          newSection.classList.add('visible');
-          currentPage = page;
-          updateNav(page);
-          updateNavSolid();
-          observeNewPage();
-          isTransitioning = false;
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
         });
-      });
-    }, 300);
+        mobileClose.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = '';
+            });
+        });
 
-    if (pushState !== false) {
-      window.location.hash = page;
-    }
-  }
+        // Active nav highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link[data-nav]');
 
-  function updateNav(page) {
-    var accent = PAGE_ACCENTS[page];
-    document.getElementById('nav-logo-text').style.color = accent;
+        function setActiveNav() {
+            let current = '';
+            sections.forEach(section => {
+                const top = section.offsetTop - 120;
+                if (window.scrollY >= top) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.dataset.nav === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', setActiveNav);
+        setActiveNav();
 
-    document.querySelectorAll('#desktop-nav a').forEach(function(link) {
-      var linkPage = link.getAttribute('data-page');
-      if (linkPage === page) {
-        link.classList.add('active');
-        link.style.color = accent;
-      } else {
-        link.classList.remove('active');
-        link.style.color = '#c9d1d9';
-      }
-    });
+        // Fade-in on scroll
+        const fadeEls = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-    updateActiveStyles(page);
-  }
-
-  var dynamicStyle = document.createElement('style');
-  document.head.appendChild(dynamicStyle);
-
-  function updateActiveStyles(page) {
-    var accent = PAGE_ACCENTS[page];
-    dynamicStyle.textContent = '.nav-links a.active::after { background: ' + accent + '; width: 100%; }';
-  }
-
-  document.querySelectorAll('#desktop-nav a').forEach(function(link) {
-    var targetPage = link.getAttribute('data-page');
-    var targetAccent = link.getAttribute('data-accent');
-
-    link.addEventListener('mouseenter', function() {
-      if (!link.classList.contains('active')) {
-        link.style.color = targetAccent;
-      }
-    });
-    link.addEventListener('mouseleave', function() {
-      if (!link.classList.contains('active')) {
-        link.style.color = '#c9d1d9';
-      }
-    });
-
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      navigateTo(targetPage);
-      closeMobileMenu();
-    });
-  });
-
-  document.querySelectorAll('.mobile-nav-link').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      var page = link.getAttribute('data-page');
-      closeMobileMenu();
-      setTimeout(function() { navigateTo(page); }, 200);
-    });
-  });
-
-  document.getElementById('hamburger-btn').addEventListener('click', function() {
-    document.getElementById('mobile-overlay').classList.add('open');
-  });
-
-  function closeMobileMenu() {
-    document.getElementById('mobile-overlay').classList.remove('open');
-  }
-  document.getElementById('mobile-close-btn').addEventListener('click', closeMobileMenu);
-
-  window.addEventListener('hashchange', function() {
-    var page = getPageFromHash();
-    navigateTo(page, false);
-  });
-
-  function updateNavSolid() {
-    var nav = document.getElementById('main-nav');
-    if (currentPage !== 'home' || window.scrollY > 40) {
-      nav.classList.add('solid');
-    } else {
-      nav.classList.remove('solid');
-    }
-  }
-  window.addEventListener('scroll', updateNavSolid);
-
-  document.querySelectorAll('.portal-card[data-nav]').forEach(function(card) {
-    card.addEventListener('click', function() {
-      navigateTo(card.getAttribute('data-nav'));
-    });
-  });
-
-  document.querySelectorAll('.back-home-link').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      navigateTo('home');
-    });
-  });
-
-  document.querySelectorAll('.portal-card').forEach(function(card) {
-    var style = card.style;
-    var borderColor = style.borderColor;
-    card.addEventListener('mouseenter', function() {
-      style.borderColor = borderColor.replace('0.25', '0.6');
-    });
-    card.addEventListener('mouseleave', function() {
-      style.borderColor = borderColor;
-    });
-  });
-
-  document.querySelectorAll('.bio-identity-card').forEach(function(card) {
-    var hoverAccent = card.getAttribute('data-hover-accent');
-    card.addEventListener('mouseenter', function() {
-      card.style.borderColor = hoverAccent;
-      card.style.boxShadow = '0 0 20px ' + hoverAccent + '15';
-    });
-    card.addEventListener('mouseleave', function() {
-      card.style.borderColor = '#1e2538';
-      card.style.boxShadow = 'none';
-    });
-  });
-
-  // ===== INTERSECTION OBSERVER =====
-  function observeNewPage() {
-    var sections = document.querySelectorAll('#page-' + currentPage + ' .fade-in-section');
-    sections.forEach(function(el) {
-      el.classList.remove('in-view');
-      observer.observe(el);
-    });
-  }
-
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-  // ===== INIT =====
-  function init() {
-    var page = getPageFromHash();
-    currentPage = page;
-
-    document.querySelectorAll('.page-section').forEach(function(s) {
-      s.classList.remove('active', 'visible');
-    });
-    var section = document.getElementById('page-' + page);
-    section.classList.add('active');
-    requestAnimationFrame(function() {
-      section.classList.add('visible');
-    });
-
-    updateNav(page);
-    updateNavSolid();
-
-    observeNewPage();
-
-    document.querySelectorAll('.fade-in-section').forEach(function(el) {
-      observer.observe(el);
-    });
-  }
-
-  init();
-</script>
+        fadeEls.forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
