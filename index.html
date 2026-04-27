@@ -79,28 +79,97 @@ body{overflow-x:hidden;background:#0a0a0a;color:#f0ebe3;font-family:'Inter',syst
 .poem-container+.poem-container{border-top:none;}
 .poem-body{font-family:'EB Garamond','Georgia',serif;font-size:1.15rem;line-height:2;color:#f0e6d6;white-space:pre-line;}
 
-/* ===== PAGE 4: TECH ===== */
-.page-tech{background:#0a0a0a;font-family:'Inter',sans-serif;}
-.page-tech h1,.page-tech h2,.page-tech h3{font-family:'JetBrains Mono','Courier New',monospace;}
-.page-tech .mono{font-family:'JetBrains Mono','Courier New',monospace;}
+/* ===== PAGE 4: TECH (Premium Business) ===== */
+.page-tech{background:#0b0f19;font-family:'Inter',sans-serif;color:#f1f5f9;}
+.page-tech h1,.page-tech h2,.page-tech h3,.page-tech h4{font-family:'Playfair Display',Georgia,serif;}
 
-.tech-bg{background:repeating-linear-gradient(0deg,transparent,transparent 59px,#151515 59px,#151515 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,#151515 59px,#151515 60px);background-color:#0a0a0a;}
+.tech-bg{
+  background:
+    radial-gradient(ellipse at 40% 20%,rgba(59,130,246,0.04) 0%,transparent 60%),
+    radial-gradient(ellipse at 60% 80%,rgba(16,185,129,0.03) 0%,transparent 50%);
+  background-color:#0b0f19;
+}
 
-.terminal-window{background:#0d1117;border:1px solid #1a3a2a;border-radius:0.75rem;overflow:hidden;}
-.terminal-chrome{display:flex;gap:6px;padding:12px 16px;background:#161b22;border-bottom:1px solid #1a3a2a;}
-.terminal-dot{width:12px;height:12px;border-radius:50%;}
-.terminal-body{padding:1.5rem;font-family:'JetBrains Mono','Courier New',monospace;font-size:0.9rem;line-height:1.8;color:#00ff88;}
+.tech-service-card{
+  background:#111827;
+  border:1px solid #1e293b;
+  border-radius:1rem;
+  padding:2rem;
+  transition:border-color 0.3s ease,box-shadow 0.3s ease;
+}
+.tech-service-card:hover{
+  border-color:#3b82f6;
+  box-shadow:0 0 20px rgba(59,130,246,0.1);
+}
 
-@keyframes blink{0%,50%{border-color:#00ff88;}51%,100%{border-color:transparent;}}
-.cursor-blink{border-right:2px solid #00ff88;animation:blink 1s step-end infinite;padding-right:4px;}
+.tech-expertise-badge{
+  display:inline-block;
+  border:1px solid rgba(59,130,246,0.35);
+  border-radius:9999px;
+  padding:0.35rem 1rem;
+  font-family:'Inter',sans-serif;
+  font-size:0.8rem;
+  color:#93c5fd;
+  margin:0.3rem;
+  transition:background 0.3s ease,border-color 0.3s ease;
+}
+.tech-expertise-badge:hover{
+  background:rgba(59,130,246,0.1);
+  border-color:#3b82f6;
+}
 
-.skill-card{background:#0d1117;border:1px solid #1a3a2a;border-radius:0.75rem;padding:1.5rem;transition:border-color 0.3s ease,box-shadow 0.3s ease;}
-.skill-card:hover{border-color:#00ff88;box-shadow:0 0 20px rgba(0,255,136,0.08);}
+.tech-why-col{flex:1;min-width:240px;}
 
-.tech-tag{display:inline-block;border:1px solid rgba(0,255,136,0.3);border-radius:9999px;padding:0.2rem 0.75rem;font-family:'JetBrains Mono','Courier New',monospace;font-size:0.7rem;color:#00ff88;margin:0.2rem;}
+.tech-btn-filled{
+  display:inline-block;
+  background:#10b981;
+  color:#0b0f19;
+  font-family:'Inter',sans-serif;
+  font-size:0.85rem;
+  font-weight:600;
+  padding:0.75rem 1.75rem;
+  border-radius:0.5rem;
+  text-decoration:none;
+  letter-spacing:0.5px;
+  transition:opacity 0.3s ease,transform 0.2s ease;
+}
+.tech-btn-filled:hover{opacity:0.9;transform:translateY(-1px);}
 
-@keyframes pulse-dot{0%,100%{opacity:1;}50%{opacity:0.3;}}
-.pulse-green{animation:pulse-dot 1.5s ease-in-out infinite;}
+.tech-btn-outline{
+  display:inline-block;
+  border:1px solid #3b82f6;
+  color:#3b82f6;
+  font-family:'Inter',sans-serif;
+  font-size:0.85rem;
+  font-weight:500;
+  padding:0.7rem 1.75rem;
+  border-radius:0.5rem;
+  text-decoration:none;
+  letter-spacing:0.5px;
+  transition:background 0.3s ease,color 0.3s ease;
+}
+.tech-btn-outline:hover{background:rgba(59,130,246,0.1);}
+
+.tech-featured-card{
+  background:#0f172a;
+  border:1px solid #1e293b;
+  border-radius:1rem;
+  padding:clamp(2rem,4vw,3.5rem);
+}
+
+.tech-book-card{
+  background:#111827;
+  border:1px solid #1e293b;
+  border-radius:1rem;
+  padding:2rem;
+  flex:1;
+  min-width:280px;
+  transition:border-color 0.3s ease,box-shadow 0.3s ease;
+}
+.tech-book-card:hover{
+  border-color:#3b82f6;
+  box-shadow:0 0 15px rgba(59,130,246,0.08);
+}
 
 /* ===== PAGE 5: BIOGRAPHY ===== */
 .page-bio{background:#080b12;font-family:Georgia,'Times New Roman',serif;color:#e2e6ef;}
@@ -164,7 +233,7 @@ body{overflow-x:hidden;background:#0a0a0a;color:#f0ebe3;font-family:'Inter',syst
     <li data-id="7"><a data-id="8" href="#bio" data-page="bio" data-accent="#7b8ab8">BIO</a></li>
     <li data-id="9"><a data-id="10" href="#novels" data-page="novels" data-accent="#8b1a1a">NOVELS</a></li>
     <li data-id="11"><a data-id="12" href="#poetry" data-page="poetry" data-accent="#b87333">POETRY</a></li>
-    <li data-id="13"><a data-id="14" href="#tech" data-page="tech" data-accent="#00ff88">TECH</a></li>
+    <li data-id="13"><a data-id="14" href="#tech" data-page="tech" data-accent="#3b82f6">TECH</a></li>
   </ul>
   <button data-id="15" id="hamburger-btn" aria-label="Open menu"><i data-id="16" data-lucide="menu" class="w-6 h-6"></i></button>
 </nav>
@@ -221,12 +290,12 @@ body{overflow-x:hidden;background:#0a0a0a;color:#f0ebe3;font-family:'Inter',syst
       </div>
 
       <!-- Card 3: Tech -->
-      <div data-id="49" class="portal-card" data-nav="tech" style="border-color:rgba(0,255,136,0.25);" id="portal-tech-card">
-        <div data-id="50" style="width:50px;height:3px;background:#00ff88;margin-bottom:1.25rem;"></div>
+      <div data-id="49" class="portal-card" data-nav="tech" style="border-color:rgba(59,130,246,0.25);" id="portal-tech-card">
+        <div data-id="50" style="width:50px;height:3px;background:#3b82f6;margin-bottom:1.25rem;"></div>
         <h3 data-id="51" style="color:#e8e0d8;font-size:1.25rem;letter-spacing:3px;margin-bottom:0.5rem;font-family:'Playfair Display',Georgia,serif;">TECH</h3>
-        <p data-id="52" style="color:#00ff88;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:0.9rem;margin-bottom:0.75rem;">Systems &amp; Code</p>
-        <p data-id="53" style="color:#9a958d;font-size:0.85rem;line-height:1.7;margin-bottom:1.25rem;">The same precision that builds worlds of fiction builds systems in code.</p>
-        <span data-id="54" style="color:#00ff88;font-size:0.8rem;letter-spacing:1px;cursor:pointer;">View the Stack →</span>
+        <p data-id="52" style="color:#3b82f6;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:0.9rem;margin-bottom:0.75rem;">Consulting · Training · Podcast · Community</p>
+        <p data-id="53" style="color:#9a958d;font-size:0.85rem;line-height:1.7;margin-bottom:1.25rem;">Technology consulting, IT training, podcast, and a private community for builders who ship.</p>
+        <span data-id="54" style="color:#3b82f6;font-size:0.8rem;letter-spacing:1px;cursor:pointer;">Explore Services →</span>
       </div>
     </div>
   </section>
@@ -276,35 +345,26 @@ body{overflow-x:hidden;background:#0a0a0a;color:#f0ebe3;font-family:'Inter',syst
     <h2 data-id="83" class="fade-in-section" style="color:#a0b4d4;font-size:1.5rem;letter-spacing:4px;margin-bottom:2.5rem;">Origin</h2>
 
     <div data-id="84" class="bio-timeline">
-      <!-- Entry 1 -->
       <div data-id="85" class="bio-timeline-entry fade-in-section">
         <p data-id="86" class="bio-timeline-year">Chapter I</p>
         <h3 data-id="87" class="bio-timeline-title">The Beginning</h3>
         <p data-id="88" class="bio-timeline-text">Born between cultures, raised on the edge of silence. Language was never just a tool — it was survival. Before there were books, there were letters never sent, words swallowed to keep the peace, and stories whispered to no one.</p>
       </div>
-
-      <!-- Entry 2 -->
       <div data-id="89" class="bio-timeline-entry fade-in-section">
         <p data-id="90" class="bio-timeline-year">Chapter II</p>
         <h3 data-id="91" class="bio-timeline-title">The Builder</h3>
         <p data-id="92" class="bio-timeline-text">Technology came first. Not as passion but as discipline. The architecture of systems — databases, servers, interfaces — taught a fundamental truth: structure serves beauty. Code taught patience. Debugging taught humility. Shipping taught courage.</p>
       </div>
-
-      <!-- Entry 3 -->
       <div data-id="93" class="bio-timeline-entry fade-in-section">
         <p data-id="94" class="bio-timeline-year">Chapter III</p>
         <h3 data-id="95" class="bio-timeline-title">The Poet Awakens</h3>
         <p data-id="96" class="bio-timeline-text">Mr. Ex The Last Poet was not chosen. The name arrived the way storms arrive — without permission. Poetry became the place where the unspeakable could finally speak. Rumi showed the door. Qabbani kicked it open. Camões stood in the ocean and refused to drown. The voice that emerged from these three rivers was something new.</p>
       </div>
-
-      <!-- Entry 4 -->
       <div data-id="97" class="bio-timeline-entry fade-in-section">
         <p data-id="98" class="bio-timeline-year">Chapter IV</p>
         <h3 data-id="99" class="bio-timeline-title">The Novelist</h3>
         <p data-id="100" class="bio-timeline-text">The Light of Woza began as a question: What happens when the most powerful being in existence is ordered to love? Aurelio Dioval was born to answer it. Not a pen name — an identity. The one who builds kingdoms on paper and burns them down with truth.</p>
       </div>
-
-      <!-- Entry 5 -->
       <div data-id="101" class="bio-timeline-entry fade-in-section">
         <p data-id="102" class="bio-timeline-year">Chapter V</p>
         <h3 data-id="103" class="bio-timeline-title">Now</h3>
@@ -316,27 +376,21 @@ body{overflow-x:hidden;background:#0a0a0a;color:#f0ebe3;font-family:'Inter',syst
   <!-- Section 3: The Identities -->
   <section data-id="105" style="max-width:1100px;margin:4rem auto;padding:0 2rem;">
     <h2 data-id="106" class="fade-in-section" style="text-align:center;color:#a0b4d4;font-size:1.5rem;letter-spacing:4px;margin-bottom:2.5rem;">The Names</h2>
-
     <div data-id="107" class="fade-in-section" style="display:flex;flex-wrap:wrap;gap:1.5rem;">
-      <!-- Card 1: Aurelio Dioval -->
       <div data-id="108" class="bio-identity-card" data-hover-accent="#c9a84c">
         <p data-id="109" class="bio-label" style="font-size:0.65rem;letter-spacing:3px;color:#c9a84c;text-transform:uppercase;margin-bottom:0.75rem;">THE NOVELIST</p>
         <h3 data-id="110" style="color:#e2e6ef;font-size:1.3rem;letter-spacing:2px;margin-bottom:1rem;">Aurelio Dioval</h3>
         <p data-id="111" style="color:#e2e6ef;font-size:0.9rem;line-height:1.85;margin-bottom:1.25rem;">The worldbuilder. The one who constructs kingdoms with discipline and tears them apart with truth. Creator of the Woza saga — where archangels love, power corrupts, and balance is the only thing between heaven and ruin.</p>
         <p data-id="112" class="bio-label" style="font-size:0.8rem;color:#6b7490;">The Light of Woza: Book One · Book Two (Complete)</p>
       </div>
-
-      <!-- Card 2: Mr. Ex The Last Poet -->
       <div data-id="113" class="bio-identity-card" data-hover-accent="#b87333">
         <p data-id="114" class="bio-label" style="font-size:0.65rem;letter-spacing:3px;color:#b87333;text-transform:uppercase;margin-bottom:0.75rem;">THE POET</p>
         <h3 data-id="115" style="color:#e2e6ef;font-size:1.3rem;letter-spacing:2px;margin-bottom:1rem;">Mr. Ex The Last Poet</h3>
         <p data-id="116" style="color:#e2e6ef;font-size:0.9rem;line-height:1.85;margin-bottom:1.25rem;">The voice that burns. Fusing Persian fire, Arabian ink, and Portuguese sea into something the world has not heard before. He does not ask permission to adore. He does not wait. He is not prayer — he is fate.</p>
         <p data-id="117" class="bio-label" style="font-size:0.8rem;color:#6b7490;">Wine, Sea, and Fire: Poems in the Voice of Three Rivers</p>
       </div>
-
-      <!-- Card 3: The Architect -->
-      <div data-id="118" class="bio-identity-card" data-hover-accent="#00ff88">
-        <p data-id="119" class="bio-label" style="font-size:0.65rem;letter-spacing:3px;color:#00ff88;text-transform:uppercase;margin-bottom:0.75rem;">THE TECHNOLOGIST</p>
+      <div data-id="118" class="bio-identity-card" data-hover-accent="#3b82f6">
+        <p data-id="119" class="bio-label" style="font-size:0.65rem;letter-spacing:3px;color:#3b82f6;text-transform:uppercase;margin-bottom:0.75rem;">THE TECHNOLOGIST</p>
         <h3 data-id="120" style="color:#e2e6ef;font-size:1.3rem;letter-spacing:2px;margin-bottom:1rem;">The Architect</h3>
         <p data-id="121" style="color:#e2e6ef;font-size:0.9rem;line-height:1.85;margin-bottom:1.25rem;">The builder of systems. Full-stack architect who approaches code with the same precision he brings to prose. React, Node.js, Python, AI — every component measured against a higher order.</p>
         <p data-id="122" class="bio-label" style="font-size:0.8rem;color:#6b7490;">dioval.com · Publishing Infrastructure · Creative Tech</p>
@@ -347,7 +401,6 @@ body{overflow-x:hidden;background:#0a0a0a;color:#f0ebe3;font-family:'Inter',syst
   <!-- Section 4: Philosophy / Creed -->
   <section data-id="123" style="max-width:900px;margin:4rem auto;padding:0 2rem;">
     <h2 data-id="124" class="fade-in-section" style="text-align:center;color:#a0b4d4;font-size:1.5rem;letter-spacing:4px;margin-bottom:2.5rem;">Creed</h2>
-
     <div data-id="125" class="bio-creed-block fade-in-section">
       <p data-id="126">I believe that structure serves beauty.
 That code and verse share a spine.
@@ -423,8 +476,6 @@ I am unforgettable.</p>
   <!-- Book One Feature Card -->
   <section data-id="160" class="fade-in-section" style="max-width:1000px;margin:3rem auto;padding:0 1.5rem;">
     <div data-id="161" style="background:#1a0a10;border:1px solid rgba(139,26,26,0.2);border-radius:1rem;padding:clamp(1.5rem,4vw,3rem);display:flex;flex-wrap:wrap;gap:2.5rem;align-items:flex-start;">
-
-      <!-- CSS Book Cover -->
       <div data-id="162" class="css-book-cover" style="margin:0 auto;">
         <div data-id="163">
           <p data-id="164" style="font-family:'Inter',sans-serif;font-size:0.6rem;letter-spacing:3px;color:#d4a574;text-transform:uppercase;text-align:center;">Book One of the Woza Saga</p>
@@ -442,29 +493,23 @@ I am unforgettable.</p>
         </div>
         <p data-id="175" style="font-family:'Inter',sans-serif;font-size:0.6rem;letter-spacing:3px;color:#d4a574;text-transform:uppercase;font-variant:small-caps;">AURELIO DIOVAL</p>
       </div>
-
-      <!-- Book Details -->
       <div data-id="176" style="flex:1;min-width:280px;">
         <span data-id="177" class="small-label" style="font-size:0.65rem;letter-spacing:3px;color:#8b1a1a;text-transform:uppercase;">THE KINGDOM OF WOZA</span>
         <h2 data-id="178" style="font-size:clamp(1.5rem,3vw,2rem);color:#e8e0d8;margin:0.75rem 0 0.25rem;">The Light of Woza</h2>
         <p data-id="179" style="font-style:italic;color:#6b5d54;margin-bottom:0.75rem;">A Tale of Two Destinies</p>
         <span data-id="180" style="display:inline-block;border:1px solid #8b1a1a;color:#8b1a1a;font-size:0.7rem;padding:0.2rem 0.75rem;border-radius:9999px;margin-bottom:1.25rem;font-family:'Inter',sans-serif;">Book One</span>
-
         <div data-id="181" style="color:#e8e0d8;font-size:0.9rem;line-height:1.85;margin-bottom:1.5rem;">
           <p data-id="182" style="margin-bottom:0.75rem;">In a world where power is never allowed to exist without balance, Woza stands apart. It is not a kingdom built on conquest, but on discipline — where every ruler stands beside a shadow, and every decision is measured against a higher order known only as the Light.</p>
           <p data-id="183" style="margin-bottom:0.75rem;">For generations, this system has held. Until something changes. Sarif is not meant to be different. He is meant to serve — silent, unseen, and bound to protect. But from the moment he is placed within the royal structure of Woza, it becomes clear: He is not like the others.</p>
           <p data-id="184" style="margin-bottom:0.75rem;">He does not follow the pattern. He does not fit within the system. And for the first time in its history... Woza begins to shift. Bound to Princess Anna not as a follower, but as something closer to an equal — Sarif's existence challenges the very foundation of balance itself.</p>
           <p data-id="185">Beyond the borders of Woza, ambition grows unchecked. A rising force seeks power without discipline. Control without restraint. And a darkness begins to spread — one that does not destroy... but corrupts.</p>
         </div>
-
         <p data-id="186" class="small-label" style="color:#6b5d54;font-size:0.8rem;margin-bottom:1rem;">Dark Fantasy · 136 Pages · April 2026</p>
-
         <div data-id="187" style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem;">
           <span data-id="188" style="border:1px solid #8b1a1a;color:#8b1a1a;font-size:0.7rem;padding:0.3rem 0.75rem;border-radius:9999px;font-family:'Inter',sans-serif;">Kindle: $8.00</span>
           <span data-id="189" style="border:1px solid #8b1a1a;color:#8b1a1a;font-size:0.7rem;padding:0.3rem 0.75rem;border-radius:9999px;font-family:'Inter',sans-serif;">Paperback: $8.00</span>
           <span data-id="190" style="background:#8b1a1a;color:#e8e0d8;font-size:0.7rem;padding:0.3rem 0.75rem;border-radius:9999px;font-family:'Inter',sans-serif;">FREE with Kindle Unlimited</span>
         </div>
-
         <div data-id="191" style="display:flex;flex-wrap:wrap;gap:0.75rem;">
           <a data-id="192" href="https://www.amazon.com/dp/B0GX34NMD6" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#d4a574;color:#0d0208;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;padding:0.7rem 1.5rem;border-radius:0.5rem;text-decoration:none;letter-spacing:1px;transition:opacity 0.3s;">Read on Amazon</a>
           <a data-id="193" href="https://www.amazon.com/dp/B0GX34NMD6" target="_blank" rel="noopener noreferrer" style="display:inline-block;border:1px solid #8b1a1a;color:#8b1a1a;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:500;padding:0.65rem 1.5rem;border-radius:0.5rem;text-decoration:none;letter-spacing:1px;transition:all 0.3s;">Get Paperback</a>
@@ -523,8 +568,6 @@ I am unforgettable.</p>
   <!-- Three Rivers -->
   <section data-id="220" class="fade-in-section" style="max-width:1050px;margin:3rem auto;padding:0 1.5rem;">
     <div data-id="221" style="display:flex;flex-wrap:wrap;gap:1.25rem;">
-
-      <!-- Persian Fire -->
       <div data-id="222" class="river-card">
         <svg data-id="223" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:1rem;">
           <path data-id="224" d="M20 4 C20 4 10 16 10 24 C10 30 14.5 36 20 36 C25.5 36 30 30 30 24 C30 16 20 4 20 4Z" stroke="#b87333" stroke-width="1.5" fill="none"/>
@@ -535,8 +578,6 @@ I am unforgettable.</p>
         <p data-id="228" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#f0e6d6;font-size:1rem;line-height:1.8;">"I did not drink the wine.<br data-id="229">The wine drank me.<br data-id="230">And what remained<br data-id="231">was neither cup nor man —<br data-id="232">just song."</p>
         <div data-id="233" style="width:100%;height:1px;background:rgba(184,115,51,0.2);margin-top:1.5rem;"></div>
       </div>
-
-      <!-- Arabian Ink -->
       <div data-id="234" class="river-card">
         <svg data-id="235" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:1rem;">
           <path data-id="236" d="M12 36 L16 8 C16 8 17 4 20 4 C23 4 24 8 24 8 L28 36" stroke="#b87333" stroke-width="1.5" fill="none" stroke-linecap="round"/>
@@ -548,8 +589,6 @@ I am unforgettable.</p>
         <p data-id="241" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#f0e6d6;font-size:1rem;line-height:1.8;">"I don't ask permission<br data-id="242">to adore you.<br data-id="243">Love, in its purest form,<br data-id="244">is disobedient."</p>
         <div data-id="245" style="width:100%;height:1px;background:rgba(184,115,51,0.2);margin-top:1.5rem;"></div>
       </div>
-
-      <!-- Portuguese Sea -->
       <div data-id="246" class="river-card">
         <svg data-id="247" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:1rem;">
           <path data-id="248" d="M4 20 Q10 14 16 20 Q22 26 28 20 Q34 14 40 20" stroke="#b87333" stroke-width="1.5" fill="none"/>
@@ -568,7 +607,6 @@ I am unforgettable.</p>
   <section data-id="258" style="max-width:900px;margin:3rem auto;padding:0 1.5rem;">
     <h2 data-id="259" class="fade-in-section" style="text-align:center;color:#b87333;font-size:1.5rem;letter-spacing:4px;margin-bottom:2.5rem;">Selected Verses</h2>
 
-    <!-- Poem 1 -->
     <div data-id="260" class="poem-container fade-in-section">
       <h3 data-id="261" style="color:#d4a574;font-size:1.15rem;margin-bottom:1.5rem;letter-spacing:2px;">When the Soul Speaks</h3>
       <p data-id="262" class="poem-body">Do not ask if I am whole.
@@ -590,7 +628,6 @@ Come for the ashes.</p>
       <p data-id="263" style="color:#8a7d6f;font-size:0.8rem;font-style:italic;margin-top:1.5rem;font-family:'Inter',sans-serif;">— Mr. Ex The Last Poet, from Section I: The Reed's Lament</p>
     </div>
 
-    <!-- Poem 2 -->
     <div data-id="264" class="poem-container fade-in-section">
       <h3 data-id="265" style="color:#d4a574;font-size:1.15rem;margin-bottom:1.5rem;letter-spacing:2px;">I Don't Ask Permission</h3>
       <p data-id="266" class="poem-body">I don't ask permission
@@ -610,7 +647,6 @@ I am fate.</p>
       <p data-id="267" style="color:#8a7d6f;font-size:0.8rem;font-style:italic;margin-top:1.5rem;font-family:'Inter',sans-serif;">— Mr. Ex The Last Poet, from Section II: The Body's Scripture</p>
     </div>
 
-    <!-- Poem 3 -->
     <div data-id="268" class="poem-container fade-in-section">
       <h3 data-id="269" style="color:#d4a574;font-size:1.15rem;margin-bottom:1.5rem;letter-spacing:2px;">The Creed of My Blood and Breath</h3>
       <p data-id="270" class="poem-body">I am no more
@@ -645,166 +681,246 @@ And the angels have written it down.</p>
 </div>
 
 <!-- ============================================================ -->
-<!-- PAGE 4: TECH                                                  -->
+<!-- PAGE 4: TECH — Premium Business Page                          -->
 <!-- ============================================================ -->
 <div data-id="277" id="page-tech" class="page-section page-tech tech-bg">
 
-  <!-- Page Header -->
-  <section data-id="278" style="max-width:1200px;margin:0 auto;padding:120px 2rem 0;">
-    <h1 data-id="279" class="fade-in-section" style="color:#00ff88;font-size:clamp(1.8rem,4vw,2.5rem);letter-spacing:2px;">// THE ARCHITECT</h1>
-    <p data-id="280" class="fade-in-section mono" style="color:#00cc6a;font-size:0.85rem;margin-top:0.75rem;">&gt; aurelio.dioval --stack full-stack --mode build<span data-id="281" class="cursor-blink"></span></p>
-    <div data-id="282" class="fade-in-section" style="width:100%;height:1px;background:#00ff88;opacity:0.3;margin-top:1.5rem;"></div>
+  <!-- Section 1: Hero Header -->
+  <section data-id="278" class="fade-in-section" style="max-width:900px;margin:0 auto;padding:120px 2rem 0;text-align:center;">
+    <p data-id="279" style="font-family:'Inter',sans-serif;font-size:0.7rem;letter-spacing:6px;color:#3b82f6;text-transform:uppercase;margin-bottom:1.5rem;">AURELIO DIOVAL</p>
+    <h1 data-id="280" style="font-size:clamp(2rem,5vw,3.5rem);color:#f1f5f9;letter-spacing:2px;line-height:1.2;margin-bottom:1.25rem;">Technology. Training. Transformation.</h1>
+    <p data-id="281" style="color:#94a3b8;font-size:clamp(0.95rem,2vw,1.1rem);max-width:600px;margin:0 auto 2.5rem;line-height:1.7;">Building systems, empowering teams, and scaling what matters.</p>
+    <div data-id="282" style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:2.5rem;">
+      <a data-id="283" href="mailto:support@dioval.com?subject=Consultation%20Inquiry" class="tech-btn-filled">Book a Consultation</a>
+      <a data-id="284" href="https://www.skool.com" target="_blank" rel="noopener noreferrer" class="tech-btn-outline">Join the Community</a>
+    </div>
+    <div data-id="285" style="width:100%;height:1px;background:linear-gradient(90deg,transparent,#3b82f6,transparent);opacity:0.4;"></div>
   </section>
 
-  <!-- Terminal Introduction -->
-  <section data-id="283" class="fade-in-section" style="max-width:1200px;margin:2.5rem auto;padding:0 2rem;">
-    <div data-id="284" class="terminal-window">
-      <div data-id="285" class="terminal-chrome">
-        <div data-id="286" class="terminal-dot" style="background:#ff5f57;"></div>
-        <div data-id="287" class="terminal-dot" style="background:#febc2e;"></div>
-        <div data-id="288" class="terminal-dot" style="background:#28c840;"></div>
+  <!-- Section 2: Services Grid -->
+  <section data-id="286" style="max-width:1100px;margin:4rem auto;padding:0 2rem;">
+    <h2 data-id="287" class="fade-in-section" style="text-align:center;color:#f1f5f9;font-size:clamp(1.5rem,3vw,2rem);letter-spacing:2px;margin-bottom:0.75rem;">What I Do</h2>
+    <p data-id="288" class="fade-in-section" style="text-align:center;color:#94a3b8;font-size:0.95rem;margin-bottom:2.5rem;">End-to-end technology services for businesses and individuals</p>
+
+    <div data-id="289" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;">
+
+      <!-- Card 1: IT Consulting -->
+      <div data-id="290" class="tech-service-card fade-in-section">
+        <svg data-id="291" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:1.25rem;">
+          <rect data-id="292" x="8" y="10" width="32" height="24" rx="3" stroke="#3b82f6" stroke-width="1.5" fill="none"/>
+          <path data-id="293" d="M14 20L20 24L14 28" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <line data-id="294" x1="24" y1="28" x2="34" y2="28" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round"/>
+          <line data-id="295" x1="18" y1="38" x2="30" y2="38" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round"/>
+          <line data-id="296" x1="24" y1="34" x2="24" y2="38" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <h3 data-id="297" style="color:#f1f5f9;font-size:1.2rem;margin-bottom:0.75rem;">IT Consulting</h3>
+        <p data-id="298" style="color:#94a3b8;font-size:0.9rem;line-height:1.75;margin-bottom:1.25rem;">Strategic technology consulting for businesses ready to scale. From infrastructure architecture to digital transformation, I help you build systems that grow with you.</p>
+        <a data-id="299" href="mailto:support@dioval.com?subject=IT%20Consulting" class="tech-consult-link" style="color:#3b82f6;font-size:0.85rem;text-decoration:none;font-weight:500;transition:opacity 0.3s;">Book a session →</a>
       </div>
-      <div data-id="289" class="terminal-body">
-        <p data-id="290" style="color:#6e7681;">$ whoami</p>
-        <p data-id="291">&gt; Aurelio Dioval — Full-Stack Architect</p>
-        <br data-id="292">
-        <p data-id="293" style="color:#6e7681;">$ cat philosophy.txt</p>
-        <p data-id="294">&gt; "The same precision that builds worlds of fiction</p>
-        <p data-id="295">&gt; also builds systems in code. Architecture is</p>
-        <p data-id="296">&gt; architecture — whether the material is language</p>
-        <p data-id="297">&gt; or logic."</p>
-        <br data-id="298">
-        <p data-id="299" style="color:#6e7681;">$ ls skills/</p>
-        <p data-id="300">&gt; frontend/   backend/   ai/   cloud/   publishing/</p>
+
+      <!-- Card 2: IT Training -->
+      <div data-id="300" class="tech-service-card fade-in-section">
+        <svg data-id="301" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:1.25rem;">
+          <path data-id="302" d="M24 6L4 16L24 26L44 16L24 6Z" stroke="#3b82f6" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+          <path data-id="303" d="M10 20V32C10 32 16 38 24 38C32 38 38 32 38 32V20" stroke="#3b82f6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <line data-id="304" x1="44" y1="16" x2="44" y2="36" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <h3 data-id="305" style="color:#f1f5f9;font-size:1.2rem;margin-bottom:0.75rem;">IT Training</h3>
+        <p data-id="306" style="color:#94a3b8;font-size:0.9rem;line-height:1.75;margin-bottom:1.25rem;">Hands-on training programs for teams and individuals. Full-stack development, cloud architecture, AI fundamentals, and modern DevOps practices — taught by someone who builds in production, not just in slides.</p>
+        <a data-id="307" href="mailto:support@dioval.com?subject=IT%20Training" class="tech-consult-link" style="color:#3b82f6;font-size:0.85rem;text-decoration:none;font-weight:500;transition:opacity 0.3s;">Explore training →</a>
+      </div>
+
+      <!-- Card 3: Podcast -->
+      <div data-id="308" class="tech-service-card fade-in-section">
+        <svg data-id="309" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:1.25rem;">
+          <rect data-id="310" x="18" y="8" width="12" height="20" rx="6" stroke="#3b82f6" stroke-width="1.5" fill="none"/>
+          <path data-id="311" d="M12 24C12 30.627 17.373 36 24 36C30.627 36 36 30.627 36 24" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <line data-id="312" x1="24" y1="36" x2="24" y2="42" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round"/>
+          <line data-id="313" x1="18" y1="42" x2="30" y2="42" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <h3 data-id="314" style="color:#f1f5f9;font-size:1.2rem;margin-bottom:0.75rem;">Podcast</h3>
+        <p data-id="315" style="color:#94a3b8;font-size:0.9rem;line-height:1.75;margin-bottom:1.25rem;">Real conversations about technology, creativity, and building an empire from nothing. Where code meets culture and discipline meets ambition. New episodes dropping — subscribe to stay ahead.</p>
+        <a data-id="316" href="#" class="tech-consult-link" style="color:#3b82f6;font-size:0.85rem;text-decoration:none;font-weight:500;transition:opacity 0.3s;">Listen now →</a>
+      </div>
+
+      <!-- Card 4: Skool Community -->
+      <div data-id="317" class="tech-service-card fade-in-section">
+        <svg data-id="318" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:1.25rem;">
+          <circle data-id="319" cx="24" cy="14" r="6" stroke="#3b82f6" stroke-width="1.5" fill="none"/>
+          <path data-id="320" d="M14 36C14 30.477 18.477 26 24 26C29.523 26 34 30.477 34 36" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <circle data-id="321" cx="38" cy="18" r="4" stroke="#3b82f6" stroke-width="1.2" fill="none"/>
+          <path data-id="322" d="M42 32C42 28.686 39.314 26 36 26" stroke="#3b82f6" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+          <circle data-id="323" cx="10" cy="18" r="4" stroke="#3b82f6" stroke-width="1.2" fill="none"/>
+          <path data-id="324" d="M6 32C6 28.686 8.686 26 12 26" stroke="#3b82f6" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+        </svg>
+        <h3 data-id="325" style="color:#f1f5f9;font-size:1.2rem;margin-bottom:0.75rem;">Skool Community</h3>
+        <p data-id="326" style="color:#94a3b8;font-size:0.9rem;line-height:1.75;margin-bottom:1.25rem;">Join a private community of builders, creators, and entrepreneurs. Exclusive content, live sessions, and direct access. This is where the real work happens — beyond the algorithms and the noise.</p>
+        <a data-id="327" href="https://www.skool.com" target="_blank" rel="noopener noreferrer" class="tech-consult-link" style="color:#3b82f6;font-size:0.85rem;text-decoration:none;font-weight:500;transition:opacity 0.3s;">Join Skool →</a>
       </div>
     </div>
   </section>
 
-  <!-- Skills Grid -->
-  <section data-id="301" style="max-width:1200px;margin:3rem auto;padding:0 2rem;">
-    <h2 data-id="302" class="fade-in-section mono" style="color:#00ff88;font-size:1.1rem;margin-bottom:1.5rem;letter-spacing:1px;">// CAPABILITIES</h2>
-    <div data-id="303" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem;">
+  <!-- Section 3: Expertise / Tech Stack -->
+  <section data-id="328" style="max-width:1100px;margin:4rem auto;padding:0 2rem;">
+    <h2 data-id="329" class="fade-in-section" style="text-align:center;color:#f1f5f9;font-size:clamp(1.5rem,3vw,2rem);letter-spacing:2px;margin-bottom:2rem;">Areas of Expertise</h2>
+    <div data-id="330" class="fade-in-section" style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.5rem;max-width:800px;margin:0 auto;">
+      <span data-id="331" class="tech-expertise-badge">Full-Stack Development</span>
+      <span data-id="332" class="tech-expertise-badge">Cloud Architecture</span>
+      <span data-id="333" class="tech-expertise-badge">AI &amp; Machine Learning</span>
+      <span data-id="334" class="tech-expertise-badge">DevOps &amp; CI/CD</span>
+      <span data-id="335" class="tech-expertise-badge">React &amp; Next.js</span>
+      <span data-id="336" class="tech-expertise-badge">Node.js &amp; Python</span>
+      <span data-id="337" class="tech-expertise-badge">Database Design</span>
+      <span data-id="338" class="tech-expertise-badge">API Architecture</span>
+      <span data-id="339" class="tech-expertise-badge">Digital Publishing</span>
+      <span data-id="340" class="tech-expertise-badge">Team Leadership</span>
+    </div>
+  </section>
 
-      <!-- Frontend -->
-      <div data-id="304" class="skill-card fade-in-section">
-        <div data-id="305" style="color:#00ff88;margin-bottom:1rem;"><i data-id="306" data-lucide="monitor" class="w-6 h-6"></i></div>
-        <h3 data-id="307" class="mono" style="color:#c9d1d9;font-size:0.95rem;margin-bottom:0.75rem;">frontend/</h3>
-        <p data-id="308" style="color:#c9d1d9;font-size:0.85rem;margin-bottom:0.75rem;font-family:'Inter',sans-serif;">Front-End Engineering</p>
-        <div data-id="309" style="margin-bottom:1rem;">
-          <span data-id="310" class="tech-tag">React</span><span data-id="311" class="tech-tag">Next.js</span><span data-id="312" class="tech-tag">TypeScript</span><span data-id="313" class="tech-tag">Tailwind</span><span data-id="314" class="tech-tag">HTML/CSS</span>
-        </div>
-        <p data-id="315" style="color:#6e7681;font-size:0.8rem;line-height:1.6;font-family:'Inter',sans-serif;">Building interfaces that feel as intentional as prose. Every pixel earned.</p>
+  <!-- Section 4: Why Work With Me -->
+  <section data-id="341" style="max-width:1100px;margin:4rem auto;padding:0 2rem;">
+    <h2 data-id="342" class="fade-in-section" style="text-align:center;color:#f1f5f9;font-size:clamp(1.5rem,3vw,2rem);letter-spacing:2px;margin-bottom:2.5rem;">Why Work With Me</h2>
+    <div data-id="343" class="fade-in-section" style="display:flex;flex-wrap:wrap;gap:2rem;">
+      <div data-id="344" class="tech-why-col">
+        <p data-id="345" style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.5rem,4vw,3.5rem);color:#3b82f6;font-weight:700;margin-bottom:0.75rem;">01</p>
+        <h3 data-id="346" style="font-family:'Inter',sans-serif;color:#f1f5f9;font-size:1.1rem;font-weight:600;margin-bottom:0.75rem;">Builder, Not Just a Talker</h3>
+        <p data-id="347" style="color:#94a3b8;font-size:0.9rem;line-height:1.75;">I don't teach theory. Everything I train and consult on, I've built in production. From author platforms to enterprise systems — I ship.</p>
       </div>
-
-      <!-- Backend -->
-      <div data-id="316" class="skill-card fade-in-section">
-        <div data-id="317" style="color:#00ff88;margin-bottom:1rem;"><i data-id="318" data-lucide="server" class="w-6 h-6"></i></div>
-        <h3 data-id="319" class="mono" style="color:#c9d1d9;font-size:0.95rem;margin-bottom:0.75rem;">backend/</h3>
-        <p data-id="320" style="color:#c9d1d9;font-size:0.85rem;margin-bottom:0.75rem;font-family:'Inter',sans-serif;">Back-End Systems</p>
-        <div data-id="321" style="margin-bottom:1rem;">
-          <span data-id="322" class="tech-tag">Node.js</span><span data-id="323" class="tech-tag">Python</span><span data-id="324" class="tech-tag">PostgreSQL</span><span data-id="325" class="tech-tag">REST APIs</span><span data-id="326" class="tech-tag">GraphQL</span>
-        </div>
-        <p data-id="327" style="color:#6e7681;font-size:0.8rem;line-height:1.6;font-family:'Inter',sans-serif;">Scalable architecture with the discipline of a kingdom — every component measured against a higher order.</p>
+      <div data-id="348" class="tech-why-col">
+        <p data-id="349" style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.5rem,4vw,3.5rem);color:#3b82f6;font-weight:700;margin-bottom:0.75rem;">02</p>
+        <h3 data-id="350" style="font-family:'Inter',sans-serif;color:#f1f5f9;font-size:1.1rem;font-weight:600;margin-bottom:0.75rem;">Cross-Discipline Thinking</h3>
+        <p data-id="351" style="color:#94a3b8;font-size:0.9rem;line-height:1.75;">Writing novels taught me narrative structure. Poetry taught me precision. Code taught me logic. You get someone who thinks in systems — not silos.</p>
       </div>
-
-      <!-- AI -->
-      <div data-id="328" class="skill-card fade-in-section">
-        <div data-id="329" style="color:#00ff88;margin-bottom:1rem;"><i data-id="330" data-lucide="brain" class="w-6 h-6"></i></div>
-        <h3 data-id="331" class="mono" style="color:#c9d1d9;font-size:0.95rem;margin-bottom:0.75rem;">ai/</h3>
-        <p data-id="332" style="color:#c9d1d9;font-size:0.85rem;margin-bottom:0.75rem;font-family:'Inter',sans-serif;">AI &amp; Automation</p>
-        <div data-id="333" style="margin-bottom:1rem;">
-          <span data-id="334" class="tech-tag">Machine Learning</span><span data-id="335" class="tech-tag">NLP</span><span data-id="336" class="tech-tag">LLMs</span><span data-id="337" class="tech-tag">Automation</span><span data-id="338" class="tech-tag">Data</span>
-        </div>
-        <p data-id="339" style="color:#6e7681;font-size:0.8rem;line-height:1.6;font-family:'Inter',sans-serif;">Leveraging artificial intelligence to build systems that think. From language models to workflow automation.</p>
-      </div>
-
-      <!-- Publishing -->
-      <div data-id="340" class="skill-card fade-in-section">
-        <div data-id="341" style="color:#00ff88;margin-bottom:1rem;"><i data-id="342" data-lucide="book-open" class="w-6 h-6"></i></div>
-        <h3 data-id="343" class="mono" style="color:#c9d1d9;font-size:0.95rem;margin-bottom:0.75rem;">publishing/</h3>
-        <p data-id="344" style="color:#c9d1d9;font-size:0.85rem;margin-bottom:0.75rem;font-family:'Inter',sans-serif;">Digital Publishing</p>
-        <div data-id="345" style="margin-bottom:1rem;">
-          <span data-id="346" class="tech-tag">KDP</span><span data-id="347" class="tech-tag">Web</span><span data-id="348" class="tech-tag">SEO</span><span data-id="349" class="tech-tag">Analytics</span><span data-id="350" class="tech-tag">Branding</span>
-        </div>
-        <p data-id="351" style="color:#6e7681;font-size:0.8rem;line-height:1.6;font-family:'Inter',sans-serif;">Architecting the full pipeline — from manuscript to marketplace. The infrastructure behind an independent author's empire.</p>
+      <div data-id="352" class="tech-why-col">
+        <p data-id="353" style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.5rem,4vw,3.5rem);color:#3b82f6;font-weight:700;margin-bottom:0.75rem;">03</p>
+        <h3 data-id="354" style="font-family:'Inter',sans-serif;color:#f1f5f9;font-size:1.1rem;font-weight:600;margin-bottom:0.75rem;">Results Over Résumé</h3>
+        <p data-id="355" style="color:#94a3b8;font-size:0.9rem;line-height:1.75;">I don't lead with credentials. I lead with outcomes. Your systems will be faster, your team sharper, and your architecture built to last.</p>
       </div>
     </div>
   </section>
 
-  <!-- Metrics -->
-  <section data-id="352" class="fade-in-section" style="max-width:1200px;margin:3rem auto;padding:0 2rem;">
-    <h2 data-id="353" class="mono" style="color:#00ff88;font-size:1.1rem;margin-bottom:1.5rem;letter-spacing:1px;">// METRICS</h2>
-    <div data-id="354" style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;">
-      <div data-id="355" style="text-align:center;flex:1;min-width:120px;">
-        <p data-id="356" class="mono" style="color:#00ff88;font-size:clamp(2rem,4vw,3rem);font-weight:700;">10+</p>
-        <p data-id="357" class="mono" style="color:#6e7681;font-size:0.75rem;">years.building</p>
+  <!-- Section 5: The Podcast (Featured) -->
+  <section data-id="356" style="max-width:1100px;margin:4rem auto;padding:0 2rem;">
+    <div data-id="357" class="tech-featured-card fade-in-section" style="display:flex;flex-wrap:wrap;gap:3rem;align-items:center;">
+      <!-- Left Column: Text -->
+      <div data-id="358" style="flex:1;min-width:280px;">
+        <p data-id="359" style="font-family:'Inter',sans-serif;font-size:0.7rem;letter-spacing:5px;color:#3b82f6;text-transform:uppercase;margin-bottom:1rem;">THE DIOVAL PODCAST</p>
+        <h2 data-id="360" style="color:#f1f5f9;font-size:clamp(1.5rem,3vw,2rem);letter-spacing:1px;margin-bottom:1rem;">Where Code Meets Culture</h2>
+        <p data-id="361" style="color:#94a3b8;font-size:0.95rem;line-height:1.8;margin-bottom:1.5rem;">Technology. Creativity. Discipline. Real conversations with builders, founders, and creators about what it actually takes to build something that matters. No fluff. No hype. Just the work.</p>
+        <span data-id="362" style="display:inline-block;background:#10b981;color:#0b0f19;font-family:'Inter',sans-serif;font-size:0.7rem;font-weight:600;padding:0.3rem 0.75rem;border-radius:9999px;margin-bottom:1.25rem;">Coming Soon</span>
+        <br data-id="363">
+        <a data-id="364" href="mailto:support@dioval.com?subject=Podcast%20Notification" style="display:inline-block;border:1px solid #10b981;color:#10b981;font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:500;padding:0.65rem 1.5rem;border-radius:0.5rem;text-decoration:none;transition:background 0.3s ease;">Get Notified →</a>
       </div>
-      <div data-id="358" style="text-align:center;flex:1;min-width:120px;">
-        <p data-id="359" class="mono" style="color:#00ff88;font-size:clamp(2rem,4vw,3rem);font-weight:700;">3</p>
-        <p data-id="360" class="mono" style="color:#6e7681;font-size:0.75rem;">works.published</p>
-      </div>
-      <div data-id="361" style="text-align:center;flex:1;min-width:120px;">
-        <p data-id="362" class="mono" style="color:#00ff88;font-size:clamp(2rem,4vw,3rem);font-weight:700;">∞</p>
-        <p data-id="363" class="mono" style="color:#6e7681;font-size:0.75rem;">lines.written</p>
-      </div>
-      <div data-id="364" style="text-align:center;flex:1;min-width:120px;">
-        <p data-id="365" class="mono" style="color:#00ff88;font-size:clamp(2rem,4vw,3rem);font-weight:700;">1</p>
-        <p data-id="366" class="mono" style="color:#6e7681;font-size:0.75rem;">empire.rising</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Featured Project -->
-  <section data-id="367" class="fade-in-section" style="max-width:1200px;margin:3rem auto;padding:0 2rem;">
-    <h2 data-id="368" class="mono" style="color:#00ff88;font-size:1.1rem;margin-bottom:1.5rem;letter-spacing:1px;">// FEATURED_PROJECT</h2>
-    <div data-id="369" class="terminal-window" style="padding:0;">
-      <div data-id="370" class="terminal-chrome">
-        <div data-id="371" class="terminal-dot" style="background:#ff5f57;"></div>
-        <div data-id="372" class="terminal-dot" style="background:#febc2e;"></div>
-        <div data-id="373" class="terminal-dot" style="background:#28c840;"></div>
-      </div>
-      <div data-id="374" style="padding:2rem;">
-        <div data-id="375" style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;">
-          <h3 data-id="376" class="mono" style="color:#00ff88;font-size:1.3rem;">dioval.com</h3>
-          <span data-id="377" style="display:inline-flex;align-items:center;gap:0.4rem;background:rgba(0,255,136,0.1);border:1px solid rgba(0,255,136,0.3);border-radius:9999px;padding:0.2rem 0.75rem;font-size:0.7rem;color:#00ff88;font-family:'JetBrains Mono','Courier New',monospace;">
-            <span data-id="378" class="pulse-green" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#00ff88;"></span>
-            LIVE
-          </span>
-        </div>
-        <p data-id="379" style="color:#c9d1d9;font-size:0.9rem;line-height:1.7;margin-bottom:1rem;font-family:'Inter',sans-serif;">Full-stack author platform — designed, built, and deployed. Dark luxury frontend. Content management. Responsive across all devices.</p>
-        <div data-id="380" style="margin-bottom:0.5rem;">
-          <span data-id="381" class="tech-tag">HTML/CSS</span><span data-id="382" class="tech-tag">JavaScript</span><span data-id="383" class="tech-tag">Responsive</span><span data-id="384" class="tech-tag">SEO</span><span data-id="385" class="tech-tag">Dark Theme</span><span data-id="386" class="tech-tag">Performance</span>
-        </div>
+      <!-- Right Column: Microphone SVG -->
+      <div data-id="365" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;">
+        <svg data-id="366" width="160" height="200" viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect data-id="367" x="55" y="20" width="50" height="80" rx="25" stroke="#3b82f6" stroke-width="2" fill="none"/>
+          <line data-id="368" x1="80" y1="100" x2="80" y2="160" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+          <line data-id="369" x1="55" y1="160" x2="105" y2="160" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+          <path data-id="370" d="M35 75C35 100.405 55.147 121 80 121C104.853 121 125 100.405 125 75" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <!-- Sound waves -->
+          <path data-id="371" d="M30 55C25 55 22 65 22 75C22 85 25 95 30 95" stroke="#1e293b" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path data-id="372" d="M130 55C135 55 138 65 138 75C138 85 135 95 130 95" stroke="#1e293b" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <!-- Inner detail -->
+          <circle data-id="373" cx="80" cy="50" r="4" fill="rgba(59,130,246,0.2)"/>
+          <line data-id="374" x1="80" y1="56" x2="80" y2="72" stroke="rgba(59,130,246,0.15)" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
       </div>
     </div>
   </section>
 
-  <!-- Contact Terminal -->
-  <section data-id="387" class="fade-in-section" style="max-width:1200px;margin:3rem auto;padding:0 2rem;">
-    <div data-id="388" class="terminal-window">
-      <div data-id="389" class="terminal-chrome">
-        <div data-id="390" class="terminal-dot" style="background:#ff5f57;"></div>
-        <div data-id="391" class="terminal-dot" style="background:#febc2e;"></div>
-        <div data-id="392" class="terminal-dot" style="background:#28c840;"></div>
+  <!-- Section 6: Skool Community (Featured) -->
+  <section data-id="375" style="max-width:1100px;margin:4rem auto;padding:0 2rem;">
+    <div data-id="376" class="tech-featured-card fade-in-section" style="display:flex;flex-wrap:wrap-reverse;gap:3rem;align-items:center;">
+      <!-- Left Column: Community SVG -->
+      <div data-id="377" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;">
+        <svg data-id="378" width="200" height="180" viewBox="0 0 200 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Center node -->
+          <circle data-id="379" cx="100" cy="90" r="18" stroke="#3b82f6" stroke-width="2" fill="rgba(59,130,246,0.08)"/>
+          <circle data-id="380" cx="100" cy="84" r="6" stroke="#3b82f6" stroke-width="1.5" fill="none"/>
+          <path data-id="381" d="M91 98C91 93 95 90 100 90C105 90 109 93 109 98" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <!-- Top node -->
+          <circle data-id="382" cx="100" cy="25" r="12" stroke="#10b981" stroke-width="1.5" fill="rgba(16,185,129,0.06)"/>
+          <circle data-id="383" cx="100" cy="21" r="4" stroke="#10b981" stroke-width="1.2" fill="none"/>
+          <path data-id="384" d="M94 30C94 27 97 25 100 25C103 25 106 27 106 30" stroke="#10b981" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+          <line data-id="385" x1="100" y1="37" x2="100" y2="72" stroke="#1e293b" stroke-width="1"/>
+          <!-- Left node -->
+          <circle data-id="386" cx="30" cy="120" r="12" stroke="#10b981" stroke-width="1.5" fill="rgba(16,185,129,0.06)"/>
+          <circle data-id="387" cx="30" cy="116" r="4" stroke="#10b981" stroke-width="1.2" fill="none"/>
+          <path data-id="388" d="M24 125C24 122 27 120 30 120C33 120 36 122 36 125" stroke="#10b981" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+          <line data-id="389" x1="42" y1="120" x2="82" y2="95" stroke="#1e293b" stroke-width="1"/>
+          <!-- Right node -->
+          <circle data-id="390" cx="170" cy="120" r="12" stroke="#10b981" stroke-width="1.5" fill="rgba(16,185,129,0.06)"/>
+          <circle data-id="391" cx="170" cy="116" r="4" stroke="#10b981" stroke-width="1.2" fill="none"/>
+          <path data-id="392" d="M164 125C164 122 167 120 170 120C173 120 176 122 176 125" stroke="#10b981" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+          <line data-id="393" x1="158" y1="120" x2="118" y2="95" stroke="#1e293b" stroke-width="1"/>
+          <!-- Bottom-left node -->
+          <circle data-id="394" cx="55" cy="165" r="10" stroke="#94a3b8" stroke-width="1" fill="none"/>
+          <line data-id="395" x1="55" y1="155" x2="40" y2="132" stroke="#1e293b" stroke-width="1"/>
+          <!-- Bottom-right node -->
+          <circle data-id="396" cx="145" cy="165" r="10" stroke="#94a3b8" stroke-width="1" fill="none"/>
+          <line data-id="397" x1="145" y1="155" x2="160" y2="132" stroke="#1e293b" stroke-width="1"/>
+          <!-- Cross connections -->
+          <line data-id="398" x1="65" y1="165" x2="135" y2="165" stroke="#1e293b" stroke-width="0.75" stroke-dasharray="4 4"/>
+        </svg>
       </div>
-      <div data-id="393" class="terminal-body">
-        <p data-id="394" style="color:#6e7681;">$ contact --method email</p>
-        <p data-id="395">&gt; <a data-id="396" href="mailto:support@dioval.com" style="color:#00ff88;text-decoration:none;">support@dioval.com</a></p>
-        <br data-id="397">
-        <p data-id="398" style="color:#6e7681;">$ open --link amazon-author</p>
-        <p data-id="399">&gt; <a data-id="400" href="https://www.amazon.com/stores/author/B0GXY5C3QZ" target="_blank" rel="noopener noreferrer" style="color:#00ff88;text-decoration:none;">https://www.amazon.com/stores/author/B0GXY5C3QZ</a></p>
-        <br data-id="401">
-        <p data-id="402" style="color:#6e7681;">$ echo "Available for freelance, collaborations, and technical partnerships."</p>
-        <p data-id="403">&gt; Available for freelance, collaborations, and technical partnerships.</p>
+      <!-- Right Column: Text -->
+      <div data-id="399" style="flex:1;min-width:280px;">
+        <p data-id="400" style="font-family:'Inter',sans-serif;font-size:0.7rem;letter-spacing:5px;color:#10b981;text-transform:uppercase;margin-bottom:1rem;">THE INNER CIRCLE</p>
+        <h2 data-id="401" style="color:#f1f5f9;font-size:clamp(1.5rem,3vw,2rem);letter-spacing:1px;margin-bottom:1rem;">A Private Community for Builders</h2>
+        <p data-id="402" style="color:#94a3b8;font-size:0.95rem;line-height:1.8;margin-bottom:1.5rem;">Skip the noise. Join a focused group of builders, creators, and tech professionals. Weekly live sessions, exclusive content, direct feedback, and a network that actually moves the needle.</p>
+        <ul data-id="403" style="list-style:none;margin-bottom:1.75rem;padding:0;">
+          <li data-id="404" style="color:#94a3b8;font-size:0.9rem;line-height:2;padding-left:1.25rem;position:relative;"><span data-id="405" style="position:absolute;left:0;color:#10b981;">•</span>Weekly live training sessions</li>
+          <li data-id="406" style="color:#94a3b8;font-size:0.9rem;line-height:2;padding-left:1.25rem;position:relative;"><span data-id="407" style="position:absolute;left:0;color:#10b981;">•</span>Private Q&amp;A and code reviews</li>
+          <li data-id="408" style="color:#94a3b8;font-size:0.9rem;line-height:2;padding-left:1.25rem;position:relative;"><span data-id="409" style="position:absolute;left:0;color:#10b981;">•</span>Exclusive templates and resources</li>
+          <li data-id="410" style="color:#94a3b8;font-size:0.9rem;line-height:2;padding-left:1.25rem;position:relative;"><span data-id="411" style="position:absolute;left:0;color:#10b981;">•</span>Direct access to Aurelio Dioval</li>
+        </ul>
+        <a data-id="412" href="https://www.skool.com" target="_blank" rel="noopener noreferrer" class="tech-btn-filled">Join on Skool →</a>
       </div>
     </div>
   </section>
 
-  <div data-id="404" class="fade-in-section" style="text-align:center;padding:3rem 0;">
-    <a data-id="405" href="#home" class="back-home-link mono" style="color:#00cc6a;font-size:0.85rem;text-decoration:none;">cd ~/</a>
+  <!-- Section 7: Books Cross-Promotion -->
+  <section data-id="413" style="max-width:1100px;margin:4rem auto;padding:0 2rem;">
+    <h2 data-id="414" class="fade-in-section" style="text-align:center;color:#f1f5f9;font-size:clamp(1.5rem,3vw,2rem);letter-spacing:2px;margin-bottom:0.75rem;">From the Author</h2>
+    <p data-id="415" class="fade-in-section" style="text-align:center;color:#94a3b8;font-size:0.95rem;margin-bottom:2.5rem;">The same mind that architects systems also builds worlds</p>
+
+    <div data-id="416" class="fade-in-section" style="display:flex;flex-wrap:wrap;gap:1.5rem;">
+      <!-- Book Card 1 -->
+      <div data-id="417" class="tech-book-card">
+        <h3 data-id="418" style="color:#f1f5f9;font-size:1.15rem;letter-spacing:2px;margin-bottom:0.75rem;">The Light of Woza</h3>
+        <span data-id="419" style="display:inline-block;border:1px solid #8b1a1a;color:#8b1a1a;font-size:0.7rem;padding:0.2rem 0.75rem;border-radius:9999px;margin-bottom:1rem;font-family:'Inter',sans-serif;">Dark Fantasy Novel</span>
+        <p data-id="420" style="color:#94a3b8;font-size:0.9rem;line-height:1.75;margin-bottom:1.25rem;">Where archangels walk among humans and love defies heaven itself.</p>
+        <a data-id="421" href="https://www.amazon.com/dp/B0GX34NMD6" target="_blank" rel="noopener noreferrer" style="color:#8b1a1a;font-size:0.85rem;text-decoration:none;font-weight:500;font-family:'Inter',sans-serif;transition:opacity 0.3s;">Read on Amazon →</a>
+      </div>
+
+      <!-- Book Card 2 -->
+      <div data-id="422" class="tech-book-card">
+        <h3 data-id="423" style="color:#f1f5f9;font-size:1.15rem;letter-spacing:2px;margin-bottom:0.75rem;">Wine, Sea, and Fire</h3>
+        <span data-id="424" style="display:inline-block;border:1px solid #b87333;color:#b87333;font-size:0.7rem;padding:0.2rem 0.75rem;border-radius:9999px;margin-bottom:1rem;font-family:'Inter',sans-serif;">Poetry Collection</span>
+        <p data-id="425" style="color:#94a3b8;font-size:0.9rem;line-height:1.75;margin-bottom:1.25rem;">Persian fire. Arabian ink. Portuguese sea. One voice — Mr. Ex The Last Poet.</p>
+        <a data-id="426" href="#poetry" class="tech-poetry-link" style="color:#b87333;font-size:0.85rem;text-decoration:none;font-weight:500;font-family:'Inter',sans-serif;transition:opacity 0.3s;">Explore the Poems →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8: Contact / CTA -->
+  <section data-id="427" class="fade-in-section" style="max-width:800px;margin:4rem auto;padding:0 2rem;text-align:center;">
+    <h2 data-id="428" style="color:#f1f5f9;font-size:clamp(1.8rem,4vw,2.5rem);letter-spacing:2px;margin-bottom:1rem;">Ready to Build?</h2>
+    <p data-id="429" style="color:#94a3b8;font-size:1rem;line-height:1.7;max-width:550px;margin:0 auto 2rem;">Let's talk about your next project, training needs, or how to join the community.</p>
+    <div data-id="430" style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:2rem;">
+      <a data-id="431" href="mailto:support@dioval.com?subject=Consultation%20Inquiry" class="tech-btn-filled">Book a Consultation</a>
+      <a data-id="432" href="mailto:support@dioval.com" class="tech-btn-outline">Send a Message</a>
+    </div>
+    <p data-id="433" style="color:#64748b;font-size:0.8rem;">support@dioval.com · www.dioval.com</p>
+  </section>
+
+  <!-- Back Home -->
+  <div data-id="434" class="fade-in-section" style="text-align:center;padding:3rem 0;">
+    <a data-id="435" href="#home" class="back-home-link" style="color:#64748b;font-size:0.85rem;text-decoration:none;font-family:'Inter',sans-serif;">← Back to Home</a>
   </div>
 
-  <footer data-id="406" style="text-align:center;padding:1rem;color:#6e7681;font-size:0.7rem;font-family:'Inter',sans-serif;">Made by Copilot</footer>
+  <footer data-id="436" style="text-align:center;padding:1rem;color:#64748b;font-size:0.7rem;font-family:'Inter',sans-serif;">Made by Copilot</footer>
 </div>
 
 <script>
@@ -818,7 +934,7 @@ And the angels have written it down.</p>
     bio: '#7b8ab8',
     novels: '#8b1a1a',
     poetry: '#b87333',
-    tech: '#00ff88'
+    tech: '#3b82f6'
   };
 
   var currentPage = 'home';
@@ -836,17 +952,14 @@ And the angels have written it down.</p>
     var oldSection = document.getElementById('page-' + currentPage);
     var newSection = document.getElementById('page-' + page);
 
-    // Fade out old
     oldSection.classList.remove('visible');
 
     setTimeout(function() {
       oldSection.classList.remove('active');
       newSection.classList.add('active');
 
-      // Scroll to top
       window.scrollTo(0, 0);
 
-      // Small delay to allow DOM to paint
       requestAnimationFrame(function() {
         requestAnimationFrame(function() {
           newSection.classList.add('visible');
@@ -868,7 +981,6 @@ And the angels have written it down.</p>
     var accent = PAGE_ACCENTS[page];
     document.getElementById('nav-logo-text').style.color = accent;
 
-    // Desktop nav links
     document.querySelectorAll('#desktop-nav a').forEach(function(link) {
       var linkPage = link.getAttribute('data-page');
       if (linkPage === page) {
@@ -880,11 +992,9 @@ And the angels have written it down.</p>
       }
     });
 
-    // Update active underline colors via style injection
     updateActiveStyles(page);
   }
 
-  // Dynamic style for active underline
   var dynamicStyle = document.createElement('style');
   document.head.appendChild(dynamicStyle);
 
@@ -893,7 +1003,6 @@ And the angels have written it down.</p>
     dynamicStyle.textContent = '.nav-links a.active::after { background: ' + accent + '; width: 100%; }';
   }
 
-  // Hover effects on nav links
   document.querySelectorAll('#desktop-nav a').forEach(function(link) {
     var targetPage = link.getAttribute('data-page');
     var targetAccent = link.getAttribute('data-accent');
@@ -916,7 +1025,6 @@ And the angels have written it down.</p>
     });
   });
 
-  // Mobile nav links
   document.querySelectorAll('.mobile-nav-link').forEach(function(link) {
     link.addEventListener('click', function(e) {
       e.preventDefault();
@@ -926,7 +1034,6 @@ And the angels have written it down.</p>
     });
   });
 
-  // Hamburger
   document.getElementById('hamburger-btn').addEventListener('click', function() {
     document.getElementById('mobile-overlay').classList.add('open');
   });
@@ -936,13 +1043,11 @@ And the angels have written it down.</p>
   }
   document.getElementById('mobile-close-btn').addEventListener('click', closeMobileMenu);
 
-  // Hash change (back/forward)
   window.addEventListener('hashchange', function() {
     var page = getPageFromHash();
     navigateTo(page, false);
   });
 
-  // Scroll: make nav solid
   function updateNavSolid() {
     var nav = document.getElementById('main-nav');
     if (currentPage !== 'home' || window.scrollY > 40) {
@@ -953,14 +1058,12 @@ And the angels have written it down.</p>
   }
   window.addEventListener('scroll', updateNavSolid);
 
-  // Portal cards
   document.querySelectorAll('.portal-card[data-nav]').forEach(function(card) {
     card.addEventListener('click', function() {
       navigateTo(card.getAttribute('data-nav'));
     });
   });
 
-  // Back to home links
   document.querySelectorAll('.back-home-link').forEach(function(link) {
     link.addEventListener('click', function(e) {
       e.preventDefault();
@@ -968,7 +1071,6 @@ And the angels have written it down.</p>
     });
   });
 
-  // Portal card hover effects
   document.querySelectorAll('.portal-card').forEach(function(card) {
     var style = card.style;
     var borderColor = style.borderColor;
@@ -980,7 +1082,6 @@ And the angels have written it down.</p>
     });
   });
 
-  // Bio identity card hover effects
   document.querySelectorAll('.bio-identity-card').forEach(function(card) {
     var hoverAccent = card.getAttribute('data-hover-accent');
     card.addEventListener('mouseenter', function() {
@@ -990,6 +1091,14 @@ And the angels have written it down.</p>
     card.addEventListener('mouseleave', function() {
       card.style.borderColor = '#1e2538';
       card.style.boxShadow = 'none';
+    });
+  });
+
+  // Tech poetry link navigation
+  document.querySelectorAll('.tech-poetry-link').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      navigateTo('poetry');
     });
   });
 
@@ -1016,7 +1125,6 @@ And the angels have written it down.</p>
     var page = getPageFromHash();
     currentPage = page;
 
-    // Show the right page immediately
     document.querySelectorAll('.page-section').forEach(function(s) {
       s.classList.remove('active', 'visible');
     });
@@ -1029,10 +1137,8 @@ And the angels have written it down.</p>
     updateNav(page);
     updateNavSolid();
 
-    // Observe fade-in elements on all pages initially displayed
     observeNewPage();
 
-    // Also observe home page elements if starting on home
     document.querySelectorAll('.fade-in-section').forEach(function(el) {
       observer.observe(el);
     });
