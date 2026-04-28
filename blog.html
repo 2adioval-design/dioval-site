@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diotech IT Consulting Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: '#0f172a',
+              navyLight: '#1e293b',
+              accent: '#2563eb',
+              accentHover: '#1d4ed8',
+              accentLight: '#dbeafe',
+              accentText: '#1e40af',
+              grayBg: '#f8fafc',
+              grayBorder: '#e2e8f0',
+              textPrimary: '#0f172a',
+              textSecondary: '#475569',
+              textMuted: '#94a3b8',
+            },
+            fontFamily: {
+              body: ['Inter', 'sans-serif'],
+              display: ['Georgia', 'Times New Roman', 'serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      * { box-sizing: border-box; }
+      body { font-family: 'Inter', sans-serif; margin: 0; color: #0f172a; }
+      html { scroll-behavior: smooth; }
+      .serif { font-family: Georgia, 'Times New Roman', serif; }
+      .pill-cyber { background: #fef2f2; color: #b91c1c; }
+      .pill-datacenter { background: #dbeafe; color: #1e40af; }
+      .pill-network { background: #dcfce7; color: #15803d; }
+      .pill-book { background: #f3e8ff; color: #7e22ce; }
+      .card-hover { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+      .card-hover:hover { transform: translateY(-3px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); }
+      .expertise-scroll { overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
+      .expertise-scroll::-webkit-scrollbar { display: none; }
+      .article-body h3 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.35rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.75rem; color: #0f172a; }
+      .article-body p { margin-bottom: 1.25rem; line-height: 1.8; color: #334155; }
+      .fade-in { animation: fadeIn 0.35s ease; }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+      .quote-mark { font-size: 4rem; line-height: 1; color: #2563eb; opacity: 0.2; font-family: Georgia, serif; }
+      @media (max-width: 767px) {
+        .mobile-menu-open { overflow: hidden; }
+      }
+    </style>
+  </head>
+  <body data-id="0" class="bg-white font-body">
+    <app-icon data-id="1" hidden data-icon="shield-check" data-palette="Blue"></app-icon>
+
+    <!-- ===== STICKY NAVIGATION ===== -->
+    <header data-id="2" id="navbar-hdr1" class="sticky top-0 z-50 bg-white border-b border-grayBorder">
+      <div data-id="3" class="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-16">
+        <a data-id="4" id="logo-link-ab12" href="https://www.diotech.org" target="_blank" rel="noopener" class="flex items-center gap-2 text-navy font-bold text-xl tracking-tight">
+          <i data-id="5" data-lucide="shield-check" class="w-6 h-6 text-accent"></i>
+          DIOTECH
+        </a>
+        <nav data-id="6" id="desktop-nav-cd34" class="hidden md:flex items-center gap-6 text-sm font-medium text-textSecondary">
+          <a data-id="7" href="#hero-section" class="nav-link hover:text-accent transition-colors">Home</a>
+          <a data-id="8" href="#blog" class="nav-link hover:text-accent transition-colors">Blog</a>
+          <a data-id="9" href="#cases" class="nav-link hover:text-accent transition-colors">Case Studies</a>
+          <a data-id="10" href="#services" class="nav-link hover:text-accent transition-colors">Services</a>
+          <a data-id="11" href="#books" class="nav-link hover:text-accent transition-colors">Books</a>
+          <a data-id="12" href="#about" class="nav-link hover:text-accent transition-colors">About</a>
+          <a data-id="13" href="#contact" class="nav-link hover:text-accent transition-colors">Contact</a>
+        </nav>
+        <button data-id="14" id="mobile-menu-btn-ef56" class="md:hidden p-2 text-navy" aria-label="Open menu">
+          <i data-id="15" data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <!-- Mobile Menu -->
+      <nav data-id="16" id="mobile-menu-gh78" class="hidden fixed inset-0 bg-white z-50 flex-col p-6">
+        <div data-id="17" class="flex items-center justify-between mb-8">
+          <span data-id="18" class="flex items-center gap-2 text-navy font-bold text-xl">
+            <i data-id="19" data-lucide="shield-check" class="w-6 h-6 text-accent"></i>
+            DIOTECH
+          </span>
+          <button data-id="20" id="mobile-menu-close-ij90" class="p-2 text-navy" aria-label="Close menu">
+            <i data-id="21" data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+        <div data-id="22" class="flex flex-col gap-5 text-lg font-medium text-textSecondary">
+          <a data-id="23" href="#hero-section" class="mobile-nav-link hover:text-accent">Home</a>
+          <a data-id="24" href="#blog" class="mobile-nav-link hover:text-accent">Blog</a>
+          <a data-id="25" href="#cases" class="mobile-nav-link hover:text-accent">Case Studies</a>
+          <a data-id="26" href="#services" class="mobile-nav-link hover:text-accent">Services</a>
+          <a data-id="27" href="#books" class="mobile-nav-link hover:text-accent">Books</a>
+          <a data-id="28" href="#about" class="mobile-nav-link hover:text-accent">About</a>
+          <a data-id="29" href="#contact" class="mobile-nav-link hover:text-accent">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ===== MAIN PAGE CONTENT ===== -->
+    <div data-id="30" id="main-page-kl12">
+
+      <!-- ===== HERO SECTION ===== -->
+      <section data-id="31" id="hero-section" class="bg-navy text-white py-20 md:py-28 lg:py-36">
+        <div data-id="32" class="max-w-4xl mx-auto px-4 md:px-6 text-center">
+          <h1 data-id="33" id="hero-heading-mn34" class="serif text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            Securing Infrastructure.<br data-id="34" class="hidden sm:block" /> Designing the Future.
+          </h1>
+          <p data-id="35" id="hero-sub-op56" class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+            Expert consulting in cybersecurity, network architecture, and datacenter design. Helping organizations build resilient, scalable, and secure IT environments.
+          </p>
+          <div data-id="36" class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a data-id="37" href="#blog" id="hero-cta1-qr78" class="bg-accent hover:bg-accentHover text-white font-semibold px-8 py-3.5 rounded-lg transition-colors text-base">Read the Blog</a>
+            <a data-id="38" href="#contact" id="hero-cta2-st90" class="border-2 border-white text-white hover:bg-white hover:text-navy font-semibold px-8 py-3.5 rounded-lg transition-colors text-base">Get in Touch</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== EXPERTISE PILLS ===== -->
+      <section data-id="39" id="expertise-uv12" class="py-6 border-b border-grayBorder">
+        <div data-id="40" class="max-w-7xl mx-auto px-4 md:px-6">
+          <div data-id="41" class="expertise-scroll flex gap-3">
+            <span data-id="42" class="flex-shrink-0 bg-accentLight text-accentText text-sm font-medium px-4 py-2 rounded-full">Cybersecurity</span>
+            <span data-id="43" class="flex-shrink-0 bg-accentLight text-accentText text-sm font-medium px-4 py-2 rounded-full">Network Architecture</span>
+            <span data-id="44" class="flex-shrink-0 bg-accentLight text-accentText text-sm font-medium px-4 py-2 rounded-full">Datacenter Design</span>
+            <span data-id="45" class="flex-shrink-0 bg-accentLight text-accentText text-sm font-medium px-4 py-2 rounded-full">IT Consulting</span>
+            <span data-id="46" class="flex-shrink-0 bg-accentLight text-accentText text-sm font-medium px-4 py-2 rounded-full">Cloud Infrastructure</span>
+            <span data-id="47" class="flex-shrink-0 bg-accentLight text-accentText text-sm font-medium px-4 py-2 rounded-full">Zero Trust</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== BLOG SECTION ===== -->
+      <section data-id="48" id="blog" class="py-16 md:py-20">
+        <div data-id="49" class="max-w-7xl mx-auto px-4 md:px-6">
+          <h2 data-id="50" id="blog-heading-wx34" class="serif text-2xl md:text-4xl font-bold text-navy mb-3 text-center">Latest Insights</h2>
+          <p data-id="51" class="text-textSecondary text-center mb-10 max-w-xl mx-auto">Research, analysis, and hard-won lessons from the field of enterprise IT.</p>
+          <!-- Category Filter -->
+          <div data-id="52" id="filter-bar-yz56" class="flex flex-wrap justify-center gap-2 mb-10">
+            <button data-id="53" data-filter="All" class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-accent text-white transition-colors">All</button>
+            <button data-id="54" data-filter="Cybersecurity" class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-gray-100 text-textSecondary hover:bg-accent hover:text-white transition-colors">Cybersecurity</button>
+            <button data-id="55" data-filter="Datacenter" class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-gray-100 text-textSecondary hover:bg-accent hover:text-white transition-colors">Datacenter</button>
+            <button data-id="56" data-filter="IT Network" class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-gray-100 text-textSecondary hover:bg-accent hover:text-white transition-colors">IT Network</button>
+            <button data-id="57" data-filter="Book Insights" class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-gray-100 text-textSecondary hover:bg-accent hover:text-white transition-colors">Book Insights</button>
+          </div>
+          <!-- Blog Grid -->
+          <div data-id="58" id="blog-grid-ab78" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Cards rendered by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CASE STUDIES ===== -->
+      <section data-id="59" id="cases" class="py-16 md:py-20 bg-grayBg">
+        <div data-id="60" class="max-w-7xl mx-auto px-4 md:px-6">
+          <h2 data-id="61" id="cases-heading-cd90" class="serif text-2xl md:text-4xl font-bold text-navy mb-2 text-center">Case Studies</h2>
+          <p data-id="62" class="text-textSecondary text-center mb-12 max-w-xl mx-auto">Real-world results from Diotech engagements.</p>
+          <div data-id="63" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Case 1 -->
+            <div data-id="64" id="case1-ef12" class="bg-white rounded-xl p-6 md:p-8 border border-grayBorder card-hover">
+              <h3 data-id="65" class="serif text-xl font-bold text-navy mb-4">Fortune 500 Datacenter Migration</h3>
+              <div data-id="66" class="space-y-3 text-sm text-textSecondary leading-relaxed">
+                <p data-id="67"><span data-id="68" class="font-semibold text-navy">Challenge:</span> Legacy three-tier architecture with 2,400+ VLANs, 45-minute failover times.</p>
+                <p data-id="69"><span data-id="70" class="font-semibold text-navy">Solution:</span> Spine-leaf EVPN-VXLAN fabric with automated provisioning.</p>
+                <p data-id="71"><span data-id="72" class="font-semibold text-accent">Result:</span> 99.999% uptime. Failover under 3 seconds. 60% ops reduction.</p>
+              </div>
+            </div>
+            <!-- Case 2 -->
+            <div data-id="73" id="case2-gh34" class="bg-white rounded-xl p-6 md:p-8 border border-grayBorder card-hover">
+              <h3 data-id="74" class="serif text-xl font-bold text-navy mb-4">Healthcare Zero Trust Implementation</h3>
+              <div data-id="75" class="space-y-3 text-sm text-textSecondary leading-relaxed">
+                <p data-id="76"><span data-id="77" class="font-semibold text-navy">Challenge:</span> Flat Layer 2 hospital network, no segmentation between medical devices and clinical systems.</p>
+                <p data-id="78"><span data-id="79" class="font-semibold text-navy">Solution:</span> Cisco ISE microsegmentation, NAC profiling for 12,000+ devices, zero-trust zones.</p>
+                <p data-id="80"><span data-id="81" class="font-semibold text-accent">Result:</span> HIPAA compliant. 94% lateral attack surface reduction. Zero incidents in 18 months.</p>
+              </div>
+            </div>
+            <!-- Case 3 -->
+            <div data-id="82" id="case3-ij56" class="bg-white rounded-xl p-6 md:p-8 border border-grayBorder card-hover">
+              <h3 data-id="83" class="serif text-xl font-bold text-navy mb-4">Multi-Cloud SD-WAN Transformation</h3>
+              <div data-id="84" class="space-y-3 text-sm text-textSecondary leading-relaxed">
+                <p data-id="85"><span data-id="86" class="font-semibold text-navy">Challenge:</span> 180 branches on legacy MPLS, $2.4M annual WAN spend.</p>
+                <p data-id="87"><span data-id="88" class="font-semibold text-navy">Solution:</span> Hybrid SD-WAN with dual Internet + reduced MPLS, AWS Transit Gateway, Azure vWAN.</p>
+                <p data-id="89"><span data-id="90" class="font-semibold text-accent">Result:</span> $960K annual savings. 3x SaaS performance. 14-week deployment.</p>
+              </div>
+            </div>
+            <!-- Case 4 -->
+            <div data-id="91" id="case4-kl78" class="bg-white rounded-xl p-6 md:p-8 border border-grayBorder card-hover">
+              <h3 data-id="92" class="serif text-xl font-bold text-navy mb-4">SOC Build-Out for Financial Services</h3>
+              <div data-id="93" class="space-y-3 text-sm text-textSecondary leading-relaxed">
+                <p data-id="94"><span data-id="95" class="font-semibold text-navy">Challenge:</span> No centralized monitoring, 72-hour average threat detection.</p>
+                <p data-id="96"><span data-id="97" class="font-semibold text-navy">Solution:</span> Cloud-native SOC with SIEM/SOAR, custom detection rules, open-source tooling.</p>
+                <p data-id="98"><span data-id="99" class="font-semibold text-accent">Result:</span> Detection reduced to 12 minutes. Passed SOC 2 Type II first attempt. 90% Tier 1 automation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== TESTIMONIALS ===== -->
+      <section data-id="100" id="testimonials" class="py-16 md:py-20">
+        <div data-id="101" class="max-w-7xl mx-auto px-4 md:px-6">
+          <h2 data-id="102" id="testimonials-heading-mn90" class="serif text-2xl md:text-4xl font-bold text-navy mb-12 text-center">What Clients Say</h2>
+          <div data-id="103" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div data-id="104" id="testimonial1-op12" class="bg-grayBg rounded-xl p-6 md:p-8 border border-grayBorder">
+              <div data-id="105" class="quote-mark">&ldquo;</div>
+              <p data-id="106" class="italic text-textSecondary leading-relaxed mb-4 -mt-4">Diotech transformed our datacenter from a liability into a competitive advantage. The depth of architectural thinking was unlike anything we'd seen.</p>
+              <p data-id="107" class="text-sm font-semibold text-navy">— VP of Engineering, Fortune 500 Retail</p>
+            </div>
+            <div data-id="108" id="testimonial2-qr34" class="bg-grayBg rounded-xl p-6 md:p-8 border border-grayBorder">
+              <div data-id="109" class="quote-mark">&ldquo;</div>
+              <p data-id="110" class="italic text-textSecondary leading-relaxed mb-4 -mt-4">Most consultants hand you a Visio diagram and walk away. Aurelio stayed through implementation and made sure the design actually worked in production.</p>
+              <p data-id="111" class="text-sm font-semibold text-navy">— Director of IT, Pacific Northwest Health System</p>
+            </div>
+            <div data-id="112" id="testimonial3-st56" class="bg-grayBg rounded-xl p-6 md:p-8 border border-grayBorder">
+              <div data-id="113" class="quote-mark">&ldquo;</div>
+              <p data-id="114" class="italic text-textSecondary leading-relaxed mb-4 -mt-4">The SD-WAN migration could have been a disaster. Diotech's phased approach meant zero downtime across 180 sites.</p>
+              <p data-id="115" class="text-sm font-semibold text-navy">— CTO, National Financial Services Firm</p>
+            </div>
+            <div data-id="116" id="testimonial4-uv78" class="bg-grayBg rounded-xl p-6 md:p-8 border border-grayBorder">
+              <div data-id="117" class="quote-mark">&ldquo;</div>
+              <p data-id="118" class="italic text-textSecondary leading-relaxed mb-4 -mt-4">We hired Diotech for a security assessment and got a complete architectural roadmap. Best investment we made all year.</p>
+              <p data-id="119" class="text-sm font-semibold text-navy">— CISO, SaaS Startup (Series B)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SERVICES ===== -->
+      <section data-id="120" id="services" class="py-16 md:py-20 bg-grayBg">
+        <div data-id="121" class="max-w-7xl mx-auto px-4 md:px-6">
+          <h2 data-id="122" id="services-heading-wx90" class="serif text-2xl md:text-4xl font-bold text-navy mb-2 text-center">Services</h2>
+          <p data-id="123" class="text-textSecondary text-center mb-12 max-w-xl mx-auto">End-to-end IT consulting from strategy through implementation.</p>
+          <div data-id="124" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div data-id="125" id="svc1-yz12" class="bg-white rounded-xl p-6 border border-grayBorder card-hover text-center">
+              <i data-id="126" data-lucide="shield" class="w-8 h-8 text-accent mx-auto mb-4"></i>
+              <h3 data-id="127" class="font-bold text-navy mb-2">Cybersecurity Consulting</h3>
+              <p data-id="128" class="text-sm text-textSecondary leading-relaxed">Threat assessment, penetration testing, compliance, security architecture, zero trust implementation, and incident response.</p>
+            </div>
+            <div data-id="129" id="svc2-ab34" class="bg-white rounded-xl p-6 border border-grayBorder card-hover text-center">
+              <i data-id="130" data-lucide="network" class="w-8 h-8 text-accent mx-auto mb-4"></i>
+              <h3 data-id="131" class="font-bold text-navy mb-2">Network Architecture</h3>
+              <p data-id="132" class="text-sm text-textSecondary leading-relaxed">Enterprise network design, SD-WAN deployment, wireless architecture, and performance optimization.</p>
+            </div>
+            <div data-id="133" id="svc3-cd56" class="bg-white rounded-xl p-6 border border-grayBorder card-hover text-center">
+              <i data-id="134" data-lucide="server" class="w-8 h-8 text-accent mx-auto mb-4"></i>
+              <h3 data-id="135" class="font-bold text-navy mb-2">Datacenter Design</h3>
+              <p data-id="136" class="text-sm text-textSecondary leading-relaxed">Greenfield and brownfield design, rack layout, power and cooling, hybrid cloud integration.</p>
+            </div>
+            <div data-id="137" id="svc4-ef78" class="bg-white rounded-xl p-6 border border-grayBorder card-hover text-center">
+              <i data-id="138" data-lucide="lightbulb" class="w-8 h-8 text-accent mx-auto mb-4"></i>
+              <h3 data-id="139" class="font-bold text-navy mb-2">IT Strategy &amp; Advisory</h3>
+              <p data-id="140" class="text-sm text-textSecondary leading-relaxed">Technology roadmapping, vendor evaluation, digital transformation, and executive consulting.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CERTIFICATIONS ===== -->
+      <section data-id="141" id="certs" class="py-16 md:py-20">
+        <div data-id="142" class="max-w-7xl mx-auto px-4 md:px-6">
+          <h2 data-id="143" id="certs-heading-gh90" class="serif text-2xl md:text-4xl font-bold text-navy mb-2 text-center">Certifications &amp; Technology Partners</h2>
+          <p data-id="144" class="text-textSecondary text-center mb-10 max-w-xl mx-auto">Industry-recognized credentials backing every engagement.</p>
+          <div data-id="145" class="flex flex-wrap justify-center gap-3">
+            <span data-id="146" class="bg-navy text-white text-xs md:text-sm font-medium px-4 py-2 rounded-full">CCNP Enterprise</span>
+            <span data-id="147" class="bg-navy text-white text-xs md:text-sm font-medium px-4 py-2 rounded-full">JNCIP</span>
+            <span data-id="148" class="bg-navy text-white text-xs md:text-sm font-medium px-4 py-2 rounded-full">NSE7</span>
+            <span data-id="149" class="bg-navy text-white text-xs md:text-sm font-medium px-4 py-2 rounded-full">Azure Solutions Architect</span>
+            <span data-id="150" class="bg-navy text-white text-xs md:text-sm font-medium px-4 py-2 rounded-full">RHCE</span>
+            <span data-id="151" class="bg-navy text-white text-xs md:text-sm font-medium px-4 py-2 rounded-full">Cisco SD-WAN</span>
+            <span data-id="152" class="bg-navy text-white text-xs md:text-sm font-medium px-4 py-2 rounded-full">Cisco ISE</span>
+            <span data-id="153" class="bg-navy text-white text-xs md:text-sm font-medium px-4 py-2 rounded-full">ACMP</span>
+            <span data-id="154" class="bg-navy text-white text-xs md:text-sm font-medium px-4 py-2 rounded-full">ACSP</span>
+            <span data-id="155" class="bg-navy text-white text-xs md:text-sm font-medium px-4 py-2 rounded-full">ACCP</span>
+            <span data-id="156" class="bg-navy text-white text-xs md:text-sm font-medium px-4 py-2 rounded-full">ITIL Foundation</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== BOOKS ===== -->
+      <section data-id="157" id="books" class="py-16 md:py-20 bg-grayBg">
+        <div data-id="158" class="max-w-7xl mx-auto px-4 md:px-6">
+          <h2 data-id="159" id="books-heading-ij12" class="serif text-2xl md:text-4xl font-bold text-navy mb-2 text-center">Published Works</h2>
+          <p data-id="160" class="text-textSecondary text-center mb-12 max-w-xl mx-auto">Books by Aurelio Dioval on network architecture and cloud networking.</p>
+          <div data-id="161" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div data-id="162" id="book1-kl34" class="bg-white rounded-xl p-6 md:p-8 border border-grayBorder card-hover">
+              <div data-id="163" class="flex items-start gap-4">
+                <div data-id="164" class="flex-shrink-0 w-12 h-12 bg-accentLight rounded-lg flex items-center justify-center">
+                  <i data-id="165" data-lucide="book-open" class="w-6 h-6 text-accent"></i>
+                </div>
+                <div data-id="166">
+                  <span data-id="167" class="inline-block bg-purple-100 text-purple-700 text-xs font-semibold px-2.5 py-1 rounded-full mb-2">Available 2026</span>
+                  <h3 data-id="168" class="serif text-lg font-bold text-navy mb-2">Architecting the Invisible: The Art, Science, and Philosophy of Network Design</h3>
+                  <p data-id="169" class="text-sm text-textSecondary leading-relaxed">First Edition, 2026. Spanning 63 chapters from philosophy to quantum networking. Features Stoic philosophy frameworks, 51 Hard Truth sections, and vendor-agnostic design principles for the thinking architect.</p>
+                </div>
+              </div>
+            </div>
+            <div data-id="170" id="book2-mn56" class="bg-white rounded-xl p-6 md:p-8 border border-grayBorder card-hover">
+              <div data-id="171" class="flex items-start gap-4">
+                <div data-id="172" class="flex-shrink-0 w-12 h-12 bg-accentLight rounded-lg flex items-center justify-center">
+                  <i data-id="173" data-lucide="book-open" class="w-6 h-6 text-accent"></i>
+                </div>
+                <div data-id="174">
+                  <span data-id="175" class="inline-block bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full mb-2">Available Now</span>
+                  <h3 data-id="176" class="serif text-lg font-bold text-navy mb-2">Distinguished Cloud Networking: The Definitive Reference</h3>
+                  <p data-id="177" class="text-sm text-textSecondary leading-relaxed">A comprehensive guide to cloud networking across AWS, Azure, and multi-cloud environments. The definitive reference for cloud network engineers and architects.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== ABOUT ===== -->
+      <section data-id="178" id="about" class="py-16 md:py-20">
+        <div data-id="179" class="max-w-4xl mx-auto px-4 md:px-6">
+          <h2 data-id="180" id="about-heading-op78" class="serif text-2xl md:text-4xl font-bold text-navy mb-8 text-center">About Aurelio Dioval, CTO &amp; Founder</h2>
+          <div data-id="181" class="bg-grayBg rounded-xl p-6 md:p-10 border border-grayBorder">
+            <p data-id="182" class="text-textSecondary leading-relaxed mb-6">
+              Aurelio Dioval is a Chief Technology Officer, cloud architect, and network engineer with more than fifteen years of hands-on experience designing, deploying, and troubleshooting enterprise networks across AWS, Azure, and multi-cloud environments. He currently leads cybersecurity, cloud infrastructure, AI, and enterprise networking solutions at Diotech Corp.
+            </p>
+            <p data-id="183" class="text-textSecondary leading-relaxed mb-6">
+              Previously, Aurelio served as a Senior Cloud Network Engineer III at Microsoft in Redmond, Washington, providing Tier 3+ support for enterprise customers with the most complex network challenges in Azure and hybrid environments. His career includes engineering roles at Evotec Biologics, XIOLOGIX, Lighthouse, Mindtree, EchoStar, The Cosmopolitan of Las Vegas, and Smart Connections.
+            </p>
+            <div data-id="184" class="flex flex-wrap gap-2 mt-6">
+              <span data-id="185" class="bg-accentLight text-accentText text-xs font-medium px-3 py-1.5 rounded-full">Universidade Agostinho Neto</span>
+              <span data-id="186" class="bg-accentLight text-accentText text-xs font-medium px-3 py-1.5 rounded-full">Universidad Complutense de Madrid</span>
+              <span data-id="187" class="bg-accentLight text-accentText text-xs font-medium px-3 py-1.5 rounded-full">University of Washington</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== NEWSLETTER ===== -->
+      <section data-id="188" id="newsletter" class="py-16 md:py-20 bg-grayBg">
+        <div data-id="189" class="max-w-xl mx-auto px-4 md:px-6 text-center">
+          <h2 data-id="190" id="newsletter-heading-qr90" class="serif text-2xl md:text-3xl font-bold text-navy mb-3">Stay Ahead of the Curve</h2>
+          <p data-id="191" class="text-textSecondary mb-8">Get insights on cybersecurity, datacenter design, and network architecture delivered to your inbox.</p>
+          <form data-id="192" id="newsletter-form-st12" class="flex flex-col sm:flex-row gap-3">
+            <input data-id="193" type="email" placeholder="your@email.com" required class="flex-1 px-4 py-3 rounded-lg border border-grayBorder text-base focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent" />
+            <button data-id="194" type="submit" class="bg-accent hover:bg-accentHover text-white font-semibold px-6 py-3 rounded-lg transition-colors text-base">Subscribe</button>
+          </form>
+          <p data-id="195" id="newsletter-thanks-uv34" class="hidden text-green-600 font-medium mt-4 fade-in">Thank you for subscribing! You'll hear from us soon.</p>
+        </div>
+      </section>
+
+      <!-- ===== CONTACT ===== -->
+      <section data-id="196" id="contact" class="py-16 md:py-20">
+        <div data-id="197" class="max-w-5xl mx-auto px-4 md:px-6">
+          <h2 data-id="198" id="contact-heading-wx56" class="serif text-2xl md:text-4xl font-bold text-navy mb-12 text-center">Get in Touch</h2>
+          <div data-id="199" class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <form data-id="200" id="contact-form-yz78" class="space-y-5">
+              <div data-id="201">
+                <label data-id="202" class="block text-sm font-medium text-navy mb-1.5">Name</label>
+                <input data-id="203" type="text" placeholder="Your name" required class="w-full px-4 py-3 rounded-lg border border-grayBorder text-base focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent" />
+              </div>
+              <div data-id="204">
+                <label data-id="205" class="block text-sm font-medium text-navy mb-1.5">Email</label>
+                <input data-id="206" type="email" placeholder="your@email.com" required class="w-full px-4 py-3 rounded-lg border border-grayBorder text-base focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent" />
+              </div>
+              <div data-id="207">
+                <label data-id="208" class="block text-sm font-medium text-navy mb-1.5">Message</label>
+                <textarea data-id="209" placeholder="How can we help?" rows="5" required class="w-full px-4 py-3 rounded-lg border border-grayBorder text-base focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent resize-none"></textarea>
+              </div>
+              <button data-id="210" type="submit" class="bg-accent hover:bg-accentHover text-white font-semibold px-8 py-3 rounded-lg transition-colors text-base w-full sm:w-auto">Send Message</button>
+              <p data-id="211" id="contact-thanks-ab90" class="hidden text-green-600 font-medium mt-2 fade-in">Thank you! We'll be in touch shortly.</p>
+            </form>
+            <div data-id="212" class="flex flex-col justify-center">
+              <div data-id="213" class="bg-grayBg rounded-xl p-6 md:p-8 border border-grayBorder">
+                <h3 data-id="214" class="font-bold text-navy mb-3">Let's Talk</h3>
+                <p data-id="215" class="text-textSecondary text-sm leading-relaxed mb-4">Available for consulting, speaking, and advisory roles. Whether you need a security assessment, network redesign, or strategic technology roadmap — let's start a conversation.</p>
+                <a data-id="216" href="https://www.diotech.org" target="_blank" rel="noopener" class="text-accent hover:underline font-medium text-sm">Visit us at www.diotech.org →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    <!-- END main-page -->
+
+    <!-- ===== ARTICLE VIEW (hidden by default) ===== -->
+    <div data-id="217" id="article-view-cd12" class="hidden min-h-screen">
+      <div data-id="218" class="max-w-3xl mx-auto px-4 md:px-6 py-10 md:py-16">
+        <button data-id="219" id="back-btn-ef34" class="flex items-center gap-2 text-accent hover:text-accentHover font-medium mb-8 transition-colors text-sm">
+          <i data-id="220" data-lucide="arrow-left" class="w-4 h-4"></i>
+          Back to Blog
+        </button>
+        <article data-id="221" class="fade-in">
+          <div data-id="222" class="mb-8">
+            <span data-id="223" id="article-category-gh56" class="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-4"></span>
+            <h1 data-id="224" id="article-title-ij78" class="serif text-3xl md:text-4xl lg:text-5xl font-bold text-navy leading-tight mb-4"></h1>
+            <div data-id="225" id="article-meta-kl90" class="flex flex-wrap items-center gap-3 text-sm text-textMuted"></div>
+          </div>
+          <div data-id="226" id="article-body-mn12" class="article-body text-lg leading-relaxed"></div>
+        </article>
+      </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer data-id="227" class="bg-navy text-white py-12">
+      <div data-id="228" class="max-w-7xl mx-auto px-4 md:px-6">
+        <div data-id="229" class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div data-id="230">
+            <div data-id="231" class="flex items-center gap-2 font-bold text-xl mb-3">
+              <i data-id="232" data-lucide="shield-check" class="w-5 h-5 text-blue-400"></i>
+              DIOTECH
+            </div>
+            <p data-id="233" class="text-slate-400 text-sm leading-relaxed">Infrastructure. Security. Strategy.</p>
+            <a data-id="234" href="https://www.diotech.org" target="_blank" rel="noopener" class="text-blue-400 hover:text-blue-300 text-sm mt-2 inline-block">www.diotech.org</a>
+          </div>
+          <div data-id="235">
+            <h4 data-id="236" class="font-semibold mb-3 text-sm">Quick Links</h4>
+            <div data-id="237" class="flex flex-col gap-2 text-slate-400 text-sm">
+              <a data-id="238" href="#blog" class="hover:text-white transition-colors">Blog</a>
+              <a data-id="239" href="#cases" class="hover:text-white transition-colors">Case Studies</a>
+              <a data-id="240" href="#services" class="hover:text-white transition-colors">Services</a>
+              <a data-id="241" href="#books" class="hover:text-white transition-colors">Books</a>
+              <a data-id="242" href="#about" class="hover:text-white transition-colors">About</a>
+            </div>
+          </div>
+          <div data-id="243">
+            <h4 data-id="244" class="font-semibold mb-3 text-sm">Connect</h4>
+            <div data-id="245" class="flex gap-4 text-slate-400">
+              <a data-id="246" href="#" class="hover:text-white transition-colors" aria-label="LinkedIn"><i data-id="247" data-lucide="linkedin" class="w-5 h-5"></i></a>
+              <a data-id="248" href="#" class="hover:text-white transition-colors" aria-label="GitHub"><i data-id="249" data-lucide="github" class="w-5 h-5"></i></a>
+              <a data-id="250" href="#" class="hover:text-white transition-colors" aria-label="Twitter"><i data-id="251" data-lucide="twitter" class="w-5 h-5"></i></a>
+            </div>
+          </div>
+        </div>
+        <div data-id="252" class="border-t border-slate-700 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-500 text-xs">
+          <p data-id="253">&copy; 2026 Diotech Corp. All rights reserved.</p>
+          <p data-id="254">Made by Copilot</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // ===== ARTICLES DATA =====
+      const articles = [
+        {
+          id: 0,
+          title: "Zero Trust Architecture: Beyond the Buzzword",
+          category: "Cybersecurity",
+          date: "Apr 22, 2026",
+          readTime: "8 min read",
+          excerpt: "Zero Trust isn't a product you buy — it's an architecture you build. Here's how to implement it without breaking your existing workflows.",
+          body: `<p>The term Zero Trust has become so ubiquitous in cybersecurity marketing that it has nearly lost all meaning. Vendors slap it on firewalls, endpoint agents, and cloud dashboards as if trust were a feature you could purchase. It is not. Zero Trust is an architectural philosophy that fundamentally changes how we think about network boundaries, identity, and access.</p>
+<p>The traditional model operates on a simple assumption: everything inside the perimeter is trusted, everything outside is not. This made sense when networks had clear boundaries. But that world is gone. Remote work, cloud migration, SaaS adoption, and IoT have dissolved the perimeter entirely.</p>
+<h3>The Three Pillars</h3>
+<p>A functional Zero Trust architecture rests on three pillars: identity verification, microsegmentation, and least-privilege access.</p>
+<p>Identity verification means no entity gets network access based solely on location. A device on the corporate LAN receives the same scrutiny as one connecting from a coffee shop abroad. This requires robust identity providers, MFA, and device posture assessment at every access request.</p>
+<p>Microsegmentation divides the network into granular security zones. Instead of a flat Layer 2 domain where any compromised device can reach any other, each workload occupies its own segment with explicit policies governing communication. Lateral movement becomes architecturally impossible.</p>
+<p>Least-privilege access means users receive only minimum permissions necessary, only for the duration needed. A database administrator does not need permanent root access. A marketing contractor does not need visibility into the engineering subnet.</p>
+<h3>Implementation Without Destruction</h3>
+<p>The biggest mistake is treating Zero Trust as rip-and-replace. You do not need to tear down your existing network. Layer it in strategically.</p>
+<p>Start with identity. Enforce MFA everywhere — not just VPN, but every application and administrative console. This eliminates the majority of credential-based attacks.</p>
+<p>Next, map your data flows. You cannot segment what you do not understand. Instrument your network to understand which applications talk to which services, which users access which resources, and which dependencies exist.</p>
+<p>Then segment incrementally. Start with your most critical assets and build microsegmentation around them first. Expand outward.</p>
+<h3>The Cultural Shift</h3>
+<p>The hardest part is not technical — it is cultural. Engineers resist segmentation. Executives resist the implication that employees are potential threats.</p>
+<p>Zero Trust does not mean you distrust your people. It means you design your architecture so that a single compromised credential cannot bring down the entire organization. It is not about suspicion — it is about resilience. The organizations that succeed treat it as an architectural transformation, not a product deployment.</p>`
+        },
+        {
+          id: 1,
+          title: "Designing Datacenter Networks for 400G and Beyond",
+          category: "Datacenter",
+          date: "Apr 15, 2026",
+          readTime: "12 min read",
+          excerpt: "As 400G ethernet becomes standard, leaf-spine architectures need rethinking. A practical guide to future-proofing your fabric.",
+          body: `<p>The transition to 400 Gigabit Ethernet is not merely an upgrade in speed. It is an inflection point that forces re-examination of every assumption in datacenter network design.</p>
+<h3>Why 400G Changes Everything</h3>
+<p>Previous speed transitions were largely incremental. You upgraded transceivers, swapped cabling, maybe refreshed a switch generation. 400G is different for three reasons.</p>
+<p>First, physical layer constraints are severe. 400G-ZR optics push the boundaries of single-mode fiber. Thermal envelopes demand rethinking rack power and cooling. Cabling density exceeds what most existing structured cabling supports.</p>
+<p>Second, economics shift. At 400G, oversubscription ratios acceptable at 100G become bottlenecks. Traffic engineering becomes mandatory. Buffer sizing becomes critical.</p>
+<p>Third, operational complexity multiplies. 400G breakout configurations (4x100G, 2x200G, 8x50G) create a combinatorial explosion of interface types.</p>
+<h3>Rethinking Spine-Leaf at 400G</h3>
+<p>The spine-leaf architecture remains sound — Clos math is speed-agnostic. But implementation changes significantly.</p>
+<p>Leaf switches with 400G uplinks and 25G downlinks achieve roughly 1:2.7 subscription ratios — far better than 100G designs. However, AI/ML workloads generate all-to-all communication patterns that stress standard spine-leaf. For these, consider dedicated high-radix fabrics with rail-optimized topologies, fat-tree variants, or dragonfly topologies.</p>
+<h3>Physical Layer Matters</h3>
+<p>A 400G spine switch with 64 ports means 64 single-mode fiber pairs per switch. Pre-terminated MPO/MTP trunk cables with breakout cassettes are essential. Thermal management requires planning — switches consume 2-4kW each. A fully loaded rack can exceed 30kW.</p>
+<p>Optics selection requires precision: 400G-DR4 for 500m, 400G-FR4 for 2km, 400G-ZR for 120km metro distances. Each has different power, thermal, and cost profiles.</p>
+<h3>Operational Readiness</h3>
+<p>At 400G, 1-second polling misses 50-microsecond traffic events. Streaming telemetry with sub-second granularity is required. Automation is non-negotiable. Infrastructure-as-code and CI/CD for network config are prerequisites. Do not bring 10G-era operations into a 400G-era network.</p>`
+        },
+        {
+          id: 2,
+          title: "The Hidden Cost of Technical Debt in Network Infrastructure",
+          category: "IT Network",
+          date: "Apr 8, 2026",
+          readTime: "6 min read",
+          excerpt: "That legacy VLAN sprawl isn't just messy — it's a security liability. How to audit and modernize without downtime.",
+          body: `<p>Every network carries technical debt. It accumulates silently — a temporary VLAN that became permanent, a static route added during an outage and never removed, a firewall rule for a vendor engagement that ended three years ago.</p>
+<h3>How Debt Accumulates</h3>
+<p>A business need arises urgently. The correct solution takes weeks. A quick workaround takes hours. The workaround ships. The correct solution enters the backlog. The backlog grows. The workaround becomes load-bearing. New workarounds build on top. Within two years, the original shortcut is critical infrastructure nobody understands and everyone fears touching.</p>
+<p>VLANs multiply because creating one is easier than restructuring. Firewall rules accrete because adding a permit is safer than auditing. NAT translations pile up because renumbering is painful. Each decision is rational. The aggregate is chaos.</p>
+<h3>Measuring the Cost</h3>
+<p>MTTR increases because troubleshooting requires understanding all accumulated exceptions. Change failure rate rises from undocumented workaround interactions. Onboarding time doubles.</p>
+<p>Security is the hidden multiplier. Every undocumented pathway is a lateral movement vector. Every legacy rule is an unmonitored access path. Every forgotten service account is a potential credential for attackers.</p>
+<h3>Paying It Down</h3>
+<p>Not a heroic refactoring project — disciplined incremental hygiene. Every change request includes time for one piece of existing debt. Audit firewall rules quarterly. Review VLANs annually. Treat network config as code with proper review, testing, and documentation. Stop treating workarounds as free.</p>`
+        },
+        {
+          id: 3,
+          title: "SASE vs. Traditional VPN: Making the Right Choice",
+          category: "Cybersecurity",
+          date: "Mar 30, 2026",
+          readTime: "10 min read",
+          excerpt: "SASE promises to replace VPNs, but the migration path matters more than the destination.",
+          body: `<p>SASE converges SD-WAN with security services (SWG, CASB, ZTNA, FWaaS) into a single cloud-delivered model. Instead of backhauling remote traffic to a datacenter for inspection, deliver security from the cloud near the user.</p>
+<h3>What SASE Actually Is</h3>
+<p>This makes sense for distributed workforces accessing SaaS applications. Why route a user in Tokyo through a VPN concentrator in Dallas to reach an application hosted in Singapore? SASE eliminates the trombone routing plaguing traditional VPN architectures.</p>
+<h3>Where VPN Still Wins</h3>
+<p>SASE is not universally superior. Latency-sensitive on-premises applications benefit from direct VPN tunnels. Regulated environments requiring on-premises security inspection cannot fully embrace cloud-delivered SASE. Organizations with heavy VPN investment face migration costs that SASE advocates underestimate — both systems run in parallel during transition, doubling complexity temporarily.</p>
+<h3>The Migration Path</h3>
+<p>The decision is not binary. Start with remote users accessing SaaS — maximum immediate value. Leave on-prem access on existing VPN during transition. Evaluate vendors on integration depth, not feature checklists. Ask for architecture diagrams. Ask where inspection happens. Ask how policies propagate. The right choice depends on your specific architecture, regulatory environment, and operational maturity. Anyone who tells you the answer is obvious is selling something.</p>`
+        },
+        {
+          id: 4,
+          title: "Edge Computing and the Evolution of the Modern Datacenter",
+          category: "Datacenter",
+          date: "Mar 22, 2026",
+          readTime: "9 min read",
+          excerpt: "The datacenter isn't shrinking — it's distributing. How edge nodes are reshaping infrastructure strategy.",
+          body: `<p>The conventional wisdom says the datacenter is dying. This narrative is wrong. The datacenter is not shrinking — it is distributing.</p>
+<h3>The Distribution Pattern</h3>
+<p>Compute is stratifying into three tiers: hyperscale cloud for elastic workloads, regional datacenters for latency-sensitive and regulated workloads, and edge nodes for real-time processing.</p>
+<p>A self-driving vehicle generates approximately 20 terabytes of data per hour. Sending that to a cloud datacenter is physically impossible given current bandwidth constraints. This is not a cloud failure — it is a physics constraint.</p>
+<h3>Designing for the Edge</h3>
+<p>Edge design differs fundamentally. Space is constrained. Power is limited. Cooling may be ambient. Connectivity may be intermittent. Edge compute must be autonomous — capable of operating independently when WAN connectivity is lost. Applications must be designed for eventual consistency. Hardware selection prioritizes environmental resilience over raw performance — fanless servers, solid-state storage, wide temperature ranges.</p>
+<h3>Network Implications</h3>
+<p>Edge multiplies the architect's challenge. SD-WAN becomes essential for dynamic routing across MPLS, broadband, and LTE/5G. Security at the edge requires the same rigor as the core — every edge node is an attack surface. The modern strategy is cloud-and-edge-and-core, each purpose-built, connected by intelligent fabric routing based on latency, cost, compliance, and data gravity.</p>`
+        },
+        {
+          id: 5,
+          title: "Building a Security Operations Center on a Startup Budget",
+          category: "Cybersecurity",
+          date: "Mar 15, 2026",
+          readTime: "11 min read",
+          excerpt: "You don't need a Fortune 500 budget for effective security monitoring. Open-source tools and smart architecture get you 80% of the way.",
+          body: `<p>A SOC supposedly requires a seven-figure budget, twenty analysts, and an enterprise SIEM. For startups, this is paralyzing. The perfect becomes the enemy of the good, resulting in no monitoring at all.</p>
+<h3>Tier 1 Visibility (Months 1–2)</h3>
+<p>Deploy open-source log aggregation — Wazuh, Elastic Security, or Graylog. Collect from critical systems: authentication (AD, Okta, Azure AD), cloud platforms (CloudTrail, Azure Activity Log), network perimeter, and endpoints. Start with auth logs — they reveal credential abuse, the most common initial access vector.</p>
+<h3>Tier 2 Detection (Months 3–4)</h3>
+<p>Build detection rules targeting MITRE ATT&CK techniques: phishing (T1566), valid accounts (T1078), cloud exploitation (T1190), data exfiltration (T1041). Write simple high-fidelity rules first. "Login from country where we have no employees" catches more attacks than complex behavioral analytics. Start simple. Tune relentlessly.</p>
+<h3>Tier 3 Response (Months 5–6)</h3>
+<p>Build response playbooks for top five alert types. Each answers: Is this real? What is the scope? How to contain? Who to notify? Automate with open-source SOAR like Shuffle — auto-enrich alerts, isolate endpoints, disable accounts.</p>
+<h3>The 80% SOC</h3>
+<p>This gives 80% capability at 10% cost. Supplement the remaining 20% with managed detection and response (MDR) services. Security monitoring is not a luxury — build what you can afford and improve continuously.</p>`
+        },
+        {
+          id: 6,
+          title: "The Architect's Prime Directive: Three Questions Every Design Decision Must Answer",
+          category: "Book Insights",
+          date: "Apr 25, 2026",
+          readTime: "7 min read",
+          excerpt: "Every design decision must answer three questions: What problem am I solving? What am I sacrificing? What will break this? From Architecting the Invisible.",
+          body: `<p>In <em>Architecting the Invisible</em>, I propose the Architect's Prime Directive — a framework every network architect should internalize. Three questions every design decision must answer:</p>
+<p><strong>What problem am I solving? What am I sacrificing? What will break this?</strong></p>
+<p>A decision that cannot answer all three is not a design decision. It is a guess.</p>
+<h3>What Problem Am I Solving?</h3>
+<p>It is astonishing how often this goes unasked. Engineers add redundant links without articulating which failure scenario they protect against. Teams deploy SD-WAN without specifying which performance problems it solves. Organizations migrate to the cloud without defining which burdens they eliminate.</p>
+<p>Stating the problem precisely — in writing, before designing — eliminates an enormous category of mistakes. If you cannot articulate the problem in one sentence, you do not understand it well enough to design a solution.</p>
+<p>This connects to Marcus Aurelius and the Stoic principle of clarity of purpose. Never add a component you cannot justify with a clear, specific problem statement.</p>
+<h3>What Am I Sacrificing?</h3>
+<p>Every decision involves trade-offs. Redundancy increases complexity. Single vendor simplifies operations but creates lock-in. Microsegmentation improves security but adds overhead.</p>
+<p>The amateur pretends trade-offs do not exist. The expert acknowledges them and chooses based on priorities. I call this the Complexity Tax: every unnecessary element imposes a permanent tax in operational overhead, troubleshooting time, training costs, and failure probability.</p>
+<h3>What Will Break This?</h3>
+<p>The question architects most often skip, and the most important. When you add a redundant path: under what conditions will failover itself fail? When you deploy a firewall cluster: what if both members receive conflicting state? When you design a campus: what if a spanning-tree change propagates across the entire domain?</p>
+<p>The architect who asks this builds systems that fail gracefully. The one who does not builds systems that fail catastrophically — always at 3 AM on a Friday.</p>`
+        },
+        {
+          id: 7,
+          title: "The Complexity Tax: Why Every Unnecessary Network Element Costs You Forever",
+          category: "Book Insights",
+          date: "Apr 18, 2026",
+          readTime: "9 min read",
+          excerpt: "Every unnecessary element imposes a permanent tax — paid in operational overhead, troubleshooting time, training costs, and failure probability.",
+          body: `<p>In Chapter 2 of <em>Architecting the Invisible</em>, I introduce the Complexity Tax — one of the book's most important ideas.</p>
+<h3>The Math of Complexity</h3>
+<p>A network with N components, each with failure probability P per year: the probability of at least one failure is 1-(1-P)<sup>N</sup>. Linear component growth produces exponential failure probability growth.</p>
+<p>But failure probability is only part of the cost. Each component must be configured, monitored, updated, patched, documented, and understood. Each interacts with others in non-obvious ways. Potential interactions grow with the square of components. Linear components, quadratic interactions, exponential failures.</p>
+<h3>How the Tax Compounds</h3>
+<p>Complexity begets complexity. A complex network is harder to understand, making changes riskier, leading to conservative processes, slowing the organization, creating pressure for workarounds, adding more complexity.</p>
+<p>I have seen spanning-tree topologies so complex no single engineer could draw them. Firewall rule bases with 15,000 rules where the team was afraid to delete anything. OSPF domains with so many redistributions that a single interface failure triggered continent-wide reconvergence. The root cause was always the slow, invisible accumulation of individually reasonable components that collectively created an unmanageable system.</p>
+<h3>Paying the Minimum</h3>
+<p>For every component ask: if I removed this, what specific capability would be lost? If the answer is unclear, it should not be there. Do you need that redundant link, or does it protect against a failure that never occurred? Do you need that redistribution, or can you simplify the routing domain? Do you need that firewall rule, or is it a remnant of a decommissioned application?</p>
+<p>Simplicity is the architect's highest virtue — not because simple networks are easy. Achieving simplicity requires more thought, discipline, and rigor than complexity. Anyone can add components. The architect's skill is knowing what to leave out.</p>`
+        },
+        {
+          id: 8,
+          title: "Why Network Architecture Is a Philosophical Discipline With Technical Tools",
+          category: "Book Insights",
+          date: "Apr 10, 2026",
+          readTime: "11 min read",
+          excerpt: "The technologies will change. The principles will not. Master the principles, and you will master any technology that emerges.",
+          body: `<p><em>Architecting the Invisible</em> opens with a claim some find surprising: network architecture is fundamentally a philosophical discipline that happens to use technical tools.</p>
+<h3>Beyond Configuration</h3>
+<p>Most networking education teaches configuration — how to configure OSPF, BGP, VLANs, firewall rules. Necessary but not sufficient. It is like teaching a building architect to lay bricks without teaching structural engineering.</p>
+<p>Configuration answers <em>how</em>. Architecture answers <em>why</em> and <em>what if</em>. Why this topology? What if traffic patterns change? What if this component fails? What if the organization doubles? These are questions of judgment, trade-off analysis, and long-term thinking — not technical knowledge.</p>
+<h3>The Stoic Connection</h3>
+<p>I draw on Stoic philosophy — Marcus Aurelius, Seneca, Epictetus — as a genuine framework for architectural thinking. The Stoic emphasis on distinguishing what you can control from what you cannot maps directly to network design. You control your architecture. You cannot control traffic patterns, hardware failures, or vendor roadmaps. Design for what you control while building resilience against what you cannot.</p>
+<p>The Stoic concept of preferred indifferents — things valuable but not essential — maps to design trade-offs. High bandwidth is preferred, but architecture should not depend on it. Low latency is preferred, but applications should degrade gracefully without it.</p>
+<h3>Principles Over Products</h3>
+<p>The technologies will change. The principles will not. Master the principles, and you master any technology that emerges. Master only the technology, and you perpetually start over.</p>
+<p>This is why the book is vendor-agnostic. Hierarchical design, fault domain isolation, deterministic convergence, and complexity minimization apply whether building with Cisco, Juniper, Arista, or technology that does not yet exist. Architecture is making decisions that outlast the technology implementing them.</p>`
+        },
+        {
+          id: 9,
+          title: "Hard Truth: Your Network Was Probably Never Designed",
+          category: "Book Insights",
+          date: "Apr 4, 2026",
+          readTime: "8 min read",
+          excerpt: "If you work in an enterprise, there's a better-than-even chance your network was never deliberately designed. It was inherited, extended, patched — but never designed.",
+          body: `<p>If you work in an enterprise, there is a better-than-even chance that your network was never deliberately designed. It was inherited, extended, patched, upgraded, and migrated — but never designed from a coherent set of principles.</p>
+<h3>The Test</h3>
+<p>Can anyone produce a document explaining the architectural rationale for your current design? Not a Visio diagram showing what exists — a document explaining <em>why</em> it exists. Why this topology? Why these protocols? Why these security zones? If that document does not exist, your network was not designed. It evolved.</p>
+<p>Evolution is not design. Evolution optimizes locally and short-term. Design optimizes globally and long-term. An evolved network accumulates compromises. A designed network makes deliberate trade-offs.</p>
+<h3>How This Happens</h3>
+<p>Most networks begin as small, simple installations. At small scale, design is unnecessary — any reasonable configuration works. But growth happens. Offices are added. Applications deployed. Acquisitions bring foreign networks. At each stage, the immediate problem is solved with the fastest solution. The existing network is extended rather than redesigned.</p>
+<p>Within a decade, the network is a geological formation — layers deposited by successive engineers, each reflecting the constraints of its era.</p>
+<h3>Why It Matters</h3>
+<p>An undesigned network is unpredictable. Changes produce unexpected interactions — a VLAN change in one building triggers spanning-tree reconvergence in another. A firewall rule modification breaks an application in a branch office.</p>
+<p>An undesigned network is insecure. Without deliberate security zones, trust boundaries are accidental. Lateral movement after a breach is trivial because there are no architectural barriers.</p>
+<h3>The Path Forward</h3>
+<p>The solution is not rip and replace. Document what exists. Identify the implicit architecture. Make accidental trust boundaries explicit. Then incrementally migrate from evolved to designed state. Start with the single change that would cause the most widespread disruption. The architecture that prevents that failure is your first design decision.</p>`
+        },
+        {
+          id: 10,
+          title: "Hard Truth: Most Senior Engineers Are Expert Configurers, Not Architects",
+          category: "Book Insights",
+          date: "Mar 28, 2026",
+          readTime: "10 min read",
+          excerpt: "Seniority in networking is measured by configuration expertise. These are valuable skills — but they are the skills of an implementer, not an architect.",
+          body: `<p>Seniority in networking is measured by configuration expertise: how many protocols can you configure? How complex a scenario can you troubleshoot? These are valuable skills, but they are implementer skills, not architect skills.</p>
+<h3>The Distinction</h3>
+<p>A configurer takes a design and makes it work. An architect determines what the design should be. A configurer knows how to configure OSPF in a hundred scenarios. An architect knows when OSPF is the wrong choice entirely. A configurer can build a 5,000-rule firewall that works. An architect designs security needing only 500 rules.</p>
+<p>The career path from junior to senior is a straight line through increasingly complex configuration. You start with access switches, progress to core, learn routing, security, automation. Complexity increases, but the fundamental activity — configuring devices — remains the same.</p>
+<h3>Why This Matters</h3>
+<p>Organizations staff architectural decisions with their most senior configurers. But configuration expertise and design expertise are different skills requiring different thinking. Configuration is convergent — there is a correct answer. Architecture is divergent — there are multiple valid answers, and the architect chooses the best one given competing constraints. Configuration rewards precision. Architecture rewards judgment.</p>
+<p>When a configurer architects, they default to what they know. The result optimizes for configurability rather than business requirements. Features are included because the engineer can configure them, not because the architecture needs them.</p>
+<h3>Bridging the Gap</h3>
+<p>The solution is not to devalue configuration expertise. It is to recognize that architecture is a separate skill that must be deliberately developed. Read outside your vendor. Study building architecture, systems engineering, urban planning. Learn to think in constraints, trade-offs, and failure modes rather than protocols and commands. The best architects I know are engineers who learned to stop configuring and start thinking.</p>`
+        },
+        {
+          id: 11,
+          title: "Hard Truth: Redundancy Without Design Is Just Twice as Many Things to Break",
+          category: "Book Insights",
+          date: "Mar 20, 2026",
+          readTime: "6 min read",
+          excerpt: "The most dangerous phrase in network architecture is 'we'll make it redundant.' Redundancy without intent doubles complexity and creates the illusion of resilience.",
+          body: `<p>The most dangerous phrase in network architecture is <em>we will make it redundant</em>. Redundancy added without architectural intent does not improve availability — it doubles complexity, doubles failure modes, and creates the illusion of resilience.</p>
+<h3>The Redundancy Illusion</h3>
+<p>Consider a network with a single core switch. It is a single point of failure. The obvious solution is a second core switch. Now you have redundancy. Problem solved?</p>
+<p>Not remotely. You now have: a first-hop redundancy protocol that must elect an active gateway, a spanning-tree topology that must calculate a loop-free path, a routing protocol adjacency that must synchronize databases, a stateful failover mechanism that must replicate session tables, and a monitoring system that must track the health of both devices and the interactions between them.</p>
+<p>Each of these mechanisms has its own failure modes. FHRP split-brain when both switches believe they are active. STP topology changes when the redundant path is activated. Routing flaps when the secondary takes over with incomplete convergence. Stateful failover failures when the replication link is congested.</p>
+<h3>Designed Redundancy</h3>
+<p>The alternative is designed redundancy — redundancy that is architecturally intentional, with explicit answers to: What specific failure am I protecting against? How will the failover mechanism work? What are the failure modes of the failover itself? How will I test this without causing the very outage I am trying to prevent?</p>
+<p>Designed redundancy uses deterministic failover mechanisms. It isolates failure domains so that a failure in one domain does not cascade. It is tested regularly under controlled conditions. It is documented so that operators understand the expected behavior during a failure event.</p>
+<h3>The Rule</h3>
+<p>Before adding any redundant component, answer this: does the complexity of the redundancy mechanism exceed the risk of the failure it protects against? If yes, the redundancy makes you less reliable, not more. Sometimes the correct architectural decision is to accept a single point of failure, plan for its recovery, and avoid the complexity of redundancy entirely. That takes more courage than adding a second switch — but it takes better architecture.</p>`
+        }
+      ];
+
+      // ===== CATEGORY PILL CLASSES =====
+      function getCategoryClass(cat) {
+        switch (cat) {
+          case 'Cybersecurity': return 'pill-cyber';
+          case 'Datacenter': return 'pill-datacenter';
+          case 'IT Network': return 'pill-network';
+          case 'Book Insights': return 'pill-book';
+          default: return 'pill-datacenter';
+        }
+      }
+
+      // ===== RENDER BLOG CARDS =====
+      const blogGrid = document.getElementById('blog-grid-ab78');
+
+      function renderCards(filter) {
+        const filtered = filter === 'All' ? articles : articles.filter(a => a.category === filter);
+        blogGrid.innerHTML = '';
+        filtered.forEach(article => {
+          const card = document.createElement('div');
+          card.className = 'bg-white rounded-xl border border-grayBorder card-hover p-6 flex flex-col fade-in';
+          card.innerHTML = `
+            <span class="inline-block self-start text-xs font-semibold px-3 py-1 rounded-full mb-3 ${getCategoryClass(article.category)}">${article.category}</span>
+            <h3 class="serif text-lg font-bold text-navy mb-2 leading-snug">${article.title}</h3>
+            <p class="text-sm text-textSecondary leading-relaxed mb-4 flex-1">${article.excerpt}</p>
+            <div class="flex items-center justify-between text-xs text-textMuted mt-auto pt-3 border-t border-gray-100">
+              <span>${article.date} · ${article.readTime}</span>
+              <button class="read-more-btn text-accent font-semibold hover:text-accentHover transition-colors" data-article-id="${article.id}">Read More →</button>
+            </div>
+          `;
+          blogGrid.appendChild(card);
+        });
+
+        // Attach read more listeners
+        document.querySelectorAll('.read-more-btn').forEach(btn => {
+          btn.addEventListener('click', function () {
+            const id = parseInt(this.dataset.articleId);
+            openArticle(id);
+          });
+        });
+      }
+
+      renderCards('All');
+
+      // ===== FILTER BUTTONS =====
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+          document.querySelectorAll('.filter-btn').forEach(b => {
+            b.classList.remove('bg-accent', 'text-white');
+            b.classList.add('bg-gray-100', 'text-textSecondary');
+          });
+          this.classList.remove('bg-gray-100', 'text-textSecondary');
+          this.classList.add('bg-accent', 'text-white');
+          renderCards(this.dataset.filter);
+        });
+      });
+
+      // ===== ARTICLE VIEW =====
+      const mainPage = document.getElementById('main-page-kl12');
+      const articleView = document.getElementById('article-view-cd12');
+      const articleTitle = document.getElementById('article-title-ij78');
+      const articleCategory = document.getElementById('article-category-gh56');
+      const articleMeta = document.getElementById('article-meta-kl90');
+      const articleBody = document.getElementById('article-body-mn12');
+
+      function openArticle(id) {
+        const article = articles.find(a => a.id === id);
+        if (!article) return;
+
+        articleTitle.textContent = article.title;
+        articleCategory.textContent = article.category;
+        articleCategory.className = `inline-block text-xs font-semibold px-3 py-1 rounded-full mb-4 ${getCategoryClass(article.category)}`;
+        articleMeta.innerHTML = `<span class="text-textSecondary">${article.date}</span><span class="text-gray-300">·</span><span class="text-textSecondary">${article.readTime}</span><span class="text-gray-300">·</span><span class="text-textSecondary">By Aurelio Dioval</span>`;
+        articleBody.innerHTML = article.body;
+
+        mainPage.classList.add('hidden');
+        articleView.classList.remove('hidden');
+        articleView.querySelector('article').className = 'fade-in';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Back button
+      document.getElementById('back-btn-ef34').addEventListener('click', function () {
+        articleView.classList.add('hidden');
+        mainPage.classList.remove('hidden');
+        setTimeout(() => {
+          document.getElementById('blog').scrollIntoView({ behavior: 'smooth' });
+        }, 50);
+      });
+
+      // ===== MOBILE MENU =====
+      const mobileMenu = document.getElementById('mobile-menu-gh78');
+      document.getElementById('mobile-menu-btn-ef56').addEventListener('click', function () {
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('flex');
+        document.body.classList.add('mobile-menu-open');
+      });
+      document.getElementById('mobile-menu-close-ij90').addEventListener('click', function () {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+        document.body.classList.remove('mobile-menu-open');
+      });
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', function () {
+          mobileMenu.classList.add('hidden');
+          mobileMenu.classList.remove('flex');
+          document.body.classList.remove('mobile-menu-open');
+        });
+      });
+
+      // ===== NEWSLETTER FORM =====
+      document.getElementById('newsletter-form-st12').addEventListener('submit', function (e) {
+        e.preventDefault();
+        this.classList.add('hidden');
+        document.getElementById('newsletter-thanks-uv34').classList.remove('hidden');
+      });
+
+      // ===== CONTACT FORM =====
+      document.getElementById('contact-form-yz78').addEventListener('submit', function (e) {
+        e.preventDefault();
+        document.getElementById('contact-thanks-ab90').classList.remove('hidden');
+        this.reset();
+      });
+
+      // ===== SMOOTH SCROLL FOR NAV LINKS =====
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          const target = document.querySelector(targetId);
+          if (target) {
+            // If article view is open, close it first
+            if (!articleView.classList.contains('hidden')) {
+              articleView.classList.add('hidden');
+              mainPage.classList.remove('hidden');
+              setTimeout(() => {
+                target.scrollIntoView({ behavior: 'smooth' });
+              }, 50);
+            }
+          }
+        });
+      });
+
+      // Init Lucide icons
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
