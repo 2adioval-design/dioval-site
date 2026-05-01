@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>BACKBONE Book Two - The Perimeter | Teaser</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              bg: { DEFAULT: '#0a0a0a', elevated: '#111111', card: '#1a1a1a', surface: '#222222' },
+              gold: { DEFAULT: '#c9a84c', dark: '#a68a3a', light: '#e0c96e' },
+              txt: { primary: '#f5f5f5', secondary: '#a0a0a0', muted: '#666666' },
+              crimson: '#8b1a1a',
+              bronze: '#b87333',
+              cyber: '#3b82f6',
+              cco: '#10b981',
+              labpurple: '#7c3aed',
+              danger: '#dc2626'
+            },
+            fontFamily: {
+              display: ['"Playfair Display"', 'serif'],
+              body: ['Inter', 'sans-serif']
+            }
+          }
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style>
+      :root { --gold: #c9a84c; --bg: #0a0a0a; --bg-elevated: #111111; --bg-card: #1a1a1a; --txt-primary: #f5f5f5; --txt-secondary: #a0a0a0; --txt-muted: #666666; --cyber: #3b82f6; --crimson: #8b1a1a; --cco: #10b981; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { background: var(--bg); color: var(--txt-primary); font-family: 'Inter', sans-serif; }
+      .gold-line { height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+      .hero-bg { background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 60%), var(--bg); }
+      .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; letter-spacing: 0.05em; }
+      .nav-link { position: relative; transition: color 0.3s; }
+      .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--gold); transition: width 0.3s; }
+      .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+      .nav-link:hover, .nav-link.active { color: var(--gold); }
+      .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+      .fade-in.visible { opacity: 1; transform: translateY(0); }
+      .book-mockup { perspective: 800px; }
+      .book-cover { transform: rotateY(-8deg); box-shadow: 10px 5px 30px rgba(0,0,0,0.6), 2px 0 0 rgba(201,168,76,0.15); transition: transform 0.5s; }
+      .book-cover:hover { transform: rotateY(-3deg); }
+      .chapter-card { transition: all 0.3s ease; }
+      .chapter-card:hover { border-color: rgba(201,168,76,0.4); }
+      .chapter-sections { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+      .chapter-card.expanded .chapter-sections { max-height: 2000px; }
+      .chapter-card.expanded { border-color: rgba(201,168,76,0.4); }
+      .part-tab { transition: all 0.3s; cursor: pointer; }
+      .part-tab.active-tab { transform: scale(1.05); }
+      @keyframes bounce-arrow { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+      .bounce-arrow { animation: bounce-arrow 2s infinite; }
+      @keyframes glow-pulse { 0%,100% { text-shadow: 0 0 20px rgba(201,168,76,0.2); } 50% { text-shadow: 0 0 40px rgba(201,168,76,0.35), 0 0 80px rgba(201,168,76,0.1); } }
+      .title-glow { animation: glow-pulse 4s ease-in-out infinite; text-shadow: 0 0 30px rgba(201,168,76,0.25), 0 0 60px rgba(201,168,76,0.08); }
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: var(--bg); }
+      ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+    </style>
+  </head>
+  <body>
+<!-- NAVIGATION -->
+    <header id="main-nav-h3k1" class="fixed top-0 left-0 w-full z-50" style="background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.15);">
+      <div class="max-w-7xl mx-auto flex items-center justify-between px-5 py-4">
+        <a href="https://dioval.com" class="font-display text-gold text-2xl font-bold tracking-wider">DIOVAL</a>
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="https://dioval.com" class="nav-link text-sm font-medium tracking-widest text-txt-secondary">HOME</a>
+          <a href="#hero" class="nav-link active text-sm font-medium tracking-widest text-gold">BACKBONE</a>
+          <a href="https://dioval.com#tech" class="nav-link text-sm font-medium tracking-widest text-txt-secondary">TECH</a>
+        </nav>
+        <button id="mobile-menu-btn-x9f2" class="md:hidden p-2 text-txt-secondary">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <nav id="mobile-menu-q1w2" class="hidden fixed inset-0 z-[60] flex flex-col items-center justify-center gap-8" style="background:rgba(10,10,10,0.97);backdrop-filter:blur(16px);">
+      <button id="mobile-menu-close-r3t4" class="absolute top-5 right-5 p-2 text-txt-secondary">
+        <i data-lucide="x" class="w-7 h-7"></i>
+      </button>
+      <a href="https://dioval.com" class="text-xl font-medium tracking-widest text-txt-secondary hover:text-gold transition-colors">HOME</a>
+      <a href="#hero" class="text-xl font-medium tracking-widest text-gold">BACKBONE</a>
+      <a href="https://dioval.com#tech" class="text-xl font-medium tracking-widest text-txt-secondary hover:text-gold transition-colors">TECH</a>
+    </nav>
+
+    <main>
+      <!-- HERO SECTION -->
+      <section id="hero" class="hero-bg min-h-screen flex flex-col items-center justify-center relative px-5 pt-20">
+        <div class="gold-line w-32 mb-8"></div>
+        <p class="text-gold text-xs tracking-[0.35em] font-semibold mb-4 uppercase">BACKBONE: Engineering the Internet</p>
+        <h1 class="font-display text-5xl sm:text-6xl md:text-8xl font-bold text-center title-glow text-txt-primary leading-tight mb-6">THE PERIMETER</h1>
+        <p class="text-txt-secondary text-base sm:text-lg md:text-xl text-center max-w-2xl mb-3 font-light">Subscriber Systems, Security Architecture, and Network Programmability</p>
+        <p class="text-txt-muted text-sm text-center mb-6">Book Two of the BACKBONE Series · Expanded Edition · April 2026</p>
+        <p class="font-display italic text-gold/90 text-lg mb-10">by Aurelio Dioval</p>
+
+        <!-- Stats Row -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 w-full max-w-2xl">
+          <div class="bg-bg-card rounded-xl p-4 text-center border-t-2 border-gold">
+            <span class="block text-gold text-3xl font-bold font-display">364</span>
+            <span class="text-txt-muted text-xs tracking-widest uppercase">Pages</span>
+          </div>
+          <div class="bg-bg-card rounded-xl p-4 text-center border-t-2 border-gold">
+            <span class="block text-gold text-3xl font-bold font-display">15</span>
+            <span class="text-txt-muted text-xs tracking-widest uppercase">Chapters</span>
+          </div>
+          <div class="bg-bg-card rounded-xl p-4 text-center border-t-2 border-gold">
+            <span class="block text-gold text-3xl font-bold font-display">110</span>
+            <span class="text-txt-muted text-xs tracking-widest uppercase">Sections</span>
+          </div>
+          <div class="bg-bg-card rounded-xl p-4 text-center border-t-2 border-gold">
+            <span class="block text-gold text-3xl font-bold font-display">4</span>
+            <span class="text-txt-muted text-xs tracking-widest uppercase">Appendices</span>
+          </div>
+        </div>
+
+        <!-- Book Mockup -->
+        <div class="book-mockup mb-12">
+          <div class="book-cover rounded-lg overflow-hidden w-48 sm:w-56 md:w-64" style="background:linear-gradient(135deg,#0a1628,#1a2a4a,#2a3a5a);">
+            <div class="p-5 sm:p-6 flex flex-col items-center justify-between h-72 sm:h-80 md:h-96 border border-gold/20 rounded-lg">
+              <div class="text-center mt-4">
+                <p class="text-gold/60 text-[10px] tracking-[0.3em] uppercase mb-1">Book Two</p>
+                <div class="w-10 h-px bg-gold/40 mx-auto mb-3"></div>
+              </div>
+              <div class="flex flex-col items-center gap-3">
+                <div class="text-cyber/70"><i data-lucide="shield" class="w-10 h-10"></i></div>
+                <h3 class="font-display text-txt-primary text-lg sm:text-xl font-bold tracking-wider text-center">BACKBONE</h3>
+                <p class="text-gold text-xs tracking-widest text-center">THE PERIMETER</p>
+              </div>
+              <div class="text-center mb-4">
+                <div class="w-10 h-px bg-gold/40 mx-auto mb-2"></div>
+                <p class="text-txt-muted text-[10px] tracking-[0.2em] uppercase">Aurelio Dioval</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="#about" class="bounce-arrow text-gold/50 absolute bottom-8"><i data-lucide="chevron-down" class="w-8 h-8"></i></a>
+      </section>
+
+      <!-- ABOUT THIS BOOK -->
+      <section id="about" class="bg-bg-elevated py-20 md:py-28 px-5">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16 fade-in">
+            <h2 class="section-title text-txt-primary mb-4">ABOUT THIS BOOK</h2>
+            <div class="gold-line w-24 mx-auto"></div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
+            <div class="fade-in bg-bg-card rounded-2xl p-6 md:p-8 border border-cyber/20 hover:border-cyber/40 transition-colors">
+              <div class="text-cyber mb-4"><i data-lucide="users" class="w-8 h-8"></i></div>
+              <h3 class="font-display text-xl font-bold mb-3 text-txt-primary">Subscriber Infrastructure</h3>
+              <p class="text-txt-secondary text-sm leading-relaxed">From FTTH/PON access networks through BNG session management, RADIUS/DIAMETER AAA, CGNAT, IPv6 deployment, Carrier Ethernet services, and BSS/OSS integration.</p>
+            </div>
+            <div class="fade-in bg-bg-card rounded-2xl p-6 md:p-8 border border-crimson/20 hover:border-crimson/40 transition-colors">
+              <div class="text-red-700 mb-4"><i data-lucide="shield" class="w-8 h-8"></i></div>
+              <h3 class="font-display text-xl font-bold mb-3 text-txt-primary">Security Architecture</h3>
+              <p class="text-txt-secondary text-sm leading-relaxed">ISP threat defense, RPKI and BGP security, DDoS detection and mitigation, DNS/DHCP infrastructure security, and carrier-grade security operations.</p>
+            </div>
+            <div class="fade-in bg-bg-card rounded-2xl p-6 md:p-8 border border-cco/20 hover:border-cco/40 transition-colors">
+              <div class="text-cco mb-4"><i data-lucide="cpu" class="w-8 h-8"></i></div>
+              <h3 class="font-display text-xl font-bold mb-3 text-txt-primary">Automation &amp; Programmability</h3>
+              <p class="text-txt-secondary text-sm leading-relaxed">NFV transformation, network automation with YANG/NETCONF, streaming telemetry, service orchestration, and NetDevOps practices.</p>
+            </div>
+          </div>
+          <div class="fade-in max-w-3xl mx-auto text-center border-l-2 border-gold/40 pl-6 py-2">
+            <p class="font-display italic text-gold/80 text-base md:text-lg leading-relaxed">"Every protocol discussion, architecture decision, and deployment recommendation comes from direct experience operating carrier-scale networks."</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTERACTIVE CHAPTER BROWSER -->
+      <section id="chapters" class="bg-bg py-20 md:py-28 px-5">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-10 fade-in">
+            <h2 class="section-title text-txt-primary mb-4">EXPLORE THE CHAPTERS</h2>
+            <div class="gold-line w-24 mx-auto"></div>
+          </div>
+
+          <!-- Search -->
+          <div class="fade-in max-w-md mx-auto mb-8 relative">
+            <i data-lucide="search" class="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-txt-muted"></i>
+            <input id="chapter-search-m8n3" type="text" placeholder="Search chapters, sections, topics..." class="w-full bg-bg-card border border-white/10 rounded-xl py-3 pl-11 pr-4 text-sm text-txt-primary placeholder:text-txt-muted focus:outline-none focus:border-gold/50 transition-colors" />
+          </div>
+
+          <!-- Part Tabs -->
+          <div class="flex flex-col sm:flex-row gap-3 justify-center mb-10 fade-in">
+            <button data-part="iv" class="part-tab active-tab px-5 py-3 rounded-xl text-sm font-semibold tracking-wider border-2 border-cyber bg-cyber/10 text-cyber">PART IV - Subscriber Infrastructure</button>
+            <button data-part="v" class="part-tab px-5 py-3 rounded-xl text-sm font-semibold tracking-wider border-2 border-crimson/50 bg-transparent text-red-400/70">PART V - Security Architecture</button>
+            <button data-part="vi" class="part-tab px-5 py-3 rounded-xl text-sm font-semibold tracking-wider border-2 border-cco/50 bg-transparent text-cco/70">PART VI - Automation</button>
+          </div>
+
+          <!-- Chapter Cards Container -->
+          <div id="chapter-container-v5b6" class="space-y-4"></div>
+          <p id="no-results-w7y8" class="hidden text-center text-txt-muted py-8 text-sm">No chapters or sections match your search.</p>
+        </div>
+      </section>
+
+      <!-- APPENDICES & RESOURCES -->
+      <section id="appendices" class="bg-bg-elevated py-20 md:py-28 px-5">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-14 fade-in">
+            <h2 class="section-title text-txt-primary mb-4">APPENDICES &amp; RESOURCES</h2>
+            <div class="gold-line w-24 mx-auto"></div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="fade-in bg-bg-card rounded-2xl p-6 border border-white/10 hover:border-gold/30 transition-colors">
+              <div class="flex items-start gap-4">
+                <div class="text-gold mt-1"><i data-lucide="file-text" class="w-6 h-6"></i></div>
+                <div>
+                  <h3 class="font-display text-lg font-bold text-txt-primary mb-1">Appendix A: RFC Quick Reference</h3>
+                  <p class="text-txt-muted text-xs mb-2">Page 321</p>
+                  <p class="text-txt-secondary text-sm">Every standards document referenced across all fifteen chapters, organized by Part and Chapter.</p>
+                </div>
+              </div>
+            </div>
+            <div class="fade-in bg-bg-card rounded-2xl p-6 border border-white/10 hover:border-gold/30 transition-colors">
+              <div class="flex items-start gap-4">
+                <div class="text-gold mt-1"><i data-lucide="terminal" class="w-6 h-6"></i></div>
+                <div>
+                  <h3 class="font-display text-lg font-bold text-txt-primary mb-1">Appendix B: Vendor CLI Cross-Reference</h3>
+                  <p class="text-txt-muted text-xs mb-2">Page 337</p>
+                  <p class="text-txt-secondary text-sm">IOS-XR, Junos, and Nokia SR OS command equivalents for every configuration discussed.</p>
+                </div>
+              </div>
+            </div>
+            <div class="fade-in bg-bg-card rounded-2xl p-6 border border-white/10 hover:border-gold/30 transition-colors">
+              <div class="flex items-start gap-4">
+                <div class="text-gold mt-1"><i data-lucide="network" class="w-6 h-6"></i></div>
+                <div>
+                  <h3 class="font-display text-lg font-bold text-txt-primary mb-1">Appendix C: Lab Topology</h3>
+                  <p class="text-txt-muted text-xs mb-2">Page 343</p>
+                  <p class="text-txt-secondary text-sm">Complete lab topology supporting every exercise and concept covered across all fifteen chapters.</p>
+                </div>
+              </div>
+            </div>
+            <div class="fade-in bg-bg-card rounded-2xl p-6 border border-white/10 hover:border-gold/30 transition-colors">
+              <div class="flex items-start gap-4">
+                <div class="text-gold mt-1"><i data-lucide="book-open" class="w-6 h-6"></i></div>
+                <div>
+                  <h3 class="font-display text-lg font-bold text-txt-primary mb-1">Appendix D: Acronym Glossary</h3>
+                  <p class="text-txt-muted text-xs mb-2">Page 350</p>
+                  <p class="text-txt-secondary text-sm">All acronyms used throughout Book Two with chapter references.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- THE BACKBONE SERIES -->
+      <section id="series" class="bg-bg py-20 md:py-28 px-5">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-14 fade-in">
+            <h2 class="section-title text-txt-primary mb-4">THE BACKBONE SERIES</h2>
+            <div class="gold-line w-24 mx-auto"></div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="fade-in bg-bg-card rounded-2xl p-6 border border-white/10 hover:border-gold/30 transition-colors text-center">
+              <div class="text-gold/60 mb-3"><i data-lucide="layers" class="w-8 h-8 mx-auto"></i></div>
+              <p class="text-gold/50 text-xs tracking-[0.2em] uppercase mb-2">Book One</p>
+              <h3 class="font-display text-xl font-bold text-txt-primary mb-2">THE CORE</h3>
+              <p class="text-txt-secondary text-sm mb-4">Routing, Transport, and Internet Edge Architecture</p>
+              <span class="inline-block px-3 py-1 rounded-full bg-cco/10 text-cco text-xs font-semibold tracking-wider">Available</span>
+            </div>
+            <div class="fade-in bg-bg-card rounded-2xl p-6 border-2 border-gold/40 text-center ring-1 ring-gold/20 shadow-lg shadow-gold/5">
+              <div class="text-cyber mb-3"><i data-lucide="shield" class="w-8 h-8 mx-auto"></i></div>
+              <p class="text-gold text-xs tracking-[0.2em] uppercase mb-2">Book Two</p>
+              <h3 class="font-display text-xl font-bold text-txt-primary mb-2">THE PERIMETER</h3>
+              <p class="text-txt-secondary text-sm mb-4">Subscriber Systems, Security Architecture, and Network Programmability</p>
+              <span class="inline-block px-3 py-1 rounded-full bg-gold/10 text-gold text-xs font-semibold tracking-wider">Expanded Edition 2026</span>
+            </div>
+            <div class="fade-in bg-bg-card rounded-2xl p-6 border border-white/10 text-center opacity-70">
+              <div class="text-txt-muted mb-3"><i data-lucide="telescope" class="w-8 h-8 mx-auto"></i></div>
+              <p class="text-txt-muted text-xs tracking-[0.2em] uppercase mb-2">Book Three</p>
+              <h3 class="font-display text-xl font-bold text-txt-primary mb-2">THE HORIZON</h3>
+              <p class="text-txt-secondary text-sm mb-4">Operations, Scale, and the Future of Carrier Networking</p>
+              <span class="inline-block px-3 py-1 rounded-full bg-white/5 text-txt-muted text-xs font-semibold tracking-wider">Coming Soon</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT THE AUTHOR -->
+      <section id="author" class="bg-bg-elevated py-20 md:py-28 px-5">
+        <div class="max-w-3xl mx-auto fade-in">
+          <div class="text-center mb-14">
+            <h2 class="section-title text-txt-primary mb-4">ABOUT THE AUTHOR</h2>
+            <div class="gold-line w-24 mx-auto"></div>
+          </div>
+          <div class="bg-bg-card rounded-2xl p-8 border border-gold/15 flex flex-col sm:flex-row items-center sm:items-start gap-6">
+            <div class="w-20 h-20 rounded-full flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,#1a2a4a,#0a1628);">
+              <i data-lucide="user" class="w-10 h-10 text-gold/60"></i>
+            </div>
+            <div>
+              <h3 class="font-display text-2xl font-bold text-txt-primary mb-1">Aurelio Dioval</h3>
+              <p class="text-gold text-sm mb-4">Chief Technology Officer, Diotech Corp</p>
+              <p class="text-txt-secondary text-sm leading-relaxed mb-4">Carrier network architect with extensive experience designing, deploying, and operating large-scale service provider networks. Deep expertise in multi-vendor environments spanning Cisco IOS-XR, Juniper Junos, and Nokia SR OS platforms.</p>
+              <a href="https://dioval.com#about" class="inline-flex items-center gap-2 text-gold text-sm hover:text-gold-light transition-colors">
+                <span>Read full bio</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-bg px-5 pt-8 pb-10">
+      <div class="gold-line w-full max-w-6xl mx-auto mb-8"></div>
+      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div>
+          <p class="text-txt-muted text-sm">&copy; 2026 Aurelio Dioval. Operated by Diotech Group.</p>
+          <p class="text-txt-muted/60 text-xs mt-1">Made by Copilot</p>
+        </div>
+        <a href="https://dioval.com" class="text-gold text-sm hover:text-gold-light transition-colors flex items-center gap-2">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          <span>Back to dioval.com</span>
+        </a>
+      </div>
+    </footer>
+
+    <script>
+      /* ===== BOOK DATA ===== */
+      const bookData = {
+        iv: {
+          label: 'PART IV', title: 'Subscriber and Service Infrastructure', color: 'cyber', colorHex: '#3b82f6',
+          chapters: [
+            { num: 11, title: 'Access Network Technologies - FTTH, PON, and Last-Mile Infrastructure', page: 10, intro: 'A comprehensive examination of modern access network technologies powering last-mile connectivity, from passive optical networks to fixed wireless and DOCSIS evolution.',
+              sections: [
+                { id:'11.1', title:'Passive Optical Network (PON) Fundamentals', page:10 },
+                { id:'11.2', title:'FTTH Deployment Architecture', page:12 },
+                { id:'11.3', title:'Next-Generation PON - 25GS-PON, 50G-PON, and COMBO PON', page:14 },
+                { id:'11.4', title:'Fixed Wireless Access (FWA) and Hybrid Last-Mile', page:16 },
+                { id:'11.5', title:'DOCSIS 4.0 and HFC Evolution', page:18 },
+                { id:'11.6', title:'Access Network Monitoring and Assurance', page:20 }
+              ]},
+            { num: 12, title: 'Broadband Network Gateway (BNG) and Subscriber Management', page: 23, intro: 'Deep dive into BNG architecture and the protocols, systems, and techniques for managing millions of broadband subscribers at carrier scale.',
+              sections: [
+                { id:'12.1', title:'BNG Architecture', page:23 },
+                { id:'12.2', title:'PPPoE - Point-to-Point Protocol over Ethernet', page:27 },
+                { id:'12.3', title:'IPoE - IP over Ethernet Subscriber Management', page:42 },
+                { id:'12.4', title:'RADIUS/DIAMETER for Subscriber AAA', page:47 },
+                { id:'12.5', title:'CGNAT - Carrier-Grade Network Address Translation', page:53 },
+                { id:'12.6', title:'Subscriber QoS Architecture', page:60 },
+                { id:'12.7', title:'L2TP/LAC-LNS for Wholesale Broadband', page:66 },
+                { id:'12.8', title:'CUPS - Control and User Plane Separation', page:68 }
+              ]},
+            { num: 13, title: 'IPv6 Deployment - Beyond Theory to Production', page: 71, intro: 'Practical IPv6 deployment strategies for service providers, covering dual-stack, transition mechanisms, and the path to IPv6-only operations.',
+              sections: [
+                { id:'13.1', title:'IPv6 Architecture for ISPs', page:72 },
+                { id:'13.2', title:'IPv6 Routing for ISPs', page:73 },
+                { id:'13.3', title:'Dual-Stack Deployment', page:79 },
+                { id:'13.4', title:'IPv6 Security', page:84 },
+                { id:'13.5', title:'IPv4 to IPv6 Migration Strategy', page:84 },
+                { id:'13.6', title:'IPv6-Only Transition - NAT64 and DNS64', page:84 },
+                { id:'13.7', title:'Transition Mechanisms - MAP-T, MAP-E, and 464XLAT', page:87 }
+              ]},
+            { num: 14, title: 'QoS Architecture - Carrier-Grade Traffic Management', page: 90, intro: 'End-to-end quality of service architecture for carrier networks, from classification and marking through advanced queuing, MPLS QoS, and SRv6.',
+              sections: [
+                { id:'14.1', title:'QoS Theory for Carriers', page:90 },
+                { id:'14.2', title:'Classification and Marking', page:92 },
+                { id:'14.3', title:'Queuing and Scheduling', page:95 },
+                { id:'14.4', title:'QoS in MPLS Networks', page:96 },
+                { id:'14.5', title:'QoS Monitoring and Validation', page:99 },
+                { id:'14.6', title:'QoS for SRv6 Networks', page:99 },
+                { id:'14.7', title:'Bufferbloat and Active Queue Management', page:101 }
+              ]},
+            { num: 15, title: 'Carrier Ethernet Services and MEF Standards', page: 104, intro: 'MEF-defined Carrier Ethernet services, OAM frameworks, traffic management, and the evolution toward EVPN-based service delivery.',
+              sections: [
+                { id:'15.1', title:'MEF Service Definitions and Carrier Ethernet Fundamentals', page:104 },
+                { id:'15.2', title:'Ethernet OAM - CFM, Y.1731, and E-LMI', page:106 },
+                { id:'15.3', title:'Traffic Management - Bandwidth Profiles and CoS', page:108 },
+                { id:'15.4', title:'EVPN-VPWS and EVPN-based Carrier Ethernet', page:111 },
+                { id:'15.5', title:'MEF 3.0 LSO and Service Automation', page:113 },
+                { id:'15.6', title:'Multi-Domain and Inter-Carrier Service Delivery', page:115 }
+              ]},
+            { num: 16, title: 'BSS/OSS Integration and Policy Control', page: 117, intro: 'The business and operational support systems that underpin carrier services - policy control, billing, service assurance, and subscriber analytics.',
+              sections: [
+                { id:'16.1', title:'PCRF/PCF Architecture and Policy Framework', page:117 },
+                { id:'16.2', title:'RADIUS and DIAMETER in Carrier AAA', page:119 },
+                { id:'16.3', title:'BSS/OSS Architecture for Carrier Networks', page:122 },
+                { id:'16.4', title:'Charging and Billing Systems', page:124 },
+                { id:'16.5', title:'Service Assurance and Customer Experience Management', page:126 },
+                { id:'16.6', title:'Data Analytics and Subscriber Intelligence', page:129 }
+              ]}
+          ]
+        },
+        v: {
+          label: 'PART V', title: 'Security Architecture', color: 'crimson', colorHex: '#8b1a1a',
+          chapters: [
+            { num: 17, title: 'ISP Security Architecture - Defense in Depth', page: 131, intro: 'Building a comprehensive defense-in-depth security architecture for service provider networks, from infrastructure hardening to zero trust.',
+              sections: [
+                { id:'17.1', title:'ISP Threat Landscape', page:131 },
+                { id:'17.2', title:'Defense-in-Depth Architecture', page:133 },
+                { id:'17.3', title:'Infrastructure Hardening', page:133 },
+                { id:'17.4', title:'Control Plane Protection (CoPP) - Deep Dive', page:133 },
+                { id:'17.5', title:'Anti-Spoofing and Source Validation', page:143 },
+                { id:'17.6', title:'Management Plane Security - TACACS+, Certificate-Based SSH, RBAC', page:152 },
+                { id:'17.7', title:'MACsec for Carrier Ethernet', page:155 },
+                { id:'17.8', title:'Zero Trust for Service Provider Management Networks', page:158 }
+              ]},
+            { num: 18, title: 'RPKI and BGP Security', page: 161, intro: 'Securing the global routing system with RPKI, route origin validation, BGPsec, and operational best practices for BGP security.',
+              sections: [
+                { id:'18.1', title:'The BGP Security Problem', page:161 },
+                { id:'18.2', title:'Resource Public Key Infrastructure (RPKI) Architecture', page:162 },
+                { id:'18.3', title:'RPKI Route Origin Validation (ROV) Deployment', page:165 },
+                { id:'18.4', title:'BGPsec and AS Path Validation', page:167 },
+                { id:'18.5', title:'IRR, RPSL, and Prefix Filtering Best Practices', page:169 },
+                { id:'18.6', title:'BGP Community-Based Security and Operational Practices', page:171 }
+              ]},
+            { num: 19, title: 'DDoS Detection and Mitigation - Carrier Scale', page: 174, intro: 'Carrier-scale DDoS defense from detection through mitigation - RTBH, Flowspec, scrubbing centers, and AI-driven detection.',
+              sections: [
+                { id:'19.1', title:'DDoS Attack Taxonomy', page:174 },
+                { id:'19.2', title:'Detection Architecture', page:175 },
+                { id:'19.3', title:'Remotely Triggered Blackhole (RTBH)', page:178 },
+                { id:'19.4', title:'BGP Flowspec - Surgical DDoS Mitigation', page:184 },
+                { id:'19.5', title:'Scrubbing Center Architecture', page:192 },
+                { id:'19.6', title:'DDoS Operations - Playbooks and Automation', page:194 },
+                { id:'19.7', title:'AI/ML-Based DDoS Detection', page:194 },
+                { id:'19.8', title:'DDoS Protection as a Managed Service', page:197 }
+              ]},
+            { num: 20, title: 'DNS and DHCP Infrastructure', page: 200, intro: 'Designing resilient, secure DNS and DHCP infrastructure at carrier scale - authoritative, recursive, anycast, and modern security extensions.',
+              sections: [
+                { id:'20.1', title:'Authoritative DNS Architecture', page:201 },
+                { id:'20.2', title:'Recursive DNS Architecture', page:204 },
+                { id:'20.3', title:'DHCP Infrastructure', page:208 },
+                { id:'20.4', title:'Anycast DNS Deployment', page:214 },
+                { id:'20.5', title:'DNS Security - DoH, DoT, RPZ, and Response Rate Limiting', page:217 },
+                { id:'20.6', title:'DNS Analytics and Threat Intelligence', page:219 },
+                { id:'20.7', title:'DHCP High Availability and Failover Design', page:222 },
+                { id:'20.8', title:'IPAM Integration at Carrier Scale', page:225 }
+              ]},
+            { num: 21, title: 'Network Security Operations', page: 228, intro: 'Operationalizing security for ISPs - monitoring, incident response, abuse management, threat intelligence, compliance, and automation.',
+              sections: [
+                { id:'21.1', title:'Security Monitoring Architecture', page:228 },
+                { id:'21.2', title:'Incident Response for ISPs', page:228 },
+                { id:'21.3', title:'Abuse Management', page:229 },
+                { id:'21.4', title:'Lawful Intercept', page:230 },
+                { id:'21.5', title:'Threat Intelligence Integration - STIX/TAXII', page:231 },
+                { id:'21.6', title:'Vulnerability Management and Firmware Lifecycle', page:233 },
+                { id:'21.7', title:'Compliance and Regulatory Frameworks - GDPR, CALEA, PCI-DSS', page:236 },
+                { id:'21.8', title:'Security Automation and SOAR', page:240 },
+                { id:'21.9', title:'Forensics and Evidence Preservation', page:242 }
+              ]}
+          ]
+        },
+        vi: {
+          label: 'PART VI', title: 'Automation and Programmability', color: 'cco', colorHex: '#10b981',
+          chapters: [
+            { num: 22, title: 'NFV and Virtual Network Functions', page: 245, intro: 'ETSI NFV architecture, carrier-grade VNF design, cloud platforms, virtual CPE, and the migration path to cloud-native network functions.',
+              sections: [
+                { id:'22.1', title:'ETSI NFV Architecture and Reference Framework', page:246 },
+                { id:'22.2', title:'Carrier-Grade VNF Design Principles', page:248 },
+                { id:'22.3', title:'OpenStack, Kubernetes, and Carrier Cloud Platforms', page:250 },
+                { id:'22.4', title:'Virtual CPE and SD-WAN Integration', page:253 },
+                { id:'22.5', title:'NFV Performance and Troubleshooting', page:255 },
+                { id:'22.6', title:'CNF Migration and Cloud-Native Transformation', page:257 }
+              ]},
+            { num: 23, title: 'Network Automation Architecture', page: 260, intro: 'Building a comprehensive automation architecture - YANG models, Ansible, Python, Infrastructure as Code, and secrets management.',
+              sections: [
+                { id:'23.1', title:'Why Automation is Non-Negotiable', page:260 },
+                { id:'23.2', title:'Automation Architecture', page:261 },
+                { id:'23.3', title:'YANG Models and Model-Driven Programmability', page:262 },
+                { id:'23.4', title:'Ansible for ISP Operations', page:267 },
+                { id:'23.5', title:'Python for Network Engineers', page:272 },
+                { id:'23.6', title:'Infrastructure as Code', page:280 },
+                { id:'23.7', title:'Terraform and Pulumi for Network Infrastructure', page:280 },
+                { id:'23.8', title:'Git Branching Strategies for Network Configs', page:283 },
+                { id:'23.9', title:'Secrets Management with HashiCorp Vault', page:286 }
+              ]},
+            { num: 24, title: 'Streaming Telemetry and Modern Monitoring', page: 288, intro: 'Moving beyond SNMP to model-driven telemetry - gNMI, OpenConfig, collection pipelines, and AIOps-driven anomaly detection.',
+              sections: [
+                { id:'24.1', title:'The Problem with SNMP', page:288 },
+                { id:'24.2', title:'Model-Driven Telemetry Architecture', page:289 },
+                { id:'24.3', title:'Telemetry Collection Pipeline', page:290 },
+                { id:'24.4', title:'Advanced Monitoring', page:293 },
+                { id:'24.5', title:'gNMI Deep Dive - Dial-In, Dial-Out, and Subscribe Modes', page:294 },
+                { id:'24.6', title:'OpenConfig vs. Native YANG Models', page:297 },
+                { id:'24.7', title:'Telemetry at Scale - Sampling, On-Change, and Resource Optimization', page:299 },
+                { id:'24.8', title:'AIOps and ML-Based Anomaly Detection', page:302 }
+              ]},
+            { num: 25, title: 'Service Orchestration and NetDevOps', page: 305, intro: 'Service orchestration, NetDevOps practices, zero-touch provisioning, API-first operations, and closed-loop service assurance.',
+              sections: [
+                { id:'25.1', title:'Service Orchestration Architecture', page:305 },
+                { id:'25.2', title:'NetDevOps Practices', page:305 },
+                { id:'25.3', title:'Zero-Touch Provisioning', page:311 },
+                { id:'25.4', title:'API-First Operations', page:311 },
+                { id:'25.5', title:'Operational Analytics', page:312 },
+                { id:'25.6', title:'Cisco NSO and Open-Source Alternatives', page:313 },
+                { id:'25.7', title:'Multi-Vendor Orchestration Challenges', page:315 },
+                { id:'25.8', title:'Service Assurance Closed-Loop', page:318 }
+              ]}
+          ]
+        }
+      };
+
+      /* ===== STATE ===== */
+      let activePart = 'iv';
+      let searchQuery = '';
+
+      /* ===== RENDER CHAPTERS ===== */
+      function renderChapters() {
+        const container = document.getElementById('chapter-container-v5b6');
+        const noResults = document.getElementById('no-results-w7y8');
+        const part = bookData[activePart];
+        const q = searchQuery.toLowerCase();
+        let html = '';
+        let matchCount = 0;
+
+        part.chapters.forEach(ch => {
+          const sectionsMatch = ch.sections.filter(s => !q || s.title.toLowerCase().includes(q) || s.id.toLowerCase().includes(q));
+          const chMatch = !q || ch.title.toLowerCase().includes(q) || ch.intro.toLowerCase().includes(q) || sectionsMatch.length > 0;
+          if (!chMatch) return;
+          matchCount++;
+          const borderColor = part.colorHex;
+          html += '<div class="chapter-card bg-bg-card rounded-2xl border cursor-pointer overflow-hidden" style="border-color:' + borderColor + '33;" data-chapter="' + ch.num + '">';
+          html += '<div class="chapter-header flex items-center justify-between p-5 md:p-6">';
+          html += '<div class="flex items-start gap-4 min-w-0">';
+          html += '<span class="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center text-sm font-bold" style="background:' + borderColor + '15;color:' + borderColor + ';">Ch ' + ch.num + '</span>';
+          html += '<div class="min-w-0"><h3 class="font-display text-base md:text-lg font-bold text-txt-primary leading-snug">' + ch.title + '</h3>';
+          html += '<p class="text-txt-muted text-xs mt-1">Page ' + ch.page + ' · ' + ch.sections.length + ' sections</p></div></div>';
+          html += '<i data-lucide="chevron-down" class="w-5 h-5 text-txt-muted flex-shrink-0 chapter-chevron transition-transform duration-300"></i>';
+          html += '</div>';
+          html += '<div class="chapter-sections">';
+          html += '<div class="px-5 md:px-6 pb-6">';
+          html += '<p class="text-txt-secondary text-sm mb-4 leading-relaxed">' + ch.intro + '</p>';
+          html += '<div class="space-y-1">';
+          const displaySections = q ? sectionsMatch : ch.sections;
+          displaySections.forEach(s => {
+            html += '<div class="flex items-baseline justify-between py-1.5 border-b border-white/5 gap-2">';
+            html += '<span class="text-sm text-txt-secondary"><span class="font-mono text-xs mr-2" style="color:' + borderColor + ';">' + s.id + '</span>' + s.title + '</span>';
+            html += '<span class="text-txt-muted text-xs flex-shrink-0 tabular-nums">p.' + s.page + '</span>';
+            html += '</div>';
+          });
+          html += '</div></div></div></div>';
+        });
+
+        container.innerHTML = html;
+        noResults.classList.toggle('hidden', matchCount > 0);
+        lucide.createIcons();
+
+        container.querySelectorAll('.chapter-card').forEach(card => {
+          card.addEventListener('click', () => {
+            const wasExpanded = card.classList.contains('expanded');
+            container.querySelectorAll('.chapter-card.expanded').forEach(c => {
+              c.classList.remove('expanded');
+              const chev = c.querySelector('.chapter-chevron');
+              if (chev) chev.style.transform = 'rotate(0deg)';
+            });
+            if (!wasExpanded) {
+              card.classList.add('expanded');
+              const chev = card.querySelector('.chapter-chevron');
+              if (chev) chev.style.transform = 'rotate(180deg)';
+            }
+          });
+        });
+      }
+
+      /* ===== PART TABS ===== */
+      const partTabs = document.querySelectorAll('.part-tab');
+      const tabStyles = {
+        iv: { border: '#3b82f6', bg: 'rgba(59,130,246,0.1)', text: '#3b82f6' },
+        v:  { border: '#8b1a1a', bg: 'rgba(139,26,26,0.1)', text: '#ef4444' },
+        vi: { border: '#10b981', bg: 'rgba(16,185,129,0.1)', text: '#10b981' }
+      };
+
+      function updateTabs() {
+        partTabs.forEach(tab => {
+          const p = tab.dataset.part;
+          const s = tabStyles[p];
+          if (p === activePart) {
+            tab.classList.add('active-tab');
+            tab.style.borderColor = s.border;
+            tab.style.backgroundColor = s.bg;
+            tab.style.color = s.text;
+          } else {
+            tab.classList.remove('active-tab');
+            tab.style.borderColor = s.border + '50';
+            tab.style.backgroundColor = 'transparent';
+            tab.style.color = s.text + 'aa';
+          }
+        });
+      }
+
+      partTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          activePart = tab.dataset.part;
+          updateTabs();
+          renderChapters();
+        });
+      });
+
+      /* ===== SEARCH ===== */
+      const searchInput = document.getElementById('chapter-search-m8n3');
+      let searchTimeout;
+      searchInput.addEventListener('input', () => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+          searchQuery = searchInput.value.trim();
+          renderChapters();
+        }, 200);
+      });
+
+      /* ===== MOBILE MENU ===== */
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn-x9f2');
+      const mobileMenu = document.getElementById('mobile-menu-q1w2');
+      const mobileMenuClose = document.getElementById('mobile-menu-close-r3t4');
+
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('flex');
+      });
+      mobileMenuClose.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+      });
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          mobileMenu.classList.remove('flex');
+        });
+      });
+
+      /* ===== SCROLL FADE-IN ===== */
+      const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+
+      /* ===== NAV ACTIVE STATE ===== */
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+      const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach(link => {
+              const href = link.getAttribute('href');
+              if (href === '#' + id || (id === 'hero' && href === '#hero')) {
+                link.classList.add('active');
+              } else if (href && href.startsWith('#')) {
+                link.classList.remove('active');
+              }
+            });
+          }
+        });
+      }, { threshold: 0.3 });
+      sections.forEach(s => scrollObserver.observe(s));
+
+      /* ===== INIT ===== */
+      updateTabs();
+      renderChapters();
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
