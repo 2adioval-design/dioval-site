@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Compliance Architecture | Dioval Group — SR 11-7 & EU AI Act</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Inter', sans-serif; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .glass { background: rgba(15,23,42,0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+  .glass-light { background: rgba(30,41,59,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+  .gradient-text { background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-grid { background-image: linear-gradient(rgba(239,68,68,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(239,68,68,0.03) 1px, transparent 1px); background-size: 60px 60px; }
+  .nav-link { position:relative; }
+  .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:#3b82f6; transition: width 0.3s ease; }
+  .nav-link:hover::after { width:100%; }
+  .btn-primary { background: linear-gradient(135deg, #2563eb, #1d4ed8); transition: all 0.3s ease; }
+  .btn-primary:hover { background: linear-gradient(135deg, #3b82f6, #2563eb); transform: translateY(-1px); box-shadow: 0 8px 25px rgba(37,99,235,0.4); }
+  .mobile-menu { display:none; }
+  .mobile-menu.open { display:block; }
+  .compliance-card { transition: all 0.3s ease; }
+  .compliance-card:hover { transform: translateY(-3px); }
+  .reg-tag { display: inline-block; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-family: 'JetBrains Mono', monospace; font-weight: 700; }
+</style>
+</head>
+<body class="bg-slate-950 text-slate-300 antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen">
+
+<nav class="fixed w-full z-50 glass border-b border-slate-800/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
+        <div class="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <span class="text-2xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+      </a>
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="about.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">About</a>
+        <a href="audits.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Audits</a>
+        <a href="orchestration.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Orchestration</a>
+        <a href="compliance.html" class="nav-link text-sm font-semibold text-white">Compliance</a>
+        <a href="knowledge.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Knowledge Fabric</a>
+        <a href="managed-services.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Managed Ops</a>
+        <a href="cases.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Case Studies</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm">Book an Audit</a>
+        <button class="lg:hidden text-slate-400 hover:text-white p-2" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu lg:hidden glass border-t border-slate-800/60">
+    <div class="px-4 py-6 space-y-4">
+      <a href="about.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">About</a>
+      <a href="audits.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Audits</a>
+      <a href="orchestration.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Orchestration</a>
+      <a href="compliance.html" class="block text-sm font-semibold text-white py-2">Compliance</a>
+      <a href="knowledge.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Knowledge Fabric</a>
+      <a href="managed-services.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Managed Ops</a>
+      <a href="cases.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Case Studies</a>
+      <a href="contact.html" class="block btn-primary text-white px-6 py-3 rounded-sm font-bold text-sm text-center mt-4">Book an Audit</a>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow">
+  <section class="relative pt-44 pb-20 hero-grid overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_20%_0%,rgba(239,68,68,0.1),transparent)]"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="flex items-center gap-3 mb-6">
+        <a href="index.html" class="mono text-xs text-slate-500 hover:text-slate-300 transition">Home</a>
+        <span class="text-slate-700">/</span>
+        <span class="mono text-xs text-red-400">Compliance</span>
+      </div>
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 mb-6">
+        <svg class="w-3.5 h-3.5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+        <span class="mono text-xs text-red-400 font-bold">The regulator doesn't care that your model performed well in testing</span>
+      </div>
+      <h1 class="text-5xl lg:text-7xl font-black text-white leading-tight mb-8">Compliance-Native<br><span class="gradient-text">Architecture</span></h1>
+      <p class="text-xl text-slate-400 max-w-3xl leading-relaxed">If you cannot produce an immutable audit trail of every agent decision, you are non-compliant. We engineer compliance into the middleware — not as a checkbox, but as a structural constraint every agent must satisfy before acting.</p>
+      <div class="flex flex-wrap gap-3 mt-8">
+        <span class="reg-tag bg-red-500/10 border border-red-500/30 text-red-400">SR 11-7</span>
+        <span class="reg-tag bg-orange-500/10 border border-orange-500/30 text-orange-400">EU AI Act</span>
+        <span class="reg-tag bg-yellow-500/10 border border-yellow-500/30 text-yellow-400">SEC Rule 17a-4</span>
+        <span class="reg-tag bg-blue-500/10 border border-blue-500/30 text-blue-400">ECOA / FCRA</span>
+        <span class="reg-tag bg-purple-500/10 border border-purple-500/30 text-purple-400">OCC MRM</span>
+        <span class="reg-tag bg-green-500/10 border border-green-500/30 text-green-400">HIPAA</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE PROXY -->
+  <section class="py-24 bg-slate-950">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="mono text-xs text-red-400 tracking-widest uppercase mb-4">Core Pattern</p>
+        <h2 class="text-3xl md:text-4xl font-black text-white">The Compliance Proxy Pattern</h2>
+        <p class="text-slate-400 mt-4 max-w-2xl mx-auto">Every agent action — without exception — passes through a mandatory middleware layer before execution. This layer is the policy enforcement point for your entire AI estate.</p>
+      </div>
+
+      <!-- Flow Diagram -->
+      <div class="glass-light p-8 rounded-sm border border-slate-800 mb-12">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-4 text-center">
+          <div class="flex-1 bg-slate-900 border border-slate-800 rounded-sm p-4">
+            <div class="w-10 h-10 bg-blue-500/10 rounded-sm flex items-center justify-center mx-auto mb-3">
+              <svg class="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2h-2"/></svg>
+            </div>
+            <div class="mono text-xs text-blue-400 mb-1">AGENT</div>
+            <div class="text-xs text-slate-500">Requests action</div>
+          </div>
+          <div class="text-slate-600 text-2xl font-bold lg:block hidden">→</div>
+          <div class="flex-1 bg-red-950/30 border border-red-500/30 rounded-sm p-4">
+            <div class="w-10 h-10 bg-red-500/10 rounded-sm flex items-center justify-center mx-auto mb-3">
+              <svg class="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <div class="mono text-xs text-red-400 mb-1">OPA POLICY CHECK</div>
+            <div class="text-xs text-slate-500">Allow / Deny / Escalate</div>
+          </div>
+          <div class="text-slate-600 text-2xl font-bold lg:block hidden">→</div>
+          <div class="flex-1 bg-slate-900 border border-slate-800 rounded-sm p-4">
+            <div class="w-10 h-10 bg-yellow-500/10 rounded-sm flex items-center justify-center mx-auto mb-3">
+              <svg class="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            </div>
+            <div class="mono text-xs text-yellow-400 mb-1">AUDIT LOG</div>
+            <div class="text-xs text-slate-500">SHA-256 hash chain</div>
+          </div>
+          <div class="text-slate-600 text-2xl font-bold lg:block hidden">→</div>
+          <div class="flex-1 bg-slate-900 border border-slate-800 rounded-sm p-4">
+            <div class="w-10 h-10 bg-green-500/10 rounded-sm flex items-center justify-center mx-auto mb-3">
+              <svg class="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div class="mono text-xs text-green-400 mb-1">EXECUTION</div>
+            <div class="text-xs text-slate-500">Approved &amp; recorded</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="compliance-card glass-light p-8 rounded-sm border border-slate-800">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-yellow-500/10 border border-yellow-500/20 rounded-sm flex items-center justify-center">
+              <svg class="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-white">Immutable Audit Trails</h3>
+          </div>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">We deploy ClickHouse with OpenTelemetry instrumentation and SHA-256 hash chains to create a tamper-evident linked list of every LLM inference, tool call, and decision output. Fully compliant with SEC Rule 17a-4 WORM storage requirements.</p>
+          <div class="bg-slate-900 rounded-sm p-4 border border-slate-800">
+            <pre class="text-xs text-slate-400 overflow-x-auto"><code>{
+  "event_id": "evt_7k2m9x",
+  "timestamp": "2026-05-09T14:51:00Z",
+  "agent": "loan_decision_v3",
+  "action": "credit_assessment",
+  "input_hash": "sha256:a7f3...",
+  "output_hash": "sha256:b2c1...",
+  "prev_hash": "sha256:9de4...",
+  "policy_check": "PASSED",
+  "approver": "OPA_v2.1"
+}</code></pre>
+          </div>
+          <div class="flex gap-2 mt-4">
+            <span class="reg-tag bg-yellow-500/10 border border-yellow-500/30 text-yellow-400">SEC 17a-4</span>
+            <span class="reg-tag bg-blue-500/10 border border-blue-500/30 text-blue-400">SR 11-7</span>
+          </div>
+        </div>
+
+        <div class="compliance-card glass-light p-8 rounded-sm border border-slate-800">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-blue-500/10 border border-blue-500/20 rounded-sm flex items-center justify-center">
+              <svg class="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-white">Automated Explainability</h3>
+          </div>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">We engineer structured Chain-of-Thought outputs and SHAP feature attributions that map directly to ECOA/FCRA enumerated reason codes. Every adverse action notice is automatically populated with regulator-approved explanations.</p>
+          <div class="space-y-2 mt-4">
+            <div class="flex items-center justify-between text-xs bg-slate-900 rounded-sm px-3 py-2 border border-slate-800">
+              <span class="text-slate-400">Debt-to-income ratio</span>
+              <span class="text-red-400 mono font-bold">−32pts  ████░░░░</span>
+            </div>
+            <div class="flex items-center justify-between text-xs bg-slate-900 rounded-sm px-3 py-2 border border-slate-800">
+              <span class="text-slate-400">Payment history (24mo)</span>
+              <span class="text-red-400 mono font-bold">−18pts  ██░░░░░░</span>
+            </div>
+            <div class="flex items-center justify-between text-xs bg-slate-900 rounded-sm px-3 py-2 border border-slate-800">
+              <span class="text-slate-400">Credit utilization</span>
+              <span class="text-yellow-400 mono font-bold">−9pts   █░░░░░░░</span>
+            </div>
+          </div>
+          <div class="flex gap-2 mt-4">
+            <span class="reg-tag bg-green-500/10 border border-green-500/30 text-green-400">ECOA</span>
+            <span class="reg-tag bg-purple-500/10 border border-purple-500/30 text-purple-400">FCRA</span>
+            <span class="reg-tag bg-orange-500/10 border border-orange-500/30 text-orange-400">EU AI Act Art.13</span>
+          </div>
+        </div>
+
+        <div class="compliance-card glass-light p-8 rounded-sm border border-slate-800">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-red-500/10 border border-red-500/20 rounded-sm flex items-center justify-center">
+              <svg class="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-white">OPA Policy Enforcement</h3>
+          </div>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">Open Policy Agent rules encode your compliance requirements as machine-readable, version-controlled code. When regulations change, you update the policy file — not the model, not the agent, not the infrastructure. Policy changes deploy in seconds with full rollback capability.</p>
+          <div class="bg-slate-900 rounded-sm p-4 border border-slate-800">
+            <pre class="text-xs text-slate-400 overflow-x-auto"><code>deny[reason] {
+  action := input.agent.requested_action
+  action == "send_adverse_notice"
+  not input.context.ecoa_codes_present
+  reason := "ECOA reason codes required"
+}</code></pre>
+          </div>
+        </div>
+
+        <div class="compliance-card glass-light p-8 rounded-sm border border-slate-800">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-green-500/10 border border-green-500/20 rounded-sm flex items-center justify-center">
+              <svg class="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-white">Human-in-the-Loop Gates</h3>
+          </div>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">High-risk decisions are automatically escalated to human reviewers with configurable confidence thresholds, dollar-amount triggers, and regulatory category flags. No agent can autonomously cross a defined risk boundary without human approval and a documented override reason.</p>
+          <div class="space-y-3 mt-4">
+            <div class="flex items-center gap-3 text-xs">
+              <div class="w-2 h-2 bg-red-500 rounded-full flex-shrink-0"></div>
+              <span class="text-slate-400">Loan decisions &gt; $500K → mandatory human review</span>
+            </div>
+            <div class="flex items-center gap-3 text-xs">
+              <div class="w-2 h-2 bg-orange-500 rounded-full flex-shrink-0"></div>
+              <span class="text-slate-400">Confidence score &lt; 0.85 → escalation required</span>
+            </div>
+            <div class="flex items-center gap-3 text-xs">
+              <div class="w-2 h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
+              <span class="text-slate-400">High-risk AI Act categories → HITL mandatory</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGULATORY COVERAGE -->
+  <section class="py-20 bg-slate-900/50 border-y border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-black text-white">Regulatory Coverage Matrix</h2>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse">
+          <thead>
+            <tr class="border-b border-slate-700">
+              <th class="text-left py-4 px-4 mono text-xs text-slate-400 font-bold">FRAMEWORK</th>
+              <th class="text-left py-4 px-4 mono text-xs text-slate-400 font-bold">JURISDICTION</th>
+              <th class="text-left py-4 px-4 mono text-xs text-slate-400 font-bold">COVERAGE</th>
+              <th class="text-left py-4 px-4 mono text-xs text-slate-400 font-bold">STATUS</th>
+            </tr>
+          </thead>
+          <tbody class="text-sm">
+            <tr class="border-b border-slate-800/60 hover:bg-slate-800/20">
+              <td class="py-4 px-4 font-bold text-white">SR 11-7 / OCC MRM</td>
+              <td class="py-4 px-4 text-slate-400">US (Federal Reserve / OCC)</td>
+              <td class="py-4 px-4 text-slate-400">Model cards, validation, audit trails</td>
+              <td class="py-4 px-4"><span class="reg-tag bg-green-500/10 border border-green-500/30 text-green-400">COVERED</span></td>
+            </tr>
+            <tr class="border-b border-slate-800/60 hover:bg-slate-800/20">
+              <td class="py-4 px-4 font-bold text-white">EU AI Act</td>
+              <td class="py-4 px-4 text-slate-400">European Union</td>
+              <td class="py-4 px-4 text-slate-400">Risk classification, transparency, HITL</td>
+              <td class="py-4 px-4"><span class="reg-tag bg-green-500/10 border border-green-500/30 text-green-400">COVERED</span></td>
+            </tr>
+            <tr class="border-b border-slate-800/60 hover:bg-slate-800/20">
+              <td class="py-4 px-4 font-bold text-white">SEC Rule 17a-4</td>
+              <td class="py-4 px-4 text-slate-400">US (Securities)</td>
+              <td class="py-4 px-4 text-slate-400">WORM storage, immutable records</td>
+              <td class="py-4 px-4"><span class="reg-tag bg-green-500/10 border border-green-500/30 text-green-400">COVERED</span></td>
+            </tr>
+            <tr class="border-b border-slate-800/60 hover:bg-slate-800/20">
+              <td class="py-4 px-4 font-bold text-white">ECOA / FCRA</td>
+              <td class="py-4 px-4 text-slate-400">US (Consumer Finance)</td>
+              <td class="py-4 px-4 text-slate-400">Adverse action reason codes</td>
+              <td class="py-4 px-4"><span class="reg-tag bg-green-500/10 border border-green-500/30 text-green-400">COVERED</span></td>
+            </tr>
+            <tr class="border-b border-slate-800/60 hover:bg-slate-800/20">
+              <td class="py-4 px-4 font-bold text-white">HIPAA</td>
+              <td class="py-4 px-4 text-slate-400">US (Healthcare)</td>
+              <td class="py-4 px-4 text-slate-400">PHI handling, minimum necessary rule</td>
+              <td class="py-4 px-4"><span class="reg-tag bg-green-500/10 border border-green-500/30 text-green-400">COVERED</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 bg-slate-950">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-black text-white mb-6">Are Your Agents Examination-Ready?</h2>
+      <p class="text-slate-400 mb-10">Most aren't. Our Regulatory MRM Gap Assessment simulates an actual OCC or EU AI Act examination — and produces the remediation roadmap to survive it.</p>
+      <a href="contact.html" class="btn-primary text-white px-10 py-4 rounded-sm font-bold text-lg shadow-xl shadow-blue-500/20">Book Your Compliance Assessment →</a>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-slate-950 border-t border-slate-800 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 bg-blue-600 rounded-sm flex items-center justify-center">
+        <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <span class="text-xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+    </div>
+    <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+      <a href="about.html" class="hover:text-white transition">About</a>
+      <a href="audits.html" class="hover:text-white transition">Audits</a>
+      <a href="cases.html" class="hover:text-white transition">Case Studies</a>
+      <a href="contact.html" class="hover:text-white transition">Contact</a>
+      <span>© 2026 Dioval Group. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

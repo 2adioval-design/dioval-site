@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book an Audit | Dioval Group — Contact</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Inter', sans-serif; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .glass { background: rgba(15,23,42,0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+  .glass-light { background: rgba(30,41,59,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+  .gradient-text { background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-grid { background-image: linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px); background-size: 60px 60px; }
+  .nav-link { position:relative; }
+  .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:#3b82f6; transition: width 0.3s ease; }
+  .nav-link:hover::after { width:100%; }
+  .btn-primary { background: linear-gradient(135deg, #2563eb, #1d4ed8); transition: all 0.3s ease; }
+  .btn-primary:hover { background: linear-gradient(135deg, #3b82f6, #2563eb); transform: translateY(-1px); box-shadow: 0 8px 25px rgba(37,99,235,0.4); }
+  .mobile-menu { display:none; }
+  .mobile-menu.open { display:block; }
+  .form-input { background: rgba(15,23,42,0.8); border: 1px solid rgba(71,85,105,0.6); color: white; transition: all 0.2s ease; }
+  .form-input:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+  .form-input::placeholder { color: #475569; }
+  .step-card { transition: all 0.3s ease; }
+  .step-card:hover { transform: translateY(-2px); }
+  @keyframes checkmark { 0%{transform:scale(0)} 100%{transform:scale(1)} }
+  .checkmark-anim { animation: checkmark 0.4s ease forwards; }
+</style>
+</head>
+<body class="bg-slate-950 text-slate-300 antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen">
+
+<nav class="fixed w-full z-50 glass border-b border-slate-800/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
+        <div class="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <span class="text-2xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+      </a>
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="about.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">About</a>
+        <a href="audits.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Audits</a>
+        <a href="orchestration.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Orchestration</a>
+        <a href="compliance.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Compliance</a>
+        <a href="knowledge.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Knowledge Fabric</a>
+        <a href="managed-services.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Managed Ops</a>
+        <a href="cases.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Case Studies</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm">Book an Audit</a>
+        <button class="lg:hidden text-slate-400 hover:text-white p-2" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu lg:hidden glass border-t border-slate-800/60">
+    <div class="px-4 py-6 space-y-4">
+      <a href="about.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">About</a>
+      <a href="audits.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Audits</a>
+      <a href="orchestration.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Orchestration</a>
+      <a href="compliance.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Compliance</a>
+      <a href="knowledge.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Knowledge Fabric</a>
+      <a href="managed-services.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Managed Ops</a>
+      <a href="cases.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Case Studies</a>
+      <a href="contact.html" class="block btn-primary text-white px-6 py-3 rounded-sm font-bold text-sm text-center mt-4">Book an Audit</a>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow">
+  <section class="relative pt-44 pb-20 hero-grid overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(37,99,235,0.12),transparent)]"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
+      <div class="flex items-center gap-3 mb-6 justify-center">
+        <a href="index.html" class="mono text-xs text-slate-500 hover:text-slate-300 transition">Home</a>
+        <span class="text-slate-700">/</span>
+        <span class="mono text-xs text-blue-400">Contact</span>
+      </div>
+      <p class="mono text-xs text-blue-400 tracking-widest uppercase mb-4">Start Here</p>
+      <h1 class="text-5xl lg:text-7xl font-black text-white leading-tight mb-8">Secure Your<br><span class="gradient-text">Infrastructure</span></h1>
+      <p class="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">Book a 30-minute discovery session with our Principal Architects. No deck. No pitch. A genuine assessment of where your biggest AI production risks lie — and what it would take to eliminate them.</p>
+    </div>
+  </section>
+
+  <!-- WHAT HAPPENS NEXT -->
+  <section class="py-16 bg-slate-900/40 border-y border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <p class="mono text-xs text-slate-400 tracking-widest uppercase">What Happens After You Submit</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="step-card glass-light p-6 rounded-sm border border-slate-800 text-center">
+          <div class="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-sm flex items-center justify-center mx-auto mb-4">
+            <span class="mono text-blue-400 font-black text-lg">01</span>
+          </div>
+          <h3 class="font-bold text-white mb-2">Discovery Call (30 min)</h3>
+          <p class="text-sm text-slate-500">Within 24 hours of submission, a Principal Architect reviews your response and schedules a 30-minute call to understand your current AI estate, team composition, and primary pain points.</p>
+        </div>
+        <div class="step-card glass-light p-6 rounded-sm border border-slate-800 text-center">
+          <div class="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-sm flex items-center justify-center mx-auto mb-4">
+            <span class="mono text-blue-400 font-black text-lg">02</span>
+          </div>
+          <h3 class="font-bold text-white mb-2">Preliminary Risk Profile</h3>
+          <p class="text-sm text-slate-500">Based on the discovery call, we provide a complimentary 1-page preliminary risk profile covering the most likely failure modes in your specific architecture — at no cost.</p>
+        </div>
+        <div class="step-card glass-light p-6 rounded-sm border border-slate-800 text-center">
+          <div class="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-sm flex items-center justify-center mx-auto mb-4">
+            <span class="mono text-blue-400 font-black text-lg">03</span>
+          </div>
+          <h3 class="font-bold text-white mb-2">Engagement Proposal</h3>
+          <p class="text-sm text-slate-500">If the risk profile surfaces critical issues — and it usually does — we present a scoped engagement proposal with fixed pricing, timeline, and deliverables. No surprises.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM + SIDEBAR -->
+  <section class="py-24 bg-slate-950">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-12">
+
+        <!-- Form -->
+        <div class="lg:col-span-2">
+          <div id="formContainer" class="glass-light p-10 rounded-sm border border-slate-700">
+            <h2 class="text-2xl font-black text-white mb-2">Request Executive Briefing</h2>
+            <p class="text-slate-500 text-sm mb-8">All fields are required. We respond within 1 business day.</p>
+
+            <form id="contactForm" onsubmit="handleSubmit(event)" class="space-y-6">
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block mono text-xs text-slate-400 mb-2 font-bold tracking-widest uppercase">First Name</label>
+                  <input type="text" required placeholder="Jane" class="form-input w-full px-4 py-3 rounded-sm text-white">
+                </div>
+                <div>
+                  <label class="block mono text-xs text-slate-400 mb-2 font-bold tracking-widest uppercase">Last Name</label>
+                  <input type="text" required placeholder="Smith" class="form-input w-full px-4 py-3 rounded-sm text-white">
+                </div>
+              </div>
+
+              <div>
+                <label class="block mono text-xs text-slate-400 mb-2 font-bold tracking-widest uppercase">Corporate Email</label>
+                <input type="email" required placeholder="jane.smith@enterprise.com" class="form-input w-full px-4 py-3 rounded-sm text-white">
+                <p class="text-xs text-slate-600 mt-1">We do not accept free email providers (Gmail, Outlook.com, etc.)</p>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block mono text-xs text-slate-400 mb-2 font-bold tracking-widest uppercase">Title</label>
+                  <input type="text" required placeholder="CTO / Chief Risk Officer" class="form-input w-full px-4 py-3 rounded-sm text-white">
+                </div>
+                <div>
+                  <label class="block mono text-xs text-slate-400 mb-2 font-bold tracking-widest uppercase">Company</label>
+                  <input type="text" required placeholder="Enterprise Co." class="form-input w-full px-4 py-3 rounded-sm text-white">
+                </div>
+              </div>
+
+              <div>
+                <label class="block mono text-xs text-slate-400 mb-2 font-bold tracking-widest uppercase">Industry</label>
+                <select required class="form-input w-full px-4 py-3 rounded-sm text-white">
+                  <option value="" class="bg-slate-900">Select your industry</option>
+                  <option class="bg-slate-900">Financial Services / Banking</option>
+                  <option class="bg-slate-900">Healthcare / Life Sciences</option>
+                  <option class="bg-slate-900">Insurance</option>
+                  <option class="bg-slate-900">Logistics / Supply Chain</option>
+                  <option class="bg-slate-900">Legal / Professional Services</option>
+                  <option class="bg-slate-900">Manufacturing</option>
+                  <option class="bg-slate-900">Energy / Utilities</option>
+                  <option class="bg-slate-900">Technology</option>
+                  <option class="bg-slate-900">Government / Public Sector</option>
+                  <option class="bg-slate-900">Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block mono text-xs text-slate-400 mb-2 font-bold tracking-widest uppercase">Primary AI Challenge</label>
+                <select required class="form-input w-full px-4 py-3 rounded-sm text-white">
+                  <option value="" class="bg-slate-900">Select your most urgent challenge</option>
+                  <option class="bg-slate-900">Agent Sprawl / Orchestration Failures</option>
+                  <option class="bg-slate-900">Regulatory Compliance / Upcoming Audit</option>
+                  <option class="bg-slate-900">Knowledge Retrieval / Hallucinations</option>
+                  <option class="bg-slate-900">Token Cost Runaways / ROI Pressure</option>
+                  <option class="bg-slate-900">Production Reliability / Uptime Failures</option>
+                  <option class="bg-slate-900">Multiple Critical Issues</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block mono text-xs text-slate-400 mb-2 font-bold tracking-widest uppercase">Number of Production AI Agents</label>
+                <select required class="form-input w-full px-4 py-3 rounded-sm text-white">
+                  <option value="" class="bg-slate-900">Select range</option>
+                  <option class="bg-slate-900">1–3 agents</option>
+                  <option class="bg-slate-900">4–10 agents</option>
+                  <option class="bg-slate-900">11–25 agents</option>
+                  <option class="bg-slate-900">25+ agents</option>
+                  <option class="bg-slate-900">Still in pre-production</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block mono text-xs text-slate-400 mb-2 font-bold tracking-widest uppercase">Describe Your Situation (Optional)</label>
+                <textarea rows="4" placeholder="What's breaking? What's the cost? What have you already tried?" class="form-input w-full px-4 py-3 rounded-sm text-white resize-none"></textarea>
+              </div>
+
+              <div>
+                <label class="block mono text-xs text-slate-400 mb-2 font-bold tracking-widest uppercase">Audit Type of Interest</label>
+                <div class="grid md:grid-cols-2 gap-4">
+                  <label class="flex items-start gap-3 glass-light p-4 rounded-sm border border-slate-700 cursor-pointer hover:border-blue-500/40 transition">
+                    <input type="radio" name="auditType" value="prs" class="mt-0.5 accent-blue-500">
+                    <div>
+                      <div class="font-semibold text-white text-sm">PRS Assessment</div>
+                      <div class="text-xs text-slate-500 mt-0.5">$25K · 3 weeks · All industries</div>
+                    </div>
+                  </label>
+                  <label class="flex items-start gap-3 glass-light p-4 rounded-sm border border-slate-700 cursor-pointer hover:border-blue-500/40 transition">
+                    <input type="radio" name="auditType" value="mrm" class="mt-0.5 accent-blue-500">
+                    <div>
+                      <div class="font-semibold text-white text-sm">MRM Gap Assessment</div>
+                      <div class="text-xs text-slate-500 mt-0.5">$45K · 4 weeks · Finance/Healthcare</div>
+                    </div>
+                  </label>
+                  <label class="flex items-start gap-3 glass-light p-4 rounded-sm border border-slate-700 cursor-pointer hover:border-blue-500/40 transition">
+                    <input type="radio" name="auditType" value="ano" class="mt-0.5 accent-blue-500">
+                    <div>
+                      <div class="font-semibold text-white text-sm">ANO Managed Services</div>
+                      <div class="text-xs text-slate-500 mt-0.5">$15–40K/mo · Ongoing ops</div>
+                    </div>
+                  </label>
+                  <label class="flex items-start gap-3 glass-light p-4 rounded-sm border border-slate-700 cursor-pointer hover:border-blue-500/40 transition">
+                    <input type="radio" name="auditType" value="unsure" class="mt-0.5 accent-blue-500" checked>
+                    <div>
+                      <div class="font-semibold text-white text-sm">Not Sure Yet</div>
+                      <div class="text-xs text-slate-500 mt-0.5">We'll recommend based on your profile</div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <div class="pt-2">
+                <button type="submit" class="w-full btn-primary text-white font-black py-4 rounded-sm text-lg shadow-xl shadow-blue-500/20 transition">
+                  Request Executive Briefing →
+                </button>
+                <p class="text-center text-xs text-slate-600 mt-3">No spam. No sales calls until you're ready. Your information is never shared.</p>
+              </div>
+            </form>
+          </div>
+
+          <!-- Success State -->
+          <div id="successState" class="hidden glass-light p-10 rounded-sm border border-green-500/30 text-center">
+            <div class="w-16 h-16 bg-green-500/10 border border-green-500/30 rounded-full flex items-center justify-center mx-auto mb-6 checkmark-anim">
+              <svg class="w-8 h-8 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <h3 class="text-2xl font-black text-white mb-4">Request Received</h3>
+            <p class="text-slate-400 mb-6">A Principal Architect will review your submission and reach out within 1 business day to schedule your 30-minute discovery call. Check your corporate inbox — including spam, just in case.</p>
+            <div class="glass p-4 rounded-sm border border-slate-700 text-left max-w-sm mx-auto">
+              <div class="mono text-xs text-slate-500 mb-2">NEXT STEPS</div>
+              <div class="space-y-2 text-xs">
+                <div class="flex items-center gap-2 text-green-400"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Submission received</div>
+                <div class="flex items-center gap-2 text-slate-400"><div class="w-3 h-3 border border-slate-600 rounded-full"></div>Principal Architect review (≤24hrs)</div>
+                <div class="flex items-center gap-2 text-slate-400"><div class="w-3 h-3 border border-slate-600 rounded-full"></div>Discovery call scheduled</div>
+                <div class="flex items-center gap-2 text-slate-400"><div class="w-3 h-3 border border-slate-600 rounded-full"></div>Preliminary risk profile delivered</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="space-y-6">
+          <!-- Urgency -->
+          <div class="glass-light p-6 rounded-sm border border-red-500/20">
+            <div class="flex items-center gap-2 mb-4">
+              <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+              <span class="mono text-xs text-red-400 font-bold">WHY ACT NOW</span>
+            </div>
+            <div class="space-y-4 text-sm text-slate-400">
+              <p>The EU AI Act's compliance deadlines are active for high-risk systems. OCC examinations are expanding AI scope in 2026. Every week of delay is another week of untracked decisions that may require future remediation.</p>
+              <p>Our current engagement capacity is limited to <span class="text-white font-semibold">3 new clients per quarter.</span></p>
+            </div>
+          </div>
+
+          <!-- What you'll get -->
+          <div class="glass-light p-6 rounded-sm border border-slate-700">
+            <h3 class="font-bold text-white mb-4 text-sm">What You'll Receive</h3>
+            <div class="space-y-3">
+              <div class="flex items-start gap-3">
+                <svg class="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-sm text-slate-400">Free 30-min discovery call with Principal Architect</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-sm text-slate-400">Complimentary 1-page preliminary risk profile</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-sm text-slate-400">Fixed-price engagement proposal with clear scope</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-sm text-slate-400">No obligation until you sign the SOW</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quote -->
+          <div class="glass-light p-6 rounded-sm border border-slate-700">
+            <blockquote class="text-sm text-slate-400 italic leading-relaxed mb-4">"The Dioval team found three critical compliance gaps in our audit trail within the first week. We had no idea they existed. The OCC examination 3 months later went without a single finding."</blockquote>
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center">
+                <span class="text-blue-400 font-bold text-xs">VF</span>
+              </div>
+              <div>
+                <div class="text-xs font-semibold text-white">Head of AI Governance</div>
+                <div class="mono text-xs text-slate-500">Vantage Financial Group</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stats -->
+          <div class="glass-light p-6 rounded-sm border border-slate-700">
+            <div class="mono text-xs text-slate-500 mb-4 tracking-widest uppercase">Engagement Outcomes</div>
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between text-xs mb-1"><span class="text-slate-400">Avg PRS score improvement</span><span class="text-green-400 mono font-bold">+58pts</span></div>
+                <div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-green-500 h-1.5 rounded-full" style="width:78%"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs mb-1"><span class="text-slate-400">Compliance gap closure (90 days)</span><span class="text-blue-400 mono font-bold">94%</span></div>
+                <div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-blue-500 h-1.5 rounded-full" style="width:94%"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs mb-1"><span class="text-slate-400">Agent conflict reduction</span><span class="text-purple-400 mono font-bold">96%</span></div>
+                <div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-purple-500 h-1.5 rounded-full" style="width:96%"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs mb-1"><span class="text-slate-400">Token cost reduction (avg)</span><span class="text-orange-400 mono font-bold">34%</span></div>
+                <div class="w-full bg-slate-800 rounded-full h-1.5"><div class="bg-orange-500 h-1.5 rounded-full" style="width:34%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-slate-950 border-t border-slate-800 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 bg-blue-600 rounded-sm flex items-center justify-center">
+        <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <span class="text-xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+    </div>
+    <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+      <a href="about.html" class="hover:text-white transition">About</a>
+      <a href="audits.html" class="hover:text-white transition">Audits</a>
+      <a href="cases.html" class="hover:text-white transition">Case Studies</a>
+      <a href="contact.html" class="hover:text-white transition">Contact</a>
+      <span>© 2026 Dioval Group. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('formContainer').classList.add('hidden');
+  document.getElementById('successState').classList.remove('hidden');
+  document.getElementById('successState').classList.add('checkmark-anim');
+  window.scrollTo({ top: document.getElementById('successState').offsetTop - 100, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

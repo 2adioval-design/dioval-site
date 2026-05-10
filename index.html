@@ -1,1191 +1,394 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7JKBJJES0V"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-7JKBJJES0V');
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="dark">
-    <title>Aurelio Dioval - Novelist, Poet, Cybersecurity Architect | CCO Certifications | ENGR.FM</title>
-    <meta name="description" content="Official site of Aurelio Dioval. Author of The Light of Woza saga, creator of CCO Certifications (Certified Cyber Operator), ENGR.FM, and CyberOps doctrine.">
-    <meta property="og:title" content="Aurelio Dioval - Novelist, Poet, Cybersecurity Architect">
-    <meta property="og:description" content="Creator of CCO Certifications, The Light of Woza saga, ENGR.FM, and CyberOps doctrine.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dioval.com">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://dioval.com">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Aurelio Dioval",
-      "url": "https://dioval.com",
-      "jobTitle": "Novelist, Poet, Cybersecurity Architect",
-      "knowsAbout": ["Dark Fantasy", "Poetry", "Cybersecurity", "CyberOps", "Network Engineering"],
-      "brand": [
-        { "@type": "Brand", "name": "CCO Certifications" },
-        { "@type": "Brand", "name": "ENGR.FM" },
-        { "@type": "Brand", "name": "Diotech Group" }
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressRegion": "WA",
-        "addressCountry": "US"
-      }
-    }
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lucide@1.8.0/dist/umd/lucide.min.js"></script>
-    <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            bg: { DEFAULT: '#0a0a0a', elevated: '#111111', card: '#1a1a1a', surface: '#222222' },
-            gold: { DEFAULT: '#c9a84c', dark: '#a68a3a', light: '#e0c96e' },
-            txt: { primary: '#f5f5f5', secondary: '#a0a0a0', muted: '#666666' },
-            crimson: '#8b1a1a',
-            bronze: '#b87333',
-            cyber: '#3b82f6',
-            cco: '#10b981',
-            labpurple: '#7c3aed',
-            danger: '#dc2626'
-          },
-          fontFamily: {
-            display: ['"Playfair Display"', 'serif'],
-            body: ['Inter', 'sans-serif']
-          }
-        }
-      }
-    };
-    </script>
-    <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-      body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #f5f5f5; overflow-x: hidden; }
-      .font-display { font-family: 'Playfair Display', serif; }
-      ::-webkit-scrollbar { width: 8px; }
-      ::-webkit-scrollbar-track { background: #111111; }
-      ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-      ::-webkit-scrollbar-thumb:hover { background: #c9a84c; }
-      .gold-line { height: 3px; background: linear-gradient(90deg, transparent, #c9a84c, transparent); }
-      .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; letter-spacing: 0.05em; }
-      @media (max-width: 768px) { .section-title { font-size: 1.75rem; } }
-      .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-      .fade-in.visible { opacity: 1; transform: translateY(0); }
-      .lab-card { border-left: 4px solid; padding: 1rem 1.25rem; background: #1a1a1a; border-radius: 0 8px 8px 0; transition: transform 0.2s, box-shadow 0.2s; }
-      .lab-card:hover { transform: translateX(4px); box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
-      .hero-bg { background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 60%), #0a0a0a; }
-      .nav-link { position: relative; transition: color 0.3s; }
-      .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #c9a84c; transition: width 0.3s; }
-      .nav-link:hover::after, .nav-link.active::after { width: 100%; }
-      .nav-link:hover, .nav-link.active { color: #c9a84c; }
-      .phase-card { background: linear-gradient(135deg, #1a1a1a, #222222); border: 1px solid #333; border-radius: 12px; padding: 1.5rem; }
-      .cco-level-card { background: #111111; border: 1px solid #333; border-radius: 16px; overflow: hidden; }
-      .cco-level-header { padding: 2rem; }
-      .cco-level-body { padding: 0 2rem 2rem; }
-      .bounce-arrow { animation: bounce 2s infinite; }
-      @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
-      @keyframes pulse-gold { 0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.4); } 50% { box-shadow: 0 0 20px 5px rgba(201,168,76,0.1); } }
-      .new-badge { animation: pulse-gold 2s infinite; }
-      .pipeline-step { position: relative; }
-      .pipeline-step::after { content: ''; position: absolute; right: -1.5rem; top: 50%; transform: translateY(-50%); color: #c9a84c; font-size: 1.25rem; font-weight: 700; }
-      .pipeline-step:last-child::after { display: none; }
-      @media (max-width: 768px) { .pipeline-step::after { display: none; } }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dioval Group | Enterprise AI Reliability, Orchestration & Governance</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Inter', sans-serif; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .glass { background: rgba(15,23,42,0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+  .glass-light { background: rgba(30,41,59,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+  .glow-blue { box-shadow: 0 0 40px rgba(59,130,246,0.15); }
+  .glow-red { box-shadow: 0 0 40px rgba(239,68,68,0.12); }
+  .gradient-text { background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-grid { background-image: linear-gradient(rgba(59,130,246,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.04) 1px, transparent 1px); background-size: 60px 60px; }
+  .stat-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+  .stat-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+  .nav-link { position: relative; }
+  .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:#3b82f6; transition: width 0.3s ease; }
+  .nav-link:hover::after { width:100%; }
+  .pain-card { border-left: 3px solid; transition: all 0.3s ease; }
+  .pain-card:hover { transform: translateX(4px); }
+  @keyframes pulse-slow { 0%,100%{opacity:1} 50%{opacity:0.6} }
+  .pulse-slow { animation: pulse-slow 3s infinite; }
+  @keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+  .fade-in { animation: fadeInUp 0.8s ease forwards; }
+  .fade-in-delay-1 { animation: fadeInUp 0.8s ease 0.2s both; }
+  .fade-in-delay-2 { animation: fadeInUp 0.8s ease 0.4s both; }
+  .fade-in-delay-3 { animation: fadeInUp 0.8s ease 0.6s both; }
+  .mobile-menu { display:none; }
+  .mobile-menu.open { display:block; }
+  .btn-primary { background: linear-gradient(135deg, #2563eb, #1d4ed8); transition: all 0.3s ease; }
+  .btn-primary:hover { background: linear-gradient(135deg, #3b82f6, #2563eb); transform: translateY(-1px); box-shadow: 0 8px 25px rgba(37,99,235,0.4); }
+  .scrollbar-hide::-webkit-scrollbar { display:none; }
+</style>
 </head>
-<body class="bg-bg font-body text-txt-primary">
-    <app-icon hidden data-icon="shield" data-palette="Dark"></app-icon>
+<body class="bg-slate-950 text-slate-300 antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen overflow-x-hidden">
 
-    <!-- NAVIGATION -->
-    <nav id="main-nav-r8k2" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.15);">
-        <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16 md:h-20">
-            <a href="#home" class="font-display text-xl md:text-2xl font-bold text-gold tracking-wider">DIOVAL</a>
-            <div class="hidden md:flex items-center gap-8">
-                <a href="#home" class="nav-link text-sm font-medium tracking-widest uppercase text-txt-secondary" data-nav="home">Home</a>
-                <a href="#bio" class="nav-link text-sm font-medium tracking-widest uppercase text-txt-secondary" data-nav="bio">Bio</a>
-                <a href="#novels" class="nav-link text-sm font-medium tracking-widest uppercase text-txt-secondary" data-nav="novels">Novels</a>
-                <a href="#poetry" class="nav-link text-sm font-medium tracking-widest uppercase text-txt-secondary" data-nav="poetry">Poetry</a>
-                <a href="#tech" class="nav-link text-sm font-medium tracking-widest uppercase text-txt-secondary" data-nav="tech">Tech</a>
-                <a href="#cco" class="nav-link text-sm font-medium tracking-widest uppercase text-txt-secondary" data-nav="cco">CCO</a>
-                <a href="#labs" class="nav-link text-sm font-medium tracking-widest uppercase text-txt-secondary" data-nav="labs">Labs</a>
-            </div>
-            <button id="hamburger-btn-x9m1" class="md:hidden p-2 text-txt-secondary hover:text-gold transition-colors">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
+<!-- NAVIGATION -->
+<nav class="fixed w-full z-50 glass border-b border-slate-800/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
+        <div class="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
         </div>
-    </nav>
-
-    <!-- MOBILE MENU -->
-    <div id="mobile-menu-j4v8" class="fixed inset-0 z-[60] hidden" style="background:rgba(10,10,10,0.98);backdrop-filter:blur(20px);">
-        <div class="flex flex-col items-center justify-center h-full gap-8">
-            <button id="mobile-close-p2q5" class="absolute top-5 right-5 p-2 text-txt-secondary hover:text-gold">
-                <i data-lucide="x" class="w-7 h-7"></i>
-            </button>
-            <a href="#home" class="mobile-nav-link text-2xl font-display font-semibold tracking-widest text-txt-secondary hover:text-gold transition-colors">HOME</a>
-            <a href="#bio" class="mobile-nav-link text-2xl font-display font-semibold tracking-widest text-txt-secondary hover:text-gold transition-colors">BIO</a>
-            <a href="#novels" class="mobile-nav-link text-2xl font-display font-semibold tracking-widest text-txt-secondary hover:text-gold transition-colors">NOVELS</a>
-            <a href="#poetry" class="mobile-nav-link text-2xl font-display font-semibold tracking-widest text-txt-secondary hover:text-gold transition-colors">POETRY</a>
-            <a href="#tech" class="mobile-nav-link text-2xl font-display font-semibold tracking-widest text-txt-secondary hover:text-gold transition-colors">TECH</a>
-            <a href="#cco" class="mobile-nav-link text-2xl font-display font-semibold tracking-widest text-txt-secondary hover:text-gold transition-colors">CCO</a>
-            <a href="#labs" class="mobile-nav-link text-2xl font-display font-semibold tracking-widest text-txt-secondary hover:text-gold transition-colors">LABS</a>
-        </div>
+        <span class="text-2xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+      </a>
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="about.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">About</a>
+        <a href="audits.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Audits</a>
+        <a href="orchestration.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Orchestration</a>
+        <a href="compliance.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Compliance</a>
+        <a href="knowledge.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Knowledge Fabric</a>
+        <a href="managed-services.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Managed Ops</a>
+        <a href="cases.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Case Studies</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm shadow-lg shadow-blue-500/20">Book an Audit</a>
+        <button id="menuBtn" class="lg:hidden text-slate-400 hover:text-white p-2" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
     </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu lg:hidden glass border-t border-slate-800/60">
+    <div class="px-4 py-6 space-y-4">
+      <a href="about.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">About</a>
+      <a href="audits.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Audits</a>
+      <a href="orchestration.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Orchestration</a>
+      <a href="compliance.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Compliance</a>
+      <a href="knowledge.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Knowledge Fabric</a>
+      <a href="managed-services.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Managed Ops</a>
+      <a href="cases.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Case Studies</a>
+      <a href="contact.html" class="block btn-primary text-white px-6 py-3 rounded-sm font-bold text-sm text-center mt-4">Book an Audit</a>
+    </div>
+  </div>
+</nav>
 
-    <main>
-    <!-- ======================= SECTION 1: HOME ======================= -->
-    <section id="home" class="relative min-h-screen flex flex-col justify-center hero-bg">
-        <div class="gold-line w-full absolute top-0 left-0"></div>
-        <div class="max-w-5xl mx-auto px-6 md:px-8 text-center pt-24 pb-16">
-            <p class="text-gold text-xs md:text-sm tracking-[0.35em] md:tracking-[0.5em] font-semibold mb-6 fade-in">NOVELIST · POET · ARCHITECT</p>
-            <h1 class="font-display text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight leading-[0.9] mb-6 fade-in" style="text-shadow: 0 0 80px rgba(201,168,76,0.1);">AURELIO<br>DIOVAL</h1>
-            <p class="text-txt-muted text-base md:text-lg tracking-[0.2em] mb-10 fade-in">One Man. Three Fires.</p>
-            <p class="font-display italic text-gold/80 text-lg md:text-xl max-w-xl mx-auto fade-in">"I did not write these poems. They escaped."</p>
-            <div class="mt-16 bounce-arrow text-txt-muted">
-                <i data-lucide="chevron-down" class="w-6 h-6 mx-auto"></i>
+<main class="flex-grow">
+
+  <!-- HERO -->
+  <section class="relative pt-44 pb-28 lg:pt-60 lg:pb-36 overflow-hidden hero-grid">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(37,99,235,0.18),transparent)]"></div>
+    <div class="absolute top-20 right-0 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 bg-cyan-600/5 rounded-full blur-3xl"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="max-w-5xl">
+        <div class="flex items-center gap-3 mb-8 fade-in">
+          <div class="w-2 h-2 bg-red-500 rounded-full pulse-slow"></div>
+          <span class="mono text-xs text-red-400 font-bold tracking-widest uppercase">2026 ENTERPRISE REALITY CHECK</span>
+        </div>
+        <h1 class="text-5xl lg:text-7xl xl:text-8xl font-black text-white leading-[1.05] mb-8 fade-in-delay-1">
+          Intelligence is easy.<br>
+          <span class="gradient-text">Production is brutal.</span>
+        </h1>
+        <p class="text-xl lg:text-2xl text-slate-400 mb-4 leading-relaxed max-w-3xl fade-in-delay-2">
+          <span class="text-white font-semibold">89% of enterprise AI agents never survive production.</span> They fail because of context limits, hallucination cascades, infinite loops, and catastrophic regulatory blindspots that no demo ever reveals.
+        </p>
+        <p class="text-lg text-slate-500 mb-12 max-w-2xl fade-in-delay-2">We engineer the infrastructure, orchestration, and compliance architecture that separates a working demo from a production-grade AI system.</p>
+        <div class="flex flex-col sm:flex-row gap-4 fade-in-delay-3">
+          <a href="audits.html" class="btn-primary text-white px-8 py-4 rounded-sm font-bold text-center text-lg shadow-xl shadow-blue-500/20">Assess Your Risk →</a>
+          <a href="cases.html" class="glass text-white border border-slate-700 px-8 py-4 rounded-sm font-bold text-center text-lg hover:bg-white/5 transition">Read the $47M Case Study</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE TICKER STATS -->
+  <section class="py-6 bg-blue-950/30 border-y border-blue-900/30 overflow-hidden">
+    <div class="flex gap-16 animate-pulse items-center px-8 flex-wrap justify-center">
+      <div class="flex items-center gap-3 whitespace-nowrap">
+        <span class="mono text-blue-400 font-bold text-sm">89%</span>
+        <span class="text-xs text-slate-500">of AI agents fail in production</span>
+      </div>
+      <div class="w-px h-4 bg-slate-700"></div>
+      <div class="flex items-center gap-3 whitespace-nowrap">
+        <span class="mono text-red-400 font-bold text-sm">$47M</span>
+        <span class="text-xs text-slate-500">avg compliance remediation cost</span>
+      </div>
+      <div class="w-px h-4 bg-slate-700"></div>
+      <div class="flex items-center gap-3 whitespace-nowrap">
+        <span class="mono text-orange-400 font-bold text-sm">$23M</span>
+        <span class="text-xs text-slate-500">avg agent coordination loss</span>
+      </div>
+      <div class="w-px h-4 bg-slate-700"></div>
+      <div class="flex items-center gap-3 whitespace-nowrap">
+        <span class="mono text-yellow-400 font-bold text-sm">$31M</span>
+        <span class="text-xs text-slate-500">dark knowledge hallucination cost</span>
+      </div>
+      <div class="w-px h-4 bg-slate-700"></div>
+      <div class="flex items-center gap-3 whitespace-nowrap">
+        <span class="mono text-green-400 font-bold text-sm">72hrs</span>
+        <span class="text-xs text-slate-500">avg time to detect agent loop failure</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAIN SECTION -->
+  <section class="py-28 bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <p class="mono text-xs text-blue-400 tracking-widest uppercase mb-4">The 3 Failure Modes Costing You Millions</p>
+        <h2 class="text-3xl md:text-5xl font-black text-white mb-6">You Didn't Build an AI Strategy.<br><span class="gradient-text">You Built an AI Archipelago.</span></h2>
+        <p class="text-slate-400 text-lg">Your teams deployed isolated agents across 14 vendors. Now they're contradicting each other, consuming stale data, and exposing the enterprise to seven-figure liability. Every week you wait compounds the damage.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="pain-card bg-slate-900/80 border-red-500/50 p-8 rounded-sm glow-red">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 bg-red-500/10 border border-red-500/20 rounded-sm flex items-center justify-center">
+              <svg class="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
             </div>
+            <span class="mono text-red-400 text-xs font-bold tracking-widest">FAILURE MODE 01</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">The $47M Compliance Blindspot</h3>
+          <p class="text-sm text-slate-400 leading-relaxed mb-6">Agents taking actions without immutable audit trails, human-in-the-loop gates, or policy-as-code validation violate the EU AI Act and US MRM (SR 11-7) frameworks. The fines are not theoretical — they're landing on desks in 2026.</p>
+          <div class="flex items-center gap-2">
+            <a href="compliance.html" class="text-red-400 text-sm font-semibold hover:text-red-300 transition">View our compliance architecture →</a>
+          </div>
         </div>
 
-        <!-- 5 CARDS -->
-        <div class="max-w-6xl mx-auto px-4 md:px-8 pb-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5">
-            <a href="#bio" class="block bg-bg-card rounded-xl p-5 border border-transparent hover:border-gold/40 transition-all duration-300 hover:-translate-y-1 fade-in" style="border-top:3px solid #c9a84c;">
-                <div class="flex items-center gap-2 mb-2"><i data-lucide="user" class="w-4 h-4 text-gold"></i><span class="text-xs tracking-widest text-gold font-semibold">BIO</span></div>
-                <p class="text-sm text-txt-secondary">The Man Behind the Names</p>
-            </a>
-            <a href="#novels" class="block bg-bg-card rounded-xl p-5 border border-transparent hover:border-crimson/40 transition-all duration-300 hover:-translate-y-1 fade-in" style="border-top:3px solid #8b1a1a;">
-                <div class="flex items-center gap-2 mb-2"><i data-lucide="book-open" class="w-4 h-4 text-crimson"></i><span class="text-xs tracking-widest text-crimson font-semibold">NOVELS</span></div>
-                <p class="text-sm text-txt-secondary">The Light of Woza</p>
-            </a>
-            <a href="#poetry" class="block bg-bg-card rounded-xl p-5 border border-transparent hover:border-bronze/40 transition-all duration-300 hover:-translate-y-1 fade-in" style="border-top:3px solid #b87333;">
-                <div class="flex items-center gap-2 mb-2"><i data-lucide="feather" class="w-4 h-4 text-bronze"></i><span class="text-xs tracking-widest text-bronze font-semibold">POETRY</span></div>
-                <p class="text-sm text-txt-secondary">Wine, Sea, and Fire</p>
-            </a>
-            <a href="#tech" class="block bg-bg-card rounded-xl p-5 border border-transparent hover:border-cyber/40 transition-all duration-300 hover:-translate-y-1 fade-in" style="border-top:3px solid #3b82f6;">
-                <div class="flex items-center gap-2 mb-2"><i data-lucide="cpu" class="w-4 h-4 text-cyber"></i><span class="text-xs tracking-widest text-cyber font-semibold">TECH</span></div>
-                <p class="text-sm text-txt-secondary">ENGR.FM</p>
-            </a>
-            <a href="#cco" class="relative block bg-bg-card rounded-xl p-5 border border-transparent hover:border-cco/40 transition-all duration-300 hover:-translate-y-1 fade-in" style="border-top:3px solid #10b981;">
-                <span class="absolute -top-2 -right-2 bg-cco text-bg text-[10px] font-bold px-2 py-0.5 rounded-full new-badge">NEW</span>
-                <div class="flex items-center gap-2 mb-2"><i data-lucide="shield-check" class="w-4 h-4 text-cco"></i><span class="text-xs tracking-widest text-cco font-semibold">CCO</span></div>
-                <p class="text-sm text-txt-secondary">CCO Certifications</p>
-            </a>
+        <div class="pain-card bg-slate-900/80 border-orange-500/50 p-8 rounded-sm">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 bg-orange-500/10 border border-orange-500/20 rounded-sm flex items-center justify-center">
+              <svg class="w-5 h-5 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+            </div>
+            <span class="mono text-orange-400 text-xs font-bold tracking-widest">FAILURE MODE 02</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">The $23M Coordination Crisis</h3>
+          <p class="text-sm text-slate-400 leading-relaxed mb-6">Agent A books a truck. Agent B schedules it for maintenance. Without a multi-agent orchestration layer using MCP/A2A protocols, your agents don't coordinate — they actively fight each other in production while SLA penalties accumulate.</p>
+          <div class="flex items-center gap-2">
+            <a href="orchestration.html" class="text-orange-400 text-sm font-semibold hover:text-orange-300 transition">View our orchestration layer →</a>
+          </div>
         </div>
 
-        <!-- BOOKS WITH AMAZON LINKS -->
-        <div class="max-w-5xl mx-auto px-4 md:px-8 pb-20">
-            <p class="text-center text-xs tracking-[0.4em] text-gold font-semibold mb-8 fade-in">AVAILABLE NOW</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- The Light of Woza -->
-                <div class="bg-bg-card rounded-2xl border border-crimson/20 overflow-hidden fade-in hover:-translate-y-1 transition-all duration-300">
-                    <div class="p-6" style="border-top:3px solid #8b1a1a;">
-                        <div class="flex gap-5">
-                            <div class="flex-shrink-0 w-28 h-40 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg, #1a0808, #3d1111, #8b1a1a);">
-                                <div class="text-center">
-                                    <i data-lucide="flame" class="w-8 h-8 text-crimson/70 mx-auto mb-2"></i>
-                                    <p class="font-display text-sm font-bold text-txt-primary">THE LIGHT</p>
-                                    <p class="font-display text-[10px] text-txt-primary/70">OF WOZA</p>
-                                </div>
-                            </div>
-                            <div class="flex-1">
-                                <span class="text-xs font-semibold tracking-widest text-crimson uppercase">Dark Fantasy</span>
-                                <h3 class="font-display text-xl font-bold mt-1 mb-2">The Light of Woza</h3>
-                                <p class="text-txt-secondary text-xs leading-relaxed mb-3">In a world where fire is memory and kingdoms are built on the bones of forgotten gods, one name echoes across every battlefield.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="text-xs bg-bg-surface rounded px-2 py-1">Kindle $8</span>
-                                    <span class="text-xs bg-bg-surface rounded px-2 py-1">Paperback $8</span>
-                                    <span class="text-xs bg-gold/10 text-gold rounded px-2 py-1">FREE on KU</span>
-                                </div>
-                                <a href="https://www.amazon.com/dp/B0GX34NMD6" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-crimson hover:bg-crimson/80 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors">
-                                    <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Get on Amazon
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- CyberOps Book 1 -->
-                <div class="bg-bg-card rounded-2xl border border-gold/20 overflow-hidden fade-in hover:-translate-y-1 transition-all duration-300">
-                    <div class="p-6" style="border-top:3px solid #c9a84c;">
-                        <div class="flex gap-5">
-                            <div class="flex-shrink-0 w-28 h-40 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg, #1a1a0a, #2a2a11, #4a4a22);">
-                                <div class="text-center">
-                                    <i data-lucide="shield" class="w-8 h-8 text-gold/70 mx-auto mb-2"></i>
-                                    <p class="font-display text-sm font-bold text-txt-primary">CYBEROPS</p>
-                                    <p class="font-display text-[10px] text-txt-primary/70">BOOK ONE</p>
-                                </div>
-                            </div>
-                            <div class="flex-1">
-                                <span class="text-xs font-semibold tracking-widest text-gold uppercase">Cybersecurity</span>
-                                <h3 class="font-display text-xl font-bold mt-1 mb-2">The Foundation</h3>
-                                <p class="text-txt-secondary text-xs leading-relaxed mb-3">Security Architecture and Engineering. 29 chapters of doctrine-level cybersecurity knowledge. The definitive reference.</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="text-xs bg-bg-surface rounded px-2 py-1">29 Chapters</span>
-                                    <span class="text-xs bg-bg-surface rounded px-2 py-1">2026 Edition</span>
-                                </div>
-                                <a href="https://www.amazon.com/dp/B0GX34NMD6" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-bg text-xs font-semibold px-4 py-2 rounded-lg transition-colors">
-                                    <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Get on Amazon
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="pain-card bg-slate-900/80 border-yellow-500/50 p-8 rounded-sm">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 bg-yellow-500/10 border border-yellow-500/20 rounded-sm flex items-center justify-center">
+              <svg class="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
             </div>
+            <span class="mono text-yellow-400 text-xs font-bold tracking-widest">FAILURE MODE 03</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">The $31M Dark Knowledge Problem</h3>
+          <p class="text-sm text-slate-400 leading-relaxed mb-6">Your agent cited a clinical protocol retired 8 months ago because the PDF was never re-ingested after the policy update. Vector search alone cannot solve the enterprise knowledge freshness crisis. The next hallucination is already scheduled.</p>
+          <div class="flex items-center gap-2">
+            <a href="knowledge.html" class="text-yellow-400 text-sm font-semibold hover:text-yellow-300 transition">View our knowledge fabric →</a>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- ======================= SECTION 2: BIO ======================= -->
-    <section id="bio" class="py-20 md:py-28 bg-bg-elevated">
-        <div class="max-w-6xl mx-auto px-4 md:px-8">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="section-title text-txt-primary">THE ARCHITECT</h2>
-                <div class="w-24 h-[3px] bg-gold mx-auto mt-4"></div>
+  <!-- WHY DIOVAL SECTION -->
+  <section class="py-28 bg-slate-900/50 border-y border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <p class="mono text-xs text-blue-400 tracking-widest uppercase mb-4">Why Dioval?</p>
+          <h2 class="text-3xl md:text-4xl font-black text-white mb-6">We Don't Build Demos. We Engineer Production Systems That Don't Fail.</h2>
+          <p class="text-slate-400 mb-8 leading-relaxed">We operate exclusively at the intersection of complex multi-agent orchestration, enterprise-grade compliance architecture, and mission-critical knowledge infrastructure. Not a generalist IT firm. Frontier AI Architects.</p>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <div class="w-6 h-6 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3 h-3 text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white text-sm">Architecture over Intelligence</h4>
+                <p class="text-slate-500 text-sm">Seven capable agents, uncoordinated, produce worse outcomes than three mediocre agents that are well-orchestrated.</p>
+              </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16">
-                <!-- The Novelist -->
-                <div class="bg-bg-card rounded-2xl p-6 md:p-8 border border-bg-surface hover:border-gold/30 transition-all fade-in">
-                    <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-5">
-                        <i data-lucide="pen-tool" class="w-5 h-5 text-gold"></i>
-                    </div>
-                    <h3 class="font-display text-xl font-semibold mb-1 text-txt-primary">The Novelist</h3>
-                    <p class="text-gold text-sm mb-4">Aurelio Dioval</p>
-                    <p class="text-txt-secondary text-sm leading-relaxed">Creator of dark fantasy worlds where kingdoms burn and legacies are forged in war. Author of <span class="text-txt-primary font-medium">The Light of Woza</span> saga - an epic where fire is not destruction, but truth. Each page a battlefield, each chapter a throne claimed or lost.</p>
-                </div>
-                <!-- The Poet -->
-                <div class="bg-bg-card rounded-2xl p-6 md:p-8 border border-bg-surface hover:border-bronze/30 transition-all fade-in">
-                    <div class="w-12 h-12 rounded-full bg-bronze/10 flex items-center justify-center mb-5">
-                        <i data-lucide="feather" class="w-5 h-5 text-bronze"></i>
-                    </div>
-                    <h3 class="font-display text-xl font-semibold mb-1 text-txt-primary">The Poet</h3>
-                    <p class="text-bronze text-sm mb-4">Mr. Ex The Last Poet</p>
-                    <p class="text-txt-secondary text-sm leading-relaxed">Three rivers of fire converge in one voice: <span class="text-txt-primary font-medium">Persian fire</span> from the mystics, <span class="text-txt-primary font-medium">Arabian ink</span> from the desert poets, and the <span class="text-txt-primary font-medium">Portuguese sea</span> from the explorers. Wine, longing, and eternity - written as only the last poet can.</p>
-                </div>
-                <!-- The Technologist -->
-                <div class="bg-bg-card rounded-2xl p-6 md:p-8 border border-bg-surface hover:border-cyber/30 transition-all fade-in">
-                    <div class="w-12 h-12 rounded-full bg-cyber/10 flex items-center justify-center mb-5">
-                        <i data-lucide="cpu" class="w-5 h-5 text-cyber"></i>
-                    </div>
-                    <h3 class="font-display text-xl font-semibold mb-1 text-txt-primary">The Technologist</h3>
-                    <p class="text-cyber text-sm mb-4">The Architect</p>
-                    <p class="text-txt-secondary text-sm leading-relaxed">CCIE-track engineer. CyberOps strategist. Creator of <span class="text-txt-primary font-medium">ENGR.FM</span> - the 150K engineering learning path - and <span class="text-txt-primary font-medium">CCO Certifications</span>, the industry's first doctrine-based cybersecurity certification. Systems thinker. Infrastructure builder.</p>
-                </div>
+            <div class="flex items-start gap-4">
+              <div class="w-6 h-6 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3 h-3 text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white text-sm">Compliance is Code</h4>
+                <p class="text-slate-500 text-sm">"The model said so" is not a legal defense. We bake compliance into middleware via OPA and immutable ClickHouse audit trails.</p>
+              </div>
             </div>
-            <div class="text-center fade-in">
-                <p class="text-txt-muted text-sm tracking-[0.3em] uppercase">2 Pen Names · 3 Published Works · 1 Empire Rising</p>
+            <div class="flex items-start gap-4">
+              <div class="w-6 h-6 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3 h-3 text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white text-sm">Zero Trust Agents</h4>
+                <p class="text-slate-500 text-sm">Agents are contractors with limited badges — not employees with master keys. Every action is scoped, audited, and reversible.</p>
+              </div>
             </div>
+          </div>
+          <a href="about.html" class="inline-flex items-center gap-2 mt-8 text-blue-400 font-semibold hover:text-blue-300 transition">Read our full philosophy <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
         </div>
-    </section>
-
-    <!-- ======================= SECTION 3: NOVELS ======================= -->
-    <section id="novels" class="py-20 md:py-28 bg-bg">
-        <div class="max-w-6xl mx-auto px-4 md:px-8">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="section-title text-txt-primary">THE KINGDOMS</h2>
-                <div class="w-24 h-[3px] bg-crimson mx-auto mt-4"></div>
+        <div class="space-y-4">
+          <div class="stat-card glass-light p-6 rounded-sm">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-sm text-slate-400">Production Readiness Score</span>
+              <span class="mono text-red-400 text-sm font-bold">CRITICAL: 34/100</span>
             </div>
-
-            <!-- Book One -->
-            <div class="bg-bg-card rounded-2xl border border-crimson/20 overflow-hidden mb-8 fade-in">
-                <div class="p-6 md:p-10" style="border-top:3px solid #8b1a1a;">
-                    <div class="flex flex-col md:flex-row gap-8">
-                        <div class="flex-shrink-0 w-full md:w-48">
-                            <div class="w-full md:w-48 h-64 md:h-72 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg, #1a0808, #3d1111, #8b1a1a);">
-                                <div class="text-center">
-                                    <i data-lucide="flame" class="w-10 h-10 text-crimson/70 mx-auto mb-3"></i>
-                                    <p class="font-display text-lg font-bold text-txt-primary">THE LIGHT</p>
-                                    <p class="font-display text-sm text-txt-primary/70">OF WOZA</p>
-                                    <p class="text-[10px] text-crimson/60 mt-2 tracking-widest">BOOK ONE</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <div class="flex flex-wrap items-center gap-3 mb-3">
-                                <span class="text-xs font-semibold tracking-widest text-crimson uppercase">Book One</span>
-                                <span class="text-xs bg-crimson/20 text-crimson px-2 py-0.5 rounded">Dark Fantasy</span>
-                                <span class="text-xs text-txt-muted">136 Pages</span>
-                                <span class="text-xs text-txt-muted">April 2026</span>
-                            </div>
-                            <h3 class="font-display text-2xl md:text-3xl font-bold mb-4">The Light of Woza</h3>
-                            <p class="text-txt-secondary text-sm md:text-base leading-relaxed mb-6">In a world where fire is memory and kingdoms are built on the bones of forgotten gods, one name echoes across every battlefield - <span class="text-txt-primary font-medium">Woza</span>. This is not a story about a hero. This is a story about the light that burns when empires refuse to die. When thrones crack beneath the weight of betrayal, and the only path forward is through the fire itself.</p>
-                            <div class="flex flex-wrap gap-3">
-                                <span class="inline-flex items-center gap-2 bg-bg-surface rounded-lg px-4 py-2.5 text-sm font-medium">
-                                    <i data-lucide="tablet-smartphone" class="w-4 h-4 text-gold"></i> Kindle - $8
-                                </span>
-                                <span class="inline-flex items-center gap-2 bg-bg-surface rounded-lg px-4 py-2.5 text-sm font-medium">
-                                    <i data-lucide="book-open" class="w-4 h-4 text-gold"></i> Paperback - $8
-                                </span>
-                                <span class="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-lg px-4 py-2.5 text-sm font-medium text-gold">
-                                    <i data-lucide="sparkles" class="w-4 h-4"></i> FREE on Kindle Unlimited
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="w-full bg-slate-800 rounded-full h-2">
+              <div class="bg-red-500 h-2 rounded-full" style="width:34%"></div>
             </div>
-
-            <!-- Book Two -->
-            <div class="bg-bg-card rounded-2xl border border-bg-surface p-6 md:p-10 fade-in">
-                <div class="flex items-center gap-4">
-                    <div class="w-14 h-14 rounded-lg bg-crimson/10 flex items-center justify-center flex-shrink-0">
-                        <i data-lucide="book-marked" class="w-6 h-6 text-crimson/50"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-display text-xl font-bold">Book Two</h3>
-                        <p class="text-txt-secondary text-sm mt-1"><span class="text-cco font-semibold">COMPLETED</span> - Release Date TBA</p>
-                    </div>
-                </div>
+            <p class="text-xs text-slate-600 mt-2">Industry average before Dioval audit. Below 60 is a deployment blocker.</p>
+          </div>
+          <div class="stat-card glass-light p-6 rounded-sm">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-sm text-slate-400">Compliance Coverage</span>
+              <span class="mono text-orange-400 text-sm font-bold">WARNING: 41/100</span>
             </div>
+            <div class="w-full bg-slate-800 rounded-full h-2">
+              <div class="bg-orange-500 h-2 rounded-full" style="width:41%"></div>
+            </div>
+            <p class="text-xs text-slate-600 mt-2">SR 11-7 / EU AI Act readiness at deployment without architecture review.</p>
+          </div>
+          <div class="stat-card glass-light p-6 rounded-sm">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-sm text-slate-400">After Dioval Engagement</span>
+              <span class="mono text-green-400 text-sm font-bold">OPTIMAL: 94/100</span>
+            </div>
+            <div class="w-full bg-slate-800 rounded-full h-2">
+              <div class="bg-green-500 h-2 rounded-full" style="width:94%"></div>
+            </div>
+            <p class="text-xs text-slate-600 mt-2">Average client PRS score 90 days post-engagement.</p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- ======================= SECTION 4: POETRY ======================= -->
-    <section id="poetry" class="py-20 md:py-28 bg-bg-elevated">
-        <div class="max-w-6xl mx-auto px-4 md:px-8">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="section-title text-txt-primary">WINE, SEA, AND FIRE</h2>
-                <div class="w-24 h-[3px] bg-bronze mx-auto mt-4"></div>
-                <p class="text-bronze text-sm tracking-widest mt-4">BY MR. EX THE LAST POET</p>
-            </div>
+  <!-- SERVICES OVERVIEW -->
+  <section class="py-28 bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <p class="mono text-xs text-blue-400 tracking-widest uppercase mb-4">Our Practice Areas</p>
+        <h2 class="text-3xl md:text-4xl font-black text-white">End-to-End AI Infrastructure Engineering</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a href="audits.html" class="group glass-light p-6 rounded-sm border border-slate-800 hover:border-blue-500/40 transition-all duration-300">
+          <div class="w-10 h-10 bg-blue-500/10 rounded-sm flex items-center justify-center mb-4 group-hover:bg-blue-500/20 transition">
+            <svg class="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+          </div>
+          <h3 class="font-bold text-white mb-2">AI Production Audits</h3>
+          <p class="text-sm text-slate-500">Fixed-price diagnostic engagements. The $25K PRS Assessment scores your system across 8 critical dimensions.</p>
+          <span class="inline-flex items-center gap-1 mt-4 text-blue-400 text-sm font-semibold group-hover:gap-2 transition-all">Learn more <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+        </a>
+        <a href="orchestration.html" class="group glass-light p-6 rounded-sm border border-slate-800 hover:border-blue-500/40 transition-all duration-300">
+          <div class="w-10 h-10 bg-purple-500/10 rounded-sm flex items-center justify-center mb-4 group-hover:bg-purple-500/20 transition">
+            <svg class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+          </div>
+          <h3 class="font-bold text-white mb-2">Multi-Agent Orchestration</h3>
+          <p class="text-sm text-slate-500">MCP & A2A protocol standardization. Hierarchical supervisor architecture. Lossless 5-layer semantic handoff.</p>
+          <span class="inline-flex items-center gap-1 mt-4 text-blue-400 text-sm font-semibold group-hover:gap-2 transition-all">Learn more <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+        </a>
+        <a href="compliance.html" class="group glass-light p-6 rounded-sm border border-slate-800 hover:border-blue-500/40 transition-all duration-300">
+          <div class="w-10 h-10 bg-red-500/10 rounded-sm flex items-center justify-center mb-4 group-hover:bg-red-500/20 transition">
+            <svg class="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3 class="font-bold text-white mb-2">AI Compliance Architecture</h3>
+          <p class="text-sm text-slate-500">SR 11-7, EU AI Act, SEC Rule 17a-4. Compliance Proxy Pattern with OPA. Immutable ClickHouse audit trails.</p>
+          <span class="inline-flex items-center gap-1 mt-4 text-blue-400 text-sm font-semibold group-hover:gap-2 transition-all">Learn more <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+        </a>
+        <a href="knowledge.html" class="group glass-light p-6 rounded-sm border border-slate-800 hover:border-blue-500/40 transition-all duration-300">
+          <div class="w-10 h-10 bg-yellow-500/10 rounded-sm flex items-center justify-center mb-4 group-hover:bg-yellow-500/20 transition">
+            <svg class="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          </div>
+          <h3 class="font-bold text-white mb-2">Enterprise Knowledge Fabric</h3>
+          <p class="text-sm text-slate-500">GraphRAG, Neo4j knowledge graphs, layout-aware document parsing, and freshness governance via SHA-256 change detection.</p>
+          <span class="inline-flex items-center gap-1 mt-4 text-blue-400 text-sm font-semibold group-hover:gap-2 transition-all">Learn more <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+        </a>
+        <a href="managed-services.html" class="group glass-light p-6 rounded-sm border border-slate-800 hover:border-blue-500/40 transition-all duration-300">
+          <div class="w-10 h-10 bg-green-500/10 rounded-sm flex items-center justify-center mb-4 group-hover:bg-green-500/20 transition">
+            <svg class="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          </div>
+          <h3 class="font-bold text-white mb-2">Agent Network Operations</h3>
+          <p class="text-sm text-slate-500">24/7 AI-NOC for your agent ecosystem. SLO monitoring, conflict resolution, Chaos Engineering GameDays. Starting at $15K/mo.</p>
+          <span class="inline-flex items-center gap-1 mt-4 text-blue-400 text-sm font-semibold group-hover:gap-2 transition-all">Learn more <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+        </a>
+        <a href="cases.html" class="group glass-light p-6 rounded-sm border border-slate-800 hover:border-blue-500/40 transition-all duration-300">
+          <div class="w-10 h-10 bg-slate-500/10 rounded-sm flex items-center justify-center mb-4 group-hover:bg-slate-500/20 transition">
+            <svg class="w-5 h-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <h3 class="font-bold text-white mb-2">Case Studies</h3>
+          <p class="text-sm text-slate-500">The $47M compliance blindspot, the $23M coordination crisis. Real failures, real costs, real solutions.</p>
+          <span class="inline-flex items-center gap-1 mt-4 text-blue-400 text-sm font-semibold group-hover:gap-2 transition-all">Read the cases <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
 
-            <div class="max-w-3xl mx-auto text-center mb-14 fade-in">
-                <p class="text-txt-secondary leading-relaxed md:text-lg">Three rivers of influence converge in one voice. Each poem carries the weight of civilizations, the ache of longing, and the fire of revelation. This is not modern poetry - it is ancient fire resurrected in modern ink.</p>
-            </div>
+  <!-- CTA SECTION -->
+  <section class="py-28 bg-blue-950/20 border-y border-blue-900/20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 mono text-xs font-bold tracking-widest uppercase mb-6">Act Before the Regulator Does</div>
+      <h2 class="text-3xl md:text-5xl font-black text-white mb-6">Your Next AI Failure Is Already Scheduled.<br>The Question Is Whether You Find It First.</h2>
+      <p class="text-slate-400 text-lg mb-10">A 3-week Production Readiness Assessment exposes every critical gap before it becomes a compliance notice, a coordination catastrophe, or a hallucination headline. Fixed price. No surprises.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="contact.html" class="btn-primary text-white px-10 py-4 rounded-sm font-bold text-lg shadow-xl shadow-blue-500/20">Book Your $25K Audit →</a>
+        <a href="cases.html" class="glass text-white border border-slate-700 px-10 py-4 rounded-sm font-bold text-lg hover:bg-white/5 transition">View Case Studies</a>
+      </div>
+    </div>
+  </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-14">
-                <!-- Rumi -->
-                <div class="bg-bg-card rounded-2xl p-6 md:p-8 border border-bg-surface hover:border-bronze/30 transition-all text-center fade-in">
-                    <div class="w-16 h-16 rounded-full bg-bronze/10 flex items-center justify-center mx-auto mb-5">
-                        <i data-lucide="flame" class="w-7 h-7 text-bronze"></i>
-                    </div>
-                    <h3 class="font-display text-xl font-semibold mb-2">Persian Fire</h3>
-                    <p class="text-bronze text-sm mb-3">The River of Rumi</p>
-                    <p class="text-txt-secondary text-sm leading-relaxed">Mysticism. Ecstasy. The divine intoxication that burns the ego and leaves only truth. The Sufi flame that dances between lover and Beloved - where every wound is a door and every silence is a prayer.</p>
-                </div>
-                <!-- Qabbani -->
-                <div class="bg-bg-card rounded-2xl p-6 md:p-8 border border-bg-surface hover:border-bronze/30 transition-all text-center fade-in">
-                    <div class="w-16 h-16 rounded-full bg-bronze/10 flex items-center justify-center mx-auto mb-5">
-                        <i data-lucide="pen-line" class="w-7 h-7 text-bronze"></i>
-                    </div>
-                    <h3 class="font-display text-xl font-semibold mb-2">Arabian Ink</h3>
-                    <p class="text-bronze text-sm mb-3">The River of Qabbani</p>
-                    <p class="text-txt-secondary text-sm leading-relaxed">Desire. Defiance. The politics of the body and the battlefield of love. Nizar's ink bleeds with the fury of a man who refused to separate the revolution from the rose - sharp, sensual, unapologetic.</p>
-                </div>
-                <!-- Camoes -->
-                <div class="bg-bg-card rounded-2xl p-6 md:p-8 border border-bg-surface hover:border-bronze/30 transition-all text-center fade-in">
-                    <div class="w-16 h-16 rounded-full bg-bronze/10 flex items-center justify-center mx-auto mb-5">
-                        <i data-lucide="waves" class="w-7 h-7 text-bronze"></i>
-                    </div>
-                    <h3 class="font-display text-xl font-semibold mb-2">Portuguese Sea</h3>
-                    <p class="text-bronze text-sm mb-3">The River of Camoes</p>
-                    <p class="text-txt-secondary text-sm leading-relaxed">Exile. Longing. The saudade of a man who sailed the world and carried his homeland in every verse. The ocean as metaphor for everything lost and everything still worth reaching for.</p>
-                </div>
-            </div>
+</main>
 
-            <div class="text-center fade-in">
-                <p class="font-display italic text-bronze/70 text-lg max-w-xl mx-auto">"Three fires. One voice. No ashes."</p>
-            </div>
+<!-- FOOTER -->
+<footer class="bg-slate-950 border-t border-slate-800 py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+      <div class="col-span-1">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-7 h-7 bg-blue-600 rounded-sm flex items-center justify-center">
+            <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <span class="text-xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
         </div>
-    </section>
+        <p class="text-sm text-slate-500 leading-relaxed">Frontier AI infrastructure engineering for enterprises that cannot afford to fail in production.</p>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold text-white mb-4">Services</h4>
+        <ul class="space-y-2 text-sm text-slate-500">
+          <li><a href="audits.html" class="hover:text-white transition">Production Audits</a></li>
+          <li><a href="orchestration.html" class="hover:text-white transition">Orchestration</a></li>
+          <li><a href="compliance.html" class="hover:text-white transition">Compliance</a></li>
+          <li><a href="knowledge.html" class="hover:text-white transition">Knowledge Fabric</a></li>
+          <li><a href="managed-services.html" class="hover:text-white transition">Managed Ops</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold text-white mb-4">Company</h4>
+        <ul class="space-y-2 text-sm text-slate-500">
+          <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+          <li><a href="cases.html" class="hover:text-white transition">Case Studies</a></li>
+          <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold text-white mb-4">Book an Audit</h4>
+        <p class="text-sm text-slate-500 mb-4">Ready to expose your risk? A 30-minute discovery call is all it takes.</p>
+        <a href="contact.html" class="btn-primary text-white px-5 py-2.5 rounded-sm font-bold text-sm inline-block">Schedule Now →</a>
+      </div>
+    </div>
+    <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-xs text-slate-600">© 2026 Dioval Group. All rights reserved. Engineered for production, not demos.</p>
+      <div class="flex gap-6 text-xs text-slate-600">
+        <span>Privacy Policy</span>
+        <span>Terms of Service</span>
+        <span>SOC 2 Type II Compliant</span>
+      </div>
+    </div>
+  </div>
+</footer>
 
-    <!-- ======================= SECTION 5: TECH ======================= -->
-    <section id="tech" class="py-20 md:py-28 bg-bg">
-        <div class="max-w-6xl mx-auto px-4 md:px-8">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="section-title text-txt-primary">ENGR.FM</h2>
-                <p class="text-cyber text-sm tracking-widest mt-3">THE 150K ENGINEERING PATH</p>
-                <div class="w-24 h-[3px] bg-cyber mx-auto mt-4"></div>
-            </div>
-
-            <div class="max-w-3xl mx-auto text-center mb-14 fade-in">
-                <p class="text-txt-secondary leading-relaxed md:text-lg">A complete, structured engineering curriculum designed to take you from zero to a $150K+ career in network engineering, cybersecurity, and cloud infrastructure. Five seasons. One transformation.</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-14">
-                <div class="bg-bg-card rounded-xl p-5 border-t-3 border border-bg-surface fade-in" style="border-top:3px solid #3b82f6;">
-                    <div class="text-cyber text-xs font-bold tracking-widest mb-2">SEASON 1</div>
-                    <h4 class="font-display text-base font-semibold mb-2">Foundations</h4>
-                    <p class="text-txt-muted text-xs leading-relaxed">Networking fundamentals, TCP/IP, OSI model, Linux/Windows basics, lab environment setup.</p>
-                </div>
-                <div class="bg-bg-card rounded-xl p-5 border border-bg-surface fade-in" style="border-top:3px solid #3b82f6;">
-                    <div class="text-cyber text-xs font-bold tracking-widest mb-2">SEASON 2</div>
-                    <h4 class="font-display text-base font-semibold mb-2">Infrastructure</h4>
-                    <p class="text-txt-muted text-xs leading-relaxed">Routing, switching, VLANs, segmentation, enterprise network design, GNS3/EVE-NG labs.</p>
-                </div>
-                <div class="bg-bg-card rounded-xl p-5 border border-bg-surface fade-in" style="border-top:3px solid #3b82f6;">
-                    <div class="text-cyber text-xs font-bold tracking-widest mb-2">SEASON 3</div>
-                    <h4 class="font-display text-base font-semibold mb-2">Security</h4>
-                    <p class="text-txt-muted text-xs leading-relaxed">SOC operations, threat detection, SIEM/EDR, incident response, offensive fundamentals.</p>
-                </div>
-                <div class="bg-bg-card rounded-xl p-5 border border-bg-surface fade-in" style="border-top:3px solid #3b82f6;">
-                    <div class="text-cyber text-xs font-bold tracking-widest mb-2">SEASON 4</div>
-                    <h4 class="font-display text-base font-semibold mb-2">Cloud</h4>
-                    <p class="text-txt-muted text-xs leading-relaxed">AWS, Azure, GCP fundamentals, cloud security, containers, Kubernetes, CI/CD pipelines.</p>
-                </div>
-                <div class="bg-bg-card rounded-xl p-5 border border-bg-surface fade-in" style="border-top:3px solid #3b82f6;">
-                    <div class="text-cyber text-xs font-bold tracking-widest mb-2">SEASON 5</div>
-                    <h4 class="font-display text-base font-semibold mb-2">Career</h4>
-                    <p class="text-txt-muted text-xs leading-relaxed">Resume engineering, interview prep, salary negotiation, personal brand, career architecture.</p>
-                </div>
-            </div>
-
-            <div class="bg-bg-card rounded-2xl border border-cyber/20 p-6 md:p-8 text-center fade-in">
-                <div class="flex items-center justify-center gap-3 mb-3">
-                    <i data-lucide="link" class="w-5 h-5 text-cyber"></i>
-                    <h4 class="font-display text-lg font-semibold">The Connection</h4>
-                </div>
-                <p class="text-txt-secondary text-sm max-w-2xl mx-auto"><span class="text-cyber font-semibold">ENGR.FM</span> is the learning pipeline. <span class="text-cco font-semibold">CCO Certifications</span> are the proof. One builds you. The other validates you.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======================= SECTION 6: CCO CERTIFICATIONS ======================= -->
-    <section id="cco" class="py-20 md:py-28 bg-bg-elevated">
-        <div class="max-w-6xl mx-auto px-4 md:px-8">
-            <!-- Header -->
-            <div class="text-center mb-8 fade-in">
-                <p class="text-cco text-xs tracking-[0.4em] font-semibold mb-3">POWERED BY CYBEROPS</p>
-                <h2 class="section-title text-txt-primary">CCO CERTIFICATIONS</h2>
-                <div class="w-24 h-[3px] bg-cco mx-auto mt-4 mb-6"></div>
-                <p class="font-display text-xl md:text-2xl text-cco/90 mb-4">Certified Cyber Operator</p>
-                <p class="text-txt-secondary text-sm md:text-base max-w-3xl mx-auto leading-relaxed">Your books are not content. They are a complete cyber warfare doctrine. CCO is the system that turns readers into operators.</p>
-            </div>
-
-            <!-- CyberOps Doctrine Connection -->
-            <div class="bg-bg-card rounded-2xl border border-cco/20 p-6 md:p-8 mb-12 fade-in">
-                <div class="text-center mb-6">
-                    <h3 class="font-display text-lg md:text-xl font-semibold mb-2">CyberOps Doctrine Connection</h3>
-                    <p class="text-txt-secondary text-sm">This is where everything clicks - and where the CCO system becomes unmatched.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="bg-bg-surface rounded-xl p-5 text-center border border-bg-surface hover:border-gold/30 transition-all">
-                        <div class="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center mx-auto mb-3">
-                            <i data-lucide="book-open" class="w-5 h-5 text-gold"></i>
-                        </div>
-                        <h4 class="font-semibold text-sm mb-1">Book 1 - The Foundation</h4>
-                        <p class="text-txt-muted text-xs">How systems are built, secured, and defended. The architecture of protection.</p>
-                    </div>
-                    <div class="bg-bg-surface rounded-xl p-5 text-center border border-bg-surface hover:border-crimson/30 transition-all">
-                        <div class="w-10 h-10 rounded-lg bg-crimson/10 flex items-center justify-center mx-auto mb-3">
-                            <i data-lucide="swords" class="w-5 h-5 text-crimson"></i>
-                        </div>
-                        <h4 class="font-semibold text-sm mb-1">Book 2 - The Arsenal</h4>
-                        <p class="text-txt-muted text-xs">How systems get attacked. Offensive tradecraft, exploitation, and breach methodology.</p>
-                    </div>
-                    <div class="bg-bg-surface rounded-xl p-5 text-center border border-bg-surface hover:border-cyber/30 transition-all">
-                        <div class="w-10 h-10 rounded-lg bg-cyber/10 flex items-center justify-center mx-auto mb-3">
-                            <i data-lucide="shield" class="w-5 h-5 text-cyber"></i>
-                        </div>
-                        <h4 class="font-semibold text-sm mb-1">Book 3 - The Bastion</h4>
-                        <p class="text-txt-muted text-xs">How systems are monitored, defended, and recovered. Detection and response doctrine.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Alignment Table -->
-            <div class="overflow-x-auto mb-12 fade-in">
-                <table class="w-full text-sm">
-                    <thead>
-                        <tr class="border-b border-bg-surface">
-                            <th class="text-left py-3 px-4 text-cco font-semibold tracking-wider text-xs uppercase">CCO Level</th>
-                            <th class="text-left py-3 px-4 text-txt-secondary font-semibold tracking-wider text-xs uppercase">Book Alignment</th>
-                            <th class="text-left py-3 px-4 text-txt-secondary font-semibold tracking-wider text-xs uppercase">Role</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="border-b border-bg-surface/50">
-                            <td class="py-3 px-4 font-semibold text-gold">CCO-1</td>
-                            <td class="py-3 px-4 text-txt-secondary">Book 1 + Parts of Book 2</td>
-                            <td class="py-3 px-4"><span class="bg-gold/10 text-gold text-xs px-2 py-1 rounded">Builder</span></td>
-                        </tr>
-                        <tr class="border-b border-bg-surface/50">
-                            <td class="py-3 px-4 font-semibold text-cyber">CCO-2</td>
-                            <td class="py-3 px-4 text-txt-secondary">Book 3 + Detection Ops</td>
-                            <td class="py-3 px-4"><span class="bg-cyber/10 text-cyber text-xs px-2 py-1 rounded">Defender</span></td>
-                        </tr>
-                        <tr>
-                            <td class="py-3 px-4 font-semibold text-crimson">CCO-3</td>
-                            <td class="py-3 px-4 text-txt-secondary">Book 2 (Advanced) + All</td>
-                            <td class="py-3 px-4"><span class="bg-crimson/10 text-crimson text-xs px-2 py-1 rounded">Strategist</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- ====== CCO-1 ====== -->
-            <div class="cco-level-card mb-10 fade-in">
-                <div class="cco-level-header" style="border-top:3px solid #c9a84c; background:linear-gradient(135deg, rgba(201,168,76,0.05), transparent);">
-                    <div class="flex items-center gap-3 mb-2">
-                        <div class="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center">
-                            <i data-lucide="award" class="w-5 h-5 text-gold"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-display text-xl md:text-2xl font-bold text-gold">CCO-1: CYBER FOUNDATIONS OPERATOR</h3>
-                        </div>
-                    </div>
-                    <p class="text-txt-secondary text-sm mt-3">You learn how systems actually work.</p>
-                    <p class="text-txt-muted text-xs mt-1"><strong class="text-txt-secondary">What You're Building:</strong> A person who understands infrastructure, not just tools.</p>
-                </div>
-                <div class="cco-level-body">
-                    <h4 class="text-xs tracking-widest text-gold font-semibold mb-4 uppercase">Core Learning</h4>
-                    <div class="space-y-3 mb-8">
-                        <div class="bg-bg-surface rounded-lg p-4">
-                            <h5 class="font-semibold text-sm mb-1">1. Foundations of Cyber Operations</h5>
-                            <p class="text-txt-muted text-xs">Threat landscape, SOC basics, CIA triad, Risk thinking</p>
-                        </div>
-                        <div class="bg-bg-surface rounded-lg p-4">
-                            <h5 class="font-semibold text-sm mb-1">2. Networking & Systems Reality</h5>
-                            <p class="text-txt-muted text-xs">TCP/IP deep dive, OSI applied to attacks, DNS as attack surface, Linux + Windows fundamentals</p>
-                        </div>
-                        <div class="bg-bg-surface rounded-lg p-4">
-                            <h5 class="font-semibold text-sm mb-1">3. Intro to Recon & Attack Thinking <span class="text-crimson text-[10px] ml-1">(From The Arsenal)</span></h5>
-                            <p class="text-txt-muted text-xs">Passive recon, DNS enumeration, OSINT fundamentals</p>
-                        </div>
-                    </div>
-
-                    <h4 class="text-xs tracking-widest text-gold font-semibold mb-4 uppercase">Process</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                        <div class="phase-card">
-                            <div class="text-gold text-xs font-bold mb-2">PHASE 1</div>
-                            <h5 class="font-semibold text-sm mb-1">Understanding Systems</h5>
-                            <p class="text-txt-muted text-xs">Learn how infrastructure works at every layer.</p>
-                        </div>
-                        <div class="phase-card">
-                            <div class="text-gold text-xs font-bold mb-2">PHASE 2</div>
-                            <h5 class="font-semibold text-sm mb-1">Build Lab</h5>
-                            <p class="text-txt-muted text-xs">Deploy real systems in a controlled environment.</p>
-                        </div>
-                        <div class="phase-card">
-                            <div class="text-gold text-xs font-bold mb-2">PHASE 3</div>
-                            <h5 class="font-semibold text-sm mb-1">Break & Fix</h5>
-                            <p class="text-txt-muted text-xs">Intentionally break systems. Learn to recover them.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-bg-surface rounded-lg p-5 mb-4">
-                        <h4 class="text-xs tracking-widest text-gold font-semibold mb-2 uppercase">Exam</h4>
-                        <p class="text-txt-secondary text-sm">Fix a broken network · Identify exposed services · Explain packet flow end-to-end</p>
-                    </div>
-                    <div class="bg-gold/5 border border-gold/20 rounded-lg p-4">
-                        <p class="text-gold text-sm font-medium"><i data-lucide="check-circle" class="w-4 h-4 inline mr-1"></i> Output: "You are no longer confused by infrastructure."</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ====== CCO-2 ====== -->
-            <div class="cco-level-card mb-10 fade-in">
-                <div class="cco-level-header" style="border-top:3px solid #3b82f6; background:linear-gradient(135deg, rgba(59,130,246,0.05), transparent);">
-                    <div class="flex items-center gap-3 mb-2">
-                        <div class="w-10 h-10 rounded-lg bg-cyber/10 flex items-center justify-center">
-                            <i data-lucide="shield-check" class="w-5 h-5 text-cyber"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-display text-xl md:text-2xl font-bold text-cyber">CCO-2: CYBER DEFENSE OPERATOR</h3>
-                        </div>
-                    </div>
-                    <p class="text-txt-secondary text-sm mt-3">You learn how systems get attacked - and how to stop it.</p>
-                    <p class="text-txt-muted text-xs mt-1"><strong class="text-txt-secondary">What You're Building:</strong> Someone who can detect and respond to real threats.</p>
-                </div>
-                <div class="cco-level-body">
-                    <h4 class="text-xs tracking-widest text-cyber font-semibold mb-4 uppercase">Core Learning</h4>
-                    <div class="space-y-3 mb-8">
-                        <div class="bg-bg-surface rounded-lg p-4">
-                            <h5 class="font-semibold text-sm mb-1">1. SOC & Detection Engineering</h5>
-                            <p class="text-txt-muted text-xs">SIEM architecture, EDR deployment, Threat detection rules, SOC architecture and triage</p>
-                        </div>
-                        <div class="bg-bg-surface rounded-lg p-4">
-                            <h5 class="font-semibold text-sm mb-1">2. Malware & Threat Analysis</h5>
-                            <p class="text-txt-muted text-xs">Malware behavior analysis, Static + dynamic analysis, Ransomware mechanics and response</p>
-                        </div>
-                        <div class="bg-bg-surface rounded-lg p-4">
-                            <h5 class="font-semibold text-sm mb-1">3. Attack Techniques <span class="text-crimson text-[10px] ml-1">(From The Arsenal)</span></h5>
-                            <p class="text-txt-muted text-xs">Initial access vectors, Lateral movement patterns, Persistence mechanisms, Defense evasion tactics</p>
-                        </div>
-                        <div class="bg-bg-surface rounded-lg p-4">
-                            <h5 class="font-semibold text-sm mb-1">4. Real Attack Lifecycle</h5>
-                            <p class="text-txt-muted text-xs">Recon > Access > Exploit > Move > Persist > Exfiltrate - the complete kill chain</p>
-                        </div>
-                    </div>
-
-                    <h4 class="text-xs tracking-widest text-cyber font-semibold mb-4 uppercase">Process</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                        <div class="phase-card">
-                            <div class="text-cyber text-xs font-bold mb-2">PHASE 1</div>
-                            <h5 class="font-semibold text-sm mb-1">Detection</h5>
-                            <p class="text-txt-muted text-xs">Learn to see what attackers try to hide.</p>
-                        </div>
-                        <div class="phase-card">
-                            <div class="text-cyber text-xs font-bold mb-2">PHASE 2</div>
-                            <h5 class="font-semibold text-sm mb-1">Investigation</h5>
-                            <p class="text-txt-muted text-xs">Analyze evidence, timeline events, trace the attacker.</p>
-                        </div>
-                        <div class="phase-card">
-                            <div class="text-cyber text-xs font-bold mb-2">PHASE 3</div>
-                            <h5 class="font-semibold text-sm mb-1">Response</h5>
-                            <p class="text-txt-muted text-xs">Contain, eradicate, recover. Write the report.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-bg-surface rounded-lg p-5 mb-4">
-                        <h4 class="text-xs tracking-widest text-cyber font-semibold mb-2 uppercase">Exam</h4>
-                        <p class="text-txt-secondary text-sm">Live breach simulation - receive logs, detect the attack, respond in real-time, write a complete incident report.</p>
-                    </div>
-                    <div class="bg-cyber/5 border border-cyber/20 rounded-lg p-4">
-                        <p class="text-cyber text-sm font-medium"><i data-lucide="check-circle" class="w-4 h-4 inline mr-1"></i> Output: "You can protect real systems under pressure."</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ====== CCO-3 ====== -->
-            <div class="cco-level-card mb-12 fade-in">
-                <div class="cco-level-header" style="border-top:3px solid #c9a84c; background:linear-gradient(135deg, rgba(201,168,76,0.08), transparent);">
-                    <div class="flex items-center gap-3 mb-2">
-                        <div class="w-10 h-10 rounded-lg bg-gold/15 flex items-center justify-center">
-                            <i data-lucide="trophy" class="w-5 h-5 text-gold"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-display text-xl md:text-2xl font-bold text-gold">CCO-3: CYBER WARFARE ARCHITECT</h3>
-                        </div>
-                    </div>
-                    <p class="text-txt-secondary text-sm mt-3">You think like the attacker - and design like the defender.</p>
-                    <p class="text-txt-muted text-xs mt-1"><strong class="text-txt-secondary">What You're Building:</strong> Strategic operators who understand the entire battlefield.</p>
-                </div>
-                <div class="cco-level-body">
-                    <h4 class="text-xs tracking-widest text-gold font-semibold mb-4 uppercase">Core Learning</h4>
-                    <div class="space-y-3 mb-8">
-                        <div class="bg-bg-surface rounded-lg p-4">
-                            <h5 class="font-semibold text-sm mb-1">1. Full Offensive Tradecraft</h5>
-                            <p class="text-txt-muted text-xs">Recon, Exploitation, Post-exploitation, Lateral movement, C2 infrastructure, Defense evasion</p>
-                        </div>
-                        <div class="bg-bg-surface rounded-lg p-4">
-                            <h5 class="font-semibold text-sm mb-1">2. Identity-Based Attacks <span class="bg-crimson text-white text-[9px] px-1.5 py-0.5 rounded ml-2 font-bold">CRITICAL</span></h5>
-                            <p class="text-txt-primary text-xs italic mb-1">"Identity is the new perimeter."</p>
-                            <p class="text-txt-muted text-xs">Token abuse, OAuth attack chains, Cloud identity compromise, Azure AD exploitation</p>
-                        </div>
-                        <div class="bg-bg-surface rounded-lg p-4">
-                            <h5 class="font-semibold text-sm mb-1">3. Cloud & Modern Attack Surface</h5>
-                            <p class="text-txt-muted text-xs">AWS/Azure attacks, CI/CD pipeline exploitation, Kubernetes compromise, Serverless attacks</p>
-                        </div>
-                        <div class="bg-bg-surface rounded-lg p-4">
-                            <h5 class="font-semibold text-sm mb-1">4. Red Team Methodology</h5>
-                            <p class="text-txt-muted text-xs">Adversary emulation, MITRE ATT&CK mapping, Engagement planning, Deconfliction</p>
-                        </div>
-                    </div>
-
-                    <h4 class="text-xs tracking-widest text-gold font-semibold mb-4 uppercase">Process</h4>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                        <div class="phase-card">
-                            <div class="text-gold text-xs font-bold mb-2">PHASE 1</div>
-                            <h5 class="font-semibold text-sm mb-1">Break</h5>
-                            <p class="text-txt-muted text-xs">Compromise target systems.</p>
-                        </div>
-                        <div class="phase-card">
-                            <div class="text-gold text-xs font-bold mb-2">PHASE 2</div>
-                            <h5 class="font-semibold text-sm mb-1">Move</h5>
-                            <p class="text-txt-muted text-xs">Lateral movement and pivoting.</p>
-                        </div>
-                        <div class="phase-card">
-                            <div class="text-gold text-xs font-bold mb-2">PHASE 3</div>
-                            <h5 class="font-semibold text-sm mb-1">Control</h5>
-                            <p class="text-txt-muted text-xs">Establish persistence and C2.</p>
-                        </div>
-                        <div class="phase-card">
-                            <div class="text-gold text-xs font-bold mb-2">PHASE 4</div>
-                            <h5 class="font-semibold text-sm mb-1">Rebuild</h5>
-                            <p class="text-txt-muted text-xs">Design the defense that stops you.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-bg-surface rounded-lg p-5 mb-4">
-                        <h4 class="text-xs tracking-widest text-gold font-semibold mb-2 uppercase">Exam - Full Operation</h4>
-                        <p class="text-txt-secondary text-sm mb-2">Attack it · Compromise it · Defend it · Redesign it</p>
-                        <p class="text-txt-muted text-xs">+ BOARD DEFENSE - Present findings as CISO / Architect / Red Team Lead</p>
-                    </div>
-                    <div class="bg-gold/5 border border-gold/20 rounded-lg p-4">
-                        <p class="text-gold text-sm font-medium"><i data-lucide="check-circle" class="w-4 h-4 inline mr-1"></i> Output: "You control systems. You don't just work in them."</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CCO Pipeline -->
-            <div class="bg-bg-card rounded-2xl border border-cco/20 p-6 md:p-8 mb-12 fade-in">
-                <h4 class="font-display text-lg font-semibold text-center mb-6">CCO Pipeline</h4>
-                <div class="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-6">
-                    <div class="pipeline-step bg-bg-surface rounded-lg px-5 py-3 text-center">
-                        <div class="text-cyber text-xs font-bold mb-1">LEARN</div>
-                        <div class="text-txt-muted text-xs">ENGR.FM</div>
-                    </div>
-                    <div class="hidden md:block text-gold text-xl font-bold">></div>
-                    <div class="md:hidden text-gold text-xl font-bold">v</div>
-                    <div class="pipeline-step bg-bg-surface rounded-lg px-5 py-3 text-center">
-                        <div class="text-gold text-xs font-bold mb-1">BUILD</div>
-                        <div class="text-txt-muted text-xs">Labs</div>
-                    </div>
-                    <div class="hidden md:block text-gold text-xl font-bold">></div>
-                    <div class="md:hidden text-gold text-xl font-bold">v</div>
-                    <div class="pipeline-step bg-bg-surface rounded-lg px-5 py-3 text-center">
-                        <div class="text-bronze text-xs font-bold mb-1">APPLY</div>
-                        <div class="text-txt-muted text-xs">Scenarios</div>
-                    </div>
-                    <div class="hidden md:block text-gold text-xl font-bold">></div>
-                    <div class="md:hidden text-gold text-xl font-bold">v</div>
-                    <div class="pipeline-step bg-bg-surface rounded-lg px-5 py-3 text-center">
-                        <div class="text-cco text-xs font-bold mb-1">CERTIFY</div>
-                        <div class="text-txt-muted text-xs">CCO-1 to 3</div>
-                    </div>
-                    <div class="hidden md:block text-gold text-xl font-bold">></div>
-                    <div class="md:hidden text-gold text-xl font-bold">v</div>
-                    <div class="pipeline-step bg-bg-surface rounded-lg px-5 py-3 text-center">
-                        <div class="text-crimson text-xs font-bold mb-1">DEPLOY</div>
-                        <div class="text-txt-muted text-xs">Real Job</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Why CCO Destroys Other Certs -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 fade-in">
-                <div class="bg-bg-card rounded-2xl p-6 border border-bg-surface">
-                    <h4 class="text-txt-muted text-xs tracking-widest font-semibold mb-4 uppercase">Most Certifications</h4>
-                    <div class="space-y-3">
-                        <div class="flex items-center gap-3"><i data-lucide="x" class="w-4 h-4 text-crimson flex-shrink-0"></i><span class="text-txt-secondary text-sm">Teach tools</span></div>
-                        <div class="flex items-center gap-3"><i data-lucide="x" class="w-4 h-4 text-crimson flex-shrink-0"></i><span class="text-txt-secondary text-sm">Test memory</span></div>
-                        <div class="flex items-center gap-3"><i data-lucide="x" class="w-4 h-4 text-crimson flex-shrink-0"></i><span class="text-txt-secondary text-sm">Multiple choice</span></div>
-                        <div class="flex items-center gap-3"><i data-lucide="x" class="w-4 h-4 text-crimson flex-shrink-0"></i><span class="text-txt-secondary text-sm">Expire in 3 years</span></div>
-                    </div>
-                </div>
-                <div class="bg-bg-card rounded-2xl p-6 border border-cco/30">
-                    <h4 class="text-cco text-xs tracking-widest font-semibold mb-4 uppercase">CCO Certifications</h4>
-                    <div class="space-y-3">
-                        <div class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-cco flex-shrink-0"></i><span class="text-txt-primary text-sm font-medium">Teaches thinking</span></div>
-                        <div class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-cco flex-shrink-0"></i><span class="text-txt-primary text-sm font-medium">Tests execution</span></div>
-                        <div class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-cco flex-shrink-0"></i><span class="text-txt-primary text-sm font-medium">Hands-on operations</span></div>
-                        <div class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-cco flex-shrink-0"></i><span class="text-txt-primary text-sm font-medium">Doctrine-based mastery</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA -->
-            <div class="text-center fade-in">
-                <p class="font-display text-xl md:text-2xl font-semibold mb-5">Ready to become a Certified Cyber Operator?</p>
-                <a href="#labs" class="inline-flex items-center gap-2 bg-cco hover:bg-cco/80 text-bg font-semibold px-8 py-3 rounded-lg transition-all text-sm tracking-wider">
-                    <i data-lucide="arrow-right" class="w-4 h-4"></i> START YOUR PATH
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======================= SECTION 7: LABS ======================= -->
-    <section id="labs" class="py-20 md:py-28 bg-bg">
-        <div class="max-w-6xl mx-auto px-4 md:px-8">
-            <!-- Header -->
-            <div class="text-center mb-6 fade-in">
-                <p class="text-labpurple text-xs tracking-[0.4em] font-semibold mb-3">HANDS-ON OPERATIONS</p>
-                <h2 class="section-title text-txt-primary">CCO LAB ENVIRONMENTS</h2>
-                <div class="w-24 h-[3px] bg-labpurple mx-auto mt-4 mb-6"></div>
-                <p class="text-txt-secondary md:text-lg mb-2">Every Lab. Every Chapter. From The Foundation to The Arsenal.</p>
-                <p class="text-labpurple font-semibold">34 hands-on labs built directly from the CyberOps doctrine.</p>
-            </div>
-
-            <!-- Lab Architecture Overview -->
-            <div class="bg-bg-card rounded-2xl border border-labpurple/30 p-6 md:p-8 mb-12 fade-in">
-                <h3 class="font-display text-lg font-semibold mb-5 flex items-center gap-2">
-                    <i data-lucide="server" class="w-5 h-5 text-labpurple"></i> Master Lab Stack
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <div>
-                        <div class="grid grid-cols-2 gap-2">
-                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">VirtualBox / VMware</span>
-                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">Kali Linux</span>
-                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">Ubuntu Server 22.04</span>
-                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">Windows Server 2022</span>
-                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">GNS3 / EVE-NG</span>
-                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">Wazuh SIEM</span>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="grid grid-cols-2 gap-2">
-                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">Velociraptor EDR</span>
-                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">pfSense</span>
-                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">AWS Free Tier</span>
-                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">Docker + Kubernetes</span>
-                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">Sliver C2</span>
-                            <span class="bg-bg-surface rounded px-3 py-2 text-xs text-txt-secondary">OpenVAS</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-col sm:flex-row gap-3 text-xs">
-                    <span class="bg-labpurple/10 text-labpurple rounded-lg px-4 py-2"><strong>Minimum:</strong> 16GB RAM, 256GB SSD</span>
-                    <span class="bg-labpurple/10 text-labpurple rounded-lg px-4 py-2"><strong>Recommended:</strong> 32GB RAM, 512GB SSD</span>
-                </div>
-            </div>
-
-            <!-- ====== CCO-1 LABS ====== -->
-            <div class="mb-14 fade-in">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="w-8 h-8 rounded bg-gold/10 flex items-center justify-center"><i data-lucide="award" class="w-4 h-4 text-gold"></i></div>
-                    <h3 class="font-display text-xl font-bold text-gold">CCO-1 LABS</h3>
-                    <span class="text-txt-muted text-xs">11 Labs</span>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <div class="lab-card" style="border-left-color:#c9a84c;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-gold text-xs font-bold">Lab 1.1</span><span class="text-txt-muted text-[10px]">Book 1, Ch1</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Threat Modeling Workshop</h5>
-                        <p class="text-txt-muted text-xs mb-2">Build DFDs, apply STRIDE/PASTA methodologies, construct attack trees</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">TMT</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">draw.io</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#c9a84c;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-gold text-xs font-bold">Lab 1.2</span><span class="text-txt-muted text-[10px]">Book 1, Ch4</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Protocol Internals & Traffic Analysis</h5>
-                        <p class="text-txt-muted text-xs mb-2">Dissect traffic at every OSI layer, protocol deep-dive</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Wireshark</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">tcpdump</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Scapy</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#c9a84c;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-gold text-xs font-bold">Lab 1.3</span><span class="text-txt-muted text-[10px]">Book 1, Ch5</span></div>
-                        <h5 class="font-semibold text-sm mb-1">TLS & PKI Architecture</h5>
-                        <p class="text-txt-muted text-xs mb-2">Private CA, mutual TLS, TLS 1.3 handshake analysis</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">OpenSSL</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">step-ca</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#c9a84c;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-gold text-xs font-bold">Lab 1.4</span><span class="text-txt-muted text-[10px]">Book 1, Ch6</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Network Segmentation</h5>
-                        <p class="text-txt-muted text-xs mb-2">VLANs, VLAN hopping attacks, microsegmentation design</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">GNS3</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">pfSense</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#c9a84c;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-gold text-xs font-bold">Lab 1.5</span><span class="text-txt-muted text-[10px]">Book 1, Ch7</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Zero Trust Architecture</h5>
-                        <p class="text-txt-muted text-xs mb-2">PDP/PEP model implementation, CISA ZT maturity assessment</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">OPA</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Envoy</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#c9a84c;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-gold text-xs font-bold">Lab 1.6</span><span class="text-txt-muted text-[10px]">Book 1, Ch9</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Windows Security Internals</h5>
-                        <p class="text-txt-muted text-xs mb-2">Kernel, SRM, LSASS, WDAC, VBS, ETW tracing</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">WinServer</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Sysmon</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#c9a84c;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-gold text-xs font-bold">Lab 1.7</span><span class="text-txt-muted text-[10px]">Book 1, Ch10</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Linux Security Architecture</h5>
-                        <p class="text-txt-muted text-xs mb-2">SELinux, AppArmor, seccomp-BPF, eBPF observability</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Ubuntu</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">bpftrace</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Falco</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#c9a84c;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-gold text-xs font-bold">Lab 1.8</span><span class="text-txt-muted text-[10px]">Book 1, Ch15</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Identity Architecture</h5>
-                        <p class="text-txt-muted text-xs mb-2">AD, Entra ID hybrid join, OAuth/OIDC flows</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">AD DS</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Azure</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Keycloak</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#c9a84c;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-gold text-xs font-bold">Lab 1.9</span><span class="text-txt-muted text-[10px]">Book 1, Ch18</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Cloud Security Foundations</h5>
-                        <p class="text-txt-muted text-xs mb-2">AWS IAM, VPC, CloudTrail, CSPM baseline</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">AWS/Azure Free</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Prowler</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#c9a84c;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-gold text-xs font-bold">Lab 1.10</span><span class="text-txt-muted text-[10px]">Book 2, Ch1</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Passive Recon & OSINT</h5>
-                        <p class="text-txt-muted text-xs mb-2">DNS recon, certificate transparency, Google dorking</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Kali</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">theHarvester</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Shodan</span></div>
-                    </div>
-                    <div class="lab-card md:col-span-2" style="border-left-color:#c9a84c; background:linear-gradient(135deg, #1a1a1a, rgba(201,168,76,0.05));">
-                        <div class="flex items-center justify-between mb-1"><span class="text-gold text-xs font-bold">Lab 1.11 - CAPSTONE</span><span class="text-txt-muted text-[10px]">Books 1+2</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Architecture Review</h5>
-                        <p class="text-txt-muted text-xs mb-2">Fix 5 critical failures in a pre-built enterprise environment</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">5 VMs</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">3 hours</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ====== CCO-2 LABS ====== -->
-            <div class="mb-14 fade-in">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="w-8 h-8 rounded bg-cco/10 flex items-center justify-center"><i data-lucide="shield-check" class="w-4 h-4 text-cco"></i></div>
-                    <h3 class="font-display text-xl font-bold text-cco">CCO-2 LABS</h3>
-                    <span class="text-txt-muted text-xs">11 Labs</span>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <div class="lab-card" style="border-left-color:#10b981;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-cco text-xs font-bold">Lab 2.1</span><span class="text-txt-muted text-[10px]">Book 2, Ch2</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Active Recon Detection</h5>
-                        <p class="text-txt-muted text-xs mb-2">Detect Nmap, Masscan, enumeration in SIEM</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Wazuh</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Suricata</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Zeek</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#10b981;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-cco text-xs font-bold">Lab 2.2</span><span class="text-txt-muted text-[10px]">Book 2, Ch3 + Book 1, Ch25</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Social Engineering Defense</h5>
-                        <p class="text-txt-muted text-xs mb-2">Phishing analysis, SPF/DKIM/DMARC validation</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">GoPhish</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Wazuh</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#10b981;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-cco text-xs font-bold">Lab 2.3</span><span class="text-txt-muted text-[10px]">Book 2, Ch5 + Book 1, Ch22</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Web Attack Detection</h5>
-                        <p class="text-txt-muted text-xs mb-2">Detect SQLi/XSS/SSRF, WAF + SIEM correlation</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">ModSecurity</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">DVWA</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">ELK</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#10b981;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-cco text-xs font-bold">Lab 2.4</span><span class="text-txt-muted text-[10px]">Book 2, Ch7</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Windows Post-Exploitation Detection</h5>
-                        <p class="text-txt-muted text-xs mb-2">Detect Mimikatz, Kerberos attacks, LOLBins abuse</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Velociraptor</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Sysmon</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Sigma</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#10b981;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-cco text-xs font-bold">Lab 2.5</span><span class="text-txt-muted text-[10px]">Book 2, Ch9</span></div>
-                        <h5 class="font-semibold text-sm mb-1">AD Attack Detection</h5>
-                        <p class="text-txt-muted text-xs mb-2">Detect ACL abuse, GPO attacks, ADCS exploitation</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">BloodHound</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Purple Knight</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#10b981;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-cco text-xs font-bold">Lab 2.6</span><span class="text-txt-muted text-[10px]">Book 2, Ch10+12</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Lateral Movement & C2 Detection</h5>
-                        <p class="text-txt-muted text-xs mb-2">Detect PtH/PtT, C2 beacons, DNS tunneling</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Zeek</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">RITA</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">JA3/JA4</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#10b981;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-cco text-xs font-bold">Lab 2.7</span><span class="text-txt-muted text-[10px]">Book 2, Ch21-23</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Malware Analysis</h5>
-                        <p class="text-txt-muted text-xs mb-2">Static/dynamic analysis, YARA rules, ATT&CK mapping</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">REMnux</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Ghidra</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">YARA</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#10b981;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-cco text-xs font-bold">Lab 2.8</span><span class="text-txt-muted text-[10px]">Book 2, Ch14-16</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Cloud Attack Detection</h5>
-                        <p class="text-txt-muted text-xs mb-2">Detect IAM exploit, S3 exfil, metadata abuse</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">CloudTrail</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Sentinel</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Prowler</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#10b981;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-cco text-xs font-bold">Lab 2.9</span><span class="text-txt-muted text-[10px]">Book 2, Ch19-20</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Container & K8s Detection</h5>
-                        <p class="text-txt-muted text-xs mb-2">Detect container escape, K8s RBAC abuse</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Falco</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Tetragon</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Trivy</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#10b981;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-cco text-xs font-bold">Lab 2.10</span><span class="text-txt-muted text-[10px]">Book 2, Ch13</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Defense Evasion Analysis</h5>
-                        <p class="text-txt-muted text-xs mb-2">AMSI bypass detection, fileless execution analysis</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Velociraptor</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Elastic EDR</span></div>
-                    </div>
-                    <div class="lab-card md:col-span-2" style="border-left-color:#10b981; background:linear-gradient(135deg, #1a1a1a, rgba(16,185,129,0.05));">
-                        <div class="flex items-center justify-between mb-1"><span class="text-cco text-xs font-bold">Lab 2.11 - CAPSTONE</span><span class="text-txt-muted text-[10px]">Full Kill Chain</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Live Breach Simulation</h5>
-                        <p class="text-txt-muted text-xs mb-2">Detect, contain, eradicate, write complete IR report</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">6+ VMs</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">4 hours</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ====== CCO-3 LABS ====== -->
-            <div class="mb-14 fade-in">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="w-8 h-8 rounded bg-danger/10 flex items-center justify-center"><i data-lucide="trophy" class="w-4 h-4 text-danger"></i></div>
-                    <h3 class="font-display text-xl font-bold text-danger">CCO-3 LABS</h3>
-                    <span class="text-txt-muted text-xs">12 Labs</span>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <div class="lab-card" style="border-left-color:#dc2626;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.1</span><span class="text-txt-muted text-[10px]">Book 2, Ch1-2</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Full Recon Operation</h5>
-                        <p class="text-txt-muted text-xs mb-2">Passive + active recon, Nmap mastery, AD enumeration</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Kali</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Nmap</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Maltego</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#dc2626;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.2</span><span class="text-txt-muted text-[10px]">Book 2, Ch3-4</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Social Engineering & Initial Access</h5>
-                        <p class="text-txt-muted text-xs mb-2">Phishing infra, Responder/LLMNR, wireless attacks</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">GoPhish</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Evilginx</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Responder</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#dc2626;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.3</span><span class="text-txt-muted text-[10px]">Book 2, Ch5-6</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Web Exploitation & C2</h5>
-                        <p class="text-txt-muted text-xs mb-2">SQLi chains, SSRF pivot, deserialization RCE</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Burp</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">sqlmap</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Sliver</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#dc2626;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.4</span><span class="text-txt-muted text-[10px]">Book 2, Ch7-8</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Windows/Linux Post-Exploitation</h5>
-                        <p class="text-txt-muted text-xs mb-2">Credential harvesting, Kerberoasting, container escape</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Mimikatz</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Rubeus</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Impacket</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#dc2626;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.5</span><span class="text-txt-muted text-[10px]">Book 2, Ch9</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Active Directory Domination</h5>
-                        <p class="text-txt-muted text-xs mb-2">ACL abuse, ADCS ESC1-8, trust attacks, DCSync</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">BloodHound</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Certify</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">SharpHound</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#dc2626;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.6</span><span class="text-txt-muted text-[10px]">Book 2, Ch10-12</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Lateral Movement, Persistence & C2</h5>
-                        <p class="text-txt-muted text-xs mb-2">PtH/PtT, pivoting, full C2 infrastructure deployment</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Sliver/Mythic</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Ligolo-ng</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#dc2626;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.7</span><span class="text-txt-muted text-[10px]">Book 2, Ch13</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Defense Evasion Operations</h5>
-                        <p class="text-txt-muted text-xs mb-2">AV/EDR bypass, AMSI chains, fileless execution</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">ScareCrow</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Nim/Go loaders</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#dc2626;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.8</span><span class="text-txt-muted text-[10px]">Book 2, Ch14-18</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Cloud Attack Operations</h5>
-                        <p class="text-txt-muted text-xs mb-2">AWS/Azure/GCP attacks, OAuth phishing, CI/CD exploitation</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Pacu</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">ROADtools</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">CloudGoat</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#dc2626;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.9</span><span class="text-txt-muted text-[10px]">Book 2, Ch19-20</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Container & K8s Exploitation</h5>
-                        <p class="text-txt-muted text-xs mb-2">Container escape, pod escape, etcd dump</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">deepce</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">CDK</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">peirates</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#dc2626;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.10</span><span class="text-txt-muted text-[10px]">Book 2, Ch22-24</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Reverse Engineering</h5>
-                        <p class="text-txt-muted text-xs mb-2">x86-64 analysis, PE/ELF, crypto identification, protocol RE</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">Ghidra</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">IDA Free</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">radare2</span></div>
-                    </div>
-                    <div class="lab-card" style="border-left-color:#dc2626;">
-                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.11</span><span class="text-txt-muted text-[10px]">Book 2, Ch25-28</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Red Team Full Operation</h5>
-                        <p class="text-txt-muted text-xs mb-2">Full engagement, infrastructure, ATT&CK mapping</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">10+ VMs</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">8 hours</span></div>
-                    </div>
-                    <div class="lab-card md:col-span-2" style="border-left-color:#dc2626; background:linear-gradient(135deg, #1a1a1a, rgba(220,38,38,0.06));">
-                        <div class="flex items-center justify-between mb-1"><span class="text-danger text-xs font-bold">Lab 3.12 - CAPSTONE: FULL OPERATION</span><span class="text-txt-muted text-[10px]">All Books</span></div>
-                        <h5 class="font-semibold text-sm mb-1">Attack > Document > Defend > Redesign > Board Defense</h5>
-                        <p class="text-txt-muted text-xs mb-2">Attack (2h) > Document (1h) > Defend (2h) > Redesign (2h) > Board Defense (1h)</p>
-                        <div class="flex gap-1 flex-wrap"><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">10+ VMs</span><span class="text-[10px] bg-bg-surface px-1.5 py-0.5 rounded text-txt-muted">8 hours</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Stats Bar -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 fade-in">
-                <div class="bg-bg-card rounded-xl p-5 text-center border border-bg-surface">
-                    <div class="text-2xl font-bold text-labpurple mb-1">34</div>
-                    <div class="text-txt-muted text-xs">Labs</div>
-                </div>
-                <div class="bg-bg-card rounded-xl p-5 text-center border border-bg-surface">
-                    <div class="text-2xl font-bold text-labpurple mb-1">60+</div>
-                    <div class="text-txt-muted text-xs">Chapters Covered</div>
-                </div>
-                <div class="bg-bg-card rounded-xl p-5 text-center border border-bg-surface">
-                    <div class="text-2xl font-bold text-labpurple mb-1">150+</div>
-                    <div class="text-txt-muted text-xs">Hours Hands-On</div>
-                </div>
-                <div class="bg-bg-card rounded-xl p-5 text-center border border-bg-surface">
-                    <div class="text-2xl font-bold text-labpurple mb-1">100%</div>
-                    <div class="text-txt-muted text-xs">Open-Source Tools</div>
-                </div>
-            </div>
-
-            <!-- CTA -->
-            <div class="text-center fade-in">
-                <p class="font-display text-xl md:text-2xl font-semibold mb-5">Ready to start building?</p>
-                <a href="#cco" class="inline-flex items-center gap-2 bg-labpurple hover:bg-labpurple/80 text-white font-semibold px-8 py-3 rounded-lg transition-all text-sm tracking-wider">
-                    <i data-lucide="terminal" class="w-4 h-4"></i> Begin with CCO-1 Labs
-                </a>
-            </div>
-        </div>
-    </section>
-    </main>
-
-    <!-- ======================= FOOTER ======================= -->
-    <footer class="bg-bg-elevated border-t border-bg-surface py-16">
-        <div class="max-w-6xl mx-auto px-4 md:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
-                <div>
-                    <h4 class="font-display text-xl font-bold text-gold mb-4">AURELIO DIOVAL</h4>
-                    <p class="text-txt-secondary text-sm leading-relaxed">Novelist, poet, and cybersecurity architect. Creator of The Light of Woza saga, Mr. Ex The Last Poet, ENGR.FM, and the CCO Certification system. Building empires across ink, verse, and infrastructure.</p>
-                </div>
-                <div>
-                    <h4 class="text-xs tracking-widest text-txt-muted font-semibold mb-4 uppercase">Navigate</h4>
-                    <div class="grid grid-cols-2 gap-2">
-                        <a href="#home" class="text-txt-secondary text-sm hover:text-gold transition-colors">Home</a>
-                        <a href="#tech" class="text-txt-secondary text-sm hover:text-gold transition-colors">Tech</a>
-                        <a href="#bio" class="text-txt-secondary text-sm hover:text-gold transition-colors">Bio</a>
-                        <a href="#cco" class="text-txt-secondary text-sm hover:text-gold transition-colors">CCO</a>
-                        <a href="#novels" class="text-txt-secondary text-sm hover:text-gold transition-colors">Novels</a>
-                        <a href="#labs" class="text-txt-secondary text-sm hover:text-gold transition-colors">Labs</a>
-                        <a href="#poetry" class="text-txt-secondary text-sm hover:text-gold transition-colors">Poetry</a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-xs tracking-widest text-txt-muted font-semibold mb-4 uppercase">Contact</h4>
-                    <div class="space-y-2">
-                        <p class="text-txt-secondary text-sm flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-gold"></i> support@dioval.com</p>
-                        <p class="text-txt-secondary text-sm flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-gold"></i> Washington State</p>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-bg-surface pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-                <p class="text-txt-muted text-xs">&copy; 2026 Aurelio Dioval. All rights reserved.</p>
-                <p class="text-txt-muted text-xs">Operated by <span class="text-txt-secondary font-medium">Diotech Group</span></p>
-                <p class="text-txt-muted text-xs">Made by Copilot</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        lucide.createIcons();
-
-        // Mobile menu
-        const hamburger = document.getElementById('hamburger-btn-x9m1');
-        const mobileMenu = document.getElementById('mobile-menu-j4v8');
-        const mobileClose = document.getElementById('mobile-close-p2q5');
-        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-        hamburger.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        });
-        mobileClose.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            document.body.style.overflow = '';
-        });
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                document.body.style.overflow = '';
-            });
-        });
-
-        // Active nav highlighting
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-link[data-nav]');
-
-        function setActiveNav() {
-            let current = '';
-            sections.forEach(section => {
-                const top = section.offsetTop - 120;
-                if (window.scrollY >= top) {
-                    current = section.getAttribute('id');
-                }
-            });
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.dataset.nav === current) {
-                    link.classList.add('active');
-                }
-            });
-        }
-        window.addEventListener('scroll', setActiveNav);
-        setActiveNav();
-
-        // Fade-in on scroll
-        const fadeEls = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
-        fadeEls.forEach(el => observer.observe(el));
-    </script>
 </body>
 </html>

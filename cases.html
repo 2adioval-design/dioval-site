@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Studies | Dioval Group — The Cost of Inaction</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Inter', sans-serif; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .glass { background: rgba(15,23,42,0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+  .glass-light { background: rgba(30,41,59,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+  .gradient-text { background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-grid { background-image: linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px); background-size: 60px 60px; }
+  .nav-link { position:relative; }
+  .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:#3b82f6; transition: width 0.3s ease; }
+  .nav-link:hover::after { width:100%; }
+  .btn-primary { background: linear-gradient(135deg, #2563eb, #1d4ed8); transition: all 0.3s ease; }
+  .btn-primary:hover { background: linear-gradient(135deg, #3b82f6, #2563eb); transform: translateY(-1px); box-shadow: 0 8px 25px rgba(37,99,235,0.4); }
+  .mobile-menu { display:none; }
+  .mobile-menu.open { display:block; }
+  .case-card { transition: all 0.3s ease; }
+  .case-card:hover { transform: translateY(-2px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+  .timeline-item { position: relative; padding-left: 2rem; }
+  .timeline-item::before { content:''; position:absolute; left:0; top:8px; width:8px; height:8px; border-radius:50%; background: #3b82f6; }
+  .timeline-item::after { content:''; position:absolute; left:3.5px; top:16px; width:1px; height:calc(100% - 8px); background: rgba(59,130,246,0.2); }
+  .timeline-item:last-child::after { display:none; }
+</style>
+</head>
+<body class="bg-slate-950 text-slate-300 antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen">
+
+<nav class="fixed w-full z-50 glass border-b border-slate-800/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
+        <div class="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <span class="text-2xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+      </a>
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="about.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">About</a>
+        <a href="audits.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Audits</a>
+        <a href="orchestration.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Orchestration</a>
+        <a href="compliance.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Compliance</a>
+        <a href="knowledge.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Knowledge Fabric</a>
+        <a href="managed-services.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Managed Ops</a>
+        <a href="cases.html" class="nav-link text-sm font-semibold text-white">Case Studies</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm">Book an Audit</a>
+        <button class="lg:hidden text-slate-400 hover:text-white p-2" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu lg:hidden glass border-t border-slate-800/60">
+    <div class="px-4 py-6 space-y-4">
+      <a href="about.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">About</a>
+      <a href="audits.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Audits</a>
+      <a href="orchestration.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Orchestration</a>
+      <a href="compliance.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Compliance</a>
+      <a href="knowledge.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Knowledge Fabric</a>
+      <a href="managed-services.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Managed Ops</a>
+      <a href="cases.html" class="block text-sm font-semibold text-white py-2">Case Studies</a>
+      <a href="contact.html" class="block btn-primary text-white px-6 py-3 rounded-sm font-bold text-sm text-center mt-4">Book an Audit</a>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow">
+  <section class="relative pt-44 pb-20 hero-grid overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(239,68,68,0.08),transparent)]"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="flex items-center gap-3 mb-6">
+        <a href="index.html" class="mono text-xs text-slate-500 hover:text-slate-300 transition">Home</a>
+        <span class="text-slate-700">/</span>
+        <span class="mono text-xs text-blue-400">Case Studies</span>
+      </div>
+      <p class="mono text-xs text-red-400 tracking-widest uppercase mb-4">The Cost of Inaction</p>
+      <h1 class="text-5xl lg:text-7xl font-black text-white leading-tight mb-8">Real Failures.<br><span class="gradient-text">Real Numbers.</span></h1>
+      <p class="text-xl text-slate-400 max-w-3xl leading-relaxed">These are not hypothetical scenarios. These are the failure modes we were called in to diagnose and remediate. The costs are real. The enterprises involved are not outliers — they are the median.</p>
+      <div class="flex flex-wrap gap-6 mt-10">
+        <div class="text-center">
+          <div class="mono text-3xl font-black text-red-400">$47M</div>
+          <div class="text-xs text-slate-500 mt-1">Compliance remediation</div>
+        </div>
+        <div class="w-px bg-slate-800"></div>
+        <div class="text-center">
+          <div class="mono text-3xl font-black text-orange-400">$23M</div>
+          <div class="text-xs text-slate-500 mt-1">Coordination failure costs</div>
+        </div>
+        <div class="w-px bg-slate-800"></div>
+        <div class="text-center">
+          <div class="mono text-3xl font-black text-yellow-400">$31M</div>
+          <div class="text-xs text-slate-500 mt-1">Dark knowledge liability</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="py-24 bg-slate-950">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+
+      <!-- Case 1: Compliance -->
+      <div class="case-card">
+        <div class="glass-light p-10 rounded-sm border border-slate-800 border-l-4 border-l-red-500">
+          <div class="flex flex-wrap items-start justify-between gap-6 mb-8">
+            <div>
+              <div class="flex items-center gap-3 mb-3">
+                <span class="mono text-xs bg-red-500/10 border border-red-500/30 text-red-400 px-2 py-1 rounded">CASE 01</span>
+                <span class="mono text-xs text-slate-500">Financial Services · 2025</span>
+              </div>
+              <h2 class="text-3xl font-black text-white mb-1">The $47M Compliance Blindspot</h2>
+              <p class="mono text-sm text-slate-500">Vantage Financial Group · Regional Bank</p>
+            </div>
+            <div class="text-right">
+              <div class="mono text-4xl font-black text-red-400">$47M</div>
+              <div class="text-xs text-slate-500">total remediation cost</div>
+            </div>
+          </div>
+
+          <div class="grid lg:grid-cols-3 gap-8 mb-8">
+            <div class="lg:col-span-2">
+              <h3 class="text-lg font-bold text-white mb-4">What Happened</h3>
+              <p class="text-slate-400 leading-relaxed mb-4">Vantage Financial deployed 7 highly capable lending decision agents across their retail and commercial divisions. Each agent had been individually tested, demonstrated excellent accuracy in staging, and was approved for production deployment by their internal AI governance committee.</p>
+              <p class="text-slate-400 leading-relaxed mb-4">What their governance committee didn't catch: none of the agents had complete model cards. Their adverse action notices — the legally required explanations for loan denials — were generated by a secondary agent that had not been aligned with ECOA enumerated reason codes. The audit trail was fragmented across three logging systems with no hash chain to prove immutability.</p>
+              <p class="text-slate-400 leading-relaxed">A single OCC examination — the first AI-focused examination the bank had ever faced — identified all three failure modes within 72 hours. The resulting consent order required a full remediation program, independent third-party re-validation of every AI-assisted decision made over 18 months, and enhanced model risk management infrastructure.</p>
+            </div>
+            <div class="space-y-4">
+              <div class="bg-slate-900 rounded-sm p-4 border border-slate-800">
+                <div class="mono text-xs text-red-400 mb-2">ROOT CAUSES</div>
+                <div class="space-y-2 text-xs text-slate-400">
+                  <div class="flex items-start gap-2"><span class="text-red-400 mt-0.5">×</span>No model cards for any agent</div>
+                  <div class="flex items-start gap-2"><span class="text-red-400 mt-0.5">×</span>ECOA reason codes absent from notices</div>
+                  <div class="flex items-start gap-2"><span class="text-red-400 mt-0.5">×</span>Fragmented, non-immutable audit trail</div>
+                  <div class="flex items-start gap-2"><span class="text-red-400 mt-0.5">×</span>No explainability layer (SHAP)</div>
+                  <div class="flex items-start gap-2"><span class="text-red-400 mt-0.5">×</span>Zero OPA policy enforcement</div>
+                </div>
+              </div>
+              <div class="bg-slate-900 rounded-sm p-4 border border-slate-800">
+                <div class="mono text-xs text-slate-500 mb-2">COST BREAKDOWN</div>
+                <div class="space-y-1.5 text-xs">
+                  <div class="flex justify-between"><span class="text-slate-400">Regulatory fine</span><span class="text-red-400 mono">$12M</span></div>
+                  <div class="flex justify-between"><span class="text-slate-400">Decision re-validation</span><span class="text-red-400 mono">$18M</span></div>
+                  <div class="flex justify-between"><span class="text-slate-400">Infrastructure remediation</span><span class="text-red-400 mono">$9M</span></div>
+                  <div class="flex justify-between"><span class="text-slate-400">Legal & consulting fees</span><span class="text-red-400 mono">$8M</span></div>
+                  <div class="border-t border-slate-800 pt-1.5 flex justify-between font-bold"><span class="text-slate-300">Total</span><span class="text-red-400 mono">$47M</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline -->
+          <div class="mb-8">
+            <h3 class="text-sm font-bold text-white mb-4 mono uppercase tracking-widest">Failure Timeline</h3>
+            <div class="space-y-4">
+              <div class="timeline-item pb-4">
+                <div class="mono text-xs text-slate-500 mb-1">Month 1–3</div>
+                <p class="text-sm text-slate-400">7 lending agents deployed to production. Internal testing shows 94% accuracy. Teams celebrate.</p>
+              </div>
+              <div class="timeline-item pb-4">
+                <div class="mono text-xs text-slate-500 mb-1">Month 4–12</div>
+                <p class="text-sm text-slate-400">Agents processing ~3,000 decisions/day. No compliance failures visible internally. Token costs rising but attributed to growth.</p>
+              </div>
+              <div class="timeline-item pb-4">
+                <div class="mono text-xs text-red-400 mb-1">Month 13 — OCC Examination</div>
+                <p class="text-sm text-slate-400">Examiners request model documentation for all AI systems. None exists. Adverse action notices reviewed — ECOA codes missing or incorrect in 31% of sampled decisions.</p>
+              </div>
+              <div class="timeline-item">
+                <div class="mono text-xs text-red-400 mb-1">Month 14–26 — Remediation</div>
+                <p class="text-sm text-slate-400">All AI-assisted decisions suspended pending re-validation. 18-month lookback commenced. Consent order signed. $47M remediation program begins.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-blue-950/30 border border-blue-500/20 rounded-sm p-6">
+            <div class="mono text-xs text-blue-400 mb-2">DIOVAL SOLUTION ARCHITECTURE</div>
+            <p class="text-slate-300 text-sm mb-3">We deployed our Compliance Proxy Pattern with OPA-enforced ECOA validation, ClickHouse immutable audit trails with SHA-256 hash chains (SEC 17a-4 compliant), automated SHAP explainability mapping to enumerated reason codes, and complete model cards for all production agents. Post-engagement PRS compliance dimension: 94/100.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="mono text-xs bg-blue-500/10 border border-blue-500/20 text-blue-400 px-2 py-1 rounded">Compliance Proxy Pattern</span>
+              <span class="mono text-xs bg-blue-500/10 border border-blue-500/20 text-blue-400 px-2 py-1 rounded">ClickHouse Audit Trail</span>
+              <span class="mono text-xs bg-blue-500/10 border border-blue-500/20 text-blue-400 px-2 py-1 rounded">SHAP Explainability</span>
+              <span class="mono text-xs bg-blue-500/10 border border-blue-500/20 text-blue-400 px-2 py-1 rounded">OPA Policy Enforcement</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 2: Coordination -->
+      <div class="case-card">
+        <div class="glass-light p-10 rounded-sm border border-slate-800 border-l-4 border-l-orange-500">
+          <div class="flex flex-wrap items-start justify-between gap-6 mb-8">
+            <div>
+              <div class="flex items-center gap-3 mb-3">
+                <span class="mono text-xs bg-orange-500/10 border border-orange-500/30 text-orange-400 px-2 py-1 rounded">CASE 02</span>
+                <span class="mono text-xs text-slate-500">Logistics & Supply Chain · 2025</span>
+              </div>
+              <h2 class="text-3xl font-black text-white mb-1">The $23M Coordination Crisis</h2>
+              <p class="mono text-sm text-slate-500">GlobalRoute Logistics · International 3PL</p>
+            </div>
+            <div class="text-right">
+              <div class="mono text-4xl font-black text-orange-400">$23M</div>
+              <div class="text-xs text-slate-500">annual cost of agent conflicts</div>
+            </div>
+          </div>
+
+          <div class="grid lg:grid-cols-3 gap-8 mb-8">
+            <div class="lg:col-span-2">
+              <h3 class="text-lg font-bold text-white mb-4">What Happened</h3>
+              <p class="text-slate-400 leading-relaxed mb-4">GlobalRoute built nine specialized AI agents over 18 months, each owned by a different business unit: route optimization, maintenance scheduling, driver assignment, customer communication, warehouse allocation, customs clearance, billing, exception handling, and SLA monitoring. Each agent was technically excellent in isolation.</p>
+              <p class="text-slate-400 leading-relaxed mb-4">The problem: they operated on separate data sources with no shared state layer. Agent A (route optimization) would commit a truck to a 3-day cross-country run. Agent B (maintenance scheduling) — reading from a separate maintenance database with a 4-hour sync lag — would schedule that same truck for a mandatory brake inspection in 36 hours. Neither agent knew what the other had committed.</p>
+              <p class="text-slate-400 leading-relaxed">The conflict wasn't discovered until a driver arrived at a depot to find the truck being serviced. Manual reconciliation required human coordinators monitoring agent outputs around the clock. SLA penalties from missed delivery windows, the cost of manual oversight, and the customer churn from reliability failures totaled $23M annually — more than the entire AI program cost to build.</p>
+            </div>
+            <div class="space-y-4">
+              <div class="bg-slate-900 rounded-sm p-4 border border-slate-800">
+                <div class="mono text-xs text-orange-400 mb-2">ROOT CAUSES</div>
+                <div class="space-y-2 text-xs text-slate-400">
+                  <div class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">×</span>No shared state layer across agents</div>
+                  <div class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">×</span>4-hour data sync lag between systems</div>
+                  <div class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">×</span>No conflict detection or arbitration</div>
+                  <div class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">×</span>No orchestration supervisor layer</div>
+                  <div class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">×</span>No A2A communication protocol</div>
+                </div>
+              </div>
+              <div class="bg-slate-900 rounded-sm p-4 border border-slate-800">
+                <div class="mono text-xs text-slate-500 mb-2">COST BREAKDOWN</div>
+                <div class="space-y-1.5 text-xs">
+                  <div class="flex justify-between"><span class="text-slate-400">SLA penalties</span><span class="text-orange-400 mono">$9M</span></div>
+                  <div class="flex justify-between"><span class="text-slate-400">Manual reconciliation staff</span><span class="text-orange-400 mono">$6M</span></div>
+                  <div class="flex justify-between"><span class="text-slate-400">Customer churn (est.)</span><span class="text-orange-400 mono">$5M</span></div>
+                  <div class="flex justify-between"><span class="text-slate-400">Re-routing & emergency ops</span><span class="text-orange-400 mono">$3M</span></div>
+                  <div class="border-t border-slate-800 pt-1.5 flex justify-between font-bold"><span class="text-slate-300">Annual Total</span><span class="text-orange-400 mono">$23M</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-blue-950/30 border border-blue-500/20 rounded-sm p-6">
+            <div class="mono text-xs text-blue-400 mb-2">DIOVAL SOLUTION ARCHITECTURE</div>
+            <p class="text-slate-300 text-sm mb-3">We implemented a Hierarchical Supervisor Agent with real-time shared state via Redis, A2A protocol standardization across all 9 agents, deterministic conflict arbitration rules for resource contention, and the Semantic Handoff Protocol (5-layer) to ensure context preservation across agent boundaries. Conflict events reduced by 96% within 60 days. Manual reconciliation headcount reduced from 12 to 2.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="mono text-xs bg-blue-500/10 border border-blue-500/20 text-blue-400 px-2 py-1 rounded">Supervisor Agent Architecture</span>
+              <span class="mono text-xs bg-blue-500/10 border border-blue-500/20 text-blue-400 px-2 py-1 rounded">A2A Protocol</span>
+              <span class="mono text-xs bg-blue-500/10 border border-blue-500/20 text-blue-400 px-2 py-1 rounded">Shared State Layer</span>
+              <span class="mono text-xs bg-blue-500/10 border border-blue-500/20 text-blue-400 px-2 py-1 rounded">SHP (5-Layer Handoff)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 3: Knowledge -->
+      <div class="case-card">
+        <div class="glass-light p-10 rounded-sm border border-slate-800 border-l-4 border-l-yellow-500">
+          <div class="flex flex-wrap items-start justify-between gap-6 mb-8">
+            <div>
+              <div class="flex items-center gap-3 mb-3">
+                <span class="mono text-xs bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 px-2 py-1 rounded">CASE 03</span>
+                <span class="mono text-xs text-slate-500">Healthcare · 2025</span>
+              </div>
+              <h2 class="text-3xl font-black text-white mb-1">The $31M Dark Knowledge Crisis</h2>
+              <p class="mono text-sm text-slate-500">Meridian Health Network · Regional Hospital System</p>
+            </div>
+            <div class="text-right">
+              <div class="mono text-4xl font-black text-yellow-400">$31M</div>
+              <div class="text-xs text-slate-500">remediation & legal exposure</div>
+            </div>
+          </div>
+
+          <div class="grid lg:grid-cols-3 gap-8 mb-8">
+            <div class="lg:col-span-2">
+              <h3 class="text-lg font-bold text-white mb-4">What Happened</h3>
+              <p class="text-slate-400 leading-relaxed mb-4">Meridian deployed a clinical decision-support agent to assist hospitalists with medication dosing and drug interaction screening. The agent was built on a RAG pipeline seeded with their formulary and clinical protocols — all correctly ingested at launch.</p>
+              <p class="text-slate-400 leading-relaxed mb-4">Eight months post-launch, their pharmacy team updated the hospital formulary to retire a drug interaction protocol that had been superseded by new clinical evidence. The updated PDF was uploaded to their document storage system. But the RAG pipeline had no change detection mechanism. The embeddings for the old protocol remained in the vector store. The agent had no freshness signal and continued confidently citing the retired protocol as current guidance.</p>
+              <p class="text-slate-400 leading-relaxed">A pharmacist flagged an anomalous dosing recommendation after three months of undetected use of the outdated protocol. The lookback review, regulatory notifications, legal settlements with affected patients, and infrastructure remediation totaled $31M — for a failure mode that a SHA-256 change detection pipeline would have caught in real time.</p>
+            </div>
+            <div class="space-y-4">
+              <div class="bg-slate-900 rounded-sm p-4 border border-slate-800">
+                <div class="mono text-xs text-yellow-400 mb-2">ROOT CAUSES</div>
+                <div class="space-y-2 text-xs text-slate-400">
+                  <div class="flex items-start gap-2"><span class="text-yellow-400 mt-0.5">×</span>No change detection on source docs</div>
+                  <div class="flex items-start gap-2"><span class="text-yellow-400 mt-0.5">×</span>No freshness scoring per document</div>
+                  <div class="flex items-start gap-2"><span class="text-yellow-400 mt-0.5">×</span>Stale embeddings never invalidated</div>
+                  <div class="flex items-start gap-2"><span class="text-yellow-400 mt-0.5">×</span>No TTL or expiry on knowledge chunks</div>
+                  <div class="flex items-start gap-2"><span class="text-yellow-400 mt-0.5">×</span>No incremental re-ingestion pipeline</div>
+                </div>
+              </div>
+              <div class="bg-slate-900 rounded-sm p-4 border border-slate-800">
+                <div class="mono text-xs text-slate-500 mb-2">COST BREAKDOWN</div>
+                <div class="space-y-1.5 text-xs">
+                  <div class="flex justify-between"><span class="text-slate-400">Legal settlements</span><span class="text-yellow-400 mono">$14M</span></div>
+                  <div class="flex justify-between"><span class="text-slate-400">Regulatory remediation</span><span class="text-yellow-400 mono">$8M</span></div>
+                  <div class="flex justify-between"><span class="text-slate-400">Clinical review lookback</span><span class="text-yellow-400 mono">$6M</span></div>
+                  <div class="flex justify-between"><span class="text-slate-400">Infrastructure rebuild</span><span class="text-yellow-400 mono">$3M</span></div>
+                  <div class="border-t border-slate-800 pt-1.5 flex justify-between font-bold"><span class="text-slate-300">Total</span><span class="text-yellow-400 mono">$31M</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-blue-950/30 border border-blue-500/20 rounded-sm p-6">
+            <div class="mono text-xs text-blue-400 mb-2">DIOVAL SOLUTION ARCHITECTURE</div>
+            <p class="text-slate-300 text-sm mb-3">We rebuilt their knowledge infrastructure with SHA-256 change detection on every source document, per-chunk freshness scoring with configurable TTLs by document category, automatic quarantine of expired knowledge, an incremental re-ingestion pipeline triggered by document changes, and GraphRAG traversal to correctly handle superseded protocol references.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="mono text-xs bg-blue-500/10 border border-blue-500/20 text-blue-400 px-2 py-1 rounded">SHA-256 Change Detection</span>
+              <span class="mono text-xs bg-blue-500/10 border border-blue-500/20 text-blue-400 px-2 py-1 rounded">Freshness Scoring</span>
+              <span class="mono text-xs bg-blue-500/10 border border-blue-500/20 text-blue-400 px-2 py-1 rounded">Incremental Re-ingestion</span>
+              <span class="mono text-xs bg-blue-500/10 border border-blue-500/20 text-blue-400 px-2 py-1 rounded">Knowledge Quarantine</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 bg-blue-950/20 border-t border-blue-900/20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-black text-white mb-6">Which of These Three Failures Is<br>Most Likely to Hit You Next?</h2>
+      <p class="text-slate-400 mb-10">The answer is probably "all three, to varying degrees." A Production Readiness Assessment tells you exactly where you stand — before a regulator, a coordination failure, or a hallucination tells you first.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="contact.html" class="btn-primary text-white px-10 py-4 rounded-sm font-bold text-lg shadow-xl shadow-blue-500/20">Book Your Audit →</a>
+        <a href="audits.html" class="glass text-white border border-slate-700 px-10 py-4 rounded-sm font-bold text-lg hover:bg-white/5 transition">View Audit Packages</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-slate-950 border-t border-slate-800 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 bg-blue-600 rounded-sm flex items-center justify-center">
+        <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <span class="text-xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+    </div>
+    <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+      <a href="about.html" class="hover:text-white transition">About</a>
+      <a href="audits.html" class="hover:text-white transition">Audits</a>
+      <a href="cases.html" class="hover:text-white transition">Case Studies</a>
+      <a href="contact.html" class="hover:text-white transition">Contact</a>
+      <span>© 2026 Dioval Group. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

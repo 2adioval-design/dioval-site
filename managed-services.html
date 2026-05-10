@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Network Operations | Dioval Group — 24/7 AI-NOC</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Inter', sans-serif; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .glass { background: rgba(15,23,42,0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+  .glass-light { background: rgba(30,41,59,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+  .gradient-text { background: linear-gradient(135deg, #34d399 0%, #06b6d4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-grid { background-image: linear-gradient(rgba(52,211,153,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(52,211,153,0.03) 1px, transparent 1px); background-size: 60px 60px; }
+  .nav-link { position:relative; }
+  .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:#3b82f6; transition: width 0.3s ease; }
+  .nav-link:hover::after { width:100%; }
+  .btn-primary { background: linear-gradient(135deg, #2563eb, #1d4ed8); transition: all 0.3s ease; }
+  .btn-primary:hover { background: linear-gradient(135deg, #3b82f6, #2563eb); transform: translateY(-1px); box-shadow: 0 8px 25px rgba(37,99,235,0.4); }
+  .mobile-menu { display:none; }
+  .mobile-menu.open { display:block; }
+  .tier-card { transition: all 0.3s ease; }
+  .tier-card:hover { transform: translateY(-4px); }
+  .tier-card.featured { border-color: rgba(52,211,153,0.4); box-shadow: 0 0 30px rgba(52,211,153,0.08); }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .blink { animation: blink 2s infinite; }
+  .metric-pulse { animation: blink 3s infinite; }
+</style>
+</head>
+<body class="bg-slate-950 text-slate-300 antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen">
+
+<nav class="fixed w-full z-50 glass border-b border-slate-800/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
+        <div class="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <span class="text-2xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+      </a>
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="about.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">About</a>
+        <a href="audits.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Audits</a>
+        <a href="orchestration.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Orchestration</a>
+        <a href="compliance.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Compliance</a>
+        <a href="knowledge.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Knowledge Fabric</a>
+        <a href="managed-services.html" class="nav-link text-sm font-semibold text-white">Managed Ops</a>
+        <a href="cases.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Case Studies</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm">Book an Audit</a>
+        <button class="lg:hidden text-slate-400 hover:text-white p-2" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu lg:hidden glass border-t border-slate-800/60">
+    <div class="px-4 py-6 space-y-4">
+      <a href="about.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">About</a>
+      <a href="audits.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Audits</a>
+      <a href="orchestration.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Orchestration</a>
+      <a href="compliance.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Compliance</a>
+      <a href="knowledge.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Knowledge Fabric</a>
+      <a href="managed-services.html" class="block text-sm font-semibold text-white py-2">Managed Ops</a>
+      <a href="cases.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Case Studies</a>
+      <a href="contact.html" class="block btn-primary text-white px-6 py-3 rounded-sm font-bold text-sm text-center mt-4">Book an Audit</a>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow">
+  <section class="relative pt-44 pb-20 hero-grid overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_60%_0%,rgba(52,211,153,0.08),transparent)]"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="flex items-center gap-3 mb-6">
+        <a href="index.html" class="mono text-xs text-slate-500 hover:text-slate-300 transition">Home</a>
+        <span class="text-slate-700">/</span>
+        <span class="mono text-xs text-green-400">Agent Network Operations</span>
+      </div>
+      <div class="flex items-center gap-3 mb-6">
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
+          <div class="w-2 h-2 bg-green-500 rounded-full blink"></div>
+          <span class="mono text-xs text-green-400 font-bold">LIVE MONITORING ACTIVE — 24/7/365</span>
+        </div>
+      </div>
+      <h1 class="text-5xl lg:text-7xl font-black text-white leading-tight mb-8">Agent Network<br><span class="gradient-text">Operations (ANO)</span></h1>
+      <p class="text-xl text-slate-400 max-w-3xl leading-relaxed">We are your AI-NOC. We manage the operational health, cost efficiency, and reliability of your agent ecosystems around the clock — so your team can focus on building, not firefighting at 2am when Agent 7 loops indefinitely.</p>
+    </div>
+  </section>
+
+  <!-- LIVE DASHBOARD MOCK -->
+  <section class="py-16 bg-slate-900/40 border-y border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="glass-light rounded-sm border border-slate-700 overflow-hidden">
+        <div class="flex items-center justify-between px-6 py-4 border-b border-slate-700 bg-slate-900/50">
+          <div class="flex items-center gap-3">
+            <div class="flex gap-1.5">
+              <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+              <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+              <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+            </div>
+            <span class="mono text-xs text-slate-400">dioval-ano-dashboard — client_prod_env</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-2 h-2 bg-green-500 rounded-full blink"></div>
+            <span class="mono text-xs text-green-400">All systems nominal</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <div class="bg-slate-900 rounded-sm p-4 border border-slate-800">
+              <div class="mono text-xs text-slate-500 mb-1">AGENTS ONLINE</div>
+              <div class="mono text-2xl font-black text-green-400">14/14</div>
+              <div class="mono text-xs text-green-400 mt-1">↑ 100% uptime</div>
+            </div>
+            <div class="bg-slate-900 rounded-sm p-4 border border-slate-800">
+              <div class="mono text-xs text-slate-500 mb-1">CONFLICT EVENTS (24H)</div>
+              <div class="mono text-2xl font-black text-yellow-400">2</div>
+              <div class="mono text-xs text-slate-500 mt-1">↓ from 7 last week</div>
+            </div>
+            <div class="bg-slate-900 rounded-sm p-4 border border-slate-800">
+              <div class="mono text-xs text-slate-500 mb-1">DAILY COST</div>
+              <div class="mono text-2xl font-black text-blue-400">$847</div>
+              <div class="mono text-xs text-green-400 mt-1">↓ 34% vs baseline</div>
+            </div>
+            <div class="bg-slate-900 rounded-sm p-4 border border-slate-800">
+              <div class="mono text-xs text-slate-500 mb-1">OPA BLOCKS (24H)</div>
+              <div class="mono text-2xl font-black text-red-400">3</div>
+              <div class="mono text-xs text-slate-500 mt-1">Escalated to review</div>
+            </div>
+          </div>
+          <div class="bg-slate-900 rounded-sm p-4 border border-slate-800">
+            <div class="mono text-xs text-slate-500 mb-3">RECENT ANO LOG</div>
+            <div class="space-y-2 font-mono text-xs">
+              <div class="flex gap-4"><span class="text-slate-600">14:51:03</span><span class="text-green-400">INFO</span><span class="text-slate-400">agent.logistics_v3 completed 847 tasks; P99 latency 412ms ✓</span></div>
+              <div class="flex gap-4"><span class="text-slate-600">14:49:22</span><span class="text-yellow-400">WARN</span><span class="text-slate-400">agent.compliance_checker token usage 91% of budget — semantic cache engaged</span></div>
+              <div class="flex gap-4"><span class="text-slate-600">14:47:11</span><span class="text-red-400">BLOCK</span><span class="text-slate-400">OPA denied agent.credit_v2 action=send_notice reason=missing_ecoa_codes — escalated</span></div>
+              <div class="flex gap-4"><span class="text-slate-600">14:45:00</span><span class="text-blue-400">OPS </span><span class="text-slate-400">SLO weekly report generated — avg 99.94% uptime across 14 agents</span></div>
+              <div class="flex gap-4"><span class="text-slate-600">14:32:17</span><span class="text-green-400">INFO</span><span class="text-slate-400">knowledge.freshness_check completed — 47 documents re-indexed, 2 quarantined</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING TIERS -->
+  <section class="py-24 bg-slate-950">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="mono text-xs text-green-400 tracking-widest uppercase mb-4">ANO Service Tiers</p>
+        <h2 class="text-3xl md:text-4xl font-black text-white">Your AI Infrastructure Deserves<br>the Same Rigor as Your Core Systems</h2>
+        <p class="text-slate-400 mt-4">All tiers include dedicated Slack channel, named ANO engineers, and monthly executive reporting.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Monitor -->
+        <div class="tier-card glass-light p-8 rounded-sm border border-slate-700">
+          <div class="mb-6">
+            <div class="mono text-xs text-slate-400 tracking-widest uppercase mb-2">Entry</div>
+            <h3 class="text-2xl font-black text-white">Monitor</h3>
+            <p class="text-slate-500 text-sm mt-2">Visibility and reporting for mature teams.</p>
+          </div>
+          <div class="mb-8">
+            <div class="mono text-3xl font-black text-white">$15,000</div>
+            <div class="text-xs text-slate-500 mt-1">per month · 12-month minimum</div>
+          </div>
+          <div class="space-y-3 mb-8">
+            <div class="flex items-start gap-3 text-sm">
+              <svg class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-slate-400">Real-time ANO dashboard access</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm">
+              <svg class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-slate-400">Weekly SLO performance reports</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm">
+              <svg class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-slate-400">Conflict trend analysis & alerting</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm">
+              <svg class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-slate-400">Token cost anomaly detection</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm">
+              <svg class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-slate-400">Monthly executive briefing</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm">
+              <svg class="w-4 h-4 text-slate-700 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+              <span class="text-slate-600">Active conflict resolution</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm">
+              <svg class="w-4 h-4 text-slate-700 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+              <span class="text-slate-600">Chaos Engineering GameDays</span>
+            </div>
+          </div>
+          <a href="contact.html" class="block text-center glass text-white border border-slate-600 px-6 py-3 rounded-sm font-bold text-sm hover:bg-white/5 transition">Get Started →</a>
+        </div>
+
+        <!-- Operate (Featured) -->
+        <div class="tier-card featured glass-light p-8 rounded-sm border-2 relative">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+            <span class="bg-green-500 text-slate-950 mono text-xs font-black px-4 py-1.5 rounded-full">MOST POPULAR</span>
+          </div>
+          <div class="mb-6">
+            <div class="mono text-xs text-green-400 tracking-widest uppercase mb-2">Recommended</div>
+            <h3 class="text-2xl font-black text-white">Operate</h3>
+            <p class="text-slate-500 text-sm mt-2">Full operational management for production AI estates.</p>
+          </div>
+          <div class="mb-8">
+            <div class="mono text-3xl font-black text-white">$25,000</div>
+            <div class="text-xs text-slate-500 mt-1">per month · 12-month minimum</div>
+          </div>
+          <div class="space-y-3 mb-8">
+            <div class="flex items-start gap-3 text-sm">
+              <svg class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-slate-300">Everything in Monitor</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm">
+              <svg class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-slate-300">Active conflict resolution tuning</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm">
+              <svg class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-slate-300">Agent onboarding & deprecation</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm">
+              <svg class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-slate-300">OPA policy maintenance & updates</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm">
+              <svg class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-slate-300">Knowledge freshness re-ingestion</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm">
+              <svg class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-slate-300">4-hour incident response SLA</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm">
+              <svg class="w-4 h-4 text-slate-700 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+              <span class="text-slate-600">Chaos Engineering GameDays</span>
+            </div>
+          </div>
+          <a href="contact.html" class="block text-center btn-primary text-white px-6 py-3 rounded-sm font-bold text-sm">Get Started →</a>
+        </div>
+
+        <!-- Evolve -->
+        <div class="tier-card glass-light p-8 rounded-sm border border-slate-700">
+          <div class="mb-6">
+            <div class="mono text-xs text-blue-400 tracking-widest uppercase mb-2">Enterprise</div>
+            <h3 class="text-2xl font-black text-white">Evolve</h3>
+            <p class="text-slate-500 text-sm mt-2">Full operational excellence with continuous improvement.</p>
+          </div>
+          <div class="mb-8">
+            <div class="mono text-3xl font-black text-white">$40,000</div>
+            <div class="text-xs text-slate-500 mt-1">per month · 12-month minimum</div>
+          </div>
+          <div class="space-y-3 mb-8">
+            <div class="flex items-start gap-3 text-sm">
+              <svg class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-slate-400">Everything in Operate</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm">
+              <svg class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-slate-400">Proactive cost optimization sprints</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm">
+              <svg class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-slate-400">Semantic cache architecture tuning</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm">
+              <svg class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-slate-400">Quarterly Chaos Engineering GameDays</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm">
+              <svg class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-slate-400">1-hour P1 incident response SLA</span>
+            </div>
+            <div class="flex items-start gap-3 text-sm">
+              <svg class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-slate-400">Dedicated Principal Architect on call</span>
+            </div>
+          </div>
+          <a href="contact.html" class="block text-center glass text-white border border-slate-600 px-6 py-3 rounded-sm font-bold text-sm hover:bg-white/5 transition">Get Started →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE OPERATE -->
+  <section class="py-20 bg-slate-900/50 border-y border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-black text-white">The ANO Operational Stack</h2>
+        <p class="text-slate-400 mt-4">What our engineers actively monitor and manage, 24 hours a day.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="glass-light p-6 rounded-sm border border-slate-800">
+          <div class="w-8 h-8 bg-green-500/10 rounded-sm flex items-center justify-center mb-4"><svg class="w-4 h-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
+          <h4 class="font-bold text-white mb-2">SLO / SLA Management</h4>
+          <p class="text-sm text-slate-500">Uptime tracking, latency percentiles (P50/P95/P99), error rate trending, and escalation thresholds by agent criticality tier.</p>
+        </div>
+        <div class="glass-light p-6 rounded-sm border border-slate-800">
+          <div class="w-8 h-8 bg-orange-500/10 rounded-sm flex items-center justify-center mb-4"><svg class="w-4 h-4 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+          <h4 class="font-bold text-white mb-2">Cost Engineering</h4>
+          <p class="text-sm text-slate-500">Token budget management, semantic cache tuning, intelligent model routing (premium vs. economy models by task type), runaway loop detection.</p>
+        </div>
+        <div class="glass-light p-6 rounded-sm border border-slate-800">
+          <div class="w-8 h-8 bg-red-500/10 rounded-sm flex items-center justify-center mb-4"><svg class="w-4 h-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+          <h4 class="font-bold text-white mb-2">Chaos Engineering</h4>
+          <p class="text-sm text-slate-500">Quarterly GameDays simulate agent failures, context injection attacks, LLM outages, and knowledge staleness events to validate system resilience.</p>
+        </div>
+        <div class="glass-light p-6 rounded-sm border border-slate-800">
+          <div class="w-8 h-8 bg-purple-500/10 rounded-sm flex items-center justify-center mb-4"><svg class="w-4 h-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+          <h4 class="font-bold text-white mb-2">Compliance Watchdog</h4>
+          <p class="text-sm text-slate-500">Continuous OPA policy enforcement monitoring, audit log verification, and regulatory change alerts that trigger automated impact assessments.</p>
+        </div>
+        <div class="glass-light p-6 rounded-sm border border-slate-800">
+          <div class="w-8 h-8 bg-blue-500/10 rounded-sm flex items-center justify-center mb-4"><svg class="w-4 h-4 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg></div>
+          <h4 class="font-bold text-white mb-2">Conflict Resolution</h4>
+          <p class="text-sm text-slate-500">Active monitoring of agent coordination failures, arbitration rule tuning, and post-mortem analysis for recurring conflict patterns.</p>
+        </div>
+        <div class="glass-light p-6 rounded-sm border border-slate-800">
+          <div class="w-8 h-8 bg-yellow-500/10 rounded-sm flex items-center justify-center mb-4"><svg class="w-4 h-4 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg></div>
+          <h4 class="font-bold text-white mb-2">Knowledge Ops</h4>
+          <p class="text-sm text-slate-500">Automated freshness score monitoring, scheduled re-ingestion pipelines, and stale-document quarantine with human review queues.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 bg-slate-950">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="w-16 h-16 bg-green-500/10 border border-green-500/20 rounded-sm flex items-center justify-center mx-auto mb-6">
+        <div class="w-4 h-4 bg-green-500 rounded-full blink"></div>
+      </div>
+      <h2 class="text-3xl font-black text-white mb-6">Ready for 24/7 AI Operations?</h2>
+      <p class="text-slate-400 mb-10">ANO engagements begin with a 30-day onboarding sprint where we instrument your estate, establish baselines, and build your custom operational runbook. Start with a scoping call.</p>
+      <a href="contact.html" class="btn-primary text-white px-10 py-4 rounded-sm font-bold text-lg shadow-xl shadow-blue-500/20">Start ANO Scoping Call →</a>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-slate-950 border-t border-slate-800 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 bg-blue-600 rounded-sm flex items-center justify-center">
+        <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <span class="text-xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+    </div>
+    <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+      <a href="about.html" class="hover:text-white transition">About</a>
+      <a href="audits.html" class="hover:text-white transition">Audits</a>
+      <a href="cases.html" class="hover:text-white transition">Case Studies</a>
+      <a href="contact.html" class="hover:text-white transition">Contact</a>
+      <span>© 2026 Dioval Group. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
