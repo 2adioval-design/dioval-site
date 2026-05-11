@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | AI Audits, Books & Enterprise Licensing | Dioval Group</title>
+    <meta name="description" content="Transparent pricing for AI production readiness audits ($25K), managed operations ($15K/mo), the Agentic AI book series ($49-$2,500), and enterprise consulting.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="https://dioval.com/pricing.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Pricing | Dioval Group">
+    <meta property="og:description" content="Transparent pricing for AI audits, books, and enterprise consulting.">
+    <meta property="og:url" content="https://dioval.com/pricing.html">
+    <meta property="og:site_name" content="Dioval Group">
+    <meta name="twitter:card" content="summary">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Pricing",
+      "description": "Transparent pricing for AI production readiness services",
+      "provider": {"@type": "Organization", "name": "Dioval Group", "url": "https://dioval.com"},
+      "offers": [
+        {"@type": "Offer", "name": "Production Readiness Audit", "price": "25000", "priceCurrency": "USD"},
+        {"@type": "Offer", "name": "Managed AI Operations", "price": "15000", "priceCurrency": "USD"},
+        {"@type": "Offer", "name": "Agentic AI Book Series", "price": "49", "priceCurrency": "USD"},
+        {"@type": "Offer", "name": "Enterprise License", "price": "2500", "priceCurrency": "USD"}
+      ]
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7JKBJJES0V"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7JKBJJES0V');</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass { background: rgba(15,23,42,0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+        .glass-light { background: rgba(30,41,59,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+        .nav-link { position:relative; }
+        .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:#3b82f6; transition: width 0.3s ease; }
+        .nav-link:hover::after { width:100%; }
+        .btn-primary { background: linear-gradient(135deg, #2563eb, #1d4ed8); transition: all 0.3s ease; }
+        .btn-primary:hover { background: linear-gradient(135deg, #3b82f6, #2563eb); transform: translateY(-1px); box-shadow: 0 8px 25px rgba(37,99,235,0.4); }
+        .mobile-menu { display:none; }
+        .mobile-menu.open { display:block; }
+        .hero-grid { background-image: linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px); background-size: 60px 60px; }
+        .pricing-card { transition: all 0.3s ease; }
+        .pricing-card:hover { transform: translateY(-4px); border-color: rgba(59,130,246,0.3); }
+        .pricing-card.featured { border-color: rgba(59,130,246,0.4); background: linear-gradient(135deg, rgba(30,41,59,0.8), rgba(15,23,42,0.9)); }
+        .check { color: #22c55e; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-300 antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen">
+
+<nav class="fixed w-full z-50 glass border-b border-slate-800/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
+        <div class="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <span class="text-2xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+      </a>
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="about.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">About</a>
+        <a href="audits.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Audits</a>
+        <a href="books.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Books</a>
+        <a href="blog.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Blog</a>
+        <a href="booking.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Free Diagnostic</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm shadow-lg shadow-blue-500/20">Book an Audit</a>
+        <button class="lg:hidden text-slate-400 hover:text-white p-2" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu lg:hidden glass border-t border-slate-800/60">
+    <div class="px-4 py-6 space-y-4">
+      <a href="about.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">About</a>
+      <a href="audits.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Audits</a>
+      <a href="books.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Books</a>
+      <a href="blog.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Blog</a>
+      <a href="booking.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Free Diagnostic</a>
+      <a href="contact.html" class="block btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm text-center mt-4">Book an Audit</a>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow pt-20">
+
+  <!-- Hero -->
+  <section class="hero-grid py-16 sm:py-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="mono text-blue-400 text-xs tracking-widest uppercase bg-blue-500/10 px-3 py-1 rounded-sm">Transparent Pricing</span>
+      <h1 class="text-3xl sm:text-5xl font-black text-white leading-tight tracking-tight mt-6 mb-4">Choose Your Path to AI Reliability</h1>
+      <p class="text-lg text-slate-400 max-w-2xl mx-auto">From self-serve books to full enterprise engagements. Start anywhere - every path leads to production-grade AI.</p>
+    </div>
+  </section>
+
+  <!-- FREE TIER -->
+  <section class="pb-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="mono text-blue-400 text-xs tracking-widest uppercase mb-8">Start Free</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="pricing-card glass-light rounded-sm p-6">
+          <div class="mono text-xs text-slate-500 mb-2">LEAD MAGNET</div>
+          <h3 class="text-lg font-bold text-white mb-1">Free Chapter</h3>
+          <div class="text-3xl font-black text-white mb-4">$0</div>
+          <p class="text-sm text-slate-400 mb-6">The $3.8M AI Agent Disaster - opening case study + Chapter 1 from Volume II.</p>
+          <ul class="space-y-2 mb-6 text-sm text-slate-400">
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Real-world failure analysis</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Production architecture patterns</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Instant PDF download</li>
+          </ul>
+          <a href="free-chapter.html" class="block text-center text-blue-400 hover:text-blue-300 font-bold text-sm border border-blue-500/30 hover:border-blue-500/50 px-6 py-3 rounded-sm transition-all">Download Free &rarr;</a>
+        </div>
+
+        <div class="pricing-card glass-light rounded-sm p-6">
+          <div class="mono text-xs text-slate-500 mb-2">ASSESSMENT</div>
+          <h3 class="text-lg font-bold text-white mb-1">PRS Scorecard</h3>
+          <div class="text-3xl font-black text-white mb-4">$0</div>
+          <p class="text-sm text-slate-400 mb-6">Score your AI agents across 8 production readiness dimensions in 5 minutes.</p>
+          <ul class="space-y-2 mb-6 text-sm text-slate-400">
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> 8-dimension evaluation</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Personalized recommendations</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Instant results</li>
+          </ul>
+          <a href="scorecard.html" class="block text-center text-blue-400 hover:text-blue-300 font-bold text-sm border border-blue-500/30 hover:border-blue-500/50 px-6 py-3 rounded-sm transition-all">Take Assessment &rarr;</a>
+        </div>
+
+        <div class="pricing-card glass-light rounded-sm p-6">
+          <div class="mono text-xs text-slate-500 mb-2">CONSULTATION</div>
+          <h3 class="text-lg font-bold text-white mb-1">30-Min Diagnostic</h3>
+          <div class="text-3xl font-black text-white mb-4">$0</div>
+          <p class="text-sm text-slate-400 mb-6">Live call with Aurelio Dioval. Map your AI stack, identify critical gaps, get an action plan.</p>
+          <ul class="space-y-2 mb-6 text-sm text-slate-400">
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Architecture review</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Risk identification</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Custom remediation roadmap</li>
+          </ul>
+          <a href="booking.html" class="block text-center text-blue-400 hover:text-blue-300 font-bold text-sm border border-blue-500/30 hover:border-blue-500/50 px-6 py-3 rounded-sm transition-all">Book a Call &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKS -->
+  <section class="pb-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="mono text-blue-400 text-xs tracking-widest uppercase mb-8">The Agentic AI Professional Series</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <div class="pricing-card glass-light rounded-sm p-6">
+          <div class="mono text-xs text-slate-500 mb-2">INDIVIDUAL</div>
+          <h3 class="text-lg font-bold text-white mb-1">Single Volume</h3>
+          <div class="flex items-baseline gap-1 mb-4"><span class="text-3xl font-black text-white">$49</span><span class="text-slate-500 text-sm">/volume</span></div>
+          <p class="text-sm text-slate-400 mb-6">Pick the volume that matches your current challenge. 7 volumes available.</p>
+          <ul class="space-y-2 mb-6 text-sm text-slate-400">
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Full volume (DOCX)</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Production-tested patterns</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Consulting CTA + resources</li>
+          </ul>
+          <a href="books.html" class="block text-center text-blue-400 hover:text-blue-300 font-bold text-sm border border-blue-500/30 hover:border-blue-500/50 px-6 py-3 rounded-sm transition-all">Browse Volumes &rarr;</a>
+        </div>
+
+        <div class="pricing-card featured glass-light rounded-sm p-6 relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-sm">BEST VALUE</div>
+          <div class="mono text-xs text-slate-500 mb-2">COMPLETE SERIES</div>
+          <h3 class="text-lg font-bold text-white mb-1">All 7 Volumes</h3>
+          <div class="flex items-baseline gap-1 mb-1"><span class="text-3xl font-black text-white">$249</span><span class="text-slate-500 text-sm">one-time</span></div>
+          <div class="text-xs text-emerald-400 mb-4">Save $94 vs. buying individually</div>
+          <p class="text-sm text-slate-400 mb-6">The complete reference library for enterprise AI production readiness.</p>
+          <ul class="space-y-2 mb-6 text-sm text-slate-400">
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> All 7 volumes (139K+ words)</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Foundations through compliance</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Multi-agent orchestration deep dives</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> 2026 regulatory readiness</li>
+          </ul>
+          <a href="https://buy.stripe.com/28EfZj5O5epw0iraiB7ss09" class="btn-primary block text-center text-white px-6 py-3 rounded-sm font-bold text-sm shadow-lg shadow-blue-500/20">Get the Bundle &rarr;</a>
+        </div>
+
+        <div class="pricing-card glass-light rounded-sm p-6">
+          <div class="mono text-xs text-slate-500 mb-2">ORGANIZATION</div>
+          <h3 class="text-lg font-bold text-white mb-1">Enterprise License</h3>
+          <div class="flex items-baseline gap-1 mb-4"><span class="text-3xl font-black text-white">$2,500</span><span class="text-slate-500 text-sm">/year</span></div>
+          <p class="text-sm text-slate-400 mb-6">Unlimited team access. Perfect for L&D budgets and AI Center of Excellence teams.</p>
+          <ul class="space-y-2 mb-6 text-sm text-slate-400">
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> All 7 volumes for entire team</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Internal distribution rights</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Quarterly content updates</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Priority support</li>
+          </ul>
+          <a href="https://buy.stripe.com/7sY9AV5O595c5CLaiB7ss07" class="block text-center text-blue-400 hover:text-blue-300 font-bold text-sm border border-blue-500/30 hover:border-blue-500/50 px-6 py-3 rounded-sm transition-all">Get Enterprise Access &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSULTING -->
+  <section class="pb-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="mono text-blue-400 text-xs tracking-widest uppercase mb-8">Consulting & Managed Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <div class="pricing-card glass-light rounded-sm p-8">
+          <div class="mono text-xs text-slate-500 mb-2">ONE-TIME ENGAGEMENT</div>
+          <h3 class="text-xl font-bold text-white mb-1">Production Readiness Audit</h3>
+          <div class="flex items-baseline gap-1 mb-4"><span class="text-4xl font-black text-white">$25,000</span><span class="text-slate-500 text-sm">fixed price</span></div>
+          <p class="text-sm text-slate-400 mb-6">3-week comprehensive assessment of your AI agent infrastructure. Every gap found before it becomes a headline.</p>
+          <ul class="space-y-3 mb-8 text-sm text-slate-400">
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Full PRS assessment (all 8 dimensions)</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Architecture review & threat modeling</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Compliance gap analysis (EU AI Act, SR 11-7)</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Detailed remediation roadmap</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Executive summary + technical deep-dive report</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> 30-day post-audit support</li>
+          </ul>
+          <a href="contact.html" class="btn-primary block text-center text-white px-6 py-4 rounded-sm font-bold text-sm shadow-lg shadow-blue-500/20">Book Your Audit &rarr;</a>
+        </div>
+
+        <div class="pricing-card glass-light rounded-sm p-8">
+          <div class="mono text-xs text-slate-500 mb-2">ONGOING</div>
+          <h3 class="text-xl font-bold text-white mb-1">Managed AI Operations</h3>
+          <div class="flex items-baseline gap-1 mb-4"><span class="text-4xl font-black text-white">$15,000</span><span class="text-slate-500 text-sm">/month</span></div>
+          <p class="text-sm text-slate-400 mb-6">Continuous monitoring, optimization, and compliance management for your AI fleet.</p>
+          <ul class="space-y-3 mb-8 text-sm text-slate-400">
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> 24/7 AI operations monitoring</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Monthly PRS reassessments</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Incident response & remediation</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Compliance maintenance & reporting</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Cost optimization (typical 30-50% reduction)</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> Dedicated account manager</li>
+          </ul>
+          <a href="contact.html" class="btn-primary block text-center text-white px-6 py-4 rounded-sm font-bold text-sm shadow-lg shadow-blue-500/20">Start Managed Ops &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="pb-16 sm:pb-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="mono text-blue-400 text-xs tracking-widest uppercase mb-8 text-center">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+
+        <div class="glass-light rounded-sm p-6 cursor-pointer" onclick="this.querySelector('.faq-a').classList.toggle('hidden')">
+          <h3 class="text-white font-semibold text-sm flex justify-between items-center">What's included in the $25K audit? <span class="text-blue-400">+</span></h3>
+          <p class="faq-a hidden text-slate-400 text-sm mt-3">A full 3-week engagement covering all 8 PRS dimensions: accuracy/grounding, cost efficiency, security, reliability, observability, human-in-the-loop design, scalability, and compliance readiness. You get an executive summary, a detailed technical report, a prioritized remediation roadmap, and 30 days of post-audit support.</p>
+        </div>
+
+        <div class="glass-light rounded-sm p-6 cursor-pointer" onclick="this.querySelector('.faq-a').classList.toggle('hidden')">
+          <h3 class="text-white font-semibold text-sm flex justify-between items-center">Can I start with the books and upgrade to consulting later? <span class="text-blue-400">+</span></h3>
+          <p class="faq-a hidden text-slate-400 text-sm mt-3">Absolutely. The books teach the same PRS framework we use in audits. Many clients read the series first, implement what they can internally, then engage us for the gaps that need expert assessment. Book buyers who upgrade to an audit get a $249 credit toward the engagement.</p>
+        </div>
+
+        <div class="glass-light rounded-sm p-6 cursor-pointer" onclick="this.querySelector('.faq-a').classList.toggle('hidden')">
+          <h3 class="text-white font-semibold text-sm flex justify-between items-center">What does the enterprise book license include? <span class="text-blue-400">+</span></h3>
+          <p class="faq-a hidden text-slate-400 text-sm mt-3">Unlimited distribution of all 7 volumes within your organization for one year. Includes quarterly content updates as the AI landscape evolves, and priority email support for framework implementation questions. Perfect for AI Centers of Excellence and L&D training programs.</p>
+        </div>
+
+        <div class="glass-light rounded-sm p-6 cursor-pointer" onclick="this.querySelector('.faq-a').classList.toggle('hidden')">
+          <h3 class="text-white font-semibold text-sm flex justify-between items-center">How quickly can we start the audit? <span class="text-blue-400">+</span></h3>
+          <p class="faq-a hidden text-slate-400 text-sm mt-3">Typically within 1-2 weeks of signing. We maintain limited engagement slots to ensure quality. Book a free 30-minute diagnostic first to scope the engagement and confirm fit.</p>
+        </div>
+
+        <div class="glass-light rounded-sm p-6 cursor-pointer" onclick="this.querySelector('.faq-a').classList.toggle('hidden')">
+          <h3 class="text-white font-semibold text-sm flex justify-between items-center">Do you work with startups or only enterprise? <span class="text-blue-400">+</span></h3>
+          <p class="faq-a hidden text-slate-400 text-sm mt-3">We work with any organization running AI agents in production or preparing for production deployment. The books are designed for individual engineers and small teams. The audit and managed services are typically best suited for companies with 50+ employees or significant AI agent deployments.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="pb-16 sm:pb-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl sm:text-3xl font-black text-white mb-4">Not Sure Where to Start?</h2>
+      <p class="text-slate-400 mb-8">Take the free scorecard, read the free chapter, or book a diagnostic call. No commitment, no pressure.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="scorecard.html" class="btn-primary text-white px-8 py-4 rounded-sm font-bold text-sm shadow-lg shadow-blue-500/20">Take the Free Scorecard &rarr;</a>
+        <a href="booking.html" class="text-blue-400 hover:text-blue-300 px-8 py-4 rounded-sm font-bold text-sm border border-blue-500/30 hover:border-blue-500/50 transition-all">Book a Free Call &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-slate-950 border-t border-slate-800 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 bg-blue-600 rounded-sm flex items-center justify-center">
+        <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <span class="text-xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+    </div>
+    <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+      <a href="about.html" class="hover:text-white transition">About</a>
+      <a href="audits.html" class="hover:text-white transition">Audits</a>
+      <a href="books.html" class="hover:text-white transition">Books</a>
+      <a href="blog.html" class="hover:text-white transition">Blog</a>
+      <a href="booking.html" class="hover:text-white transition">Free Diagnostic</a>
+      <a href="scorecard.html" class="hover:text-white transition">Scorecard</a>
+      <a href="contact.html" class="hover:text-white transition">Contact</a>
+      <span>&copy; 2026 Dioval Group. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FAQ Schema for Google Rich Snippets -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's included in the $25K audit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A full 3-week engagement covering all 8 PRS dimensions: accuracy/grounding, cost efficiency, security, reliability, observability, human-in-the-loop design, scalability, and compliance readiness. You get an executive summary, a detailed technical report, a prioritized remediation roadmap, and 30 days of post-audit support."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I start with the books and upgrade to consulting later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. The books teach the same PRS framework we use in audits. Many clients read the series first, implement what they can internally, then engage us for the gaps that need expert assessment. Book buyers who upgrade to an audit get a $249 credit toward the engagement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the enterprise book license include?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unlimited distribution of all 7 volumes within your organization for one year. Includes quarterly content updates as the AI landscape evolves, and priority email support for framework implementation questions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can we start the audit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Typically within 1-2 weeks of signing. We maintain limited engagement slots to ensure quality. Book a free 30-minute diagnostic first to scope the engagement and confirm fit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with startups or only enterprise?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We work with any organization running AI agents in production or preparing for production deployment. The books are designed for individual engineers and small teams. The audit and managed services are typically best suited for companies with 50+ employees or significant AI agent deployments."
+      }
+    }
+  ]
+}
+</script>
+
+</body>
+</html>

@@ -69,6 +69,7 @@
         <a href="compliance.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Compliance</a>
         <a href="knowledge.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Knowledge Fabric</a>
         <a href="books.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Books</a>
+        <a href="pricing.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Pricing</a>
         <a href="blog.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Blog</a>
       </div>
       <div class="flex items-center gap-4">
@@ -87,6 +88,7 @@
       <a href="compliance.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Compliance</a>
       <a href="knowledge.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Knowledge Fabric</a>
       <a href="books.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Books</a>
+      <a href="pricing.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Pricing</a>
       <a href="blog.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Blog</a>
       <a href="contact.html" class="block btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm text-center mt-4">Book an Audit</a>
     </div>
@@ -259,7 +261,22 @@ function handleBooking(e) {
     });
   }
   
-  // Store booking (replace with email service / Formspree)
+  // Send to FormSubmit.co (delivers to contact@dioval.com)
+  fetch('https://formsubmit.co/ajax/contact@dioval.com', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      _subject: 'New Diagnostic Booking: ' + booking.name + ' (' + booking.company + ')',
+      name: booking.name,
+      email: booking.email,
+      company: booking.company,
+      role: booking.role,
+      time_preference: booking.time_preference,
+      description: booking.description
+    })
+  }).catch(err => console.log('Form submission error:', err));
+
+  // Also store locally as backup
   const bookings = JSON.parse(localStorage.getItem('dioval_bookings') || '[]');
   bookings.push({
     name: data.get('name'),

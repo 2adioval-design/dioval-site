@@ -84,6 +84,7 @@
         <a href="about.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">About</a>
         <a href="audits.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Audits</a>
         <a href="books.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Books</a>
+        <a href="pricing.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Pricing</a>
         <a href="blog.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Blog</a>
         <a href="booking.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Free Diagnostic</a>
       </div>
@@ -100,6 +101,7 @@
       <a href="about.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">About</a>
       <a href="audits.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Audits</a>
       <a href="books.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Books</a>
+      <a href="pricing.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Pricing</a>
       <a href="blog.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Blog</a>
       <a href="booking.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Free Diagnostic</a>
       <a href="contact.html" class="block btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm text-center mt-4">Book an Audit</a>
@@ -458,19 +460,27 @@ function showResults(e) {
     });
   }
   
-  // Store lead
+  // Send to FormSubmit.co (delivers to contact@dioval.com)
+  const totalScore = calcTotal();
+  const dimScores = dimensions.map(d => d.name + ': ' + d.options[answers[d.id]].score + '/12').join(', ');
+  
+  fetch('https://formsubmit.co/ajax/contact@dioval.com', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      _subject: 'Scorecard Lead: ' + (company || email) + ' - Score ' + totalScore + '/100',
+      email: email,
+      company: company || 'Not provided',
+      total_score: totalScore + '/100',
+      dimension_scores: dimScores,
+      source: 'ai-readiness-scorecard'
+    })
+  }).catch(err => console.log('Form submission error:', err));
+  
+  // Also store locally as backup
   const leads = JSON.parse(localStorage.getItem('dioval_scorecard_leads') || '[]');
   leads.push({ email, company, answers, timestamp: new Date().toISOString() });
   localStorage.setItem('dioval_scorecard_leads', JSON.stringify(leads));
-  
-  // Send email notification
-  const totalScore = calcTotal();
-  const subject = encodeURIComponent('Scorecard Lead: ' + (company || email) + ' - Score ' + totalScore + '/100');
-  const body = encodeURIComponent('Email: ' + email + '\nCompany: ' + company + '\nScore: ' + totalScore + '/100\n\nDimension Scores:\n' + 
-    dimensions.map(d => d.name + ': ' + dimensions[dimensions.findIndex(x => x.id === d.id)].options[answers[d.id]].score + '/12').join('\n'));
-  const mailLink = document.createElement('a');
-  mailLink.href = 'mailto:contact@dioval.com?subject=' + subject + '&body=' + body;
-  mailLink.click();
   
   document.getElementById('emailGate').classList.add('hidden');
   document.getElementById('resultsSection').classList.remove('hidden');
