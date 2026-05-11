@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Free AI Diagnostic | Dioval Group</title>
+    <meta name="description" content="Book a free 30-minute AI Production Diagnostic with Dioval Group. Get your Production Readiness Score across 8 dimensions and identify your top risks before deployment.">
+    <meta name="keywords" content="AI diagnostic, production readiness assessment, free AI consultation, enterprise AI audit, PRS score">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dioval.com/booking.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Book a Free AI Diagnostic | Dioval Group">
+    <meta property="og:description" content="Free 30-minute AI Production Diagnostic. Get your PRS score and identify top risks.">
+    <meta property="og:url" content="https://dioval.com/booking.html">
+    <meta property="og:site_name" content="Dioval Group">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Free AI Production Diagnostic",
+      "provider": {"@type": "Organization", "name": "Dioval Group", "url": "https://dioval.com"},
+      "description": "30-minute diagnostic scoring your AI infrastructure across 8 Production Readiness dimensions.",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7JKBJJES0V"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7JKBJJES0V');</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass { background: rgba(15,23,42,0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+        .glass-light { background: rgba(30,41,59,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+        .nav-link { position:relative; }
+        .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:#3b82f6; transition: width 0.3s ease; }
+        .nav-link:hover::after { width:100%; }
+        .btn-primary { background: linear-gradient(135deg, #2563eb, #1d4ed8); transition: all 0.3s ease; }
+        .btn-primary:hover { background: linear-gradient(135deg, #3b82f6, #2563eb); transform: translateY(-1px); box-shadow: 0 8px 25px rgba(37,99,235,0.4); }
+        .mobile-menu { display:none; }
+        .mobile-menu.open { display:block; }
+        .hero-grid { background-image: linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px); background-size: 60px 60px; }
+        .form-input { background: rgba(15,23,42,0.8); border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease; }
+        .form-input:focus { border-color: rgba(59,130,246,0.5); outline: none; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+        .time-slot { border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s ease; cursor: pointer; }
+        .time-slot:hover { border-color: rgba(59,130,246,0.5); background: rgba(37,99,235,0.1); }
+        .time-slot.selected { border-color: #2563eb; background: rgba(37,99,235,0.2); }
+        .success-msg { display: none; }
+        .success-msg.show { display: block; }
+        .form-container.hidden { display: none; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-300 antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen">
+
+<nav class="fixed w-full z-50 glass border-b border-slate-800/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
+        <div class="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <span class="text-2xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+      </a>
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="about.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">About</a>
+        <a href="audits.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Audits</a>
+        <a href="orchestration.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Orchestration</a>
+        <a href="compliance.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Compliance</a>
+        <a href="knowledge.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Knowledge Fabric</a>
+        <a href="books.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Books</a>
+        <a href="blog.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Blog</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm shadow-lg shadow-blue-500/20">Book an Audit</a>
+        <button class="lg:hidden text-slate-400 hover:text-white p-2" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu lg:hidden glass border-t border-slate-800/60">
+    <div class="px-4 py-6 space-y-4">
+      <a href="about.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">About</a>
+      <a href="audits.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Audits</a>
+      <a href="orchestration.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Orchestration</a>
+      <a href="compliance.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Compliance</a>
+      <a href="knowledge.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Knowledge Fabric</a>
+      <a href="books.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Books</a>
+      <a href="blog.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Blog</a>
+      <a href="contact.html" class="block btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm text-center mt-4">Book an Audit</a>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow pt-20">
+  <section class="hero-grid py-20 sm:py-28">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="mono text-blue-400 text-xs tracking-widest uppercase bg-blue-500/10 px-3 py-1 rounded-sm">Free - 30 Minutes</span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight mt-6 mb-4">AI Production Diagnostic</h1>
+        <p class="text-lg text-slate-400 max-w-2xl mx-auto">Get a quick Production Readiness Score across 8 dimensions. Identify your top risks before they become $3.8M mistakes.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12">
+        <!-- Left: What you get -->
+        <div>
+          <h2 class="text-xl font-bold text-white mb-6">What's Covered</h2>
+          
+          <div class="space-y-4">
+            <div class="glass-light rounded-sm p-4">
+              <div class="flex items-start gap-3">
+                <span class="mono text-blue-400 text-lg font-bold mt-0.5">01</span>
+                <div>
+                  <h3 class="text-white font-semibold text-sm">Quick PRS Assessment</h3>
+                  <p class="text-slate-400 text-sm mt-1">Score your AI systems across 8 production readiness dimensions: accuracy, cost, security, reliability, observability, human-in-loop, scalability, compliance.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="glass-light rounded-sm p-4">
+              <div class="flex items-start gap-3">
+                <span class="mono text-blue-400 text-lg font-bold mt-0.5">02</span>
+                <div>
+                  <h3 class="text-white font-semibold text-sm">Top 3 Risk Identification</h3>
+                  <p class="text-slate-400 text-sm mt-1">Pinpoint the three highest-priority production risks based on our experience auditing Fortune 500 AI deployments.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="glass-light rounded-sm p-4">
+              <div class="flex items-start gap-3">
+                <span class="mono text-blue-400 text-lg font-bold mt-0.5">03</span>
+                <div>
+                  <h3 class="text-white font-semibold text-sm">Actionable Next Steps</h3>
+                  <p class="text-slate-400 text-sm mt-1">Walk away with a concrete remediation priority list - whether you work with us or handle it internally.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-8 glass-light rounded-sm p-4">
+            <p class="text-sm text-slate-400"><strong class="text-white">No commitment.</strong> No pitch. Worst case, you walk away with a useful framework for evaluating your agent deployments. Best case, you avoid a $3.8M mistake.</p>
+          </div>
+          
+          <div class="mt-6 grid grid-cols-3 gap-4 text-center">
+            <div>
+              <p class="mono text-2xl font-black text-white">30</p>
+              <p class="text-xs text-slate-500">Minutes</p>
+            </div>
+            <div>
+              <p class="mono text-2xl font-black text-white">8</p>
+              <p class="text-xs text-slate-500">PRS Dimensions</p>
+            </div>
+            <div>
+              <p class="mono text-2xl font-black text-white">$0</p>
+              <p class="text-xs text-slate-500">Cost</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Booking form -->
+        <div>
+          <div id="formContainer" class="form-container glass-light rounded-sm p-8">
+            <h2 class="text-xl font-bold text-white mb-2">Book Your Diagnostic</h2>
+            <p class="text-sm text-slate-400 mb-6">Fill out the form and we'll confirm a time within 24 hours.</p>
+            
+            <form id="bookingForm" onsubmit="handleBooking(event)">
+              <div class="mb-4">
+                <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">Full Name *</label>
+                <input type="text" name="name" required placeholder="Your name" class="form-input w-full px-4 py-3 rounded-sm text-white text-sm placeholder-slate-600">
+              </div>
+              <div class="mb-4">
+                <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">Work Email *</label>
+                <input type="email" name="email" required placeholder="you@company.com" class="form-input w-full px-4 py-3 rounded-sm text-white text-sm placeholder-slate-600">
+              </div>
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">Company *</label>
+                  <input type="text" name="company" required placeholder="Company name" class="form-input w-full px-4 py-3 rounded-sm text-white text-sm placeholder-slate-600">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">Role</label>
+                  <select name="role" class="form-input w-full px-4 py-3 rounded-sm text-white text-sm">
+                    <option value="" class="bg-slate-900">Select role</option>
+                    <option value="vp-ai" class="bg-slate-900">VP / Head of AI</option>
+                    <option value="cto" class="bg-slate-900">CTO / VP Engineering</option>
+                    <option value="engineer" class="bg-slate-900">AI / ML Engineer</option>
+                    <option value="architect" class="bg-slate-900">Solution Architect</option>
+                    <option value="compliance" class="bg-slate-900">Compliance / Risk</option>
+                    <option value="other" class="bg-slate-900">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mb-4">
+                <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">Preferred Time</label>
+                <select name="time_preference" class="form-input w-full px-4 py-3 rounded-sm text-white text-sm">
+                  <option value="morning" class="bg-slate-900">Morning (9 AM - 12 PM ET)</option>
+                  <option value="afternoon" class="bg-slate-900">Afternoon (1 PM - 5 PM ET)</option>
+                  <option value="flexible" class="bg-slate-900">Flexible</option>
+                </select>
+              </div>
+              <div class="mb-6">
+                <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">Tell us briefly about your AI deployment</label>
+                <textarea name="description" rows="3" placeholder="e.g., We have 3 agents in production handling customer support, seeing cost issues..." class="form-input w-full px-4 py-3 rounded-sm text-white text-sm placeholder-slate-600 resize-none"></textarea>
+              </div>
+              <button type="submit" class="btn-primary w-full text-white px-6 py-4 rounded-sm font-bold text-sm shadow-lg shadow-blue-500/20">
+                Book Free Diagnostic →
+              </button>
+            </form>
+          </div>
+          
+          <div id="successMsg" class="success-msg glass-light rounded-sm p-8 text-center">
+            <div class="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <h2 class="text-xl font-bold text-white mb-2">You're Booked!</h2>
+            <p class="text-sm text-slate-400 mb-4">We'll confirm your time slot within 24 hours via email.</p>
+            <p class="text-sm text-slate-400 mb-6">In the meantime, grab the free chapter from our book series:</p>
+            <a href="free-chapter.html" class="btn-primary inline-block text-white px-6 py-3 rounded-sm font-bold text-sm shadow-lg shadow-blue-500/20">Download Free Chapter →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-slate-950 border-t border-slate-800 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 bg-blue-600 rounded-sm flex items-center justify-center">
+        <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <span class="text-xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+    </div>
+    <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+      <a href="about.html" class="hover:text-white transition">About</a>
+      <a href="audits.html" class="hover:text-white transition">Audits</a>
+      <a href="books.html" class="hover:text-white transition">Books</a>
+      <a href="blog.html" class="hover:text-white transition">Blog</a>
+      <a href="contact.html" class="hover:text-white transition">Contact</a>
+      <span>&copy; 2026 Dioval Group. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function handleBooking(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+  
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'booking_request', {
+      'event_category': 'lead_gen',
+      'event_label': 'free_diagnostic',
+      'company': data.get('company'),
+      'role': data.get('role')
+    });
+  }
+  
+  // Store booking (replace with email service / Formspree)
+  const bookings = JSON.parse(localStorage.getItem('dioval_bookings') || '[]');
+  bookings.push({
+    name: data.get('name'),
+    email: data.get('email'),
+    company: data.get('company'),
+    role: data.get('role'),
+    time_preference: data.get('time_preference'),
+    description: data.get('description'),
+    timestamp: new Date().toISOString()
+  });
+  localStorage.setItem('dioval_bookings', JSON.stringify(bookings));
+  
+  // Also send via mailto as fallback
+  const subject = encodeURIComponent('AI Diagnostic Booking - ' + data.get('company'));
+  const body = encodeURIComponent(
+    'Name: ' + data.get('name') + '\\n' +
+    'Email: ' + data.get('email') + '\\n' +
+    'Company: ' + data.get('company') + '\\n' +
+    'Role: ' + data.get('role') + '\\n' +
+    'Preferred Time: ' + data.get('time_preference') + '\\n' +
+    'Description: ' + data.get('description')
+  );
+  
+  // Send email notification
+  const mailLink = document.createElement('a');
+  mailLink.href = 'mailto:contact@dioval.com?subject=' + subject + '&body=' + body;
+  mailLink.click();
+  
+  document.getElementById('formContainer').classList.add('hidden');
+  document.getElementById('successMsg').classList.add('show');
+}
+</script>
+
+</body>
+</html>
