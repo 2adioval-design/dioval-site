@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Agentic AI Professional Series — 7-Volume Enterprise AI Library | Dioval Group</title>
+    <meta name="description" content="The definitive 7-volume reference library for enterprise AI: production-grade agents, multi-agent orchestration, compliance architecture, knowledge systems, and frontier theory. By Aurelio Dioval.">
+    <meta name="keywords" content="agentic AI book, enterprise AI book, AI production book, multi-agent orchestration book, AI compliance book, AI consulting, SR 11-7 AI, A2A protocol book, GraphRAG book">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="https://dioval.com/books.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="The Agentic AI Professional Series — 7-Volume Enterprise AI Library">
+    <meta property="og:description" content="139,000+ words of production-tested enterprise AI knowledge. The reference library Fortune 500 AI teams wish existed.">
+    <meta property="og:url" content="https://dioval.com/books.html">
+    <meta property="og:site_name" content="Dioval Group">
+    <meta property="og:image" content="https://dioval.com/og-image.svg">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Agentic AI Professional Series — 7-Volume Enterprise AI Library">
+    <meta name="twitter:description" content="139,000+ words of production-tested enterprise AI knowledge. The reference library Fortune 500 AI teams wish existed.">
+    <link rel="alternate" hreflang="en" href="https://dioval.com/books.html">
+    <link rel="alternate" hreflang="x-default" href="https://dioval.com/books.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BookSeries",
+      "name": "Agentic AI Professional Series",
+      "author": {"@type": "Person", "name": "Aurelio Dioval"},
+      "publisher": {"@type": "Organization", "name": "Dioval Group", "url": "https://dioval.com"},
+      "numberOfBooks": 7,
+      "description": "The definitive 7-volume reference library for enterprise AI teams. Covers production-grade agents, multi-agent orchestration, compliance architecture, and knowledge systems.",
+      "hasPart": [
+        {"@type": "Book", "name": "Agentic AI Vol I: Foundations — From First Principles to Consulting Readiness", "position": 1, "author": {"@type": "Person", "name": "Aurelio Dioval"}},
+        {"@type": "Book", "name": "Agentic AI Vol II: Engineering Production-Grade Agents", "position": 2, "author": {"@type": "Person", "name": "Aurelio Dioval"}},
+        {"@type": "Book", "name": "Agentic AI Vol III: Advanced Architectures and Multi-Agent Systems", "position": 3, "author": {"@type": "Person", "name": "Aurelio Dioval"}},
+        {"@type": "Book", "name": "Agentic AI Vol IV: The Frontier Theory — Philosophy and Deep Intelligence", "position": 4, "author": {"@type": "Person", "name": "Aurelio Dioval"}},
+        {"@type": "Book", "name": "Agentic AI Vol V: The Multi-Agent Orchestration Handbook — A2A Protocols", "position": 5, "author": {"@type": "Person", "name": "Aurelio Dioval"}},
+        {"@type": "Book", "name": "Agentic AI Vol VI: AI-First Knowledge Orchestration — Agent-Ready Documentation", "position": 6, "author": {"@type": "Person", "name": "Aurelio Dioval"}},
+        {"@type": "Book", "name": "Agentic AI Vol VII: Engineering for the 2026 Regulatory Wave — Automated Compliance", "position": 7, "author": {"@type": "Person", "name": "Aurelio Dioval"}}
+      ]
+    }
+    </script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7JKBJJES0V"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7JKBJJES0V');
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass { background: rgba(15,23,42,0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+        .glass-light { background: rgba(30,41,59,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+        .gradient-text { background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .nav-link { position:relative; }
+        .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:#3b82f6; transition: width 0.3s ease; }
+        .nav-link:hover::after { width:100%; }
+        .btn-primary { background: linear-gradient(135deg, #2563eb, #1d4ed8); transition: all 0.3s ease; }
+        .btn-primary:hover { background: linear-gradient(135deg, #3b82f6, #2563eb); transform: translateY(-1px); box-shadow: 0 8px 25px rgba(37,99,235,0.4); }
+        .btn-secondary { border: 1px solid rgba(59,130,246,0.4); transition: all 0.3s ease; }
+        .btn-secondary:hover { background: rgba(59,130,246,0.1); border-color: rgba(59,130,246,0.7); transform: translateY(-1px); }
+        .mobile-menu { display:none; }
+        .mobile-menu.open { display:block; }
+        .book-card { transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.06); }
+        .book-card:hover { transform: translateY(-4px); border-color: rgba(59,130,246,0.3); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+        .hero-grid { background-image: linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px); background-size: 60px 60px; }
+        .vol-badge { background: linear-gradient(135deg, #2563eb, #1e40af); }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-300 antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen">
+
+<nav class="fixed w-full z-50 glass border-b border-slate-800/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
+        <div class="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <span class="text-2xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+      </a>
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="about.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">About</a>
+        <a href="audits.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Audits</a>
+        <a href="orchestration.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Orchestration</a>
+        <a href="compliance.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Compliance</a>
+        <a href="knowledge.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Knowledge Fabric</a>
+        <a href="books.html" class="nav-link text-sm font-semibold text-white">Books</a>
+        <a href="blog.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Blog</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm shadow-lg shadow-blue-500/20">Book an Audit</a>
+        <button class="lg:hidden text-slate-400 hover:text-white p-2" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu lg:hidden glass border-t border-slate-800/60">
+    <div class="px-4 py-6 space-y-4">
+      <a href="about.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">About</a>
+      <a href="audits.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Audits</a>
+      <a href="orchestration.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Orchestration</a>
+      <a href="compliance.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Compliance</a>
+      <a href="knowledge.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Knowledge Fabric</a>
+      <a href="books.html" class="block text-sm font-semibold text-white py-2">Books</a>
+      <a href="blog.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Blog</a>
+      <a href="contact.html" class="block btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm text-center mt-4">Book an Audit</a>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow pt-20">
+
+  <!-- Hero -->
+  <section class="hero-grid py-20 sm:py-28 border-b border-slate-800/60">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="mono text-blue-400 text-xs tracking-widest uppercase mb-6">The Agentic AI Professional Series</p>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight mb-6">The Reference Library<br>F500 AI Teams Wish Existed</h1>
+      <p class="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto mb-10">7 volumes. 139,000+ words. 557 pages. Written by Aurelio Dioval — the architect behind enterprise AI systems that survive production.</p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        <a href="#volumes" class="btn-primary text-white px-8 py-4 rounded-sm font-bold text-base shadow-lg shadow-blue-500/20">Explore the Series ↓</a>
+        <a href="#enterprise" class="btn-secondary text-blue-400 px-8 py-4 rounded-sm font-bold text-base">Enterprise Licensing →</a>
+      </div>
+
+      <!-- Stats bar -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl mx-auto pt-8 border-t border-slate-800/60">
+        <div>
+          <p class="mono text-2xl sm:text-3xl font-black text-white">7</p>
+          <p class="text-xs text-slate-500 mt-1">Volumes</p>
+        </div>
+        <div>
+          <p class="mono text-2xl sm:text-3xl font-black text-white">557</p>
+          <p class="text-xs text-slate-500 mt-1">Pages</p>
+        </div>
+        <div>
+          <p class="mono text-2xl sm:text-3xl font-black text-white">94+</p>
+          <p class="text-xs text-slate-500 mt-1">Case Studies & Frameworks</p>
+        </div>
+        <div>
+          <p class="mono text-2xl sm:text-3xl font-black text-white">$100M+</p>
+          <p class="text-xs text-slate-500 mt-1">Failures Analyzed</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who It's For -->
+  <section class="py-16 border-b border-slate-800/40">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-3 gap-8">
+        <div class="glass-light rounded-sm p-6">
+          <p class="mono text-blue-400 text-xs tracking-widest mb-3">FOR AI LEADERS</p>
+          <p class="text-slate-300 text-sm leading-relaxed">VPs of AI, CTOs, and Heads of Engineering deploying agents at scale. Use as a strategic playbook for production readiness decisions.</p>
+        </div>
+        <div class="glass-light rounded-sm p-6">
+          <p class="mono text-emerald-400 text-xs tracking-widest mb-3">FOR ENGINEERING TEAMS</p>
+          <p class="text-slate-300 text-sm leading-relaxed">AI/ML engineers and solution architects building multi-agent systems. Use as a technical reference for architecture, orchestration, and governance patterns.</p>
+        </div>
+        <div class="glass-light rounded-sm p-6">
+          <p class="mono text-amber-400 text-xs tracking-widest mb-3">FOR COMPLIANCE & RISK</p>
+          <p class="text-slate-300 text-sm leading-relaxed">GRC teams, model risk officers, and compliance architects navigating SR 11-7, EU AI Act, and SEC rules for AI agent deployments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Volume Grid -->
+  <section id="volumes" class="py-20 sm:py-28">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="mono text-blue-400 text-xs tracking-widest uppercase mb-4 text-center">The Complete Series</p>
+      <h2 class="text-3xl sm:text-4xl font-black text-white text-center mb-16">7 Volumes. Every Dimension of Enterprise AI.</h2>
+
+      <!-- Vol I -->
+      <div class="book-card glass-light rounded-sm p-8 mb-8">
+        <div class="flex flex-col sm:flex-row gap-6">
+          <div class="flex-shrink-0">
+            <div class="vol-badge w-16 h-16 rounded-sm flex items-center justify-center">
+              <span class="mono text-white font-bold text-lg">I</span>
+            </div>
+          </div>
+          <div class="flex-grow">
+            <p class="mono text-blue-400 text-xs tracking-widest mb-2">VOLUME I · 72 PAGES</p>
+            <h3 class="text-xl font-bold text-white mb-3">Foundations: From First Principles to Consulting Readiness</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">The complete intellectual foundation. Agent taxonomy, the PEAS framework, LLM-based agent architecture, memory systems, and the consulting playbooks that turn technical knowledge into $250–$500/hour engagements.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">Agent Architecture</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">PEAS Framework</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">LLM Agents</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">Consulting Readiness</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vol II -->
+      <div class="book-card glass-light rounded-sm p-8 mb-8">
+        <div class="flex flex-col sm:flex-row gap-6">
+          <div class="flex-shrink-0">
+            <div class="vol-badge w-16 h-16 rounded-sm flex items-center justify-center">
+              <span class="mono text-white font-bold text-lg">II</span>
+            </div>
+          </div>
+          <div class="flex-grow">
+            <p class="mono text-blue-400 text-xs tracking-widest mb-2">VOLUME II · 92 PAGES</p>
+            <h3 class="text-xl font-bold text-white mb-3">Engineering Production-Grade Agents</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">Opens with a $3.8M Fortune 500 agent failure dissected across six dimensions. Covers the production gap, the four betrayals of real-world data, circuit breakers, loop detection, and why 89% of agent POCs never survive deployment.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">Production Gap</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">Circuit Breakers</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">Loop Detection</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">Failure Analysis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vol III -->
+      <div class="book-card glass-light rounded-sm p-8 mb-8">
+        <div class="flex flex-col sm:flex-row gap-6">
+          <div class="flex-shrink-0">
+            <div class="vol-badge w-16 h-16 rounded-sm flex items-center justify-center">
+              <span class="mono text-white font-bold text-lg">III</span>
+            </div>
+          </div>
+          <div class="flex-grow">
+            <p class="mono text-blue-400 text-xs tracking-widest mb-2">VOLUME III · 80 PAGES</p>
+            <h3 class="text-xl font-bold text-white mb-3">Advanced Architectures and Multi-Agent Systems</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">A $14M investment bank agent failure case study. Seven agents, zero coordination. Covers hierarchical architectures, shared state management, agent conflict resolution, and the unified orchestration pattern that prevents multi-agent chaos.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">Multi-Agent Systems</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">Hierarchical Architecture</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">State Management</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">Conflict Resolution</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vol IV -->
+      <div class="book-card glass-light rounded-sm p-8 mb-8">
+        <div class="flex flex-col sm:flex-row gap-6">
+          <div class="flex-shrink-0">
+            <div class="vol-badge w-16 h-16 rounded-sm flex items-center justify-center">
+              <span class="mono text-white font-bold text-lg">IV</span>
+            </div>
+          </div>
+          <div class="flex-grow">
+            <p class="mono text-blue-400 text-xs tracking-widest mb-2">VOLUME IV · 65 PAGES</p>
+            <h3 class="text-xl font-bold text-white mb-3">The Frontier Theory: Philosophy and Deep Intelligence</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">The theoretical foundations that separate consultants who understand AI from those who merely deploy it. Dennett's Intentional Stance, Searle's Chinese Room, Friston's Free Energy Principle, AIXI, Solomonoff Induction, and Kolmogorov Complexity — applied to real agent design.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">AIXI</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">Free Energy Principle</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">Agent Theory</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">Philosophy of AI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vol V -->
+      <div class="book-card glass-light rounded-sm p-8 mb-8">
+        <div class="flex flex-col sm:flex-row gap-6">
+          <div class="flex-shrink-0">
+            <div class="vol-badge w-16 h-16 rounded-sm flex items-center justify-center">
+              <span class="mono text-white font-bold text-lg">V</span>
+            </div>
+          </div>
+          <div class="flex-grow">
+            <p class="mono text-blue-400 text-xs tracking-widest mb-2">VOLUME V · 49 PAGES</p>
+            <h3 class="text-xl font-bold text-white mb-3">The Multi-Agent Orchestration Handbook: A2A Protocols</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">The $23M logistics failure — nine agents, zero coordination, trucks booked twice, phantom invoices, and customers notified three times about the same problem. Covers A2A protocols, the Agent Sprawl Cost Formula, and production-grade orchestration architecture.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">A2A Protocols</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">Agent Sprawl</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">Cost Formula</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">Logistics AI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vol VI -->
+      <div class="book-card glass-light rounded-sm p-8 mb-8">
+        <div class="flex flex-col sm:flex-row gap-6">
+          <div class="flex-shrink-0">
+            <div class="vol-badge w-16 h-16 rounded-sm flex items-center justify-center">
+              <span class="mono text-white font-bold text-lg">VI</span>
+            </div>
+          </div>
+          <div class="flex-grow">
+            <p class="mono text-blue-400 text-xs tracking-widest mb-2">VOLUME VI · 115 PAGES</p>
+            <h3 class="text-xl font-bold text-white mb-3">AI-First Knowledge Orchestration: Agent-Ready Documentation Systems</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">The $31M dark knowledge problem at MeridianHealth — twelve agents, zero findable knowledge. Covers GraphRAG, Neo4j-powered knowledge graphs, layout-aware document parsing, SHA-256 change detection, semantic retrieval architecture, and knowledge freshness governance.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">GraphRAG</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">Knowledge Graphs</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">Neo4j</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">Document Systems</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vol VII -->
+      <div class="book-card glass-light rounded-sm p-8 mb-8">
+        <div class="flex flex-col sm:flex-row gap-6">
+          <div class="flex-shrink-0">
+            <div class="vol-badge w-16 h-16 rounded-sm flex items-center justify-center">
+              <span class="mono text-white font-bold text-lg">VII</span>
+            </div>
+          </div>
+          <div class="flex-grow">
+            <p class="mono text-blue-400 text-xs tracking-widest mb-2">VOLUME VII · 82 PAGES</p>
+            <h3 class="text-xl font-bold text-white mb-3">Engineering for the 2026 Regulatory Wave: Automated Compliance Architecture</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">The $47M compliance blindspot. Covers every regulation that matters: EU AI Act risk tiers, SR 11-7 for LLMs, SEC Rule 17a-4, HIPAA/FDA, state-level AI laws, and the enforcement reality of 2025–2026. Includes the complete compliance middleware architecture and consulting playbooks.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">EU AI Act</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">SR 11-7</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">SEC Rule 17a-4</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded">Compliance Middleware</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="enterprise" class="py-20 sm:py-28 border-t border-slate-800/60">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="mono text-blue-400 text-xs tracking-widest uppercase mb-4 text-center">Pricing</p>
+      <h2 class="text-3xl sm:text-4xl font-black text-white text-center mb-16">Individual or Enterprise</h2>
+      
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Individual Volume -->
+        <div class="glass-light rounded-sm p-8 flex flex-col">
+          <p class="mono text-slate-400 text-xs tracking-widest mb-4">INDIVIDUAL VOLUME</p>
+          <div class="mb-6">
+            <span class="text-4xl font-black text-white">$49</span>
+            <span class="text-slate-500 ml-2">per volume</span>
+          </div>
+          <ul class="text-sm text-slate-400 space-y-3 mb-8 flex-grow">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              <span>Full volume PDF</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              <span>Case studies & frameworks</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              <span>Consulting playbooks</span>
+            </li>
+          </ul>
+          <a href="contact.html" class="btn-secondary text-blue-400 px-6 py-3 rounded-sm font-bold text-sm text-center">Buy Volume →</a>
+        </div>
+        
+        <!-- Complete Series -->
+        <div class="glass-light rounded-sm p-8 flex flex-col relative ring-2 ring-blue-500/40">
+          <div class="absolute -top-3 left-6 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-sm">BEST VALUE</div>
+          <p class="mono text-blue-400 text-xs tracking-widest mb-4">COMPLETE SERIES</p>
+          <div class="mb-6">
+            <span class="text-4xl font-black text-white">$249</span>
+            <span class="text-slate-500 ml-2">all 7 volumes</span>
+          </div>
+          <ul class="text-sm text-slate-400 space-y-3 mb-8 flex-grow">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              <span>All 7 volumes (557 pages)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              <span>Save $94 vs. individual</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              <span>Future volumes included free</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              <span>30-min strategy call with author</span>
+            </li>
+          </ul>
+          <a href="contact.html" class="btn-primary text-white px-6 py-3 rounded-sm font-bold text-sm text-center shadow-lg shadow-blue-500/20">Get the Series →</a>
+        </div>
+        
+        <!-- Enterprise License -->
+        <div class="glass-light rounded-sm p-8 flex flex-col sm:col-span-2 lg:col-span-1">
+          <p class="mono text-emerald-400 text-xs tracking-widest mb-4">ENTERPRISE LICENSE</p>
+          <div class="mb-6">
+            <span class="text-4xl font-black text-white">$2,500</span>
+            <span class="text-slate-500 ml-2">per year</span>
+          </div>
+          <ul class="text-sm text-slate-400 space-y-3 mb-8 flex-grow">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              <span>Unlimited team access (up to 50 seats)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              <span>All current + future volumes</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              <span>Internal training use license</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              <span>Quarterly author briefing (90 min)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              <span>Priority access to consulting</span>
+            </li>
+          </ul>
+          <a href="contact.html" class="btn-secondary text-emerald-400 px-6 py-3 rounded-sm font-bold text-sm text-center border-emerald-500/40 hover:border-emerald-500/70 hover:bg-emerald-500/10">Contact for Enterprise →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Consulting Bridge -->
+  <section class="py-20 sm:py-28 border-t border-slate-800/60 hero-grid">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="mono text-blue-400 text-xs tracking-widest uppercase mb-6">Books + Consulting</p>
+      <h2 class="text-3xl sm:text-4xl font-black text-white mb-6">The Books Teach the Framework.<br>We Implement It.</h2>
+      <p class="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">Every architecture, framework, and playbook in these volumes is what we deploy at Fortune 500 companies. The books give your team the knowledge. Our consulting gives you the execution.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="audits.html" class="btn-primary text-white px-8 py-4 rounded-sm font-bold text-base shadow-lg shadow-blue-500/20">$25K Production Readiness Audit →</a>
+        <a href="managed-services.html" class="btn-secondary text-blue-400 px-8 py-4 rounded-sm font-bold text-base">$15K/mo Managed Operations →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-slate-950 border-t border-slate-800 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 bg-blue-600 rounded-sm flex items-center justify-center">
+        <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <span class="text-xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+    </div>
+    <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+      <a href="about.html" class="hover:text-white transition">About</a>
+      <a href="audits.html" class="hover:text-white transition">Audits</a>
+      <a href="books.html" class="hover:text-white transition">Books</a>
+      <a href="blog.html" class="hover:text-white transition">Blog</a>
+      <a href="cases.html" class="hover:text-white transition">Case Studies</a>
+      <a href="contact.html" class="hover:text-white transition">Contact</a>
+      <span>&copy; 2026 Dioval Group. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
