@@ -2,6 +2,9 @@
 <html lang="en" class="scroll-smooth">
 <head>
 <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Case Studies | Dioval Group - The Cost of Inaction</title>
     <meta name="description" content="Real enterprise AI failure case studies: $47M compliance blindspot, $23M coordination crisis, $31M dark knowledge problem. Learn from the cost of inaction.">
@@ -352,6 +355,91 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- How PRS Prevents These Failures -->
+  <section class="py-16 sm:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="mono text-blue-400 text-xs tracking-widest uppercase bg-blue-500/10 px-3 py-1 rounded-sm">The Fix</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mt-6 mb-4">What Our PRS Audit Would Have Caught</h2>
+        <p class="text-slate-400 max-w-2xl mx-auto">Every failure above maps directly to a PRS dimension. Here's the before and after.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <div class="glass-light rounded-sm p-6 border-t-2 border-red-400">
+          <div class="mono text-xs text-red-400 mb-3">$47M COMPLIANCE FAILURE</div>
+          <h3 class="text-white font-bold mb-3">PRS Fix: Compliance-Native Architecture</h3>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> No audit trail for AI decisions</li>
+            <li class="flex gap-2"><span class="text-emerald-400">&#10003;</span> Immutable decision logs with full provenance</li>
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> No model validation framework</li>
+            <li class="flex gap-2"><span class="text-emerald-400">&#10003;</span> Continuous model monitoring with drift detection</li>
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> No regulatory mapping</li>
+            <li class="flex gap-2"><span class="text-emerald-400">&#10003;</span> SR 11-7 / EU AI Act compliance checks built into CI/CD</li>
+          </ul>
+          <div class="mt-4 pt-4 border-t border-slate-700">
+            <div class="text-xs text-slate-500">Estimated prevention cost:</div>
+            <div class="mono text-lg font-bold text-emerald-400">$85K</div>
+            <div class="text-xs text-slate-500">vs. $47M remediation</div>
+          </div>
+        </div>
+
+        <div class="glass-light rounded-sm p-6 border-t-2 border-orange-400">
+          <div class="mono text-xs text-orange-400 mb-3">$23M COORDINATION FAILURE</div>
+          <h3 class="text-white font-bold mb-3">PRS Fix: Orchestration Layer</h3>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> Agents operating independently</li>
+            <li class="flex gap-2"><span class="text-emerald-400">&#10003;</span> Centralized orchestration with conflict resolution</li>
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> No shared state</li>
+            <li class="flex gap-2"><span class="text-emerald-400">&#10003;</span> Shared state bus with optimistic locking</li>
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> Manual reconciliation</li>
+            <li class="flex gap-2"><span class="text-emerald-400">&#10003;</span> Automated conflict detection and resolution</li>
+          </ul>
+          <div class="mt-4 pt-4 border-t border-slate-700">
+            <div class="text-xs text-slate-500">Estimated prevention cost:</div>
+            <div class="mono text-lg font-bold text-emerald-400">$120K</div>
+            <div class="text-xs text-slate-500">vs. $23M/year ongoing</div>
+          </div>
+        </div>
+
+        <div class="glass-light rounded-sm p-6 border-t-2 border-yellow-400">
+          <div class="mono text-xs text-yellow-400 mb-3">$31M KNOWLEDGE FAILURE</div>
+          <h3 class="text-white font-bold mb-3">PRS Fix: Knowledge Freshness Layer</h3>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> No change detection on source docs</li>
+            <li class="flex gap-2"><span class="text-emerald-400">&#10003;</span> SHA-256 fingerprinting with auto re-ingestion</li>
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> Flat vector store with no metadata</li>
+            <li class="flex gap-2"><span class="text-emerald-400">&#10003;</span> GraphRAG with temporal awareness</li>
+            <li class="flex gap-2"><span class="text-red-400">&#10007;</span> No staleness alerts</li>
+            <li class="flex gap-2"><span class="text-emerald-400">&#10003;</span> Automated staleness quarantine + team alerts</li>
+          </ul>
+          <div class="mt-4 pt-4 border-t border-slate-700">
+            <div class="text-xs text-slate-500">Estimated prevention cost:</div>
+            <div class="mono text-lg font-bold text-emerald-400">$95K</div>
+            <div class="text-xs text-slate-500">vs. $31M remediation</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-12 glass-light rounded-sm p-8 border border-blue-500/20">
+        <div class="mono text-xs text-blue-400 tracking-widest uppercase mb-3">Total Cost of Prevention vs. Failure</div>
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+          <div>
+            <div class="mono text-3xl font-black text-emerald-400">$300K</div>
+            <div class="text-sm text-slate-400">PRS Audit + Remediation</div>
+          </div>
+          <div class="text-2xl text-slate-600">vs.</div>
+          <div>
+            <div class="mono text-3xl font-black text-red-400">$101M</div>
+            <div class="text-sm text-slate-400">Combined Failure Cost</div>
+          </div>
+        </div>
+        <div class="text-slate-500 text-sm mt-4">337x return on investment. The math is not close.</div>
       </div>
     </div>
   </section>
