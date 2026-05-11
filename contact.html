@@ -91,10 +91,6 @@
       <div class="hidden lg:flex items-center space-x-8">
         <a href="about.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">About</a>
         <a href="audits.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Audits</a>
-        <a href="orchestration.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Orchestration</a>
-        <a href="compliance.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Compliance</a>
-        <a href="knowledge.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Knowledge Fabric</a>
-        <a href="managed-services.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Managed Ops</a>
         <a href="cases.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Case Studies</a>
         <a href="books.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Books</a>
         <a href="pricing.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Pricing</a>
@@ -113,10 +109,6 @@
     <div class="px-4 py-6 space-y-4">
       <a href="about.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">About</a>
       <a href="audits.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Audits</a>
-      <a href="orchestration.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Orchestration</a>
-      <a href="compliance.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Compliance</a>
-      <a href="knowledge.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Knowledge Fabric</a>
-      <a href="managed-services.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Managed Ops</a>
       <a href="cases.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Case Studies</a>
       <a href="books.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Books</a>
       <a href="pricing.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Pricing</a>
@@ -189,28 +181,28 @@
               <div class="grid md:grid-cols-2 gap-6">
                 <div>
                   <label class="block mono text-xs text-slate-400 mb-2 font-bold tracking-widest uppercase">First Name</label>
-                  <input type="text" required placeholder="Jane" class="form-input w-full px-4 py-3 rounded-sm text-white">
+                  <input type="text" name="firstName" required placeholder="Jane" class="form-input w-full px-4 py-3 rounded-sm text-white">
                 </div>
                 <div>
                   <label class="block mono text-xs text-slate-400 mb-2 font-bold tracking-widest uppercase">Last Name</label>
-                  <input type="text" required placeholder="Smith" class="form-input w-full px-4 py-3 rounded-sm text-white">
+                  <input type="text" name="lastName" required placeholder="Smith" class="form-input w-full px-4 py-3 rounded-sm text-white">
                 </div>
               </div>
 
               <div>
                 <label class="block mono text-xs text-slate-400 mb-2 font-bold tracking-widest uppercase">Corporate Email</label>
-                <input type="email" required placeholder="jane.smith@enterprise.com" class="form-input w-full px-4 py-3 rounded-sm text-white">
+                <input type="email" name="email" required placeholder="jane.smith@enterprise.com" class="form-input w-full px-4 py-3 rounded-sm text-white">
                 <p class="text-xs text-slate-600 mt-1">We do not accept free email providers (Gmail, Outlook.com, etc.)</p>
               </div>
 
               <div class="grid md:grid-cols-2 gap-6">
                 <div>
                   <label class="block mono text-xs text-slate-400 mb-2 font-bold tracking-widest uppercase">Title</label>
-                  <input type="text" required placeholder="CTO / Chief Risk Officer" class="form-input w-full px-4 py-3 rounded-sm text-white">
+                  <input type="text" name="title" required placeholder="CTO / Chief Risk Officer" class="form-input w-full px-4 py-3 rounded-sm text-white">
                 </div>
                 <div>
                   <label class="block mono text-xs text-slate-400 mb-2 font-bold tracking-widest uppercase">Company</label>
-                  <input type="text" required placeholder="Enterprise Co." class="form-input w-full px-4 py-3 rounded-sm text-white">
+                  <input type="text" name="company" required placeholder="Enterprise Co." class="form-input w-full px-4 py-3 rounded-sm text-white">
                 </div>
               </div>
 
@@ -258,7 +250,7 @@
 
               <div>
                 <label class="block mono text-xs text-slate-400 mb-2 font-bold tracking-widest uppercase">Describe Your Situation (Optional)</label>
-                <textarea rows="4" placeholder="What's breaking? What's the cost? What have you already tried?" class="form-input w-full px-4 py-3 rounded-sm text-white resize-none"></textarea>
+                <textarea rows="4" name="situation" placeholder="What's breaking? What's the cost? What have you already tried?" class="form-input w-full px-4 py-3 rounded-sm text-white resize-none"></textarea>
               </div>
 
               <div>
@@ -428,10 +420,52 @@
 <script>
 function handleSubmit(e) {
   e.preventDefault();
-  document.getElementById('formContainer').classList.add('hidden');
-  document.getElementById('successState').classList.remove('hidden');
-  document.getElementById('successState').classList.add('checkmark-anim');
-  window.scrollTo({ top: document.getElementById('successState').offsetTop - 100, behavior: 'smooth' });
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+
+  // Collect form data
+  const data = {
+    _subject: 'New Audit Request from dioval.com',
+    firstName: form.firstName.value,
+    lastName: form.lastName.value,
+    email: form.email.value,
+    title: form.title.value,
+    company: form.company.value,
+    industry: form.industry.value,
+    challenge: form.challenge.value,
+    agents: form.agents.value,
+    situation: form.situation.value,
+    auditType: form.auditType.value,
+    _template: 'table'
+  };
+
+  fetch('https://formsubmit.co/ajax/contact@dioval.com', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(result => {
+    // Track in GA
+    if (typeof gtag === 'function') {
+      gtag('event', 'contact_form_submit', {
+        event_category: 'lead',
+        event_label: data.auditType,
+        value: 1
+      });
+    }
+    document.getElementById('formContainer').classList.add('hidden');
+    document.getElementById('successState').classList.remove('hidden');
+    document.getElementById('successState').classList.add('checkmark-anim');
+    window.scrollTo({ top: document.getElementById('successState').offsetTop - 100, behavior: 'smooth' });
+  })
+  .catch(error => {
+    btn.disabled = false;
+    btn.textContent = 'Request Executive Briefing \u2192';
+    alert('Something went wrong. Please email contact@dioval.com directly.');
+  });
 }
 </script>
 </body>

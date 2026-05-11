@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Your Purchase | Dioval Group</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7JKBJJES0V"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7JKBJJES0V');
+      // Track purchase completion
+      gtag('event', 'purchase_complete', { event_category: 'ecommerce', event_label: 'book_delivery' });
+    </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Inter', sans-serif; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .glass { background: rgba(15,23,42,0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+  .glass-light { background: rgba(30,41,59,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+  .gradient-text { background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-grid { background-image: linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px); background-size: 60px 60px; }
+  .btn-primary { background: linear-gradient(135deg, #2563eb, #1d4ed8); transition: all 0.3s ease; }
+  .btn-primary:hover { background: linear-gradient(135deg, #3b82f6, #2563eb); transform: translateY(-1px); box-shadow: 0 8px 25px rgba(37,99,235,0.4); }
+  @keyframes checkmark { 0%{transform:scale(0) rotate(-45deg)} 50%{transform:scale(1.2) rotate(0deg)} 100%{transform:scale(1) rotate(0deg)} }
+  .check-anim { animation: checkmark 0.6s ease forwards; }
+  @keyframes fadeUp { 0%{opacity:0;transform:translateY(20px)} 100%{opacity:1;transform:translateY(0)} }
+  .fade-up { animation: fadeUp 0.5s ease forwards; }
+  .fade-up-1 { animation-delay: 0.2s; opacity: 0; }
+  .fade-up-2 { animation-delay: 0.4s; opacity: 0; }
+  .fade-up-3 { animation-delay: 0.6s; opacity: 0; }
+  .download-card { transition: all 0.3s ease; }
+  .download-card:hover { transform: translateY(-2px); border-color: rgba(59,130,246,0.4); }
+</style>
+</head>
+<body class="bg-slate-950 text-slate-300 antialiased selection:bg-blue-500 selection:text-white min-h-screen">
+
+  <!-- Success Header -->
+  <section class="relative pt-32 pb-16 hero-grid overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(16,185,129,0.12),transparent)]"></div>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
+
+      <!-- Checkmark -->
+      <div class="w-20 h-20 bg-green-500/10 border-2 border-green-500/40 rounded-full flex items-center justify-center mx-auto mb-8 check-anim">
+        <svg class="w-10 h-10 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+      </div>
+
+      <p class="mono text-xs text-green-400 tracking-widest uppercase mb-4 fade-up">Payment Confirmed</p>
+      <h1 class="text-4xl lg:text-5xl font-black text-white leading-tight mb-4 fade-up fade-up-1">Thank You for Your Purchase</h1>
+      <p class="text-lg text-slate-400 max-w-xl mx-auto leading-relaxed fade-up fade-up-2">Your books are ready for immediate download. A receipt has been sent to your email by Stripe.</p>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section class="pb-16">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="glass-light rounded-sm border border-slate-700 p-8 mb-8 fade-up fade-up-2">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-blue-500/20 rounded-sm flex items-center justify-center">
+            <svg class="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <div>
+            <h2 class="text-xl font-black text-white">Your Downloads</h2>
+            <p class="text-xs text-slate-500 mono">DOCX format - compatible with Word, Google Docs, LibreOffice</p>
+          </div>
+        </div>
+
+        <div class="space-y-3" id="downloadList">
+          <!-- Individual volumes -->
+          <div class="download-card glass p-4 rounded-sm border border-slate-700 flex items-center justify-between" data-product="vol1">
+            <div class="flex items-center gap-3">
+              <span class="mono text-xs text-blue-400 bg-blue-500/10 px-2 py-1 rounded">VOL I</span>
+              <div>
+                <div class="text-sm font-bold text-white">Foundations: First Principles to Consulting Readiness</div>
+                <div class="text-xs text-slate-500">72 pages - DOCX</div>
+              </div>
+            </div>
+            <a href="mailto:contact@dioval.com?subject=Book%20Download%20Request%20-%20Vol%20I&body=Hi%2C%20I%20just%20purchased%20Volume%20I.%20Please%20send%20my%20download.%20My%20Stripe%20receipt%20email%20is%20attached." class="btn-primary text-white text-xs font-bold px-4 py-2 rounded-sm flex items-center gap-2">
+              <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              Request Download
+            </a>
+          </div>
+
+          <div class="download-card glass p-4 rounded-sm border border-slate-700 flex items-center justify-between" data-product="vol2">
+            <div class="flex items-center gap-3">
+              <span class="mono text-xs text-blue-400 bg-blue-500/10 px-2 py-1 rounded">VOL II</span>
+              <div>
+                <div class="text-sm font-bold text-white">Engineering Production-Grade Agents</div>
+                <div class="text-xs text-slate-500">92 pages - DOCX</div>
+              </div>
+            </div>
+            <a href="mailto:contact@dioval.com?subject=Book%20Download%20Request%20-%20Vol%20II&body=Hi%2C%20I%20just%20purchased%20Volume%20II.%20Please%20send%20my%20download.%20My%20Stripe%20receipt%20email%20is%20attached." class="btn-primary text-white text-xs font-bold px-4 py-2 rounded-sm flex items-center gap-2">
+              <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              Request Download
+            </a>
+          </div>
+
+          <div class="download-card glass p-4 rounded-sm border border-slate-700 flex items-center justify-between" data-product="vol3">
+            <div class="flex items-center gap-3">
+              <span class="mono text-xs text-blue-400 bg-blue-500/10 px-2 py-1 rounded">VOL III</span>
+              <div>
+                <div class="text-sm font-bold text-white">Advanced Architectures: Multi-Agent Systems</div>
+                <div class="text-xs text-slate-500">80 pages - DOCX</div>
+              </div>
+            </div>
+            <a href="mailto:contact@dioval.com?subject=Book%20Download%20Request%20-%20Vol%20III&body=Hi%2C%20I%20just%20purchased%20Volume%20III.%20Please%20send%20my%20download.%20My%20Stripe%20receipt%20email%20is%20attached." class="btn-primary text-white text-xs font-bold px-4 py-2 rounded-sm flex items-center gap-2">
+              <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              Request Download
+            </a>
+          </div>
+
+          <div class="download-card glass p-4 rounded-sm border border-slate-700 flex items-center justify-between" data-product="vol4">
+            <div class="flex items-center gap-3">
+              <span class="mono text-xs text-blue-400 bg-blue-500/10 px-2 py-1 rounded">VOL IV</span>
+              <div>
+                <div class="text-sm font-bold text-white">The Frontier Theory: Philosophy and Deep Intelligence</div>
+                <div class="text-xs text-slate-500">65 pages - DOCX</div>
+              </div>
+            </div>
+            <a href="mailto:contact@dioval.com?subject=Book%20Download%20Request%20-%20Vol%20IV&body=Hi%2C%20I%20just%20purchased%20Volume%20IV.%20Please%20send%20my%20download.%20My%20Stripe%20receipt%20email%20is%20attached." class="btn-primary text-white text-xs font-bold px-4 py-2 rounded-sm flex items-center gap-2">
+              <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              Request Download
+            </a>
+          </div>
+
+          <div class="download-card glass p-4 rounded-sm border border-slate-700 flex items-center justify-between" data-product="vol5">
+            <div class="flex items-center gap-3">
+              <span class="mono text-xs text-blue-400 bg-blue-500/10 px-2 py-1 rounded">VOL V</span>
+              <div>
+                <div class="text-sm font-bold text-white">Multi-Agent Orchestration: A2A Protocols</div>
+                <div class="text-xs text-slate-500">49 pages - DOCX</div>
+              </div>
+            </div>
+            <a href="mailto:contact@dioval.com?subject=Book%20Download%20Request%20-%20Vol%20V&body=Hi%2C%20I%20just%20purchased%20Volume%20V.%20Please%20send%20my%20download.%20My%20Stripe%20receipt%20email%20is%20attached." class="btn-primary text-white text-xs font-bold px-4 py-2 rounded-sm flex items-center gap-2">
+              <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              Request Download
+            </a>
+          </div>
+
+          <div class="download-card glass p-4 rounded-sm border border-slate-700 flex items-center justify-between" data-product="vol6">
+            <div class="flex items-center gap-3">
+              <span class="mono text-xs text-blue-400 bg-blue-500/10 px-2 py-1 rounded">VOL VI</span>
+              <div>
+                <div class="text-sm font-bold text-white">Knowledge Orchestration: GraphRAG and Neo4j</div>
+                <div class="text-xs text-slate-500">115 pages - DOCX</div>
+              </div>
+            </div>
+            <a href="mailto:contact@dioval.com?subject=Book%20Download%20Request%20-%20Vol%20VI&body=Hi%2C%20I%20just%20purchased%20Volume%20VI.%20Please%20send%20my%20download.%20My%20Stripe%20receipt%20email%20is%20attached." class="btn-primary text-white text-xs font-bold px-4 py-2 rounded-sm flex items-center gap-2">
+              <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              Request Download
+            </a>
+          </div>
+
+          <div class="download-card glass p-4 rounded-sm border border-slate-700 flex items-center justify-between" data-product="vol7">
+            <div class="flex items-center gap-3">
+              <span class="mono text-xs text-blue-400 bg-blue-500/10 px-2 py-1 rounded">VOL VII</span>
+              <div>
+                <div class="text-sm font-bold text-white">The 2026 Regulatory Wave</div>
+                <div class="text-xs text-slate-500">82 pages - DOCX</div>
+              </div>
+            </div>
+            <a href="mailto:contact@dioval.com?subject=Book%20Download%20Request%20-%20Vol%20VII&body=Hi%2C%20I%20just%20purchased%20Volume%20VII.%20Please%20send%20my%20download.%20My%20Stripe%20receipt%20email%20is%20attached." class="btn-primary text-white text-xs font-bold px-4 py-2 rounded-sm flex items-center gap-2">
+              <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              Request Download
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-6 p-4 bg-slate-900/60 rounded-sm border border-slate-800">
+          <p class="text-xs text-slate-500"><strong class="text-slate-400">How it works:</strong> Click "Request Download" for the volume(s) you purchased. An email will open with your request pre-filled. We verify your Stripe payment and send the files within 1 hour during business hours (typically within minutes). For enterprise licenses, files are sent with your team distribution agreement.</p>
+        </div>
+      </div>
+
+      <!-- Upsell Section -->
+      <div class="grid md:grid-cols-2 gap-6 mb-8 fade-up fade-up-3">
+
+        <!-- Upsell: Bundle -->
+        <div class="glass-light rounded-sm border border-slate-700 p-6">
+          <div class="mono text-xs text-green-400 tracking-widest uppercase mb-3">Save $94</div>
+          <h3 class="text-lg font-black text-white mb-2">Get the Complete Bundle</h3>
+          <p class="text-sm text-slate-400 mb-4">All 7 volumes, 557 pages. Everything you need to build, audit, and scale production AI agents.</p>
+          <div class="flex items-baseline gap-2 mb-4">
+            <span class="text-2xl font-black text-white">$249</span>
+            <span class="text-sm text-slate-500 line-through">$343</span>
+          </div>
+          <a href="https://buy.stripe.com/28EfZj5O5epw0iraiB7ss09" class="block w-full btn-primary text-white text-center font-bold py-3 rounded-sm text-sm">
+            Upgrade to Complete Bundle &rarr;
+          </a>
+        </div>
+
+        <!-- Upsell: Enterprise -->
+        <div class="glass-light rounded-sm border border-blue-500/30 p-6">
+          <div class="mono text-xs text-blue-400 tracking-widest uppercase mb-3">Team Access</div>
+          <h3 class="text-lg font-black text-white mb-2">Enterprise License</h3>
+          <p class="text-sm text-slate-400 mb-4">All 7 volumes + team distribution rights, quarterly updates, and priority access to new volumes.</p>
+          <div class="flex items-baseline gap-2 mb-4">
+            <span class="text-2xl font-black text-white">$2,500</span>
+            <span class="text-sm text-slate-500">/year</span>
+          </div>
+          <a href="https://buy.stripe.com/7sY9AV5O595c5CLaiB7ss07" class="block w-full btn-primary text-white text-center font-bold py-3 rounded-sm text-sm">
+            Get Enterprise License &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- CTA: Consulting -->
+      <div class="glass-light rounded-sm border border-slate-700 p-8 text-center fade-up fade-up-3">
+        <div class="mono text-xs text-slate-400 tracking-widest uppercase mb-3">Ready to Go Deeper?</div>
+        <h3 class="text-2xl font-black text-white mb-3">Book a Free AI Production Diagnostic</h3>
+        <p class="text-slate-400 mb-6 max-w-lg mx-auto">30 minutes with Aurelio Dioval. Map your architecture, identify the top 3 risk vectors, and get a concrete action plan. Zero obligation.</p>
+        <a href="booking.html" class="inline-block btn-primary text-white font-bold px-8 py-3 rounded-sm">
+          Book Free Diagnostic &rarr;
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 border-t border-slate-800 py-8">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <div class="flex items-center justify-center gap-2 mb-4">
+        <div class="w-7 h-7 bg-blue-600 rounded-sm flex items-center justify-center">
+          <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <span class="text-xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+      </div>
+      <div class="flex flex-wrap justify-center gap-4 text-xs text-slate-500">
+        <a href="index.html" class="hover:text-white transition">Home</a>
+        <a href="books.html" class="hover:text-white transition">Books</a>
+        <a href="blog.html" class="hover:text-white transition">Blog</a>
+        <a href="booking.html" class="hover:text-white transition">Free Diagnostic</a>
+        <a href="scorecard.html" class="hover:text-white transition">Scorecard</a>
+        <a href="privacy.html" class="hover:text-white transition">Privacy</a>
+        <a href="terms.html" class="hover:text-white transition">Terms</a>
+        <span>&copy; 2026 Dioval Group. All rights reserved.</span>
+      </div>
+      <p class="text-xs text-slate-600 mt-4">Need help? Email <a href="mailto:contact@dioval.com" class="text-blue-400 hover:text-blue-300">contact@dioval.com</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
