@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | Dioval Group</title>
+    <meta name="robots" content="noindex, nofollow">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7JKBJJES0V"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7JKBJJES0V');</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass { background: rgba(15,23,42,0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+        .glass-light { background: rgba(30,41,59,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+        .btn-primary { background: linear-gradient(135deg, #2563eb, #1d4ed8); transition: all 0.3s ease; }
+        .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 25px rgba(37,99,235,0.4); }
+        .hero-grid { background-image: linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px); background-size: 60px 60px; }
+        @keyframes checkmark { 0% { transform: scale(0); opacity: 0; } 50% { transform: scale(1.2); } 100% { transform: scale(1); opacity: 1; } }
+        .animate-check { animation: checkmark 0.6s ease-out 0.2s both; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-300 antialiased flex flex-col min-h-screen">
+
+<nav class="fixed w-full z-50 glass border-b border-slate-800/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <span class="text-2xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow pt-20 hero-grid flex items-center">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
+    
+    <!-- Animated Checkmark -->
+    <div class="animate-check w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-8">
+      <svg class="w-10 h-10 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+    </div>
+
+    <h1 class="text-3xl sm:text-4xl font-black text-white mb-4">Thank You!</h1>
+    <p class="text-lg text-slate-400 mb-8">Your submission has been received. We'll get back to you within 24 hours.</p>
+
+    <div class="glass-light rounded-sm p-8 mb-8 text-left">
+      <h2 class="text-white font-bold mb-4">While you wait, check out these resources:</h2>
+      <div class="space-y-4">
+        <a href="scorecard.html" class="flex items-center gap-3 text-slate-400 hover:text-blue-400 transition group">
+          <span class="w-8 h-8 bg-blue-500/20 rounded-sm flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/30">&#128202;</span>
+          <div>
+            <div class="text-sm font-semibold text-white group-hover:text-blue-400">AI Production Readiness Scorecard</div>
+            <div class="text-xs text-slate-500">5-minute assessment across 8 dimensions</div>
+          </div>
+        </a>
+        <a href="free-chapter.html" class="flex items-center gap-3 text-slate-400 hover:text-blue-400 transition group">
+          <span class="w-8 h-8 bg-blue-500/20 rounded-sm flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/30">&#128214;</span>
+          <div>
+            <div class="text-sm font-semibold text-white group-hover:text-blue-400">Free Chapter: The $3.8M AI Agent Disaster</div>
+            <div class="text-xs text-slate-500">Real case study + architecture pattern</div>
+          </div>
+        </a>
+        <a href="roi-calculator.html" class="flex items-center gap-3 text-slate-400 hover:text-blue-400 transition group">
+          <span class="w-8 h-8 bg-blue-500/20 rounded-sm flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/30">&#128200;</span>
+          <div>
+            <div class="text-sm font-semibold text-white group-hover:text-blue-400">ROI Calculator</div>
+            <div class="text-xs text-slate-500">See what an audit could save you</div>
+          </div>
+        </a>
+        <a href="blog.html" class="flex items-center gap-3 text-slate-400 hover:text-blue-400 transition group">
+          <span class="w-8 h-8 bg-blue-500/20 rounded-sm flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/30">&#128221;</span>
+          <div>
+            <div class="text-sm font-semibold text-white group-hover:text-blue-400">Blog: 10 Deep-Dive Articles</div>
+            <div class="text-xs text-slate-500">Cost optimization, security, compliance, and more</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <a href="index.html" class="text-blue-400 hover:text-blue-300 text-sm font-semibold">&larr; Back to Home</a>
+  </div>
+</main>
+
+<script>
+// Track conversion
+if (typeof gtag !== 'undefined') {
+  gtag('event', 'form_submission_complete', { 'event_category': 'conversion', 'event_label': document.referrer });
+}
+</script>
+
+</body>
+</html>

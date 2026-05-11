@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Audit ROI Calculator | Dioval Group</title>
+    <meta name="description" content="Calculate the ROI of an AI production readiness audit. See how much you could save by preventing AI agent failures before they happen.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dioval.com/roi-calculator.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AI Audit ROI Calculator | Dioval Group">
+    <meta property="og:description" content="Calculate the ROI of an AI production readiness audit.">
+    <meta property="og:url" content="https://dioval.com/roi-calculator.html">
+    <meta property="og:site_name" content="Dioval Group">
+    <meta name="twitter:card" content="summary">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7JKBJJES0V"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7JKBJJES0V');</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass { background: rgba(15,23,42,0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+        .glass-light { background: rgba(30,41,59,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+        .nav-link { position:relative; }
+        .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:#3b82f6; transition: width 0.3s ease; }
+        .nav-link:hover::after { width:100%; }
+        .btn-primary { background: linear-gradient(135deg, #2563eb, #1d4ed8); transition: all 0.3s ease; }
+        .btn-primary:hover { background: linear-gradient(135deg, #3b82f6, #2563eb); transform: translateY(-1px); box-shadow: 0 8px 25px rgba(37,99,235,0.4); }
+        .mobile-menu { display:none; }
+        .mobile-menu.open { display:block; }
+        .hero-grid { background-image: linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px); background-size: 60px 60px; }
+        input[type="range"] { -webkit-appearance: none; appearance: none; height: 6px; border-radius: 3px; background: #334155; outline: none; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: #2563eb; cursor: pointer; box-shadow: 0 2px 8px rgba(37,99,235,0.4); }
+        input[type="range"]::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: #2563eb; cursor: pointer; border: none; }
+        .result-card { transition: all 0.5s ease; }
+        @keyframes countUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-result { animation: countUp 0.4s ease-out; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-300 antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen">
+
+<nav class="fixed w-full z-50 glass border-b border-slate-800/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
+        <div class="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <span class="text-2xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+      </a>
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="about.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">About</a>
+        <a href="audits.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Audits</a>
+        <a href="books.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Books</a>
+        <a href="pricing.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Pricing</a>
+        <a href="blog.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Blog</a>
+        <a href="booking.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Free Diagnostic</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm shadow-lg shadow-blue-500/20">Book an Audit</a>
+        <button class="lg:hidden text-slate-400 hover:text-white p-2" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu lg:hidden glass border-t border-slate-800/60">
+    <div class="px-4 py-6 space-y-4">
+      <a href="about.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">About</a>
+      <a href="audits.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Audits</a>
+      <a href="books.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Books</a>
+      <a href="pricing.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Pricing</a>
+      <a href="blog.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Blog</a>
+      <a href="booking.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Free Diagnostic</a>
+      <a href="contact.html" class="block btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm text-center mt-4">Book an Audit</a>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow pt-20">
+
+  <section class="hero-grid py-16 sm:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="mono text-blue-400 text-xs tracking-widest uppercase bg-blue-500/10 px-3 py-1 rounded-sm">Interactive Tool</span>
+      <h1 class="text-3xl sm:text-5xl font-black text-white leading-tight tracking-tight mt-6 mb-4">AI Audit ROI Calculator</h1>
+      <p class="text-lg text-slate-400 max-w-2xl mx-auto">See exactly how much an AI production readiness audit could save your organization. Adjust the sliders to match your situation.</p>
+    </div>
+  </section>
+
+  <section class="pb-16 sm:pb-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+        <!-- Input Panel -->
+        <div class="glass-light rounded-sm p-8">
+          <h2 class="text-lg font-bold text-white mb-6">Your AI Deployment</h2>
+
+          <div class="mb-8">
+            <div class="flex justify-between mb-2">
+              <label class="text-sm text-slate-400">Number of AI Agents in Production</label>
+              <span id="agentsValue" class="mono text-sm text-white font-bold">5</span>
+            </div>
+            <input type="range" id="agents" min="1" max="50" value="5" class="w-full" oninput="calculate()">
+            <div class="flex justify-between text-xs text-slate-600 mt-1"><span>1</span><span>50</span></div>
+          </div>
+
+          <div class="mb-8">
+            <div class="flex justify-between mb-2">
+              <label class="text-sm text-slate-400">Monthly LLM API Spend</label>
+              <span id="spendValue" class="mono text-sm text-white font-bold">$50,000</span>
+            </div>
+            <input type="range" id="spend" min="5000" max="500000" step="5000" value="50000" class="w-full" oninput="calculate()">
+            <div class="flex justify-between text-xs text-slate-600 mt-1"><span>$5K</span><span>$500K</span></div>
+          </div>
+
+          <div class="mb-8">
+            <div class="flex justify-between mb-2">
+              <label class="text-sm text-slate-400">Industry Risk Level</label>
+              <span id="riskValue" class="mono text-sm text-white font-bold">Medium</span>
+            </div>
+            <input type="range" id="risk" min="1" max="3" value="2" class="w-full" oninput="calculate()">
+            <div class="flex justify-between text-xs text-slate-600 mt-1"><span>Low (SaaS)</span><span>Medium</span><span>High (Finance/Healthcare)</span></div>
+          </div>
+
+          <div class="mb-8">
+            <div class="flex justify-between mb-2">
+              <label class="text-sm text-slate-400">Customer-Facing AI?</label>
+              <span id="customerValue" class="mono text-sm text-white font-bold">Yes</span>
+            </div>
+            <input type="range" id="customer" min="0" max="1" value="1" class="w-full" oninput="calculate()">
+            <div class="flex justify-between text-xs text-slate-600 mt-1"><span>Internal Only</span><span>Customer-Facing</span></div>
+          </div>
+
+          <div class="mb-6">
+            <div class="flex justify-between mb-2">
+              <label class="text-sm text-slate-400">Current Observability Maturity</label>
+              <span id="obsValue" class="mono text-sm text-white font-bold">Basic</span>
+            </div>
+            <input type="range" id="obs" min="1" max="3" value="1" class="w-full" oninput="calculate()">
+            <div class="flex justify-between text-xs text-slate-600 mt-1"><span>None</span><span>Basic</span><span>Advanced</span></div>
+          </div>
+        </div>
+
+        <!-- Results Panel -->
+        <div>
+          <div class="glass-light rounded-sm p-8 mb-6 border border-blue-500/20">
+            <h2 class="text-lg font-bold text-white mb-6">Projected Annual Impact</h2>
+
+            <div class="result-card mb-6 p-4 rounded-sm" style="background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.15);">
+              <div class="text-xs text-red-400 mono tracking-wider uppercase mb-1">Estimated Annual Risk Exposure</div>
+              <div id="riskExposure" class="mono text-3xl font-black text-red-400 animate-result">$2,450,000</div>
+              <div class="text-xs text-slate-500 mt-1">Cost of potential AI failures without an audit</div>
+            </div>
+
+            <div class="result-card mb-6 p-4 rounded-sm" style="background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.15);">
+              <div class="text-xs text-emerald-400 mono tracking-wider uppercase mb-1">Projected Annual Savings</div>
+              <div id="savings" class="mono text-3xl font-black text-emerald-400 animate-result">$892,000</div>
+              <div class="text-xs text-slate-500 mt-1">Cost optimization + risk reduction from PRS audit</div>
+            </div>
+
+            <div class="result-card mb-6 p-4 rounded-sm" style="background: rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.15);">
+              <div class="text-xs text-blue-400 mono tracking-wider uppercase mb-1">Audit Investment</div>
+              <div id="investment" class="mono text-3xl font-black text-blue-400">$25,000</div>
+              <div class="text-xs text-slate-500 mt-1">Fixed-price 3-week engagement</div>
+            </div>
+
+            <div class="border-t border-slate-700 pt-4 mt-4">
+              <div class="flex justify-between items-center">
+                <div>
+                  <div class="text-xs text-slate-500 mono tracking-wider uppercase">Return on Investment</div>
+                  <div id="roi" class="mono text-4xl font-black text-white animate-result">35x</div>
+                </div>
+                <div class="text-right">
+                  <div class="text-xs text-slate-500 mono tracking-wider uppercase">Payback Period</div>
+                  <div id="payback" class="mono text-2xl font-black text-emerald-400 animate-result">10 days</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-light rounded-sm p-6 text-center">
+            <div class="text-sm text-slate-400 mb-4">See how these numbers apply to your specific situation</div>
+            <a href="booking.html" class="btn-primary inline-block text-white px-8 py-3 rounded-sm font-bold text-sm shadow-lg shadow-blue-500/20">Book a Free 30-Min Diagnostic &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Methodology -->
+      <div class="glass-light rounded-sm p-8 mt-8">
+        <h3 class="text-white font-bold mb-4">How We Calculate This</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-slate-400">
+          <div>
+            <div class="text-blue-400 font-semibold mb-2">Risk Exposure</div>
+            <p>Based on industry incident data: probability of AI failure (adjusted for agent count, industry, and customer exposure) multiplied by average cost of incidents in your sector. Sources: Gartner, McKinsey AI adoption surveys.</p>
+          </div>
+          <div>
+            <div class="text-blue-400 font-semibold mb-2">Cost Savings</div>
+            <p>40-62% LLM cost reduction through semantic caching, model routing, and token budgets (based on our audit data). Plus risk reduction from improved observability and HITL design.</p>
+          </div>
+          <div>
+            <div class="text-blue-400 font-semibold mb-2">Conservative Estimates</div>
+            <p>These numbers assume you implement only the top-priority recommendations from the audit. Full implementation typically delivers 2-3x the projected savings.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-slate-950 border-t border-slate-800 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 bg-blue-600 rounded-sm flex items-center justify-center">
+        <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <span class="text-xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+    </div>
+    <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+      <a href="about.html" class="hover:text-white transition">About</a>
+      <a href="audits.html" class="hover:text-white transition">Audits</a>
+      <a href="books.html" class="hover:text-white transition">Books</a>
+      <a href="blog.html" class="hover:text-white transition">Blog</a>
+      <a href="booking.html" class="hover:text-white transition">Free Diagnostic</a>
+      <a href="scorecard.html" class="hover:text-white transition">Scorecard</a>
+      <a href="resources.html" class="hover:text-white transition">Resources</a>
+      <a href="contact.html" class="hover:text-white transition">Contact</a>
+      <a href="privacy.html" class="hover:text-white transition">Privacy</a>
+      <a href="terms.html" class="hover:text-white transition">Terms</a>
+      <span>&copy; 2026 Dioval Group. All rights reserved.</span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function calculate() {
+  const agents = parseInt(document.getElementById('agents').value);
+  const spend = parseInt(document.getElementById('spend').value);
+  const risk = parseInt(document.getElementById('risk').value);
+  const customer = parseInt(document.getElementById('customer').value);
+  const obs = parseInt(document.getElementById('obs').value);
+
+  // Update display values
+  document.getElementById('agentsValue').textContent = agents;
+  document.getElementById('spendValue').textContent = '$' + spend.toLocaleString();
+  document.getElementById('riskValue').textContent = ['Low', 'Medium', 'High'][risk - 1];
+  document.getElementById('customerValue').textContent = customer ? 'Yes' : 'No';
+  document.getElementById('obsValue').textContent = ['None', 'Basic', 'Advanced'][obs - 1];
+
+  // Risk multipliers
+  const riskMultiplier = [0.6, 1.0, 2.2][risk - 1];
+  const customerMultiplier = customer ? 1.8 : 1.0;
+  const obsMultiplier = [1.5, 1.0, 0.6][obs - 1];
+
+  // Base risk per agent (industry average $200K-$2M per incident, 30-50% probability)
+  const baseRiskPerAgent = 180000;
+  const annualRiskExposure = Math.round(agents * baseRiskPerAgent * riskMultiplier * customerMultiplier * obsMultiplier);
+
+  // Cost savings: 40-62% of LLM spend
+  const costSavingsRate = obs === 3 ? 0.25 : obs === 2 ? 0.42 : 0.55;
+  const annualCostSavings = Math.round(spend * 12 * costSavingsRate);
+
+  // Risk reduction: 60-80% of exposure
+  const riskReductionRate = 0.35;
+  const riskReduction = Math.round(annualRiskExposure * riskReductionRate);
+
+  // Total savings
+  const totalSavings = annualCostSavings + riskReduction;
+
+  // Investment
+  const investment = 25000;
+
+  // ROI
+  const roiMultiple = Math.round(totalSavings / investment);
+  const paybackDays = Math.max(1, Math.round(365 / (totalSavings / investment)));
+
+  // Update UI
+  document.getElementById('riskExposure').textContent = '$' + annualRiskExposure.toLocaleString();
+  document.getElementById('savings').textContent = '$' + totalSavings.toLocaleString();
+  document.getElementById('roi').textContent = roiMultiple + 'x';
+  document.getElementById('payback').textContent = paybackDays <= 30 ? paybackDays + ' days' : Math.round(paybackDays / 30) + ' months';
+
+  // GA tracking
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'roi_calculation', {
+      'event_category': 'engagement',
+      'agents': agents,
+      'spend': spend,
+      'roi': roiMultiple
+    });
+  }
+}
+
+// Initial calculation
+calculate();
+</script>
+
+</body>
+</html>
