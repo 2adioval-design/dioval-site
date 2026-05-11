@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Chapter: The $3.8M AI Agent Disaster | Dioval Group</title>
+    <meta name="description" content="Download the free opening chapter from Engineering Production-Grade Agents. A $3.8M Fortune 500 AI failure dissected across six dimensions, plus the Production Readiness framework that prevents it.">
+    <meta name="keywords" content="free AI book chapter, AI agent failure, production AI, enterprise AI, production readiness, PRS framework, agentic AI">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="https://dioval.com/free-chapter.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free Chapter: The $3.8M AI Agent Disaster">
+    <meta property="og:description" content="How a Fortune 500 retail AI agent failed catastrophically in six weeks. Download the free opening chapter from the Agentic AI Professional Series.">
+    <meta property="og:url" content="https://dioval.com/free-chapter.html">
+    <meta property="og:site_name" content="Dioval Group">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="alternate" hreflang="en" href="https://dioval.com/free-chapter.html">
+    <link rel="alternate" hreflang="x-default" href="https://dioval.com/free-chapter.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Free Chapter: The $3.8M AI Agent Disaster",
+      "description": "Download the free opening chapter from Engineering Production-Grade Agents.",
+      "publisher": {"@type": "Organization", "name": "Dioval Group", "url": "https://dioval.com"}
+    }
+    </script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7JKBJJES0V"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7JKBJJES0V');
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass { background: rgba(15,23,42,0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+        .glass-light { background: rgba(30,41,59,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+        .nav-link { position:relative; }
+        .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:#3b82f6; transition: width 0.3s ease; }
+        .nav-link:hover::after { width:100%; }
+        .btn-primary { background: linear-gradient(135deg, #2563eb, #1d4ed8); transition: all 0.3s ease; }
+        .btn-primary:hover { background: linear-gradient(135deg, #3b82f6, #2563eb); transform: translateY(-1px); box-shadow: 0 8px 25px rgba(37,99,235,0.4); }
+        .mobile-menu { display:none; }
+        .mobile-menu.open { display:block; }
+        .hero-grid { background-image: linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px); background-size: 60px 60px; }
+        .form-input { background: rgba(15,23,42,0.8); border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease; }
+        .form-input:focus { border-color: rgba(59,130,246,0.5); outline: none; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+        .success-msg { display: none; }
+        .success-msg.show { display: block; }
+        .form-container.hidden { display: none; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-300 antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen">
+
+<nav class="fixed w-full z-50 glass border-b border-slate-800/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
+        <div class="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <span class="text-2xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+      </a>
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="about.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">About</a>
+        <a href="audits.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Audits</a>
+        <a href="orchestration.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Orchestration</a>
+        <a href="compliance.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Compliance</a>
+        <a href="knowledge.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Knowledge Fabric</a>
+        <a href="books.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Books</a>
+        <a href="blog.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Blog</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm shadow-lg shadow-blue-500/20">Book an Audit</a>
+        <button class="lg:hidden text-slate-400 hover:text-white p-2" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu lg:hidden glass border-t border-slate-800/60">
+    <div class="px-4 py-6 space-y-4">
+      <a href="about.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">About</a>
+      <a href="audits.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Audits</a>
+      <a href="orchestration.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Orchestration</a>
+      <a href="compliance.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Compliance</a>
+      <a href="knowledge.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Knowledge Fabric</a>
+      <a href="books.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Books</a>
+      <a href="blog.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Blog</a>
+      <a href="contact.html" class="block btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm text-center mt-4">Book an Audit</a>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow pt-20">
+  <section class="hero-grid py-20 sm:py-28">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        
+        <!-- Left: Content -->
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <span class="mono text-blue-400 text-xs tracking-widest uppercase bg-blue-500/10 px-3 py-1 rounded-sm">Free Chapter</span>
+            <span class="mono text-slate-500 text-xs">From Volume II</span>
+          </div>
+          
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight mb-6">The $3.8 Million<br>AI Agent Disaster</h1>
+          
+          <p class="text-lg text-slate-400 mb-8">A Fortune 500 retail AI agent failed catastrophically in six weeks. We dissect the failure across six dimensions and show you the framework that prevents it.</p>
+          
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              <p class="text-sm text-slate-300"><strong class="text-white">Opening Case Study:</strong> The complete post-mortem of a $3.8M failure - hallucinated inventory, cost spirals, prompt injection, infinite loops, zero monitoring, no approval gates</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              <p class="text-sm text-slate-300"><strong class="text-white">Chapter 1:</strong> Why 89% of agent POCs fail - the Four Betrayals of Production and the PRS (Production Readiness Score) framework</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+              <p class="text-sm text-slate-300"><strong class="text-white">Consulting Playbook:</strong> How to sell $15K-$45K Production Readiness Assessments using this framework</p>
+            </div>
+          </div>
+          
+          <div class="flex items-center gap-4 text-xs text-slate-500">
+            <span class="mono">~2,200 words</span>
+            <span>•</span>
+            <span class="mono">10-min read</span>
+            <span>•</span>
+            <span class="mono">PDF download</span>
+          </div>
+        </div>
+        
+        <!-- Right: Form -->
+        <div>
+          <div id="formContainer" class="form-container glass-light rounded-sm p-8">
+            <h2 class="text-xl font-bold text-white mb-2">Get the Free Chapter</h2>
+            <p class="text-sm text-slate-400 mb-6">Enter your email and we'll send you the PDF immediately.</p>
+            
+            <form id="leadForm" onsubmit="handleSubmit(event)">
+              <div class="mb-4">
+                <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">Name</label>
+                <input type="text" name="name" required placeholder="Your name" class="form-input w-full px-4 py-3 rounded-sm text-white text-sm placeholder-slate-600">
+              </div>
+              <div class="mb-4">
+                <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">Work Email</label>
+                <input type="email" name="email" required placeholder="you@company.com" class="form-input w-full px-4 py-3 rounded-sm text-white text-sm placeholder-slate-600">
+              </div>
+              <div class="mb-4">
+                <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">Company</label>
+                <input type="text" name="company" placeholder="Your company (optional)" class="form-input w-full px-4 py-3 rounded-sm text-white text-sm placeholder-slate-600">
+              </div>
+              <div class="mb-6">
+                <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">Role</label>
+                <select name="role" class="form-input w-full px-4 py-3 rounded-sm text-white text-sm">
+                  <option value="" class="bg-slate-900">Select your role (optional)</option>
+                  <option value="vp-ai" class="bg-slate-900">VP / Head of AI</option>
+                  <option value="cto" class="bg-slate-900">CTO / VP Engineering</option>
+                  <option value="engineer" class="bg-slate-900">AI / ML Engineer</option>
+                  <option value="architect" class="bg-slate-900">Solution Architect</option>
+                  <option value="compliance" class="bg-slate-900">Compliance / Risk</option>
+                  <option value="consultant" class="bg-slate-900">AI Consultant</option>
+                  <option value="other" class="bg-slate-900">Other</option>
+                </select>
+              </div>
+              <button type="submit" class="btn-primary w-full text-white px-6 py-4 rounded-sm font-bold text-sm shadow-lg shadow-blue-500/20">
+                Download Free Chapter →
+              </button>
+              <p class="text-xs text-slate-600 mt-4 text-center">No spam. Unsubscribe anytime.</p>
+            </form>
+          </div>
+          
+          <div id="successMsg" class="success-msg glass-light rounded-sm p-8 text-center">
+            <div class="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <h2 class="text-xl font-bold text-white mb-2">Check your inbox!</h2>
+            <p class="text-sm text-slate-400 mb-6">We just sent the chapter to your email. If you don't see it, check spam.</p>
+            <a href="books.html" class="btn-primary inline-block text-white px-6 py-3 rounded-sm font-bold text-sm shadow-lg shadow-blue-500/20">Explore the Full Series →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Social proof -->
+  <section class="py-16 border-t border-slate-800/40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="mono text-blue-400 text-xs tracking-widest uppercase mb-8">From the book that started it all</p>
+      <div class="grid sm:grid-cols-3 gap-8">
+        <div>
+          <p class="mono text-3xl font-black text-white">$3.8M</p>
+          <p class="text-xs text-slate-500 mt-1">Failure dissected across 6 dimensions</p>
+        </div>
+        <div>
+          <p class="mono text-3xl font-black text-white">89%</p>
+          <p class="text-xs text-slate-500 mt-1">Of agent POCs that never survive production</p>
+        </div>
+        <div>
+          <p class="mono text-3xl font-black text-white">8</p>
+          <p class="text-xs text-slate-500 mt-1">PRS dimensions for production readiness</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-slate-950 border-t border-slate-800 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 bg-blue-600 rounded-sm flex items-center justify-center">
+        <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <span class="text-xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+    </div>
+    <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+      <a href="about.html" class="hover:text-white transition">About</a>
+      <a href="audits.html" class="hover:text-white transition">Audits</a>
+      <a href="books.html" class="hover:text-white transition">Books</a>
+      <a href="blog.html" class="hover:text-white transition">Blog</a>
+      <a href="contact.html" class="hover:text-white transition">Contact</a>
+      <span>&copy; 2026 Dioval Group. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+  
+  // Track in Google Analytics
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'lead_magnet_download', {
+      'event_category': 'lead_gen',
+      'event_label': 'free_chapter_vol2',
+      'name': data.get('name'),
+      'company': data.get('company'),
+      'role': data.get('role')
+    });
+  }
+  
+  // Store lead in localStorage (for now - replace with your email service)
+  const leads = JSON.parse(localStorage.getItem('dioval_leads') || '[]');
+  leads.push({
+    name: data.get('name'),
+    email: data.get('email'),
+    company: data.get('company'),
+    role: data.get('role'),
+    timestamp: new Date().toISOString()
+  });
+  localStorage.setItem('dioval_leads', JSON.stringify(leads));
+  
+  // Show success, hide form
+  document.getElementById('formContainer').classList.add('hidden');
+  document.getElementById('successMsg').classList.add('show');
+  
+  // TODO: Replace with actual email service integration
+  // Options: ConvertKit, Mailchimp, SendGrid, or custom backend
+  // For now, you can manually check localStorage or use a form service like Formspree
+  
+  // Open PDF in new tab as immediate download
+  // Replace this URL with the actual hosted PDF URL
+  window.open('https://dioval.com/downloads/free-chapter-vol2.pdf', '_blank');
+}
+</script>
+
+</body>
+</html>
