@@ -265,8 +265,8 @@ function handleBooking(e) {
     });
   }
   
-  // Send to FormSubmit.co (delivers to contact@dioval.com)
-  fetch('https://formsubmit.co/ajax/contact@dioval.com', {
+  // Send to FormSubmit.co (delivers to support@dioval.com)
+  fetch('https://formsubmit.co/ajax/support@dioval.com', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify({
@@ -306,7 +306,7 @@ function handleBooking(e) {
   
   // Send email notification
   const mailLink = document.createElement('a');
-  mailLink.href = 'mailto:contact@dioval.com?subject=' + subject + '&body=' + body;
+  mailLink.href = 'mailto:support@dioval.com?subject=' + subject + '&body=' + body;
   mailLink.click();
   
   document.getElementById('formContainer').classList.add('hidden');

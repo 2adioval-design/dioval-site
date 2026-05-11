@@ -441,7 +441,7 @@ function handleSubmit(e) {
     _template: 'table'
   };
 
-  fetch('https://formsubmit.co/ajax/contact@dioval.com', {
+  fetch('https://formsubmit.co/ajax/support@dioval.com', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify(data)
@@ -464,7 +464,7 @@ function handleSubmit(e) {
   .catch(error => {
     btn.disabled = false;
     btn.textContent = 'Request Executive Briefing \u2192';
-    alert('Something went wrong. Please email contact@dioval.com directly.');
+    alert('Something went wrong. Please email support@dioval.com directly.');
   });
 }
 </script>

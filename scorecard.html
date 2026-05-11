@@ -468,11 +468,11 @@ function showResults(e) {
     });
   }
   
-  // Send to FormSubmit.co (delivers to contact@dioval.com)
+  // Send to FormSubmit.co (delivers to support@dioval.com)
   const totalScore = calcTotal();
   const dimScores = dimensions.map(d => d.name + ': ' + d.options[answers[d.id]].score + '/12').join(', ');
   
-  fetch('https://formsubmit.co/ajax/contact@dioval.com', {
+  fetch('https://formsubmit.co/ajax/support@dioval.com', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify({
