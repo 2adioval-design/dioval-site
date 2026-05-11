@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Dioval Group — Enterprise AI Production Insights</title>
+    <meta name="description" content="Expert insights on enterprise AI production, multi-agent orchestration, AI compliance, and knowledge governance. Learn why 89% of AI agents fail and how to fix it.">
+    <meta name="keywords" content="enterprise AI blog, AI production insights, multi-agent orchestration, AI compliance, AI governance, AI reliability, AI agent failures">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="https://dioval.com/blog.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog | Dioval Group — Enterprise AI Production Insights">
+    <meta property="og:description" content="Expert insights on enterprise AI production, multi-agent orchestration, AI compliance, and knowledge governance.">
+    <meta property="og:url" content="https://dioval.com/blog.html">
+    <meta property="og:site_name" content="Dioval Group">
+    <meta property="og:image" content="https://dioval.com/og-image.svg">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog | Dioval Group — Enterprise AI Production Insights">
+    <meta name="twitter:description" content="Expert insights on enterprise AI production, multi-agent orchestration, AI compliance, and knowledge governance.">
+    <link rel="alternate" hreflang="en" href="https://dioval.com/blog.html">
+    <link rel="alternate" hreflang="x-default" href="https://dioval.com/blog.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Dioval Group Blog",
+      "description": "Expert insights on enterprise AI production, reliability, orchestration, compliance, and governance.",
+      "url": "https://dioval.com/blog.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Dioval Group",
+        "url": "https://dioval.com"
+      },
+      "blogPost": [
+        {
+          "@type": "BlogPosting",
+          "headline": "Why 89% of Enterprise AI Agents Fail in Production (And the 8 Dimensions That Predict Survival)",
+          "datePublished": "2026-05-10",
+          "author": {"@type": "Person", "name": "Aurelio Dioval"},
+          "url": "https://dioval.com/blog.html#ai-agents-fail-production"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "The $47M Compliance Blindspot: What Happens When AI Agents Act Without Audit Trails",
+          "datePublished": "2026-05-08",
+          "author": {"@type": "Person", "name": "Aurelio Dioval"},
+          "url": "https://dioval.com/blog.html#compliance-blindspot"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Multi-Agent Orchestration: MCP vs A2A Protocols for Enterprise AI",
+          "datePublished": "2026-05-05",
+          "author": {"@type": "Person", "name": "Aurelio Dioval"},
+          "url": "https://dioval.com/blog.html#mcp-vs-a2a"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "SR 11-7 and AI: Building Compliance-Native Agent Architecture for Banking",
+          "datePublished": "2026-05-02",
+          "author": {"@type": "Person", "name": "Aurelio Dioval"},
+          "url": "https://dioval.com/blog.html#sr-11-7-ai-compliance"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "The Dark Knowledge Problem: Why Your AI Agent Is Citing Stale Data and How GraphRAG Fixes It",
+          "datePublished": "2026-04-28",
+          "author": {"@type": "Person", "name": "Aurelio Dioval"},
+          "url": "https://dioval.com/blog.html#dark-knowledge-graphrag"
+        }
+      ]
+    }
+    </script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7JKBJJES0V"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7JKBJJES0V');
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass { background: rgba(15,23,42,0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+        .glass-light { background: rgba(30,41,59,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+        .gradient-text { background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .nav-link { position:relative; }
+        .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:#3b82f6; transition: width 0.3s ease; }
+        .nav-link:hover::after { width:100%; }
+        .btn-primary { background: linear-gradient(135deg, #2563eb, #1d4ed8); transition: all 0.3s ease; }
+        .btn-primary:hover { background: linear-gradient(135deg, #3b82f6, #2563eb); transform: translateY(-1px); box-shadow: 0 8px 25px rgba(37,99,235,0.4); }
+        .mobile-menu { display:none; }
+        .mobile-menu.open { display:block; }
+        .article-card { transition: all 0.3s ease; }
+        .article-card:hover { transform: translateY(-3px); border-color: rgba(59,130,246,0.4); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .hero-grid { background-image: linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px); background-size: 60px 60px; }
+        .prose h2 { font-size: 1.5rem; font-weight: 700; color: #f1f5f9; margin-top: 2.5rem; margin-bottom: 1rem; }
+        .prose h3 { font-size: 1.15rem; font-weight: 600; color: #e2e8f0; margin-top: 2rem; margin-bottom: 0.75rem; }
+        .prose p { color: #94a3b8; line-height: 1.8; margin-bottom: 1.25rem; }
+        .prose ul { color: #94a3b8; margin-bottom: 1.25rem; padding-left: 1.5rem; }
+        .prose li { margin-bottom: 0.5rem; line-height: 1.7; }
+        .prose strong { color: #e2e8f0; }
+        .prose blockquote { border-left: 3px solid #3b82f6; padding-left: 1.25rem; margin: 1.5rem 0; font-style: italic; color: #64748b; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-300 antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen">
+
+<nav class="fixed w-full z-50 glass border-b border-slate-800/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
+        <div class="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <span class="text-2xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+      </a>
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="about.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">About</a>
+        <a href="audits.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Audits</a>
+        <a href="orchestration.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Orchestration</a>
+        <a href="compliance.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Compliance</a>
+        <a href="knowledge.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Knowledge Fabric</a>
+        <a href="managed-services.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Managed Ops</a>
+        <a href="blog.html" class="nav-link text-sm font-semibold text-white">Blog</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm shadow-lg shadow-blue-500/20">Book an Audit</a>
+        <button class="lg:hidden text-slate-400 hover:text-white p-2" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu lg:hidden glass border-t border-slate-800/60">
+    <div class="px-4 py-6 space-y-4">
+      <a href="about.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">About</a>
+      <a href="audits.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Audits</a>
+      <a href="orchestration.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Orchestration</a>
+      <a href="compliance.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Compliance</a>
+      <a href="knowledge.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Knowledge Fabric</a>
+      <a href="managed-services.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Managed Ops</a>
+      <a href="blog.html" class="block text-sm font-semibold text-white py-2">Blog</a>
+      <a href="contact.html" class="block btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm text-center mt-4">Book an Audit</a>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow pt-20">
+
+  <!-- Hero -->
+  <section class="hero-grid py-20 sm:py-28 border-b border-slate-800/60">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="mono text-blue-400 text-xs tracking-widest uppercase mb-6">Dioval Group · Blog</p>
+      <h1 class="text-4xl sm:text-5xl font-black text-white leading-tight tracking-tight mb-6">Enterprise AI<br>Production Insights</h1>
+      <p class="text-lg text-slate-400 max-w-2xl">Field notes from the frontlines of enterprise AI reliability. Real failures, real architectures, real numbers.</p>
+    </div>
+  </section>
+
+  <!-- Article 1 -->
+  <article id="ai-agents-fail-production" class="border-b border-slate-800/40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <div class="mb-8">
+        <div class="flex flex-wrap gap-3 mb-4">
+          <span class="mono text-xs tracking-wider text-blue-400 bg-blue-500/10 px-3 py-1">AI PRODUCTION</span>
+          <span class="mono text-xs tracking-wider text-slate-500">MAY 10, 2026</span>
+          <span class="mono text-xs tracking-wider text-slate-500">8 MIN READ</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-white leading-tight tracking-tight mb-4">Why 89% of Enterprise AI Agents Fail in Production (And the 8 Dimensions That Predict Survival)</h2>
+        <p class="text-slate-400 text-lg">The gap between a working demo and a production system is where enterprises burn millions. Here's the framework we use to predict which agents will survive.</p>
+      </div>
+      <div class="prose">
+        <p>Every enterprise AI demo works. The model responds intelligently. The stakeholders applaud. The budget gets approved. Then production happens.</p>
+        <p>After auditing dozens of enterprise AI deployments across financial services, healthcare, logistics, and SaaS, we've identified a pattern: <strong>89% of AI agents deployed in enterprise environments fail within the first 90 days of production.</strong> Not because the models are bad — because the infrastructure around them was never built for reality.</p>
+
+        <h2>The Four Production Killers</h2>
+        <p>Demo environments are gentle. Production is not. These are the failure modes that no sandbox reveals:</p>
+
+        <h3>1. Context Limit Cascades</h3>
+        <p>In demos, conversations are short and documents are curated. In production, agents hit their context window limits within hours. Without overflow handling — intelligent summarization, context windowing, priority scoring — the agent starts hallucinating. It doesn't crash. It gets confidently wrong. That's worse.</p>
+
+        <h3>2. Multi-Agent Coordination Failures</h3>
+        <p>One agent is manageable. Five agents making decisions in parallel is a coordination crisis waiting to happen. We documented a case where Agent A was booking delivery trucks while Agent B was scheduling those same trucks for maintenance. Neither knew the other existed. <strong>$23M in losses over six months</strong> before anyone identified the root cause.</p>
+
+        <h3>3. Hallucination Cascades Between Agents</h3>
+        <p>When Agent B cites Agent A's output as ground truth, and Agent C cites Agent B, you get a hallucination cascade — each layer adding confidence to fabricated information. By the time a human reviews the final output, it looks authoritative. It isn't.</p>
+
+        <h3>4. Regulatory Blindspots</h3>
+        <p>Demo environments don't have regulators. Production does. SR 11-7 (banking), the EU AI Act, SEC Rule 17a-4 — each requires immutable audit trails for automated decision-making. Most enterprise AI deployments have zero audit infrastructure on day one. <strong>We found a $47M compliance exposure</strong> at a Fortune 500 company where agents were executing trades without any decision logging.</p>
+
+        <h2>The 8-Dimension Production Readiness Framework</h2>
+        <p>We score every enterprise AI deployment across these eight dimensions. A combined score below 60/100 is a deployment blocker:</p>
+        <ul>
+          <li><strong>Context Management</strong> — Overflow handling, summarization, priority scoring</li>
+          <li><strong>Orchestration Integrity</strong> — Multi-agent coordination, conflict detection, hierarchical supervision</li>
+          <li><strong>Compliance Coverage</strong> — Immutable audit trails, regulatory mapping, decision logging</li>
+          <li><strong>Knowledge Freshness</strong> — Change detection, re-ingestion triggers, staleness alerts</li>
+          <li><strong>Failure Recovery</strong> — Circuit breakers, loop detection, graceful degradation</li>
+          <li><strong>Security Posture</strong> — Agent permission scoping, zero-trust boundaries, credential rotation</li>
+          <li><strong>Observability</strong> — End-to-end tracing, decision provenance, latency monitoring</li>
+          <li><strong>Human-in-the-Loop</strong> — Escalation gates, approval workflows, override mechanisms</li>
+        </ul>
+        <p>The average enterprise we assess scores 34/100 on first evaluation. After a 3-week Production Readiness Assessment, that score typically rises to 85+.</p>
+
+        <blockquote>Intelligence is easy. Production is brutal. The enterprises that win with AI are the ones that treat production readiness as a first-class engineering discipline, not an afterthought.</blockquote>
+
+        <p>If you're deploying AI agents at scale, <a href="contact.html" class="text-blue-400 hover:text-blue-300 underline">book a free 30-minute diagnostic</a> to find out where your blind spots are.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- Article 2 -->
+  <article id="compliance-blindspot" class="border-b border-slate-800/40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <div class="mb-8">
+        <div class="flex flex-wrap gap-3 mb-4">
+          <span class="mono text-xs tracking-wider text-red-400 bg-red-500/10 px-3 py-1">COMPLIANCE</span>
+          <span class="mono text-xs tracking-wider text-slate-500">MAY 8, 2026</span>
+          <span class="mono text-xs tracking-wider text-slate-500">6 MIN READ</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-white leading-tight tracking-tight mb-4">The $47M Compliance Blindspot: What Happens When AI Agents Act Without Audit Trails</h2>
+        <p class="text-slate-400 text-lg">A Fortune 500 financial services company learned the hard way that "the model said so" is not a legal defense.</p>
+      </div>
+      <div class="prose">
+        <p>The call came on a Thursday afternoon. A VP of Risk at a top-20 US bank had just received preliminary findings from an internal audit. Their AI-powered trading advisory system — three agents coordinating across equity research, risk assessment, and portfolio optimization — had been executing recommendations for 14 months.</p>
+        <p><strong>Not a single decision had an audit trail.</strong></p>
+
+        <h2>The Anatomy of a Compliance Failure</h2>
+        <p>The agents were technically impressive. GPT-4 class models fine-tuned on proprietary financial data, integrated with real-time market feeds, and capable of generating portfolio recommendations that consistently outperformed their human counterparts.</p>
+        <p>What they lacked was infrastructure:</p>
+        <ul>
+          <li>No immutable logging of agent reasoning chains</li>
+          <li>No decision provenance — impossible to trace why a recommendation was made</li>
+          <li>No human-in-the-loop gates for high-value transactions</li>
+          <li>No regulatory mapping — the team hadn't even evaluated SR 11-7 applicability</li>
+        </ul>
+
+        <h2>SR 11-7: The Regulation Most AI Teams Haven't Read</h2>
+        <p>SR 11-7 is the Federal Reserve's guidance on model risk management. Originally written for statistical models, it now applies squarely to AI agents making or influencing financial decisions. Key requirements include:</p>
+        <ul>
+          <li><strong>Model validation</strong> — independent review of model performance and limitations</li>
+          <li><strong>Ongoing monitoring</strong> — continuous assessment of model behavior in production</li>
+          <li><strong>Documentation</strong> — complete records of model development, testing, and deployment decisions</li>
+          <li><strong>Audit trails</strong> — the ability to reconstruct any decision the model influenced</li>
+        </ul>
+        <p>The EU AI Act adds another layer: high-risk AI systems (which includes most financial AI) require conformity assessments, risk management systems, and transparency obligations that most enterprise deployments don't come close to meeting.</p>
+
+        <h2>The Fix: Compliance-Native Architecture</h2>
+        <p>Compliance can't be bolted on after deployment. It has to be baked into the agent architecture from day one. Our approach:</p>
+        <ul>
+          <li><strong>Immutable decision logs</strong> — every agent action, including the reasoning chain, is logged to a tamper-proof store</li>
+          <li><strong>Regulatory middleware</strong> — a compliance layer that intercepts agent outputs and validates them against applicable regulations before execution</li>
+          <li><strong>Human escalation gates</strong> — configurable thresholds that require human approval for high-impact decisions</li>
+          <li><strong>Continuous audit readiness</strong> — dashboards and reports that map directly to regulatory requirements</li>
+        </ul>
+        <p>The $47M exposure at this bank was eliminated in 8 weeks. The cost of the fix was less than 1% of the exposure. The cost of not fixing it was existential.</p>
+
+        <p><a href="compliance.html" class="text-blue-400 hover:text-blue-300 underline">Learn more about our AI Compliance Architecture service →</a></p>
+      </div>
+    </div>
+  </article>
+
+  <!-- Article 3 -->
+  <article id="mcp-vs-a2a" class="border-b border-slate-800/40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <div class="mb-8">
+        <div class="flex flex-wrap gap-3 mb-4">
+          <span class="mono text-xs tracking-wider text-emerald-400 bg-emerald-500/10 px-3 py-1">ORCHESTRATION</span>
+          <span class="mono text-xs tracking-wider text-slate-500">MAY 5, 2026</span>
+          <span class="mono text-xs tracking-wider text-slate-500">7 MIN READ</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-white leading-tight tracking-tight mb-4">Multi-Agent Orchestration: MCP vs A2A Protocols for Enterprise AI</h2>
+        <p class="text-slate-400 text-lg">Two protocols are emerging as standards for agent communication. Here's when to use each — and why most enterprises need both.</p>
+      </div>
+      <div class="prose">
+        <p>The era of the single AI agent is ending. Enterprises are deploying networks of 5, 10, 50+ agents — each specialized, each making decisions, each potentially contradicting the others. Without an orchestration layer, these agents are a liability, not an asset.</p>
+
+        <h2>MCP: Model Context Protocol</h2>
+        <p>MCP standardizes how AI models access external tools and data. Think of it as a universal adapter layer between agents and the systems they interact with — databases, APIs, file systems, web services. Key characteristics:</p>
+        <ul>
+          <li><strong>Tool standardization</strong> — agents access tools through a consistent interface regardless of the underlying system</li>
+          <li><strong>Context management</strong> — MCP handles context window optimization, ensuring agents get the most relevant information within their token limits</li>
+          <li><strong>Security boundaries</strong> — tool access is scoped and permissioned at the protocol level</li>
+        </ul>
+
+        <h2>A2A: Agent-to-Agent Protocol</h2>
+        <p>A2A standardizes how agents communicate with each other. Where MCP is about agent-to-system communication, A2A is about agent-to-agent coordination:</p>
+        <ul>
+          <li><strong>Semantic handoff</strong> — agents pass context to each other without information loss, including reasoning chains and confidence scores</li>
+          <li><strong>Conflict resolution</strong> — when agents disagree, A2A provides arbitration mechanisms (hierarchical, consensus, or human-escalated)</li>
+          <li><strong>Task delegation</strong> — agents can request capabilities from other agents, with built-in timeout and fallback handling</li>
+        </ul>
+
+        <h2>Why Enterprises Need Both</h2>
+        <p>MCP without A2A gives you agents that can use tools but can't coordinate. A2A without MCP gives you agents that can talk to each other but can't reliably interact with external systems. The production-ready architecture uses both:</p>
+        <ul>
+          <li><strong>MCP</strong> handles the vertical — each agent's connection to the tools and data it needs</li>
+          <li><strong>A2A</strong> handles the horizontal — how agents coordinate, delegate, and resolve conflicts</li>
+          <li><strong>Hierarchical supervision</strong> ties them together — a supervisor agent monitors the network, detects conflicts, and enforces business rules</li>
+        </ul>
+
+        <p>We've deployed this architecture at scale across financial services, healthcare, and logistics. The pattern is consistent: <strong>well-orchestrated mediocre agents outperform uncoordinated brilliant agents every time.</strong></p>
+
+        <p><a href="orchestration.html" class="text-blue-400 hover:text-blue-300 underline">Explore our Multi-Agent Orchestration service →</a></p>
+      </div>
+    </div>
+  </article>
+
+  <!-- Article 4 -->
+  <article id="sr-11-7-ai-compliance" class="border-b border-slate-800/40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <div class="mb-8">
+        <div class="flex flex-wrap gap-3 mb-4">
+          <span class="mono text-xs tracking-wider text-amber-400 bg-amber-500/10 px-3 py-1">REGULATION</span>
+          <span class="mono text-xs tracking-wider text-slate-500">MAY 2, 2026</span>
+          <span class="mono text-xs tracking-wider text-slate-500">9 MIN READ</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-white leading-tight tracking-tight mb-4">SR 11-7 and AI: Building Compliance-Native Agent Architecture for Banking</h2>
+        <p class="text-slate-400 text-lg">A practical guide to applying the Federal Reserve's model risk management guidance to enterprise AI agent deployments in banking and financial services.</p>
+      </div>
+      <div class="prose">
+        <p>SR 11-7 was written in 2011 for a world of logistic regressions and credit scoring models. In 2026, it governs AI agents that read earnings calls, assess counterparty risk, and generate trading recommendations. The gap between the regulation's intent and how most banks implement AI is massive — and regulators are closing it fast.</p>
+
+        <h2>What SR 11-7 Requires (in Plain Language)</h2>
+        <p>At its core, SR 11-7 requires three things for any model that influences a business decision:</p>
+        <ul>
+          <li><strong>You must be able to explain what the model does</strong> — not just "it uses AI," but the specific inputs, logic, and outputs</li>
+          <li><strong>Someone independent must validate it works</strong> — the team that built it cannot be the team that approves it</li>
+          <li><strong>You must continuously monitor it in production</strong> — model drift, performance degradation, and unexpected behavior must be caught in real-time</li>
+        </ul>
+
+        <h2>Where Most Banking AI Fails SR 11-7</h2>
+        <p>The most common failures we see in banking AI deployments:</p>
+        <ul>
+          <li><strong>No model inventory</strong> — the bank doesn't have a complete list of AI agents in production, let alone their risk classifications</li>
+          <li><strong>No decision provenance</strong> — you can see what the agent recommended, but not why, or what data it used</li>
+          <li><strong>No independent validation</strong> — the AI team built it, tested it, and approved it for production</li>
+          <li><strong>No ongoing monitoring</strong> — the agent was validated at deployment and never reassessed</li>
+          <li><strong>No change management</strong> — model updates are deployed without re-validation</li>
+        </ul>
+
+        <h2>The Compliance-Native Architecture</h2>
+        <p>Our approach treats compliance as middleware, not as a reporting layer bolted on after the fact:</p>
+        <ul>
+          <li><strong>Agent registry</strong> — every AI agent in the organization is cataloged with its risk tier, data inputs, decision scope, and validation status</li>
+          <li><strong>Decision logging pipeline</strong> — every agent action flows through a tamper-proof logging layer that captures inputs, reasoning, outputs, and confidence scores</li>
+          <li><strong>Automated validation triggers</strong> — model updates, performance drift, or data distribution shifts automatically trigger re-validation workflows</li>
+          <li><strong>Regulatory dashboards</strong> — real-time views that map directly to SR 11-7 requirements, EU AI Act obligations, and SEC Rule 17a-4 record retention</li>
+        </ul>
+
+        <p>The cost of building this infrastructure is a fraction of the cost of a regulatory finding. And unlike retroactive compliance, native compliance actually makes the AI better — more observable, more reliable, more trustworthy.</p>
+
+        <p><a href="contact.html" class="text-blue-400 hover:text-blue-300 underline">Book a compliance architecture review →</a></p>
+      </div>
+    </div>
+  </article>
+
+  <!-- Article 5 -->
+  <article id="dark-knowledge-graphrag" class="border-b border-slate-800/40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <div class="mb-8">
+        <div class="flex flex-wrap gap-3 mb-4">
+          <span class="mono text-xs tracking-wider text-purple-400 bg-purple-500/10 px-3 py-1">KNOWLEDGE</span>
+          <span class="mono text-xs tracking-wider text-slate-500">APR 28, 2026</span>
+          <span class="mono text-xs tracking-wider text-slate-500">7 MIN READ</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-white leading-tight tracking-tight mb-4">The Dark Knowledge Problem: Why Your AI Agent Is Citing Stale Data and How GraphRAG Fixes It</h2>
+        <p class="text-slate-400 text-lg">A healthcare company's AI cited a retired clinical protocol. A physician followed it. $31M in liability exposure from one stale document.</p>
+      </div>
+      <div class="prose">
+        <p>It was 2 AM when the call came. A VP of Engineering at a major healthcare company had just discovered that their AI assistant had been citing a clinical protocol that was retired 8 months ago. A physician had followed the recommendation. The protocol had been superseded because of safety concerns.</p>
+        <p><strong>$31M in potential liability. From one PDF that was never re-ingested.</strong></p>
+
+        <h2>Why Traditional RAG Fails at Scale</h2>
+        <p>Retrieval-Augmented Generation (RAG) works brilliantly in demos. You embed your documents, build a vector store, and the AI retrieves relevant chunks to inform its responses. The problem is maintenance:</p>
+        <ul>
+          <li><strong>No change detection</strong> — when a source document is updated, the vector store doesn't know</li>
+          <li><strong>No freshness tracking</strong> — embeddings don't carry metadata about when they were last validated</li>
+          <li><strong>No relationship awareness</strong> — traditional RAG treats documents as isolated chunks, missing the connections between them</li>
+          <li><strong>No staleness alerts</strong> — nobody gets notified when critical knowledge becomes outdated</li>
+        </ul>
+
+        <h2>GraphRAG: Knowledge as a Living Network</h2>
+        <p>GraphRAG replaces the flat vector store with a knowledge graph — a network of entities, relationships, and metadata powered by Neo4j. The difference is fundamental:</p>
+        <ul>
+          <li><strong>Entity resolution</strong> — "Dr. Smith's 2024 protocol" and "the cardiac care guidelines v3.2" are recognized as referring to the same document</li>
+          <li><strong>Relationship traversal</strong> — the agent understands that Protocol A supersedes Protocol B, and that Protocol B references Data Set C</li>
+          <li><strong>Temporal awareness</strong> — every node carries creation, modification, and validation timestamps</li>
+          <li><strong>Provenance chains</strong> — the agent can trace any claim back to its source document, section, and ingestion date</li>
+        </ul>
+
+        <h2>The Knowledge Freshness Governance Layer</h2>
+        <p>On top of GraphRAG, we deploy a governance layer that ensures knowledge stays current:</p>
+        <ul>
+          <li><strong>SHA-256 change detection</strong> — source documents are fingerprinted, and any change triggers re-ingestion</li>
+          <li><strong>Layout-aware parsing</strong> — tables, headers, footnotes, and cross-references are preserved during ingestion, not flattened into raw text</li>
+          <li><strong>Automated re-ingestion triggers</strong> — configurable schedules and event-driven triggers ensure critical documents are always fresh</li>
+          <li><strong>Staleness alerts</strong> — when a document exceeds its freshness threshold without re-validation, the system alerts the responsible team and optionally quarantines the knowledge</li>
+        </ul>
+
+        <p>The scariest AI failure isn't the one that's obviously wrong. It's the one that looks exactly right — but isn't.</p>
+
+        <p><a href="knowledge.html" class="text-blue-400 hover:text-blue-300 underline">Learn about our Enterprise Knowledge Fabric →</a></p>
+      </div>
+    </div>
+  </article>
+
+  <!-- CTA Section -->
+  <section class="py-20 sm:py-28">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="mono text-blue-400 text-xs tracking-widest uppercase mb-6">Free Assessment</p>
+      <h2 class="text-3xl sm:text-4xl font-black text-white mb-6">Find Your Blind Spots Before Production Does</h2>
+      <p class="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">Book a free 30-minute AI Production Readiness diagnostic. We'll score your infrastructure across 8 dimensions and identify the gaps that demos don't reveal.</p>
+      <a href="contact.html" class="btn-primary inline-block text-white px-10 py-4 rounded-sm font-bold text-base shadow-lg shadow-blue-500/20">Book Your Free Assessment →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-slate-950 border-t border-slate-800 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 bg-blue-600 rounded-sm flex items-center justify-center">
+        <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <span class="text-xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+    </div>
+    <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+      <a href="about.html" class="hover:text-white transition">About</a>
+      <a href="audits.html" class="hover:text-white transition">Audits</a>
+      <a href="blog.html" class="hover:text-white transition">Blog</a>
+      <a href="cases.html" class="hover:text-white transition">Case Studies</a>
+      <a href="contact.html" class="hover:text-white transition">Contact</a>
+      <span>© 2026 Dioval Group. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
