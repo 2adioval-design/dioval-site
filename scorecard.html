@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Production Readiness Scorecard | Free Self-Assessment | Dioval Group</title>
+    <meta name="description" content="Score your AI agents across 8 production readiness dimensions in under 5 minutes. Free interactive assessment based on the PRS framework used by Fortune 500 companies.">
+    <meta name="keywords" content="AI readiness assessment, production readiness score, AI agent scorecard, enterprise AI evaluation, PRS framework">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dioval.com/scorecard.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AI Production Readiness Scorecard | Free Self-Assessment">
+    <meta property="og:description" content="Score your AI agents across 8 dimensions in under 5 minutes. Based on the PRS framework.">
+    <meta property="og:url" content="https://dioval.com/scorecard.html">
+    <meta property="og:site_name" content="Dioval Group">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "AI Production Readiness Scorecard",
+      "provider": {"@type": "Organization", "name": "Dioval Group", "url": "https://dioval.com"},
+      "description": "Interactive self-assessment scoring AI agents across 8 production readiness dimensions.",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+      "applicationCategory": "Assessment Tool"
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7JKBJJES0V"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7JKBJJES0V');</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass { background: rgba(15,23,42,0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+        .glass-light { background: rgba(30,41,59,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+        .nav-link { position:relative; }
+        .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:#3b82f6; transition: width 0.3s ease; }
+        .nav-link:hover::after { width:100%; }
+        .btn-primary { background: linear-gradient(135deg, #2563eb, #1d4ed8); transition: all 0.3s ease; }
+        .btn-primary:hover { background: linear-gradient(135deg, #3b82f6, #2563eb); transform: translateY(-1px); box-shadow: 0 8px 25px rgba(37,99,235,0.4); }
+        .mobile-menu { display:none; }
+        .mobile-menu.open { display:block; }
+        .hero-grid { background-image: linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px); background-size: 60px 60px; }
+        
+        .score-option { cursor: pointer; transition: all 0.2s ease; border: 1px solid rgba(255,255,255,0.1); }
+        .score-option:hover { border-color: rgba(59,130,246,0.5); background: rgba(37,99,235,0.08); }
+        .score-option.selected { border-color: #2563eb; background: rgba(37,99,235,0.15); }
+        .score-option.selected .option-dot { background: #2563eb; }
+        .option-dot { width: 16px; height: 16px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2); transition: all 0.2s ease; flex-shrink: 0; }
+        
+        .progress-bar { height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #2563eb, #3b82f6); transition: width 0.4s ease; }
+        
+        .dimension-card { transition: all 0.3s ease; }
+        .dimension-card.active { border-color: rgba(59,130,246,0.3); }
+        .dimension-card.completed { border-color: rgba(34,197,94,0.3); }
+        
+        .score-ring { width: 200px; height: 200px; }
+        .score-ring circle { fill: none; stroke-width: 8; transform: rotate(-90deg); transform-origin: 50% 50%; }
+        .score-ring .bg { stroke: rgba(255,255,255,0.1); }
+        .score-ring .fg { stroke-dasharray: 565; transition: stroke-dashoffset 1.5s ease; }
+        
+        .hidden { display: none !important; }
+        .fade-in { animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .score-bar { height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; }
+        .score-bar-fill { height: 100%; border-radius: 4px; transition: width 1s ease 0.3s; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-300 antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen">
+
+<nav class="fixed w-full z-50 glass border-b border-slate-800/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
+        <div class="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <span class="text-2xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+      </a>
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="about.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">About</a>
+        <a href="audits.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Audits</a>
+        <a href="books.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Books</a>
+        <a href="blog.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Blog</a>
+        <a href="booking.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Free Diagnostic</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm shadow-lg shadow-blue-500/20">Book an Audit</a>
+        <button class="lg:hidden text-slate-400 hover:text-white p-2" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu lg:hidden glass border-t border-slate-800/60">
+    <div class="px-4 py-6 space-y-4">
+      <a href="about.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">About</a>
+      <a href="audits.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Audits</a>
+      <a href="books.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Books</a>
+      <a href="blog.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Blog</a>
+      <a href="booking.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Free Diagnostic</a>
+      <a href="contact.html" class="block btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm text-center mt-4">Book an Audit</a>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow pt-20">
+  <section class="hero-grid py-16 sm:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Header -->
+      <div class="text-center mb-10">
+        <span class="mono text-blue-400 text-xs tracking-widest uppercase bg-blue-500/10 px-3 py-1 rounded-sm">Free Assessment - 5 Minutes</span>
+        <h1 class="text-3xl sm:text-4xl font-black text-white leading-tight tracking-tight mt-6 mb-4">AI Production Readiness Scorecard</h1>
+        <p class="text-lg text-slate-400 max-w-xl mx-auto">Score your AI agents across 8 dimensions. Based on the PRS framework used in Fortune 500 audits.</p>
+      </div>
+      
+      <!-- Progress -->
+      <div id="progressSection" class="mb-8">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-xs text-slate-500 mono" id="progressLabel">Question 1 of 8</span>
+          <span class="text-xs text-slate-500 mono" id="progressPct">0%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+        </div>
+      </div>
+      
+      <!-- Assessment Questions -->
+      <div id="assessmentContainer">
+        <!-- Questions will be rendered by JS -->
+      </div>
+      
+      <!-- Email Gate (shown before results) -->
+      <div id="emailGate" class="hidden fade-in">
+        <div class="glass-light rounded-sm p-8 text-center">
+          <div class="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h2 class="text-xl font-bold text-white mb-2">Assessment Complete!</h2>
+          <p class="text-sm text-slate-400 mb-6">Enter your email to see your full Production Readiness Score and personalized recommendations.</p>
+          <form onsubmit="showResults(event)" class="max-w-sm mx-auto">
+            <input type="email" id="gateEmail" required placeholder="you@company.com" class="w-full px-4 py-3 rounded-sm text-white text-sm placeholder-slate-600 mb-3" style="background: rgba(15,23,42,0.8); border: 1px solid rgba(255,255,255,0.1);">
+            <input type="text" id="gateCompany" placeholder="Company (optional)" class="w-full px-4 py-3 rounded-sm text-white text-sm placeholder-slate-600 mb-4" style="background: rgba(15,23,42,0.8); border: 1px solid rgba(255,255,255,0.1);">
+            <button type="submit" class="btn-primary w-full text-white px-6 py-4 rounded-sm font-bold text-sm shadow-lg shadow-blue-500/20">See My Score &rarr;</button>
+          </form>
+          <p class="text-xs text-slate-600 mt-3">No spam. We'll send your detailed scorecard report.</p>
+        </div>
+      </div>
+      
+      <!-- Results -->
+      <div id="resultsSection" class="hidden fade-in">
+        <div class="glass-light rounded-sm p-8 mb-8">
+          <div class="flex flex-col sm:flex-row items-center gap-8">
+            <div class="flex-shrink-0">
+              <svg class="score-ring" viewBox="0 0 200 200">
+                <circle class="bg" cx="100" cy="100" r="90"/>
+                <circle class="fg" id="scoreRing" cx="100" cy="100" r="90" stroke-dashoffset="565"/>
+              </svg>
+              <div class="text-center -mt-28 mb-6 relative z-10">
+                <span class="mono text-5xl font-black text-white" id="totalScore">0</span>
+                <span class="text-slate-500 text-lg">/100</span>
+              </div>
+            </div>
+            <div>
+              <h2 class="text-2xl font-bold text-white mb-2" id="scoreTitle">Your Score</h2>
+              <p class="text-slate-400 text-sm mb-4" id="scoreDesc">Description</p>
+              <div class="flex flex-wrap gap-2" id="scoreBadges"></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Dimension Breakdown -->
+        <h3 class="text-lg font-bold text-white mb-4">Dimension Breakdown</h3>
+        <div class="space-y-3 mb-8" id="dimensionBreakdown"></div>
+        
+        <!-- Recommendations -->
+        <div class="glass-light rounded-sm p-8 mb-8">
+          <h3 class="text-lg font-bold text-white mb-4">Top 3 Recommendations</h3>
+          <div class="space-y-4" id="recommendations"></div>
+        </div>
+        
+        <!-- CTA -->
+        <div class="glass-light rounded-sm p-8 text-center border border-blue-500/20">
+          <h3 class="text-xl font-bold text-white mb-2">Want a Deeper Assessment?</h3>
+          <p class="text-sm text-slate-400 mb-6">A 30-minute diagnostic with our team covers all 8 dimensions in detail - with specific remediation steps for your architecture.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="booking.html" class="btn-primary text-white px-8 py-4 rounded-sm font-bold text-sm shadow-lg shadow-blue-500/20">Book Free 30-min Diagnostic &rarr;</a>
+            <a href="books.html" class="text-blue-400 hover:text-blue-300 px-8 py-4 rounded-sm font-bold text-sm border border-blue-500/30 hover:border-blue-500/50 transition-all">Get the Book Series &rarr;</a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+</main>
+
+<footer class="bg-slate-950 border-t border-slate-800 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 bg-blue-600 rounded-sm flex items-center justify-center">
+        <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <span class="text-xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+    </div>
+    <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+      <a href="about.html" class="hover:text-white transition">About</a>
+      <a href="audits.html" class="hover:text-white transition">Audits</a>
+      <a href="books.html" class="hover:text-white transition">Books</a>
+      <a href="blog.html" class="hover:text-white transition">Blog</a>
+      <a href="contact.html" class="hover:text-white transition">Contact</a>
+      <span>&copy; 2026 Dioval Group. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const dimensions = [
+  {
+    id: 'accuracy',
+    name: 'Accuracy & Grounding',
+    icon: '&#9678;',
+    question: 'How well does your AI agent ground its responses in verified data?',
+    options: [
+      { score: 0, label: 'No grounding', desc: 'Agent generates responses purely from training data with no retrieval or verification' },
+      { score: 4, label: 'Basic RAG', desc: 'Simple retrieval-augmented generation, but no fact-checking or source attribution' },
+      { score: 8, label: 'Verified retrieval', desc: 'RAG with source attribution, but no automated hallucination detection' },
+      { score: 12, label: 'Production-grade', desc: 'Multi-source retrieval with hallucination detection, fact-checking, and confidence scores' }
+    ],
+    recs: {
+      low: 'Implement retrieval-augmented generation (RAG) with source attribution. Add automated hallucination detection before any response reaches users.',
+      mid: 'Add multi-source verification and confidence scoring. Implement golden dataset regression testing for accuracy monitoring.',
+      high: 'Consider adding RAGAS evaluation metrics and continuous accuracy monitoring with alerting.'
+    }
+  },
+  {
+    id: 'cost',
+    name: 'Cost Efficiency',
+    icon: '&#36;',
+    question: 'How well do you manage and optimize your AI agent\'s operational costs?',
+    options: [
+      { score: 0, label: 'No cost tracking', desc: 'No visibility into per-conversation or per-task costs' },
+      { score: 4, label: 'Basic monitoring', desc: 'Track total API spend monthly, but no per-conversation cost attribution' },
+      { score: 8, label: 'Cost-aware', desc: 'Per-conversation cost tracking with basic model routing, but no caching or circuit breakers' },
+      { score: 12, label: 'Cost-engineered', desc: 'Semantic caching, model routing (cheap/expensive), token budgets, and cost circuit breakers' }
+    ],
+    recs: {
+      low: 'Start tracking per-conversation costs immediately. Implement basic model routing to send simple queries to cheaper models.',
+      mid: 'Add semantic caching (can cut costs 40-60%). Implement token budgets and cost circuit breakers per conversation.',
+      high: 'Consider dynamic model routing based on query complexity. Add cost anomaly detection with automated alerts.'
+    }
+  },
+  {
+    id: 'security',
+    name: 'Security Posture',
+    icon: '&#128274;',
+    question: 'How protected is your AI agent against adversarial attacks and data leakage?',
+    options: [
+      { score: 0, label: 'No defenses', desc: 'No prompt injection protection, no input sanitization, no output filtering' },
+      { score: 4, label: 'Basic input filtering', desc: 'Some input validation, but no systematic prompt injection defense or output monitoring' },
+      { score: 8, label: 'Layered defense', desc: 'Prompt injection detection, input/output filtering, but no regular red-teaming' },
+      { score: 12, label: 'Security-hardened', desc: 'Multi-layer defense, regular red-teaming, sandboxed tool access, data loss prevention, audit trails' }
+    ],
+    recs: {
+      low: 'Critical risk. Implement prompt injection detection and input sanitization immediately. Add output filtering to prevent data leakage.',
+      mid: 'Schedule regular red-teaming sessions. Add sandboxed tool access and DLP rules for sensitive data.',
+      high: 'Implement continuous adversarial testing. Consider adding a security monitoring dashboard with real-time alerts.'
+    }
+  },
+  {
+    id: 'reliability',
+    name: 'Reliability & Fault Tolerance',
+    icon: '&#9889;',
+    question: 'How well does your AI agent handle failures, timeouts, and edge cases?',
+    options: [
+      { score: 0, label: 'No error handling', desc: 'Agent crashes or hangs on failures. No retry logic, no circuit breakers, no graceful degradation' },
+      { score: 4, label: 'Basic retries', desc: 'Simple retry logic on API failures, but no loop detection or maximum step counts' },
+      { score: 8, label: 'Resilient', desc: 'Retry with backoff, maximum step counts, but no circuit breakers or graceful degradation' },
+      { score: 12, label: 'Production-hardened', desc: 'Circuit breakers, loop detection, graceful degradation, fallback responses, dead letter queues' }
+    ],
+    recs: {
+      low: 'Add maximum step counts and basic retry logic with exponential backoff. This prevents infinite loops and runaway costs.',
+      mid: 'Implement circuit breakers and graceful degradation. Add fallback responses for when the agent cannot complete a task.',
+      high: 'Add dead letter queues and automated recovery. Consider chaos engineering to test failure modes.'
+    }
+  },
+  {
+    id: 'observability',
+    name: 'Observability',
+    icon: '&#128065;',
+    question: 'How much visibility do you have into your AI agent\'s behavior in production?',
+    options: [
+      { score: 0, label: 'Blind', desc: 'No logging, no metrics, no dashboards. You find out about problems from user complaints' },
+      { score: 4, label: 'Basic logs', desc: 'Application logs exist but no structured metrics, no dashboards, no alerting' },
+      { score: 8, label: 'Monitored', desc: 'Dashboards with key metrics (latency, errors), but no LLM-specific tracing or alerting' },
+      { score: 12, label: 'Full observability', desc: 'Distributed tracing, LLM-specific debugging, 8+ KPIs tracked, automated alerting, anomaly detection' }
+    ],
+    recs: {
+      low: 'Deploy basic monitoring immediately. Track at minimum: success rate, latency, cost per conversation, and error rate.',
+      mid: 'Add LLM-specific tracing (e.g., LangSmith). Set up PagerDuty or similar for automated alerting on anomalies.',
+      high: 'Implement full distributed tracing with OpenTelemetry. Add anomaly detection for proactive issue identification.'
+    }
+  },
+  {
+    id: 'hitl',
+    name: 'Human-in-the-Loop',
+    icon: '&#128101;',
+    question: 'How well does your agent escalate to humans for high-stakes or uncertain decisions?',
+    options: [
+      { score: 0, label: 'Fully autonomous', desc: 'Agent makes all decisions independently, including high-stakes ones. No escalation path' },
+      { score: 4, label: 'Manual override only', desc: 'Humans can intervene, but agent doesn\'t proactively escalate uncertain or high-risk decisions' },
+      { score: 8, label: 'Rule-based escalation', desc: 'Escalates on predefined triggers (dollar thresholds, keywords), but no confidence-based routing' },
+      { score: 12, label: 'Intelligent escalation', desc: 'Confidence-based routing, approval gates for critical actions, human feedback loops, escalation analytics' }
+    ],
+    recs: {
+      low: 'Add approval gates for any action involving money, data deletion, or external communication. This is non-negotiable.',
+      mid: 'Implement confidence-based routing. When the agent is uncertain, it should proactively surface decisions to humans.',
+      high: 'Add feedback loops so human corrections improve the agent over time. Track escalation analytics to optimize thresholds.'
+    }
+  },
+  {
+    id: 'scalability',
+    name: 'Scalability',
+    icon: '&#128200;',
+    question: 'How well does your AI agent handle increased load and traffic spikes?',
+    options: [
+      { score: 0, label: 'Single instance', desc: 'Runs on one server. No load balancing, no queue management, no auto-scaling' },
+      { score: 4, label: 'Basic scaling', desc: 'Can handle moderate load, but no queue management or graceful degradation under pressure' },
+      { score: 8, label: 'Scalable', desc: 'Load balancing and auto-scaling, but no request queuing or priority-based routing' },
+      { score: 12, label: 'Enterprise-scale', desc: 'Auto-scaling, request queuing, priority routing, rate limiting, multi-region deployment' }
+    ],
+    recs: {
+      low: 'Implement basic load balancing and request queuing. Ensure the system degrades gracefully under high load.',
+      mid: 'Add priority-based routing and rate limiting. Test with load simulation to find breaking points.',
+      high: 'Consider multi-region deployment for latency optimization. Implement predictive scaling based on traffic patterns.'
+    }
+  },
+  {
+    id: 'compliance',
+    name: 'Compliance Readiness',
+    icon: '&#128220;',
+    question: 'How prepared is your AI agent for regulatory requirements (EU AI Act, SR 11-7, SOC 2, etc.)?',
+    options: [
+      { score: 0, label: 'No compliance', desc: 'No audit trails, no documentation, no awareness of applicable regulations' },
+      { score: 4, label: 'Aware', desc: 'Know which regulations apply, but no automated compliance measures in place' },
+      { score: 8, label: 'Partially compliant', desc: 'Audit trails exist, some documentation, but not automated or comprehensive' },
+      { score: 12, label: 'Compliance-engineered', desc: 'Automated compliance middleware, comprehensive audit trails, risk documentation, regular compliance reviews' }
+    ],
+    recs: {
+      low: 'Start with audit trails immediately - log every agent decision, tool call, and data access. Identify which regulations apply to your deployment.',
+      mid: 'Automate compliance documentation. Build risk assessment documentation per applicable framework (EU AI Act, SR 11-7, etc.).',
+      high: 'Implement compliance middleware for continuous monitoring. Schedule quarterly compliance reviews and update documentation.'
+    }
+  }
+];
+
+let currentQ = 0;
+let answers = {};
+
+function renderQuestion(idx) {
+  const dim = dimensions[idx];
+  const container = document.getElementById('assessmentContainer');
+  
+  container.innerHTML = `
+    <div class="glass-light rounded-sm p-8 fade-in">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="mono text-blue-400 text-xs">${idx + 1} / ${dimensions.length}</span>
+        <span class="text-xs text-slate-500">|</span>
+        <span class="text-xs text-slate-400 font-semibold">${dim.name}</span>
+      </div>
+      <h2 class="text-lg font-bold text-white mb-6">${dim.question}</h2>
+      <div class="space-y-3" id="options">
+        ${dim.options.map((opt, i) => `
+          <div class="score-option rounded-sm p-4 ${answers[dim.id] === i ? 'selected' : ''}" onclick="selectOption(${i})">
+            <div class="flex items-start gap-3">
+              <div class="option-dot mt-1 ${answers[dim.id] === i ? 'bg-blue-600' : ''}"></div>
+              <div>
+                <p class="text-white font-semibold text-sm">${opt.label} <span class="mono text-blue-400 text-xs ml-2">${opt.score}/12</span></p>
+                <p class="text-slate-400 text-xs mt-1">${opt.desc}</p>
+              </div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+      <div class="flex justify-between mt-8">
+        <button onclick="prevQuestion()" class="text-slate-400 hover:text-white text-sm font-semibold transition ${idx === 0 ? 'invisible' : ''}">&larr; Previous</button>
+        <button id="nextBtn" onclick="nextQuestion()" class="btn-primary text-white px-8 py-3 rounded-sm font-bold text-sm shadow-lg shadow-blue-500/20 ${answers[dim.id] === undefined ? 'opacity-50 cursor-not-allowed' : ''}" ${answers[dim.id] === undefined ? 'disabled' : ''}>
+          ${idx === dimensions.length - 1 ? 'See My Score' : 'Next'} &rarr;
+        </button>
+      </div>
+    </div>
+  `;
+  
+  updateProgress();
+}
+
+function selectOption(optIdx) {
+  const dim = dimensions[currentQ];
+  answers[dim.id] = optIdx;
+  
+  document.querySelectorAll('.score-option').forEach((el, i) => {
+    el.classList.toggle('selected', i === optIdx);
+    el.querySelector('.option-dot').style.background = i === optIdx ? '#2563eb' : '';
+  });
+  
+  const nextBtn = document.getElementById('nextBtn');
+  nextBtn.disabled = false;
+  nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+}
+
+function nextQuestion() {
+  if (answers[dimensions[currentQ].id] === undefined) return;
+  
+  if (currentQ < dimensions.length - 1) {
+    currentQ++;
+    renderQuestion(currentQ);
+  } else {
+    showEmailGate();
+  }
+}
+
+function prevQuestion() {
+  if (currentQ > 0) {
+    currentQ--;
+    renderQuestion(currentQ);
+  }
+}
+
+function updateProgress() {
+  const answered = Object.keys(answers).length;
+  const pct = Math.round((answered / dimensions.length) * 100);
+  document.getElementById('progressLabel').textContent = `Question ${currentQ + 1} of ${dimensions.length}`;
+  document.getElementById('progressPct').textContent = `${pct}%`;
+  document.getElementById('progressFill').style.width = `${pct}%`;
+}
+
+function showEmailGate() {
+  document.getElementById('assessmentContainer').classList.add('hidden');
+  document.getElementById('progressSection').classList.add('hidden');
+  document.getElementById('emailGate').classList.remove('hidden');
+}
+
+function showResults(e) {
+  e.preventDefault();
+  
+  const email = document.getElementById('gateEmail').value;
+  const company = document.getElementById('gateCompany').value;
+  
+  // Track
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'scorecard_complete', {
+      'event_category': 'lead_gen',
+      'event_label': 'prs_scorecard',
+      'company': company
+    });
+  }
+  
+  // Store lead
+  const leads = JSON.parse(localStorage.getItem('dioval_scorecard_leads') || '[]');
+  leads.push({ email, company, answers, timestamp: new Date().toISOString() });
+  localStorage.setItem('dioval_scorecard_leads', JSON.stringify(leads));
+  
+  // Send email notification
+  const totalScore = calcTotal();
+  const subject = encodeURIComponent('Scorecard Lead: ' + (company || email) + ' - Score ' + totalScore + '/100');
+  const body = encodeURIComponent('Email: ' + email + '\nCompany: ' + company + '\nScore: ' + totalScore + '/100\n\nDimension Scores:\n' + 
+    dimensions.map(d => d.name + ': ' + dimensions[dimensions.findIndex(x => x.id === d.id)].options[answers[d.id]].score + '/12').join('\n'));
+  const mailLink = document.createElement('a');
+  mailLink.href = 'mailto:contact@dioval.com?subject=' + subject + '&body=' + body;
+  mailLink.click();
+  
+  document.getElementById('emailGate').classList.add('hidden');
+  document.getElementById('resultsSection').classList.remove('hidden');
+  renderResults();
+}
+
+function calcTotal() {
+  let total = 0;
+  dimensions.forEach(d => {
+    if (answers[d.id] !== undefined) {
+      // Scale from 12 to 12.5 for display (8 * 12.5 = 100)
+      total += d.options[answers[d.id]].score;
+    }
+  });
+  // Max is 96 (8 * 12), scale to 100
+  return Math.round((total / 96) * 100);
+}
+
+function renderResults() {
+  const total = calcTotal();
+  
+  // Animate score ring
+  const ring = document.getElementById('scoreRing');
+  const circumference = 565;
+  const offset = circumference - (total / 100) * circumference;
+  
+  let color;
+  if (total < 40) color = '#ef4444';
+  else if (total < 60) color = '#f59e0b';
+  else if (total < 80) color = '#3b82f6';
+  else color = '#22c55e';
+  
+  ring.style.stroke = color;
+  setTimeout(() => { ring.style.strokeDashoffset = offset; }, 100);
+  
+  // Animate counter
+  let counter = 0;
+  const interval = setInterval(() => {
+    counter += Math.ceil(total / 30);
+    if (counter >= total) { counter = total; clearInterval(interval); }
+    document.getElementById('totalScore').textContent = counter;
+  }, 50);
+  
+  // Title and description
+  const titleEl = document.getElementById('scoreTitle');
+  const descEl = document.getElementById('scoreDesc');
+  const badgesEl = document.getElementById('scoreBadges');
+  
+  if (total < 40) {
+    titleEl.textContent = 'Critical Risk';
+    titleEl.style.color = '#ef4444';
+    descEl.textContent = 'Your AI agents have significant production risks. Do not deploy to production without addressing the critical gaps identified below.';
+    badgesEl.innerHTML = '<span class="text-xs bg-red-500/20 text-red-400 px-3 py-1 rounded">High Risk</span><span class="text-xs bg-red-500/20 text-red-400 px-3 py-1 rounded">Not Production-Ready</span>';
+  } else if (total < 60) {
+    titleEl.textContent = 'Needs Work';
+    titleEl.style.color = '#f59e0b';
+    descEl.textContent = 'Your agents have a foundation but several gaps need attention before scaling. Deploy with caution and a clear remediation plan.';
+    badgesEl.innerHTML = '<span class="text-xs bg-amber-500/20 text-amber-400 px-3 py-1 rounded">Medium Risk</span><span class="text-xs bg-amber-500/20 text-amber-400 px-3 py-1 rounded">Deploy with Remediation Plan</span>';
+  } else if (total < 80) {
+    titleEl.textContent = 'Production-Ready';
+    titleEl.style.color = '#3b82f6';
+    descEl.textContent = 'Solid production foundation with room for optimization. You can deploy confidently with monitoring in place.';
+    badgesEl.innerHTML = '<span class="text-xs bg-blue-500/20 text-blue-400 px-3 py-1 rounded">Low Risk</span><span class="text-xs bg-blue-500/20 text-blue-400 px-3 py-1 rounded">Production-Ready</span>';
+  } else {
+    titleEl.textContent = 'Excellent';
+    titleEl.style.color = '#22c55e';
+    descEl.textContent = 'Your AI agents are well-engineered for production. Focus on continuous optimization and staying ahead of the regulatory curve.';
+    badgesEl.innerHTML = '<span class="text-xs bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded">Minimal Risk</span><span class="text-xs bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded">Enterprise-Grade</span>';
+  }
+  
+  // Dimension breakdown
+  const breakdownEl = document.getElementById('dimensionBreakdown');
+  breakdownEl.innerHTML = dimensions.map(d => {
+    const score = d.options[answers[d.id]].score;
+    const pct = Math.round((score / 12) * 100);
+    let barColor;
+    if (pct < 34) barColor = '#ef4444';
+    else if (pct < 67) barColor = '#f59e0b';
+    else barColor = '#22c55e';
+    
+    return `
+      <div class="glass-light rounded-sm p-4">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-sm font-semibold text-white">${d.name}</span>
+          <span class="mono text-sm font-bold" style="color:${barColor}">${score}/12</span>
+        </div>
+        <div class="score-bar">
+          <div class="score-bar-fill" style="width:${pct}%; background:${barColor}"></div>
+        </div>
+      </div>
+    `;
+  }).join('');
+  
+  // Recommendations (top 3 weakest)
+  const sorted = [...dimensions].sort((a, b) => 
+    a.options[answers[a.id]].score - b.options[answers[b.id]].score
+  );
+  
+  const recsEl = document.getElementById('recommendations');
+  recsEl.innerHTML = sorted.slice(0, 3).map((d, i) => {
+    const score = d.options[answers[d.id]].score;
+    let recText;
+    if (score <= 4) recText = d.recs.low;
+    else if (score <= 8) recText = d.recs.mid;
+    else recText = d.recs.high;
+    
+    return `
+      <div class="flex items-start gap-3">
+        <span class="mono text-blue-400 text-lg font-bold mt-0.5">0${i + 1}</span>
+        <div>
+          <h4 class="text-white font-semibold text-sm">${d.name}</h4>
+          <p class="text-slate-400 text-sm mt-1">${recText}</p>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// Start
+renderQuestion(0);
+</script>
+
+</body>
+</html>
