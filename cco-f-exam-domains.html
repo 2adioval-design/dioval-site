@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCO-F Exam Domains | Certified Cybersecurity Operator: Foundations | Dioval Group</title>
+    <meta name="description" content="Complete exam blueprint for the CCO-F (Certified Cybersecurity Operator: Foundations). 6 domains, weighted competencies, sample scenarios, and study guide mapping. 3-hour scenario-based exam, zero multiple choice.">
+    <meta name="keywords" content="CCO-F exam domains, CCO exam blueprint, cybersecurity certification exam, CCO-F study guide, CCO exam objectives, Dioval Group certification">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="https://dioval.com/cco-f-exam-domains.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CCO-F Exam Domains | Exam Blueprint and Study Guide Mapping">
+    <meta property="og:description" content="Complete exam blueprint for the CCO-F. 6 domains, weighted competencies, sample scenarios. Zero multiple choice.">
+    <meta property="og:url" content="https://dioval.com/cco-f-exam-domains.html">
+    <meta property="og:site_name" content="Dioval Group">
+    <meta property="og:image" content="https://dioval.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:site" content="@DiovalAure23458">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CCO-F Exam Domains | Exam Blueprint">
+    <meta name="twitter:description" content="Complete exam blueprint for the CCO-F. 6 domains, weighted competencies, sample scenarios. Zero multiple choice.">
+    <meta name="twitter:image" content="https://dioval.com/og-image.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "CCO-F: Certified Cybersecurity Operator - Foundations",
+      "description": "3-hour scenario-based exam covering 6 domains: Security Architecture, Risk Quantification, Cryptographic Operations, Cloud-Native Security, AI/Agent Threat Modeling, and Compliance Architecture.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Dioval Group",
+        "url": "https://dioval.com"
+      },
+      "educationalLevel": "Professional",
+      "teaches": [
+        "Zero Trust Architecture Design",
+        "FAIR Risk Quantification",
+        "TLS 1.3 and Post-Quantum Cryptography",
+        "Cloud Landing Zone Security",
+        "AI Agent Threat Modeling",
+        "Regulatory Compliance Architecture"
+      ]
+    }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: 'Inter', sans-serif; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .glass { background: rgba(15,23,42,0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+  .glass-light { background: rgba(30,41,59,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+  .gradient-text { background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-grid { background-image: linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px); background-size: 60px 60px; }
+  .nav-link { position:relative; }
+  .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:#3b82f6; transition: width 0.3s ease; }
+  .nav-link:hover::after { width:100%; }
+  .btn-primary { background: linear-gradient(135deg, #2563eb, #1d4ed8); transition: all 0.3s ease; }
+  .btn-primary:hover { background: linear-gradient(135deg, #3b82f6, #2563eb); transform: translateY(-1px); box-shadow: 0 8px 25px rgba(37,99,235,0.4); }
+  .btn-secondary { border: 1px solid rgba(59,130,246,0.3); transition: all 0.3s ease; }
+  .btn-secondary:hover { border-color: rgba(59,130,246,0.6); background: rgba(59,130,246,0.05); }
+  .mobile-menu { display:none; }
+  .mobile-menu.open { display:block; }
+  .domain-card { transition: all 0.3s ease; }
+  .domain-card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+  .check { color: #34d399; font-weight: bold; flex-shrink: 0; }
+  .weight-bar { height: 6px; border-radius: 3px; background: rgba(30,41,59,0.8); overflow: hidden; }
+  .weight-fill { height: 100%; border-radius: 3px; transition: width 0.6s ease; }
+  .scenario-tag { display: inline-block; font-size: 0.6875rem; padding: 2px 8px; border-radius: 2px; }
+</style>
+</head>
+<body class="bg-slate-950 text-slate-300 antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-blue-600 focus:text-white focus:px-4 focus:py-2 focus:rounded focus:text-sm focus:font-bold">Skip to main content</a>
+
+<nav aria-label="Main navigation" class="fixed w-full z-50 glass border-b border-slate-800/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
+        <div class="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <span class="text-2xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+      </a>
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="about.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">About</a>
+        <a href="audits.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Audits</a>
+        <a href="cases.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Case Studies</a>
+        <a href="books.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Books</a>
+        <a href="pricing.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Pricing</a>
+        <a href="blog.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Blog</a>
+        <a href="booking.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Free Diagnostic</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm">Book an Audit</a>
+        <button class="lg:hidden text-slate-400 hover:text-white p-2" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu lg:hidden glass border-t border-slate-800/60">
+    <div class="px-4 py-6 space-y-4">
+      <a href="about.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">About</a>
+      <a href="audits.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Audits</a>
+      <a href="cases.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Case Studies</a>
+      <a href="books.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Books</a>
+      <a href="pricing.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Pricing</a>
+      <a href="blog.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Blog</a>
+      <a href="booking.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Free Diagnostic</a>
+      <a href="contact.html" class="block btn-primary text-white px-6 py-3 rounded-sm font-bold text-sm text-center mt-4">Book an Audit</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content" class="flex-grow">
+
+  <!-- HERO -->
+  <section class="relative pt-44 pb-20 hero-grid overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="flex items-center justify-center gap-3 mb-6">
+        <a href="certification.html" class="text-blue-400 text-xs font-semibold hover:text-blue-300 transition">CCO Certification</a>
+        <span class="text-slate-600">/</span>
+        <span class="text-slate-500 text-xs">Foundations Exam Blueprint</span>
+      </div>
+      <div class="inline-block mb-6 px-4 py-1.5 border border-blue-500/30 bg-blue-500/5 rounded-sm">
+        <span class="text-blue-400 text-xs font-bold tracking-wider uppercase mono">Exam Blueprint v1.0</span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-[1.1] tracking-tight mb-6">CCO-F Exam Domains</h1>
+      <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-10">6 domains. 180 minutes. Every question is a scenario you will face in production. This is exactly what the exam tests and how to prepare for it.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#domains" class="btn-primary text-white px-8 py-4 rounded-sm font-bold text-base shadow-lg shadow-blue-500/20">View All Domains ↓</a>
+        <a href="books.html" class="btn-secondary text-blue-400 px-8 py-4 rounded-sm font-bold text-base">Get the Study Guide →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXAM OVERVIEW -->
+  <section class="py-16 border-b border-slate-800/40">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="glass-light rounded-sm p-6 text-center">
+          <p class="mono text-3xl font-black text-white mb-1">180</p>
+          <p class="text-xs text-slate-500">Minutes</p>
+        </div>
+        <div class="glass-light rounded-sm p-6 text-center">
+          <p class="mono text-3xl font-black text-white mb-1">6</p>
+          <p class="text-xs text-slate-500">Domains</p>
+        </div>
+        <div class="glass-light rounded-sm p-6 text-center">
+          <p class="mono text-3xl font-black text-white mb-1">100%</p>
+          <p class="text-xs text-slate-500">Scenario-Based</p>
+        </div>
+        <div class="glass-light rounded-sm p-6 text-center">
+          <p class="mono text-3xl font-black text-white mb-1">70%</p>
+          <p class="text-xs text-slate-500">Passing Score</p>
+        </div>
+      </div>
+
+      <div class="mt-10 glass-light rounded-sm p-6">
+        <h2 class="text-white font-bold text-sm mb-3">How the Exam Works</h2>
+        <p class="text-sm text-slate-400 leading-relaxed">The CCO-F is a 3-hour, scenario-based exam. You will be presented with realistic enterprise scenarios and asked to make architectural decisions, identify security flaws, calculate risk, trace protocol behavior, and design compliance-ready systems. Every question requires applied reasoning. There are no vocabulary flashcard questions, no "which of the following best describes" prompts, and no trick wording. If you can operate at the foundational level, you will pass. If you only memorized definitions, you will not.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOMAIN WEIGHT SUMMARY -->
+  <section class="py-16 border-b border-slate-800/40">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="mono text-blue-400 text-xs tracking-widest uppercase mb-4">Domain Weights</p>
+      <h2 class="text-2xl font-black text-white mb-8">Exam Composition</h2>
+
+      <div class="space-y-4">
+        <!-- D1 -->
+        <div class="flex items-center gap-4">
+          <div class="w-8 text-right"><span class="mono text-xs text-slate-500">D1</span></div>
+          <div class="flex-grow">
+            <div class="flex justify-between items-center mb-1">
+              <a href="#d1" class="text-sm text-white font-semibold hover:text-blue-400 transition">Security Architecture and Zero Trust Design</a>
+              <span class="mono text-sm text-blue-400 font-bold">25%</span>
+            </div>
+            <div class="weight-bar"><div class="weight-fill bg-blue-500" style="width:25%"></div></div>
+          </div>
+        </div>
+        <!-- D2 -->
+        <div class="flex items-center gap-4">
+          <div class="w-8 text-right"><span class="mono text-xs text-slate-500">D2</span></div>
+          <div class="flex-grow">
+            <div class="flex justify-between items-center mb-1">
+              <a href="#d2" class="text-sm text-white font-semibold hover:text-blue-400 transition">Risk Quantification and Threat Analysis</a>
+              <span class="mono text-sm text-blue-400 font-bold">20%</span>
+            </div>
+            <div class="weight-bar"><div class="weight-fill bg-blue-500" style="width:20%"></div></div>
+          </div>
+        </div>
+        <!-- D3 -->
+        <div class="flex items-center gap-4">
+          <div class="w-8 text-right"><span class="mono text-xs text-slate-500">D3</span></div>
+          <div class="flex-grow">
+            <div class="flex justify-between items-center mb-1">
+              <a href="#d3" class="text-sm text-white font-semibold hover:text-blue-400 transition">Cryptographic Operations and Protocol Security</a>
+              <span class="mono text-sm text-blue-400 font-bold">15%</span>
+            </div>
+            <div class="weight-bar"><div class="weight-fill bg-blue-500" style="width:15%"></div></div>
+          </div>
+        </div>
+        <!-- D4 -->
+        <div class="flex items-center gap-4">
+          <div class="w-8 text-right"><span class="mono text-xs text-slate-500">D4</span></div>
+          <div class="flex-grow">
+            <div class="flex justify-between items-center mb-1">
+              <a href="#d4" class="text-sm text-white font-semibold hover:text-blue-400 transition">Cloud-Native Security Architecture</a>
+              <span class="mono text-sm text-blue-400 font-bold">15%</span>
+            </div>
+            <div class="weight-bar"><div class="weight-fill bg-blue-500" style="width:15%"></div></div>
+          </div>
+        </div>
+        <!-- D5 -->
+        <div class="flex items-center gap-4">
+          <div class="w-8 text-right"><span class="mono text-xs text-slate-500">D5</span></div>
+          <div class="flex-grow">
+            <div class="flex justify-between items-center mb-1">
+              <a href="#d5" class="text-sm text-white font-semibold hover:text-blue-400 transition">AI and Agent Security Foundations</a>
+              <span class="mono text-sm text-blue-400 font-bold">15%</span>
+            </div>
+            <div class="weight-bar"><div class="weight-fill bg-blue-500" style="width:15%"></div></div>
+          </div>
+        </div>
+        <!-- D6 -->
+        <div class="flex items-center gap-4">
+          <div class="w-8 text-right"><span class="mono text-xs text-slate-500">D6</span></div>
+          <div class="flex-grow">
+            <div class="flex justify-between items-center mb-1">
+              <a href="#d6" class="text-sm text-white font-semibold hover:text-blue-400 transition">Compliance Architecture and Regulatory Operations</a>
+              <span class="mono text-sm text-blue-400 font-bold">10%</span>
+            </div>
+            <div class="weight-bar"><div class="weight-fill bg-blue-500" style="width:10%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOMAIN DETAILS -->
+  <section id="domains" class="py-20 sm:py-28">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="mono text-blue-400 text-xs tracking-widest uppercase mb-4 text-center">Detailed Breakdown</p>
+      <h2 class="text-3xl sm:text-4xl font-black text-white text-center mb-16">Exam Domains</h2>
+
+      <!-- DOMAIN 1 -->
+      <div id="d1" class="domain-card glass-light rounded-sm p-8 mb-8">
+        <div class="flex items-start justify-between mb-6">
+          <div>
+            <span class="mono text-xs text-blue-400 font-bold">DOMAIN 1</span>
+            <h3 class="text-xl font-black text-white mt-1">Security Architecture and Zero Trust Design</h3>
+          </div>
+          <span class="mono text-2xl font-black text-blue-400 flex-shrink-0 ml-4">25%</span>
+        </div>
+        <p class="text-sm text-slate-400 leading-relaxed mb-6">This is the heaviest domain because architecture is where production security succeeds or fails. You will design security architectures for realistic enterprise scenarios, identify architectural flaws, and demonstrate that you understand why defense-in-depth matters more than any individual control.</p>
+
+        <div class="mb-6">
+          <p class="text-white font-bold text-sm mb-3">Competencies Tested</p>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D1.1</strong> Design a Zero Trust architecture for a multi-site enterprise with hybrid cloud infrastructure</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D1.2</strong> Implement microsegmentation strategies that balance security with operational performance</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D1.3</strong> Evaluate and select identity providers, MFA implementations, and conditional access policies</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D1.4</strong> Identify architectural vulnerabilities in existing network diagrams and propose remediations</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D1.5</strong> Design east-west traffic inspection and lateral movement prevention controls</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D1.6</strong> Architect defense-in-depth strategies that account for control failure at every layer</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D1.7</strong> Map security architecture decisions to business risk tolerance and operational requirements</li>
+          </ul>
+        </div>
+
+        <div class="bg-slate-900/60 rounded-sm p-4">
+          <p class="text-xs text-slate-500 font-bold uppercase tracking-wider mb-2">Sample Scenario Type</p>
+          <p class="text-sm text-slate-400 italic">"A regional bank with 12 branches is migrating from a hub-and-spoke VPN to a Zero Trust model. Their current architecture relies on perimeter firewalls and VLAN segmentation. They have 3 legacy applications that cannot support modern authentication. Design the target architecture, identify the migration risks, and propose a phased transition plan that maintains security during the migration."</p>
+        </div>
+
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="scenario-tag bg-blue-500/10 text-blue-400 border border-blue-500/20">Zero Trust</span>
+          <span class="scenario-tag bg-blue-500/10 text-blue-400 border border-blue-500/20">Microsegmentation</span>
+          <span class="scenario-tag bg-blue-500/10 text-blue-400 border border-blue-500/20">Identity Architecture</span>
+          <span class="scenario-tag bg-blue-500/10 text-blue-400 border border-blue-500/20">Defense-in-Depth</span>
+          <span class="scenario-tag bg-blue-500/10 text-blue-400 border border-blue-500/20">Lateral Movement Prevention</span>
+        </div>
+      </div>
+
+      <!-- DOMAIN 2 -->
+      <div id="d2" class="domain-card glass-light rounded-sm p-8 mb-8">
+        <div class="flex items-start justify-between mb-6">
+          <div>
+            <span class="mono text-xs text-yellow-400 font-bold">DOMAIN 2</span>
+            <h3 class="text-xl font-black text-white mt-1">Risk Quantification and Threat Analysis</h3>
+          </div>
+          <span class="mono text-2xl font-black text-yellow-400 flex-shrink-0 ml-4">20%</span>
+        </div>
+        <p class="text-sm text-slate-400 leading-relaxed mb-6">Security decisions without quantified risk are guesses. This domain tests whether you can translate security events and architectural decisions into financial risk metrics that executives and boards can act on. You will use FAIR methodology, build threat models, and calculate annualized loss expectancy for realistic scenarios.</p>
+
+        <div class="mb-6">
+          <p class="text-white font-bold text-sm mb-3">Competencies Tested</p>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D2.1</strong> Apply FAIR (Factor Analysis of Information Risk) to quantify loss exposure for specific threat scenarios</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D2.2</strong> Calculate annualized loss expectancy (ALE) using threat event frequency and loss magnitude</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D2.3</strong> Build threat models using STRIDE/PASTA for enterprise applications and infrastructure</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D2.4</strong> Prioritize remediation efforts based on quantified risk reduction per dollar spent</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D2.5</strong> Translate technical risk findings into board-level risk language with financial impact projections</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D2.6</strong> Evaluate threat intelligence feeds and map adversary TTPs to organizational attack surface</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D2.7</strong> Distinguish between qualitative risk theater and quantitative risk analysis in real assessment outputs</li>
+          </ul>
+        </div>
+
+        <div class="bg-slate-900/60 rounded-sm p-4">
+          <p class="text-xs text-slate-500 font-bold uppercase tracking-wider mb-2">Sample Scenario Type</p>
+          <p class="text-sm text-slate-400 italic">"A healthcare organization processes 2.3 million patient records annually. A vulnerability scan found an unpatched Apache Struts instance exposed to the internet. Using FAIR methodology, quantify the annualized loss exposure for this specific vulnerability. Include threat event frequency estimation, primary and secondary loss magnitude, and a risk-adjusted recommendation for the CISO on remediation priority vs. the $180K budget remaining this quarter."</p>
+        </div>
+
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="scenario-tag bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">FAIR</span>
+          <span class="scenario-tag bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">STRIDE/PASTA</span>
+          <span class="scenario-tag bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">ALE Calculation</span>
+          <span class="scenario-tag bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Threat Modeling</span>
+          <span class="scenario-tag bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Board Reporting</span>
+        </div>
+      </div>
+
+      <!-- DOMAIN 3 -->
+      <div id="d3" class="domain-card glass-light rounded-sm p-8 mb-8">
+        <div class="flex items-start justify-between mb-6">
+          <div>
+            <span class="mono text-xs text-purple-400 font-bold">DOMAIN 3</span>
+            <h3 class="text-xl font-black text-white mt-1">Cryptographic Operations and Protocol Security</h3>
+          </div>
+          <span class="mono text-2xl font-black text-purple-400 flex-shrink-0 ml-4">15%</span>
+        </div>
+        <p class="text-sm text-slate-400 leading-relaxed mb-6">Cryptography is not about memorizing key sizes. It is about understanding how protocols behave in production, diagnosing failures from packet traces, and planning for the post-quantum transition. You will trace real handshakes, identify misconfigurations, and evaluate cryptographic implementation decisions.</p>
+
+        <div class="mb-6">
+          <p class="text-white font-bold text-sm mb-3">Competencies Tested</p>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D3.1</strong> Trace a TLS 1.3 handshake from ClientHello to Application Data and identify where failures occur</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D3.2</strong> Diagnose certificate chain validation failures in production environments</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D3.3</strong> Evaluate cipher suite configurations and identify weak or deprecated selections</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D3.4</strong> Assess post-quantum cryptography readiness: NIST PQC standards (ML-KEM, ML-DSA, SLH-DSA) and migration timelines</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D3.5</strong> Design key management architectures for multi-environment deployments (HSM, KMS, envelope encryption)</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D3.6</strong> Identify cryptographic implementation anti-patterns (ECB mode, static IVs, key reuse, timing side-channels)</li>
+          </ul>
+        </div>
+
+        <div class="bg-slate-900/60 rounded-sm p-4">
+          <p class="text-xs text-slate-500 font-bold uppercase tracking-wider mb-2">Sample Scenario Type</p>
+          <p class="text-sm text-slate-400 italic">"You are given a Wireshark capture of a TLS connection that is failing intermittently between two microservices. The ClientHello shows TLS 1.3 with supported_versions, but the connection resets after ServerHello. Identify the root cause from the handshake trace, explain the failure mechanism, and specify the configuration change needed to resolve it."</p>
+        </div>
+
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="scenario-tag bg-purple-500/10 text-purple-400 border border-purple-500/20">TLS 1.3</span>
+          <span class="scenario-tag bg-purple-500/10 text-purple-400 border border-purple-500/20">Post-Quantum Crypto</span>
+          <span class="scenario-tag bg-purple-500/10 text-purple-400 border border-purple-500/20">Certificate Chains</span>
+          <span class="scenario-tag bg-purple-500/10 text-purple-400 border border-purple-500/20">Key Management</span>
+          <span class="scenario-tag bg-purple-500/10 text-purple-400 border border-purple-500/20">Cipher Suites</span>
+        </div>
+      </div>
+
+      <!-- DOMAIN 4 -->
+      <div id="d4" class="domain-card glass-light rounded-sm p-8 mb-8">
+        <div class="flex items-start justify-between mb-6">
+          <div>
+            <span class="mono text-xs text-green-400 font-bold">DOMAIN 4</span>
+            <h3 class="text-xl font-black text-white mt-1">Cloud-Native Security Architecture</h3>
+          </div>
+          <span class="mono text-2xl font-black text-green-400 flex-shrink-0 ml-4">15%</span>
+        </div>
+        <p class="text-sm text-slate-400 leading-relaxed mb-6">Most enterprise workloads are cloud-native now. This domain tests whether you can secure them. You will review AWS Landing Zones, evaluate IAM policies, design container security strategies, and identify misconfigurations that lead to breaches. No on-premise network diagrams here.</p>
+
+        <div class="mb-6">
+          <p class="text-white font-bold text-sm mb-3">Competencies Tested</p>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D4.1</strong> Audit and remediate AWS/Azure/GCP Landing Zone configurations for security gaps</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D4.2</strong> Design least-privilege IAM policies and identify overly permissive role assumptions</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D4.3</strong> Secure container orchestration (Kubernetes RBAC, Pod Security Standards, network policies)</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D4.4</strong> Evaluate serverless function security: execution role scope, event injection, cold start attack surface</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D4.5</strong> Design cross-account and multi-cloud security boundaries with service control policies</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D4.6</strong> Implement cloud-native logging, monitoring, and detection strategies (CloudTrail, GuardDuty, CSPM)</li>
+          </ul>
+        </div>
+
+        <div class="bg-slate-900/60 rounded-sm p-4">
+          <p class="text-xs text-slate-500 font-bold uppercase tracking-wider mb-2">Sample Scenario Type</p>
+          <p class="text-sm text-slate-400 italic">"An e-commerce company runs 14 microservices on EKS across 3 AWS accounts. Their landing zone uses a shared VPC model. A recent penetration test found that a compromised pod in the payment service namespace could reach the database pods in the inventory namespace. Review the provided Kubernetes network policies and AWS security group configurations. Identify the misconfiguration, explain the attack path, and design the corrected network policy."</p>
+        </div>
+
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="scenario-tag bg-green-500/10 text-green-400 border border-green-500/20">AWS/Azure/GCP</span>
+          <span class="scenario-tag bg-green-500/10 text-green-400 border border-green-500/20">Kubernetes Security</span>
+          <span class="scenario-tag bg-green-500/10 text-green-400 border border-green-500/20">IAM Policies</span>
+          <span class="scenario-tag bg-green-500/10 text-green-400 border border-green-500/20">Landing Zones</span>
+          <span class="scenario-tag bg-green-500/10 text-green-400 border border-green-500/20">Serverless</span>
+        </div>
+      </div>
+
+      <!-- DOMAIN 5 -->
+      <div id="d5" class="domain-card glass-light rounded-sm p-8 mb-8">
+        <div class="flex items-start justify-between mb-6">
+          <div>
+            <span class="mono text-xs text-red-400 font-bold">DOMAIN 5</span>
+            <h3 class="text-xl font-black text-white mt-1">AI and Agent Security Foundations</h3>
+          </div>
+          <span class="mono text-2xl font-black text-red-400 flex-shrink-0 ml-4">15%</span>
+        </div>
+        <p class="text-sm text-slate-400 leading-relaxed mb-6">No other certification covers this. Enterprises are deploying AI agents that access sensitive data, make autonomous decisions, and interact with customers and internal systems. This domain tests whether you understand the new attack surface these systems create and how to secure them at the architecture level.</p>
+
+        <div class="mb-6">
+          <p class="text-white font-bold text-sm mb-3">Competencies Tested</p>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D5.1</strong> Identify attack surfaces in LLM-based agent systems: prompt injection, tool misuse, data exfiltration via agent actions</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D5.2</strong> Design guardrails and sandboxing for autonomous AI agents with tool access</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D5.3</strong> Evaluate multi-agent orchestration security: inter-agent trust, privilege escalation across agent boundaries</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D5.4</strong> Assess AI-powered attack vectors: polymorphic malware generation, deepfake social engineering, automated vuln discovery</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D5.5</strong> Design human-in-the-loop controls for high-risk agent decisions</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D5.6</strong> Apply OWASP Top 10 for LLMs and map mitigations to production agent architectures</li>
+          </ul>
+        </div>
+
+        <div class="bg-slate-900/60 rounded-sm p-4">
+          <p class="text-xs text-slate-500 font-bold uppercase tracking-wider mb-2">Sample Scenario Type</p>
+          <p class="text-sm text-slate-400 italic">"A financial services firm deploys a multi-agent system where Agent A handles customer queries, Agent B retrieves account data, and Agent C executes transactions. Agent A accepts natural language input from customers. Identify the attack paths that could allow a customer to escalate Agent A's prompt into unauthorized data retrieval via Agent B or unauthorized transactions via Agent C. Design the security controls needed at each agent boundary."</p>
+        </div>
+
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="scenario-tag bg-red-500/10 text-red-400 border border-red-500/20">Prompt Injection</span>
+          <span class="scenario-tag bg-red-500/10 text-red-400 border border-red-500/20">Agent Guardrails</span>
+          <span class="scenario-tag bg-red-500/10 text-red-400 border border-red-500/20">Multi-Agent Security</span>
+          <span class="scenario-tag bg-red-500/10 text-red-400 border border-red-500/20">OWASP LLM Top 10</span>
+          <span class="scenario-tag bg-red-500/10 text-red-400 border border-red-500/20">AI Attack Vectors</span>
+        </div>
+      </div>
+
+      <!-- DOMAIN 6 -->
+      <div id="d6" class="domain-card glass-light rounded-sm p-8 mb-8">
+        <div class="flex items-start justify-between mb-6">
+          <div>
+            <span class="mono text-xs text-orange-400 font-bold">DOMAIN 6</span>
+            <h3 class="text-xl font-black text-white mt-1">Compliance Architecture and Regulatory Operations</h3>
+          </div>
+          <span class="mono text-2xl font-black text-orange-400 flex-shrink-0 ml-4">10%</span>
+        </div>
+        <p class="text-sm text-slate-400 leading-relaxed mb-6">Compliance is not a checkbox exercise. It is an architecture problem. This domain tests whether you can design systems that satisfy regulatory requirements by default, not as an afterthought. You will map regulations to technical controls and design audit-ready evidence pipelines.</p>
+
+        <div class="mb-6">
+          <p class="text-white font-bold text-sm mb-3">Competencies Tested</p>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D6.1</strong> Map EU AI Act risk tiers to enterprise AI deployments and determine compliance obligations</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D6.2</strong> Apply SR 11-7 model risk management principles to LLM-based agent systems in banking</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D6.3</strong> Design compliance-as-code architectures that generate audit evidence automatically</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D6.4</strong> Navigate overlapping regulatory requirements (NIS2, DORA, GDPR, industry-specific mandates)</li>
+            <li class="flex items-start gap-2"><span class="check">&#10003;</span> <strong class="text-slate-200">D6.5</strong> Design data governance architectures that satisfy cross-border transfer and residency requirements</li>
+          </ul>
+        </div>
+
+        <div class="bg-slate-900/60 rounded-sm p-4">
+          <p class="text-xs text-slate-500 font-bold uppercase tracking-wider mb-2">Sample Scenario Type</p>
+          <p class="text-sm text-slate-400 italic">"A European bank uses an LLM-based agent for credit decisioning support. The system is deployed on AWS eu-west-1. Under EU AI Act Article 6, this qualifies as a high-risk AI system. Simultaneously, the bank's model risk team requires SR 11-7 compliance for all models influencing credit decisions. Map the technical controls needed to satisfy both regulatory frameworks concurrently. Identify where the requirements overlap and where they create conflicting obligations."</p>
+        </div>
+
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="scenario-tag bg-orange-500/10 text-orange-400 border border-orange-500/20">EU AI Act</span>
+          <span class="scenario-tag bg-orange-500/10 text-orange-400 border border-orange-500/20">SR 11-7</span>
+          <span class="scenario-tag bg-orange-500/10 text-orange-400 border border-orange-500/20">NIS2/DORA</span>
+          <span class="scenario-tag bg-orange-500/10 text-orange-400 border border-orange-500/20">Compliance-as-Code</span>
+          <span class="scenario-tag bg-orange-500/10 text-orange-400 border border-orange-500/20">Data Governance</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STUDY GUIDE MAPPING -->
+  <section class="py-20 bg-slate-900/40 border-y border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="mono text-blue-400 text-xs tracking-widest uppercase mb-4 text-center">Preparation</p>
+      <h2 class="text-3xl sm:text-4xl font-black text-white text-center mb-6">Study Guide Mapping</h2>
+      <p class="text-slate-400 text-center max-w-2xl mx-auto mb-16">The CCO-F aligns with <em>The Agentic AI Professional Series</em>. The books teach the concepts. The exam tests whether you can apply them under realistic conditions.</p>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-slate-700">
+              <th class="text-left py-4 px-4 text-slate-500 font-semibold">Domain</th>
+              <th class="text-center py-4 px-4 text-slate-500 font-semibold">Weight</th>
+              <th class="text-left py-4 px-4 text-slate-500 font-semibold">Primary Study Material</th>
+              <th class="text-left py-4 px-4 text-slate-500 font-semibold">Supplementary</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-slate-800/40">
+              <td class="py-4 px-4 text-white font-medium">D1: Security Architecture</td>
+              <td class="py-4 px-4 text-center text-blue-400 font-bold">25%</td>
+              <td class="py-4 px-4 text-slate-400"><a href="books.html" class="text-blue-400 hover:text-blue-300">Vol I: Foundations</a> (Architecture, PEAS)</td>
+              <td class="py-4 px-4 text-slate-500">Vol II: Production-Grade Agents</td>
+            </tr>
+            <tr class="border-b border-slate-800/40" style="background:rgba(30,41,59,0.3)">
+              <td class="py-4 px-4 text-white font-medium">D2: Risk Quantification</td>
+              <td class="py-4 px-4 text-center text-blue-400 font-bold">20%</td>
+              <td class="py-4 px-4 text-slate-400"><a href="books.html" class="text-blue-400 hover:text-blue-300">Vol I: Foundations</a> (Consulting Playbooks)</td>
+              <td class="py-4 px-4 text-slate-500">Vol II: Failure Analysis</td>
+            </tr>
+            <tr class="border-b border-slate-800/40">
+              <td class="py-4 px-4 text-white font-medium">D3: Cryptographic Ops</td>
+              <td class="py-4 px-4 text-center text-blue-400 font-bold">15%</td>
+              <td class="py-4 px-4 text-slate-400"><a href="books.html" class="text-blue-400 hover:text-blue-300">Vol I: Foundations</a> (Protocol Security)</td>
+              <td class="py-4 px-4 text-slate-500">NIST SP 800-208, FIPS 203/204/205</td>
+            </tr>
+            <tr class="border-b border-slate-800/40" style="background:rgba(30,41,59,0.3)">
+              <td class="py-4 px-4 text-white font-medium">D4: Cloud-Native Security</td>
+              <td class="py-4 px-4 text-center text-blue-400 font-bold">15%</td>
+              <td class="py-4 px-4 text-slate-400"><a href="books.html" class="text-blue-400 hover:text-blue-300">Vol II: Production-Grade Agents</a></td>
+              <td class="py-4 px-4 text-slate-500">AWS/Azure/GCP security docs</td>
+            </tr>
+            <tr class="border-b border-slate-800/40">
+              <td class="py-4 px-4 text-white font-medium">D5: AI/Agent Security</td>
+              <td class="py-4 px-4 text-center text-blue-400 font-bold">15%</td>
+              <td class="py-4 px-4 text-slate-400"><a href="books.html" class="text-blue-400 hover:text-blue-300">Vol III: Multi-Agent Systems</a></td>
+              <td class="py-4 px-4 text-slate-500">Vol V: Orchestration Handbook, OWASP LLM Top 10</td>
+            </tr>
+            <tr>
+              <td class="py-4 px-4 text-white font-medium">D6: Compliance Arch</td>
+              <td class="py-4 px-4 text-center text-blue-400 font-bold">10%</td>
+              <td class="py-4 px-4 text-slate-400"><a href="books.html" class="text-blue-400 hover:text-blue-300">Vol VII: 2026 Regulatory Wave</a></td>
+              <td class="py-4 px-4 text-slate-500">EU AI Act text, SR 11-7 guidance</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-8 text-center">
+        <a href="books.html" class="btn-primary inline-block text-white px-8 py-4 rounded-sm font-bold text-base shadow-lg shadow-blue-500/20">Get the Complete Series →</a>
+        <p class="text-xs text-slate-600 mt-3">Individual volumes: $49 each. Complete bundle: $249.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREPARATION TIPS -->
+  <section class="py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-black text-white mb-8">How to Prepare</h2>
+      <div class="space-y-6">
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 bg-blue-500/10 border border-blue-500/20 rounded-sm flex items-center justify-center flex-shrink-0 mt-0.5">
+            <span class="mono text-blue-400 text-sm font-bold">1</span>
+          </div>
+          <div>
+            <h3 class="text-white font-bold mb-1">Read the study material, but do not just read it.</h3>
+            <p class="text-sm text-slate-400">After each chapter, close the book and try to apply what you learned to a real system you have worked on. If you cannot, you have not learned it yet. The exam tests application, not recall.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 bg-blue-500/10 border border-blue-500/20 rounded-sm flex items-center justify-center flex-shrink-0 mt-0.5">
+            <span class="mono text-blue-400 text-sm font-bold">2</span>
+          </div>
+          <div>
+            <h3 class="text-white font-bold mb-1">Practice with real scenarios, not flashcards.</h3>
+            <p class="text-sm text-slate-400">Set up a lab. Deploy a misconfigured Kubernetes cluster and secure it. Capture a TLS handshake and trace it. Build a threat model for an application you use at work. Run a FAIR analysis on a real vulnerability.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 bg-blue-500/10 border border-blue-500/20 rounded-sm flex items-center justify-center flex-shrink-0 mt-0.5">
+            <span class="mono text-blue-400 text-sm font-bold">3</span>
+          </div>
+          <div>
+            <h3 class="text-white font-bold mb-1">Spend extra time on Domain 1 and Domain 2.</h3>
+            <p class="text-sm text-slate-400">Together they account for 45% of the exam. If you can architect secure systems and quantify risk with FAIR, you are halfway to passing before you touch the other four domains.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-8 h-8 bg-blue-500/10 border border-blue-500/20 rounded-sm flex items-center justify-center flex-shrink-0 mt-0.5">
+            <span class="mono text-blue-400 text-sm font-bold">4</span>
+          </div>
+          <div>
+            <h3 class="text-white font-bold mb-1">Know the 2026 landscape. Not the 2020 landscape.</h3>
+            <p class="text-sm text-slate-400">Post-quantum cryptography (ML-KEM, ML-DSA), EU AI Act enforcement timelines, OWASP LLM Top 10, multi-agent attack surfaces. If your study material is older than 2024, supplement it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 bg-blue-950/20 border-t border-blue-900/20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">Ready to Prove You Can Operate?</h2>
+      <p class="text-slate-400 mb-8 max-w-xl mx-auto">Apply for the beta cohort and be among the first 50 professionals to earn the CCO-F credential. Free exam voucher.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="contact.html" class="btn-primary text-white px-8 py-4 rounded-sm font-bold text-lg inline-block">Apply for the Beta Cohort</a>
+        <a href="certification.html" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white px-8 py-4 rounded-sm font-bold text-lg inline-block transition">Back to CCO Overview →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-slate-950 border-t border-slate-800 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 bg-blue-600 rounded-sm flex items-center justify-center">
+        <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <span class="text-xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+    </div>
+    <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+      <a href="about.html" class="hover:text-white transition">About</a>
+      <a href="audits.html" class="hover:text-white transition">Audits</a>
+      <a href="cases.html" class="hover:text-white transition">Case Studies</a>
+      <a href="books.html" class="hover:text-white transition">Books</a>
+      <a href="blog.html" class="hover:text-white transition">Blog</a>
+      <a href="contact.html" class="hover:text-white transition">Contact</a>
+      <a href="privacy.html" class="hover:text-white transition">Privacy Policy</a>
+      <a href="terms.html" class="hover:text-white transition">Terms of Service</a>
+      <span>&copy; 2026 Dioval Group. All rights reserved.</span>
+    </div>
+    <div class="flex gap-4 items-center">
+      <a href="https://x.com/DiovalAure23458" target="_blank" rel="noopener noreferrer" aria-label="Dioval Group on X (Twitter)" class="text-slate-500 hover:text-white transition">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/aurelio-d-b73ab570" target="_blank" rel="noopener noreferrer" aria-label="Aurelio Dioval on LinkedIn" class="text-slate-500 hover:text-white transition">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-consent" style="display:none" class="fixed bottom-0 left-0 right-0 z-[9998] bg-slate-900 border-t border-slate-700 px-4 py-4 sm:px-6">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-sm text-slate-300">We use cookies for analytics to improve your experience. By clicking "Accept," you consent to our use of cookies. <a href="/privacy.html" class="text-blue-400 hover:underline">Privacy Policy</a></p>
+    <div class="flex gap-3 flex-shrink-0">
+      <button onclick="acceptCookies()" class="bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold px-5 py-2 rounded-sm transition">Accept</button>
+      <button onclick="declineCookies()" class="bg-slate-700 hover:bg-slate-600 text-slate-300 text-sm font-bold px-5 py-2 rounded-sm transition">Decline</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') { loadGA(); }
+  else if (consent !== 'declined') { document.getElementById('cookie-consent').style.display = 'block'; }
+})();
+function loadGA(){
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-7JKBJJES0V';
+  document.head.appendChild(s);
+  s.onload = function(){
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7JKBJJES0V');
+  };
+}
+function acceptCookies(){ localStorage.setItem('cookie_consent','accepted'); document.getElementById('cookie-consent').style.display='none'; loadGA(); }
+function declineCookies(){ localStorage.setItem('cookie_consent','declined'); document.getElementById('cookie-consent').style.display='none'; }
+</script>
+
+</body>
+</html>
