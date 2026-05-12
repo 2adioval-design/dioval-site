@@ -1,0 +1,14 @@
+{
+  "name": "dioval-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dioval Group - Enterprise AI Reliability, Orchestration & Governance",
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "watch:css": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "build": "npm run build:css"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}

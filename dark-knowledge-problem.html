@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is the Dark Knowledge Problem in Enterprise AI? | Dioval Group</title>
+    <meta name="description" content="The definitive explanation of the Dark Knowledge Problem — the hidden institutional knowledge AI agents cannot access, costing enterprises millions in failed deployments and wrong decisions.">
+    <meta name="keywords" content="dark knowledge problem, enterprise AI, knowledge gap, tribal knowledge, AI hallucinations, knowledge fabric, GraphRAG, enterprise knowledge management, AI failure">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="https://dioval.com/dark-knowledge-problem.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="What Is the Dark Knowledge Problem in Enterprise AI? | Dioval Group">
+    <meta property="og:description" content="The definitive explanation of the Dark Knowledge Problem — the hidden institutional knowledge AI agents cannot access, costing enterprises millions in failed deployments and wrong decisions.">
+    <meta property="og:url" content="https://dioval.com/dark-knowledge-problem.html">
+    <meta property="og:site_name" content="Dioval Group">
+    <meta property="og:image" content="https://dioval.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:site" content="@DiovalAure23458">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What Is the Dark Knowledge Problem in Enterprise AI? | Dioval Group">
+    <meta name="twitter:description" content="The definitive explanation of the Dark Knowledge Problem — the hidden institutional knowledge AI agents cannot access, costing enterprises millions in failed deployments and wrong decisions.">
+    <meta name="twitter:image" content="https://dioval.com/og-image.png">
+    <link rel="alternate" hreflang="en" href="https://dioval.com/dark-knowledge-problem.html">
+    <link rel="alternate" hreflang="x-default" href="https://dioval.com/dark-knowledge-problem.html">
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "What Is the Dark Knowledge Problem in Enterprise AI?",
+      "author": {"@type": "Person", "name": "Aurelio Dioval"},
+      "publisher": {"@type": "Organization", "name": "Dioval Group", "url": "https://dioval.com"},
+      "datePublished": "2026-05-12",
+      "description": "The definitive explanation of the Dark Knowledge Problem — the hidden cost of institutional knowledge that AI agents cannot access, and why it causes 73% of enterprise AI failures."
+    }
+    </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Inter', sans-serif; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .glass { background: rgba(15,23,42,0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+  .glass-light { background: rgba(30,41,59,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+  .gradient-text { background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-grid { background-image: linear-gradient(rgba(239,68,68,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(239,68,68,0.03) 1px, transparent 1px); background-size: 60px 60px; }
+  .nav-link { position:relative; }
+  .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:#3b82f6; transition: width 0.3s ease; }
+  .nav-link:hover::after { width:100%; }
+  .btn-primary { background: linear-gradient(135deg, #2563eb, #1d4ed8); transition: all 0.3s ease; }
+  .btn-primary:hover { background: linear-gradient(135deg, #3b82f6, #2563eb); transform: translateY(-1px); box-shadow: 0 8px 25px rgba(37,99,235,0.4); }
+  .mobile-menu { display:none; }
+  .mobile-menu.open { display:block; }
+  .prose h2 { font-size: 1.5rem; font-weight: 900; color: white; margin-top: 2.5rem; margin-bottom: 1rem; }
+  .prose h3 { font-size: 1.25rem; font-weight: 700; color: white; margin-top: 2rem; margin-bottom: 0.75rem; }
+  .prose p { color: #94a3b8; line-height: 1.8; margin-bottom: 1.25rem; }
+  .prose ul { color: #94a3b8; margin-bottom: 1.25rem; padding-left: 1.5rem; }
+  .prose li { margin-bottom: 0.5rem; line-height: 1.7; }
+  .prose code { font-family: 'JetBrains Mono', monospace; background: rgba(30,41,59,0.8); padding: 2px 6px; border-radius: 3px; font-size: 0.875rem; color: #60a5fa; }
+  .prose strong { color: white; }
+  .prose blockquote { border-left: 3px solid #3b82f6; padding-left: 1.5rem; margin: 2rem 0; font-style: italic; color: #cbd5e1; }
+</style>
+</head>
+<body class="bg-slate-950 text-slate-300 antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-blue-600 focus:text-white focus:px-4 focus:py-2 focus:rounded focus:text-sm focus:font-bold">Skip to main content</a>
+
+<nav aria-label="Main navigation" class="fixed w-full z-50 glass border-b border-slate-800/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
+        <div class="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <span class="text-2xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+      </a>
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="about.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">About</a>
+        <a href="audits.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Audits</a>
+        <a href="cases.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Case Studies</a>
+        <a href="books.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Books</a>
+        <a href="pricing.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Pricing</a>
+        <a href="blog.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Blog</a>
+        <a href="booking.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Free Diagnostic</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm">Book an Audit</a>
+        <button class="lg:hidden text-slate-400 hover:text-white p-2" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu lg:hidden glass border-t border-slate-800/60">
+    <div class="px-4 py-6 space-y-4">
+      <a href="about.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">About</a>
+      <a href="audits.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Audits</a>
+      <a href="cases.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Case Studies</a>
+      <a href="books.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Books</a>
+      <a href="pricing.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Pricing</a>
+      <a href="blog.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Blog</a>
+      <a href="booking.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Free Diagnostic</a>
+      <a href="contact.html" class="block btn-primary text-white px-6 py-3 rounded-sm font-bold text-sm text-center mt-4">Book an Audit</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content" class="flex-grow">
+
+  <section class="relative pt-44 pb-20 hero-grid overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-block mb-6 px-4 py-1.5 border border-yellow-500/30 bg-yellow-500/5 rounded-sm">
+        <span class="text-yellow-400 text-xs font-bold tracking-wider uppercase mono">Defining the Problem</span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-[1.1] tracking-tight mb-6">The Dark Knowledge<br><span class="gradient-text">Problem</span></h1>
+      <p class="text-xl text-slate-400 max-w-2xl mx-auto">The $31M blind spot hiding inside every enterprise AI deployment — and why your agents are making decisions with 30% of the information they need.</p>
+      <p class="text-sm text-slate-600 mt-4">By Aurelio Dioval · May 2026 · 13 min read</p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-slate-900/40 border-y border-slate-800">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="glass-light rounded-sm p-8">
+        <h3 class="text-xl font-bold text-white mb-2">Definition</h3>
+        <p class="text-slate-300 text-lg leading-relaxed"><strong>The Dark Knowledge Problem</strong> <em>(n.)</em> — The gap between the total institutional knowledge an enterprise possesses and the fraction of that knowledge accessible to its AI agents. In typical deployments, agents operate with access to only 20–30% of decision-relevant information, leading to hallucinations, missed constraints, and costly errors that compound across agent interactions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-slate-950">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose">
+      <p>Every enterprise that deploys AI agents assumes the agents have access to the information they need. This assumption is almost universally wrong.</p>
+
+      <p>Your agents can see the documents you indexed. They cannot see the tribal knowledge in your senior engineer's head. They cannot see the context behind a policy decision that was communicated in a meeting but never documented. They cannot see the exception to the rule that everyone on the team knows but nobody wrote down. They cannot see the relationship between a compliance requirement and a product feature that exists only in the institutional memory of your organization.</p>
+
+      <p>This invisible, inaccessible knowledge is <strong>dark knowledge</strong>. And it is the root cause of the majority of enterprise AI failures.</p>
+
+      <h2>The Anatomy of Dark Knowledge</h2>
+      <p>Dark knowledge exists in five layers, each progressively harder to capture:</p>
+
+      <h3>Layer 1: Unindexed Documents</h3>
+      <p>The easiest dark knowledge to fix — documents that exist but haven't been fed to the AI system. Spreadsheets on shared drives, PDFs in email attachments, presentations from last quarter's strategy review, legacy documents in systems nobody actively uses. Most enterprises discover they've indexed less than 40% of their relevant documents.</p>
+
+      <h3>Layer 2: Siloed Systems</h3>
+      <p>Knowledge trapped in disconnected systems. The CRM knows the client history. The compliance system knows the regulatory constraints. The project management tool knows the timelines. The engineering wiki knows the technical limitations. No agent can query across all four simultaneously — so it makes decisions with incomplete context.</p>
+
+      <h3>Layer 3: Tribal Knowledge</h3>
+      <p>The most dangerous layer. This is knowledge that exists only in people's heads:</p>
+      <ul>
+        <li>"We tried that approach with Client X in 2023 and it failed because of Y" — never documented</li>
+        <li>"The policy says Z but in practice we always do W because of the exception negotiated with the regulator" — verbal tradition</li>
+        <li>"This integration breaks if you send more than 50 records at once" — learned through bitter experience, shared in Slack, buried in history</li>
+      </ul>
+      <p>When the person who holds this knowledge leaves the organization, the dark knowledge becomes permanently dark.</p>
+
+      <h3>Layer 4: Contextual Relationships</h3>
+      <p>The relationship between two pieces of information that creates meaning. Document A says "maximum exposure limit: $50M." Document B says "Client Y has been granted an exception to standard limits." Neither document references the other. A human who knows both pieces of information connects them instantly. An AI agent retrieves one or the other and makes a decision based on incomplete context.</p>
+
+      <h3>Layer 5: Temporal Context</h3>
+      <p>Knowledge that was true on a specific date but is no longer true, or knowledge whose meaning changes over time. Policy v2.1 superseded Policy v2.0 — but the agent retrieved v2.0 because it ranked higher in similarity search. The regulation was amended last month, but the knowledge base hasn't been updated yet. The client's risk profile changed after Q3 results, but the snapshot in the system is from Q2.</p>
+
+      <h2>The Cost of Dark Knowledge</h2>
+      <p>Dark knowledge doesn't just cause inaccuracies. It causes <strong>confident inaccuracies</strong> — the agent produces plausible, well-structured, authoritative-sounding answers that happen to be wrong because they're based on incomplete information. These are far more dangerous than obvious errors because they pass human review.</p>
+
+      <p>The cost manifests in three ways:</p>
+      <ul>
+        <li><strong>Direct errors</strong> — wrong recommendations, missed compliance requirements, incorrect calculations based on stale or incomplete data</li>
+        <li><strong>Cascading failures</strong> — in multi-agent systems, one agent's dark-knowledge-driven error becomes ground truth for downstream agents, amplifying the mistake</li>
+        <li><strong>Erosion of trust</strong> — after a few dark knowledge failures, users stop trusting the AI system entirely, even when it's correct. The ROI of the entire deployment collapses.</li>
+      </ul>
+
+      <h2>Why Traditional RAG Doesn't Solve This</h2>
+      <p>Standard RAG (Retrieval-Augmented Generation) with vector search only addresses <strong>Layer 1</strong> — the documents you've already indexed. It does nothing for:</p>
+      <ul>
+        <li>Layer 2 (siloed systems) — vector databases don't integrate with CRMs, compliance tools, and project management platforms</li>
+        <li>Layer 3 (tribal knowledge) — you can't embed knowledge that was never written down</li>
+        <li>Layer 4 (contextual relationships) — vector search retrieves similar text, not related concepts across document boundaries</li>
+        <li>Layer 5 (temporal context) — embedding models don't understand that newer documents supersede older ones</li>
+      </ul>
+
+      <h2>The Solution: Enterprise Knowledge Fabric</h2>
+      <p>Solving the Dark Knowledge Problem requires a fundamentally different approach to enterprise knowledge infrastructure. At Dioval Group, we call this the <strong>Knowledge Fabric</strong> — a multi-layer architecture that systematically eliminates dark knowledge:</p>
+
+      <h3>GraphRAG for Cross-Document Reasoning</h3>
+      <p>Knowledge graphs with entity extraction and relationship mapping address Layers 2 and 4. Instead of flat text chunks, the system understands that Regulation A <em>governs</em> Product B, which <em>is owned by</em> Client C, who <em>operates in</em> Jurisdiction D. Multi-hop queries traverse these relationships to provide complete context.</p>
+
+      <h3>Layout-Aware Document Intelligence</h3>
+      <p>Advanced document processing that preserves structure — tables, hierarchies, cross-references, footnotes, appendices. A clause in Section 4.1.3 inherits context from Section 4.1, Section 4, and the document header. Flat chunking destroys this; layout-aware processing preserves it.</p>
+
+      <h3>Knowledge Freshness Governance</h3>
+      <p>Automated monitoring of knowledge staleness — documents tagged with freshness scores, automatic alerts when referenced sources are updated externally, version-aware retrieval that always returns the current authoritative version. Addresses Layer 5.</p>
+
+      <h3>Tribal Knowledge Capture</h3>
+      <p>Systematic processes for converting tribal knowledge to documented knowledge — structured interviews, decision logging, exception documentation workflows. The hardest layer to address, but the most valuable. Every piece of tribal knowledge captured is a future AI failure prevented.</p>
+
+      <h2>Measuring Your Dark Knowledge Gap</h2>
+      <p>You can quantify your organization's Dark Knowledge Problem with three metrics:</p>
+      <ul>
+        <li><strong>Knowledge Coverage Ratio</strong> — indexed documents ÷ total relevant documents. Benchmark: most enterprises are at 30–40%.</li>
+        <li><strong>Cross-System Connectivity</strong> — number of data sources the AI can query in a single reasoning chain. Benchmark: most enterprises connect 2–3 out of 8–12 relevant systems.</li>
+        <li><strong>Freshness Score</strong> — percentage of indexed knowledge verified current within the last 90 days. Benchmark: most enterprises are below 60%.</li>
+      </ul>
+
+      <blockquote>The Dark Knowledge Problem is not a technology problem. It is an architecture problem. The technology exists to solve every layer — GraphRAG, knowledge graphs, document intelligence, freshness governance. What's missing in most enterprises is the architectural vision to weave them together. That is what the Knowledge Fabric provides. <a href="knowledge.html" class="text-blue-400 hover:text-blue-300">Explore the Knowledge Fabric architecture →</a></blockquote>
+    </div>
+  </section>
+
+  <section class="py-24 bg-yellow-950/10 border-t border-yellow-900/20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-black text-white mb-6">How Dark Is Your Knowledge?</h2>
+      <p class="text-slate-400 mb-8 max-w-xl mx-auto">Take the free Production Readiness Scorecard to assess your knowledge coverage, or book a diagnostic to quantify your dark knowledge gap.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="scorecard.html" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white px-8 py-4 rounded-sm font-bold text-lg inline-block transition">Free Scorecard →</a>
+        <a href="contact.html" class="btn-primary text-white px-8 py-4 rounded-sm font-bold text-lg inline-block">Book a Diagnostic →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-slate-950 border-t border-slate-800 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 bg-blue-600 rounded-sm flex items-center justify-center">
+        <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <span class="text-xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+    </div>
+    <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+      <a href="about.html" class="hover:text-white transition">About</a>
+      <a href="audits.html" class="hover:text-white transition">Audits</a>
+      <a href="cases.html" class="hover:text-white transition">Case Studies</a>
+      <a href="books.html" class="hover:text-white transition">Books</a>
+      <a href="blog.html" class="hover:text-white transition">Blog</a>
+      <a href="contact.html" class="hover:text-white transition">Contact</a>
+      <span>&copy; 2026 Dioval Group. All rights reserved.</span>
+    </div>
+    <div class="flex gap-4 items-center">
+      <a href="https://x.com/DiovalAure23458" target="_blank" rel="noopener noreferrer" aria-label="Dioval Group on X (Twitter)" class="text-slate-500 hover:text-white transition">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/aurelio-d-b73ab570" target="_blank" rel="noopener noreferrer" aria-label="Aurelio Dioval on LinkedIn" class="text-slate-500 hover:text-white transition">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-consent" style="display:none" class="fixed bottom-0 left-0 right-0 z-[9998] bg-slate-900 border-t border-slate-700 px-4 py-4 sm:px-6">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-sm text-slate-300">We use cookies for analytics to improve your experience. By clicking "Accept," you consent to our use of cookies. <a href="/privacy.html" class="text-blue-400 hover:underline">Privacy Policy</a></p>
+    <div class="flex gap-3 flex-shrink-0">
+      <button onclick="acceptCookies()" class="bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold px-5 py-2 rounded-sm transition">Accept</button>
+      <button onclick="declineCookies()" class="bg-slate-700 hover:bg-slate-600 text-slate-300 text-sm font-bold px-5 py-2 rounded-sm transition">Decline</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') { loadGA(); }
+  else if (consent !== 'declined') { document.getElementById('cookie-consent').style.display = 'block'; }
+})();
+function loadGA(){
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-7JKBJJES0V';
+  document.head.appendChild(s);
+  s.onload = function(){
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7JKBJJES0V');
+  };
+}
+function acceptCookies(){ localStorage.setItem('cookie_consent','accepted'); document.getElementById('cookie-consent').style.display='none'; loadGA(); }
+function declineCookies(){ localStorage.setItem('cookie_consent','declined'); document.getElementById('cookie-consent').style.display='none'; }
+</script>
+
+</body>
+</html>
