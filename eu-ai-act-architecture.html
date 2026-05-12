@@ -11,13 +11,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EU AI Act Architecture Guide | Dioval Group — Technical Compliance for Enterprise AI</title>
+<title>EU AI Act Architecture Guide | Dioval Group - Technical Compliance for Enterprise AI</title>
     <meta name="description" content="Complete technical architecture guide for EU AI Act compliance. Risk classification, conformity assessments, immutable audit trails, and explainability for enterprise AI agents.">
     <meta name="keywords" content="EU AI Act, AI compliance, high-risk AI, conformity assessment, AI audit trail, Article 13, Article 14, AI governance, enterprise AI regulation">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <link rel="canonical" href="https://dioval.com/eu-ai-act-architecture.html">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="EU AI Act Architecture Guide — Technical Compliance for Enterprise AI | Dioval Group">
+    <meta property="og:title" content="EU AI Act Architecture Guide - Technical Compliance for Enterprise AI | Dioval Group">
     <meta property="og:description" content="Complete technical architecture guide for EU AI Act compliance. Risk classification, conformity assessments, immutable audit trails, and explainability for enterprise AI agents.">
     <meta property="og:url" content="https://dioval.com/eu-ai-act-architecture.html">
     <meta property="og:site_name" content="Dioval Group">
@@ -27,7 +27,7 @@
     <meta property="og:locale" content="en_US">
     <meta name="twitter:site" content="@DiovalAure23458">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="EU AI Act Architecture Guide — Technical Compliance for Enterprise AI | Dioval Group">
+    <meta name="twitter:title" content="EU AI Act Architecture Guide - Technical Compliance for Enterprise AI | Dioval Group">
     <meta name="twitter:description" content="Complete technical architecture guide for EU AI Act compliance. Risk classification, conformity assessments, immutable audit trails, and explainability for enterprise AI agents.">
     <meta name="twitter:image" content="https://dioval.com/og-image.png">
     <link rel="alternate" hreflang="en" href="https://dioval.com/eu-ai-act-architecture.html">
@@ -120,19 +120,19 @@
         <span class="text-red-400 text-xs font-bold tracking-wider uppercase mono">Regulatory Framework Guide</span>
       </div>
       <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-[1.1] tracking-tight mb-6">EU AI Act Architecture Guide</h1>
-      <p class="text-xl text-slate-400 max-w-2xl mx-auto">The technical blueprint for building EU AI Act-compliant enterprise AI systems — risk classification, conformity assessment, and audit-ready agent architecture.</p>
+      <p class="text-xl text-slate-400 max-w-2xl mx-auto">The technical blueprint for building EU AI Act-compliant enterprise AI systems, risk classification, conformity assessment, and audit-ready agent architecture.</p>
       <p class="text-sm text-slate-600 mt-4">By Aurelio Dioval · May 2026 · 12 min read</p>
     </div>
   </section>
 
   <section class="py-24 bg-slate-950">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose">
-      <p>The EU AI Act entered into force in August 2024, with full enforcement beginning February 2025 for prohibited practices and August 2026 for high-risk systems. For enterprises deploying AI agents in production — especially those operating in or serving EU markets — this is not optional reading. It is the regulatory equivalent of SOX for AI.</p>
+      <p>The EU AI Act entered into force in August 2024, with full enforcement beginning February 2025 for prohibited practices and August 2026 for high-risk systems. For enterprises deploying AI agents in production, especially those operating in or serving EU markets, this is not optional reading. It is the regulatory equivalent of SOX for AI.</p>
 
-      <p>This guide is not a legal summary. It is a <strong>technical architecture guide</strong> — the exact infrastructure patterns you need to implement so your AI systems pass conformity assessments, produce defensible audit trails, and satisfy regulator inquiries without scrambling.</p>
+      <p>This guide is not a legal summary. It is a <strong>technical architecture guide</strong>, the exact infrastructure patterns you need to implement so your AI systems pass conformity assessments, produce defensible audit trails, and satisfy regulator inquiries without scrambling.</p>
 
       <h2>1. Risk Classification: Where Your AI Agents Fall</h2>
-      <p>The EU AI Act classifies AI systems into four risk tiers. Enterprise AI agents — particularly those making or influencing business decisions — almost always fall into <strong>High-Risk</strong> or require careful analysis to prove they don't.</p>
+      <p>The EU AI Act classifies AI systems into four risk tiers. Enterprise AI agents, particularly those making or influencing business decisions, almost always fall into <strong>High-Risk</strong> or require careful analysis to prove they don't.</p>
 
       <h3>Unacceptable Risk (Banned)</h3>
       <p>Social scoring, real-time biometric surveillance in public spaces, manipulation of vulnerable groups. If your agents do any of this, stop.</p>
@@ -140,10 +140,10 @@
       <h3>High-Risk (Annex III)</h3>
       <p>This is where most enterprise AI lives. High-risk includes AI used in:</p>
       <ul>
-        <li><strong>Employment and worker management</strong> — resume screening, performance evaluation, task allocation agents</li>
-        <li><strong>Access to essential services</strong> — credit scoring, insurance pricing, benefit eligibility agents</li>
-        <li><strong>Critical infrastructure</strong> — supply chain optimization, energy management, network routing agents</li>
-        <li><strong>Law enforcement and migration</strong> — fraud detection, risk assessment agents in financial services</li>
+        <li><strong>Employment and worker management</strong>: resume screening, performance evaluation, task allocation agents</li>
+        <li><strong>Access to essential services</strong>: credit scoring, insurance pricing, benefit eligibility agents</li>
+        <li><strong>Critical infrastructure</strong>: supply chain optimization, energy management, network routing agents</li>
+        <li><strong>Law enforcement and migration</strong>: fraud detection, risk assessment agents in financial services</li>
       </ul>
       <p>If your agent influences a decision that <strong>affects a person's rights, safety, or livelihood</strong>, it is almost certainly high-risk under Annex III.</p>
 
@@ -161,7 +161,7 @@
       <ul>
         <li>Automated risk scoring for every agent decision (confidence thresholds, anomaly detection)</li>
         <li>A risk registry that tracks identified risks, mitigation measures, and residual risk acceptance</li>
-        <li>Periodic re-evaluation triggers — model drift detection, data distribution shifts, new deployment contexts</li>
+        <li>Periodic re-evaluation triggers, model drift detection, data distribution shifts, new deployment contexts</li>
       </ul>
 
       <h3>Article 10: Data Governance</h3>
@@ -185,15 +185,15 @@
       <p>High-risk systems must automatically record events (<strong>logs</strong>) throughout their lifetime. This is the audit trail requirement:</p>
       <ul>
         <li>Every agent input, output, and intermediate reasoning step must be logged</li>
-        <li>Logs must be <strong>immutable</strong> (append-only storage — ClickHouse, immutable S3, blockchain-anchored hashes)</li>
+        <li>Logs must be <strong>immutable</strong> (append-only storage, ClickHouse, immutable S3, blockchain-anchored hashes)</li>
         <li>Retention period: at least the lifetime of the system plus regulatory inspection windows</li>
-        <li>Logs must enable <strong>traceability</strong> — from a specific output back to the input, context, and model version that produced it</li>
+        <li>Logs must enable <strong>traceability</strong>, from a specific output back to the input, context, and model version that produced it</li>
       </ul>
 
       <h3>Article 13: Transparency and Information</h3>
       <p>Users and deployers must understand what the system does and its limitations:</p>
       <ul>
-        <li>Human-readable explanation of what the agent does (not just model cards — operational documentation)</li>
+        <li>Human-readable explanation of what the agent does (not just model cards, operational documentation)</li>
         <li>Known limitations, failure modes, and edge cases</li>
         <li>Instructions for human oversight (when to override, escalation procedures)</li>
       </ul>
@@ -214,21 +214,21 @@
       </ul>
 
       <h2>3. The Compliance Proxy Pattern</h2>
-      <p>At Dioval Group, we implement EU AI Act compliance through the <strong>Compliance Proxy Pattern</strong> — a middleware architecture that wraps every agent in a compliance envelope without modifying the agent's core logic.</p>
+      <p>At Dioval Group, we implement EU AI Act compliance through the <strong>Compliance Proxy Pattern</strong>, a middleware architecture that wraps every agent in a compliance envelope without modifying the agent's core logic.</p>
 
       <p>The pattern works by intercepting every agent call through a compliance proxy that:</p>
       <ul>
-        <li><strong>Classifies the request</strong> — maps the agent action to its EU AI Act risk category</li>
-        <li><strong>Enforces policy</strong> — checks OPA (Open Policy Agent) rules before allowing execution</li>
-        <li><strong>Logs immutably</strong> — writes the full decision context to ClickHouse audit trails</li>
-        <li><strong>Generates explanations</strong> — produces human-readable reasoning summaries (Article 13)</li>
-        <li><strong>Routes to human oversight</strong> — triggers human-in-the-loop when confidence drops below thresholds (Article 14)</li>
+        <li><strong>Classifies the request</strong>: maps the agent action to its EU AI Act risk category</li>
+        <li><strong>Enforces policy</strong>: checks OPA (Open Policy Agent) rules before allowing execution</li>
+        <li><strong>Logs immutably</strong>: writes the full decision context to ClickHouse audit trails</li>
+        <li><strong>Generates explanations</strong>: produces human-readable reasoning summaries (Article 13)</li>
+        <li><strong>Routes to human oversight</strong>: triggers human-in-the-loop when confidence drops below thresholds (Article 14)</li>
       </ul>
 
       <p>This pattern lets you retrofit compliance onto existing agent deployments without rewriting your agent logic.</p>
 
       <h2>4. Conformity Assessment: What to Expect</h2>
-      <p>High-risk AI systems must undergo a <strong>conformity assessment</strong> before deployment. For most enterprise AI (except biometric and critical infrastructure), this is a <strong>self-assessment</strong> based on internal procedures — but the documentation burden is substantial:</p>
+      <p>High-risk AI systems must undergo a <strong>conformity assessment</strong> before deployment. For most enterprise AI (except biometric and critical infrastructure), this is a <strong>self-assessment</strong> based on internal procedures, but the documentation burden is substantial:</p>
       <ul>
         <li>Quality Management System (QMS) documentation</li>
         <li>Technical documentation per Annex IV</li>
@@ -239,20 +239,20 @@
 
       <h2>5. Timeline and Enforcement</h2>
       <ul>
-        <li><strong>February 2025</strong> — Prohibited practices banned</li>
-        <li><strong>August 2025</strong> — Governance structure + GPAI rules apply</li>
-        <li><strong>August 2026</strong> — Full high-risk system requirements enforced</li>
-        <li><strong>Penalties</strong> — Up to €35M or 7% of global annual turnover (whichever is higher)</li>
+        <li><strong>February 2025</strong>: Prohibited practices banned</li>
+        <li><strong>August 2025</strong>: Governance structure + GPAI rules apply</li>
+        <li><strong>August 2026</strong>: Full high-risk system requirements enforced</li>
+        <li><strong>Penalties</strong>: Up to €35M or 7% of global annual turnover (whichever is higher)</li>
       </ul>
       <p>If you are deploying high-risk AI agents in the EU, <strong>August 2026 is your compliance deadline</strong>. The architecture work needs to start now.</p>
 
       <h2>6. Your Action Plan</h2>
       <ul>
-        <li><strong>Step 1: Classify</strong> — Map every AI agent to its EU AI Act risk tier</li>
-        <li><strong>Step 2: Gap Analysis</strong> — Audit existing infrastructure against Articles 9–15</li>
-        <li><strong>Step 3: Architecture</strong> — Implement the Compliance Proxy Pattern</li>
-        <li><strong>Step 4: Documentation</strong> — Build Annex IV technical documentation</li>
-        <li><strong>Step 5: Validate</strong> — Run internal conformity assessment</li>
+        <li><strong>Step 1: Classify</strong>: Map every AI agent to its EU AI Act risk tier</li>
+        <li><strong>Step 2: Gap Analysis</strong>: Audit existing infrastructure against Articles 9–15</li>
+        <li><strong>Step 3: Architecture</strong>: Implement the Compliance Proxy Pattern</li>
+        <li><strong>Step 4: Documentation</strong>: Build Annex IV technical documentation</li>
+        <li><strong>Step 5: Validate</strong>: Run internal conformity assessment</li>
       </ul>
 
       <blockquote>Dioval Group's AI Compliance Architecture service handles Steps 2–5. We perform a full regulatory gap assessment, implement the compliance infrastructure, and deliver examination-ready documentation. <a href="contact.html" class="text-blue-400 hover:text-blue-300">Book a diagnostic call →</a></blockquote>

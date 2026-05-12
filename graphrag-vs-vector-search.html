@@ -120,25 +120,25 @@
         <span class="text-yellow-400 text-xs font-bold tracking-wider uppercase mono">Technical Comparison</span>
       </div>
       <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-[1.1] tracking-tight mb-6">GraphRAG vs Vector Search<br><span class="gradient-text">for Enterprise LLMs</span></h1>
-      <p class="text-xl text-slate-400 max-w-2xl mx-auto">When semantic similarity isn't enough — why multi-hop reasoning over knowledge graphs outperforms traditional RAG for complex enterprise workloads.</p>
+      <p class="text-xl text-slate-400 max-w-2xl mx-auto">When semantic similarity isn't enough, why multi-hop reasoning over knowledge graphs outperforms traditional RAG for complex enterprise workloads.</p>
       <p class="text-sm text-slate-600 mt-4">By Aurelio Dioval · May 2026 · 10 min read</p>
     </div>
   </section>
 
   <section class="py-24 bg-slate-950">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose">
-      <p>Every enterprise building AI agents today faces the same foundational question: <strong>how does your agent access knowledge?</strong> The default answer for the past two years has been vector search — embed your documents, store them in a vector database, and retrieve the top-K most similar chunks. It works for simple queries. It fails catastrophically for complex enterprise reasoning.</p>
+      <p>Every enterprise building AI agents today faces the same foundational question: <strong>how does your agent access knowledge?</strong> The default answer for the past two years has been vector search, embed your documents, store them in a vector database, and retrieve the top-K most similar chunks. It works for simple queries. It fails catastrophically for complex enterprise reasoning.</p>
 
       <p>This article is a technical comparison of vector search and GraphRAG for enterprise deployments, with clear guidance on when each approach applies and why most enterprises need both.</p>
 
       <h2>Vector Search: How It Works</h2>
       <p>Vector search (the foundation of traditional RAG) works by converting text into high-dimensional vectors using embedding models, then retrieving the most semantically similar vectors to a query:</p>
       <ul>
-        <li><strong>Chunking</strong> — documents split into fixed-size chunks (512–2048 tokens)</li>
-        <li><strong>Embedding</strong> — each chunk converted to a vector (1536–3072 dimensions)</li>
-        <li><strong>Indexing</strong> — vectors stored in a database (Pinecone, Weaviate, Qdrant, pgvector)</li>
-        <li><strong>Retrieval</strong> — query embedded, top-K most similar chunks retrieved via cosine similarity</li>
-        <li><strong>Generation</strong> — retrieved chunks passed as context to the LLM for answer generation</li>
+        <li><strong>Chunking</strong>: documents split into fixed-size chunks (512–2048 tokens)</li>
+        <li><strong>Embedding</strong>: each chunk converted to a vector (1536–3072 dimensions)</li>
+        <li><strong>Indexing</strong>: vectors stored in a database (Pinecone, Weaviate, Qdrant, pgvector)</li>
+        <li><strong>Retrieval</strong>: query embedded, top-K most similar chunks retrieved via cosine similarity</li>
+        <li><strong>Generation</strong>: retrieved chunks passed as context to the LLM for answer generation</li>
       </ul>
 
       <h3>Where Vector Search Excels</h3>
@@ -152,28 +152,28 @@
       <h3>Where Vector Search Fails</h3>
       <p>Vector search retrieves based on <strong>similarity</strong>, not <strong>reasoning</strong>. It cannot:</p>
       <ul>
-        <li><strong>Connect information across documents</strong> — "Which regulation applies to this product in this jurisdiction?" requires traversing relationships between regulations, products, and jurisdictions</li>
-        <li><strong>Follow causal chains</strong> — "What caused the risk score increase for this portfolio?" requires reasoning through a sequence of events, not finding similar text</li>
-        <li><strong>Resolve contradictions</strong> — when two documents say different things, vector search returns both without knowing which is authoritative</li>
-        <li><strong>Maintain context hierarchies</strong> — a clause in a contract inherits meaning from its section, which inherits from the document, which exists within a regulatory framework. Vector search flattens this to chunks.</li>
+        <li><strong>Connect information across documents</strong>: "Which regulation applies to this product in this jurisdiction?" requires traversing relationships between regulations, products, and jurisdictions</li>
+        <li><strong>Follow causal chains</strong>: "What caused the risk score increase for this portfolio?" requires reasoning through a sequence of events, not finding similar text</li>
+        <li><strong>Resolve contradictions</strong>: when two documents say different things, vector search returns both without knowing which is authoritative</li>
+        <li><strong>Maintain context hierarchies</strong>: a clause in a contract inherits meaning from its section, which inherits from the document, which exists within a regulatory framework. Vector search flattens this to chunks.</li>
       </ul>
 
       <h2>GraphRAG: How It Works</h2>
       <p>GraphRAG combines knowledge graphs with retrieval-augmented generation. Instead of embedding flat chunks, it builds a <strong>structured knowledge graph</strong> of entities and relationships, then traverses that graph to answer queries:</p>
       <ul>
-        <li><strong>Entity extraction</strong> — identify people, organizations, products, regulations, concepts from documents</li>
-        <li><strong>Relationship mapping</strong> — connect entities (Product A <em>is governed by</em> Regulation B, Person X <em>approved</em> Decision Y)</li>
-        <li><strong>Graph storage</strong> — entities and relationships stored in a graph database (Neo4j, Amazon Neptune)</li>
-        <li><strong>Multi-hop retrieval</strong> — queries traverse the graph across multiple relationships to find connected information</li>
-        <li><strong>Context-enriched generation</strong> — the LLM receives structured, relationship-aware context, not flat text chunks</li>
+        <li><strong>Entity extraction</strong>: identify people, organizations, products, regulations, concepts from documents</li>
+        <li><strong>Relationship mapping</strong>: connect entities (Product A <em>is governed by</em> Regulation B, Person X <em>approved</em> Decision Y)</li>
+        <li><strong>Graph storage</strong>: entities and relationships stored in a graph database (Neo4j, Amazon Neptune)</li>
+        <li><strong>Multi-hop retrieval</strong>: queries traverse the graph across multiple relationships to find connected information</li>
+        <li><strong>Context-enriched generation</strong>: the LLM receives structured, relationship-aware context, not flat text chunks</li>
       </ul>
 
       <h3>Where GraphRAG Excels</h3>
       <ul>
-        <li><strong>Multi-hop reasoning</strong> — "Find all high-risk AI systems that process financial data under both EU AI Act and SR 11-7" requires traversing: systems → risk classification → data types → applicable regulations</li>
-        <li><strong>Cross-document synthesis</strong> — connecting information from compliance manuals, technical specs, and regulatory texts into a coherent answer</li>
-        <li><strong>Temporal reasoning</strong> — understanding that Policy v2.1 supersedes Policy v2.0, and knowing which version was active on a specific date</li>
-        <li><strong>Provenance tracking</strong> — every answer traces back through the graph to specific source documents and relationships</li>
+        <li><strong>Multi-hop reasoning</strong>: "Find all high-risk AI systems that process financial data under both EU AI Act and SR 11-7" requires traversing: systems → risk classification → data types → applicable regulations</li>
+        <li><strong>Cross-document synthesis</strong>: connecting information from compliance manuals, technical specs, and regulatory texts into a coherent answer</li>
+        <li><strong>Temporal reasoning</strong>: understanding that Policy v2.1 supersedes Policy v2.0, and knowing which version was active on a specific date</li>
+        <li><strong>Provenance tracking</strong>: every answer traces back through the graph to specific source documents and relationships</li>
       </ul>
 
       <h2>Head-to-Head Comparison</h2>

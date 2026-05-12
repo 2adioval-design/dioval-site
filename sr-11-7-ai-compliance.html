@@ -11,13 +11,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SR 11-7 AI Compliance Guide | Dioval Group — Model Risk Management for AI Agents</title>
+<title>SR 11-7 AI Compliance Guide | Dioval Group - Model Risk Management for AI Agents</title>
     <meta name="description" content="Complete SR 11-7 compliance guide for AI agents in financial services. Model validation, governance, immutable audit trails, and examination readiness for banking AI.">
     <meta name="keywords" content="SR 11-7, model risk management, AI compliance, banking AI, Fed examination, AI audit trail, model validation, AI governance, financial services AI">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <link rel="canonical" href="https://dioval.com/sr-11-7-ai-compliance.html">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="SR 11-7 AI Compliance Guide — Model Risk Management for AI Agents | Dioval Group">
+    <meta property="og:title" content="SR 11-7 AI Compliance Guide - Model Risk Management for AI Agents | Dioval Group">
     <meta property="og:description" content="Complete SR 11-7 compliance guide for AI agents in financial services. Model validation, governance, immutable audit trails, and examination readiness for banking AI.">
     <meta property="og:url" content="https://dioval.com/sr-11-7-ai-compliance.html">
     <meta property="og:site_name" content="Dioval Group">
@@ -27,7 +27,7 @@
     <meta property="og:locale" content="en_US">
     <meta name="twitter:site" content="@DiovalAure23458">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SR 11-7 AI Compliance Guide — Model Risk Management for AI Agents | Dioval Group">
+    <meta name="twitter:title" content="SR 11-7 AI Compliance Guide - Model Risk Management for AI Agents | Dioval Group">
     <meta name="twitter:description" content="Complete SR 11-7 compliance guide for AI agents in financial services. Model validation, governance, immutable audit trails, and examination readiness for banking AI.">
     <meta name="twitter:image" content="https://dioval.com/og-image.png">
     <link rel="alternate" hreflang="en" href="https://dioval.com/sr-11-7-ai-compliance.html">
@@ -120,14 +120,14 @@
         <span class="text-red-400 text-xs font-bold tracking-wider uppercase mono">Regulatory Framework Guide</span>
       </div>
       <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-[1.1] tracking-tight mb-6">SR 11-7 AI Compliance Guide</h1>
-      <p class="text-xl text-slate-400 max-w-2xl mx-auto">How to make your AI agents examination-ready under the Federal Reserve's Model Risk Management framework — before regulators arrive.</p>
+      <p class="text-xl text-slate-400 max-w-2xl mx-auto">How to make your AI agents examination-ready under the Federal Reserve's Model Risk Management framework, before regulators arrive.</p>
       <p class="text-sm text-slate-600 mt-4">By Aurelio Dioval · May 2026 · 14 min read</p>
     </div>
   </section>
 
   <section class="py-24 bg-slate-950">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose">
-      <p>SR 11-7 is the Federal Reserve's Guidance on Model Risk Management — issued in 2011 and now the <strong>de facto standard</strong> for how financial institutions must govern their models. When AI agents started making credit decisions, flagging fraud, and pricing risk, they became "models" under SR 11-7. Most banks know this. Most have not yet architected their AI systems to comply.</p>
+      <p>SR 11-7 is the Federal Reserve's Guidance on Model Risk Management, issued in 2011 and now the <strong>de facto standard</strong> for how financial institutions must govern their models. When AI agents started making credit decisions, flagging fraud, and pricing risk, they became "models" under SR 11-7. Most banks know this. Most have not yet architected their AI systems to comply.</p>
 
       <p>This guide covers the exact technical requirements, the common failure points, and the architecture patterns that make AI agents examination-ready.</p>
 
@@ -149,9 +149,9 @@
       <h3>Pillar 1: Model Development and Implementation</h3>
       <p>Every model must have:</p>
       <ul>
-        <li><strong>Sound design</strong> — documented methodology, theoretical basis, and limitations</li>
-        <li><strong>Rigorous testing</strong> — not just accuracy metrics. Stress testing, sensitivity analysis, out-of-sample validation, and testing against alternative approaches</li>
-        <li><strong>Documented implementation</strong> — code review, version control, change management procedures</li>
+        <li><strong>Sound design</strong>: documented methodology, theoretical basis, and limitations</li>
+        <li><strong>Rigorous testing</strong>: not just accuracy metrics. Stress testing, sensitivity analysis, out-of-sample validation, and testing against alternative approaches</li>
+        <li><strong>Documented implementation</strong>: code review, version control, change management procedures</li>
       </ul>
       <p><strong>The AI problem:</strong> Most agent frameworks have none of this. The model is a prompt template in a Python file, the "testing" is a developer clicking through three examples, and the implementation documentation is a Slack message saying "deployed to prod."</p>
 
@@ -163,22 +163,22 @@
         <li>Back-testing and benchmarking</li>
         <li>Assessment of limitations and compensating controls</li>
       </ul>
-      <p><strong>The AI problem:</strong> How do you independently validate a non-deterministic agent? Standard model validation assumes reproducible outputs. AI agents give different answers to the same question. You need <strong>statistical validation frameworks</strong> — distribution analysis of outputs, boundary testing, adversarial probing, and consistency scoring across runs.</p>
+      <p><strong>The AI problem:</strong> How do you independently validate a non-deterministic agent? Standard model validation assumes reproducible outputs. AI agents give different answers to the same question. You need <strong>statistical validation frameworks</strong>, distribution analysis of outputs, boundary testing, adversarial probing, and consistency scoring across runs.</p>
 
       <h3>Pillar 3: Model Governance</h3>
       <p>A governance framework that covers the entire model lifecycle:</p>
       <ul>
-        <li><strong>Model inventory</strong> — every agent catalogued with risk tier, owner, use case, and dependencies</li>
-        <li><strong>Change management</strong> — formal approval process for prompt changes, model upgrades, data source modifications</li>
-        <li><strong>Ongoing monitoring</strong> — performance degradation detection, drift monitoring, anomaly alerting</li>
-        <li><strong>Annual review</strong> — re-validation and governance attestation</li>
-        <li><strong>Escalation procedures</strong> — clear paths for model failures, regulatory inquiries, and incident response</li>
+        <li><strong>Model inventory</strong>: every agent catalogued with risk tier, owner, use case, and dependencies</li>
+        <li><strong>Change management</strong>: formal approval process for prompt changes, model upgrades, data source modifications</li>
+        <li><strong>Ongoing monitoring</strong>: performance degradation detection, drift monitoring, anomaly alerting</li>
+        <li><strong>Annual review</strong>: re-validation and governance attestation</li>
+        <li><strong>Escalation procedures</strong>: clear paths for model failures, regulatory inquiries, and incident response</li>
       </ul>
 
       <h2>3. Where Most Banking AI Fails SR 11-7</h2>
 
       <h3>Failure 1: No Model Inventory</h3>
-      <p>Banks deploy AI agents across departments — risk, operations, customer service, compliance — and nobody maintains a central registry. When examiners ask "how many AI models do you have in production?", the answer is "we don't know." This is an immediate finding.</p>
+      <p>Banks deploy AI agents across departments, risk, operations, customer service, compliance, and nobody maintains a central registry. When examiners ask "how many AI models do you have in production?", the answer is "we don't know." This is an immediate finding.</p>
 
       <h3>Failure 2: Non-Deterministic Validation</h3>
       <p>Traditional model validation assumes: same input → same output. AI agents violate this assumption. Banks try to validate agents with the same methods they use for logistic regression, and the results are meaningless. You need probabilistic validation frameworks.</p>
@@ -193,23 +193,23 @@
       <p>Here is the technical architecture that satisfies SR 11-7 for AI agents:</p>
 
       <ul>
-        <li><strong>Model Registry</strong> — Centralized catalog of every agent, including risk tier, owner, approval status, validation date, and dependencies. Queryable by examiners.</li>
-        <li><strong>Immutable Audit Trails</strong> — ClickHouse-backed append-only storage for every agent input, output, reasoning chain, confidence score, and human override. Cryptographic hash chains for tamper detection.</li>
-        <li><strong>Probabilistic Validation Suite</strong> — Automated testing pipeline that measures output distribution stability, boundary behavior, adversarial robustness, and consistency scores. Runs continuously, not just at deployment.</li>
-        <li><strong>Change Management Gates</strong> — Every prompt change, model update, or data source modification requires formal approval, impact assessment, and re-validation trigger.</li>
-        <li><strong>OPA Policy Enforcement</strong> — Open Policy Agent rules that encode regulatory constraints as machine-readable policies. The agent cannot execute a decision that violates an active policy.</li>
-        <li><strong>Human-in-the-Loop Framework</strong> — Configurable confidence thresholds that route low-confidence or high-impact decisions to human review with full context.</li>
-        <li><strong>Examiner Dashboard</strong> — Read-only interface for regulators to query audit trails, view model documentation, and inspect governance records without engineering support.</li>
+        <li><strong>Model Registry</strong>: Centralized catalog of every agent, including risk tier, owner, approval status, validation date, and dependencies. Queryable by examiners.</li>
+        <li><strong>Immutable Audit Trails</strong>: ClickHouse-backed append-only storage for every agent input, output, reasoning chain, confidence score, and human override. Cryptographic hash chains for tamper detection.</li>
+        <li><strong>Probabilistic Validation Suite</strong>: Automated testing pipeline that measures output distribution stability, boundary behavior, adversarial robustness, and consistency scores. Runs continuously, not just at deployment.</li>
+        <li><strong>Change Management Gates</strong>: Every prompt change, model update, or data source modification requires formal approval, impact assessment, and re-validation trigger.</li>
+        <li><strong>OPA Policy Enforcement</strong>: Open Policy Agent rules that encode regulatory constraints as machine-readable policies. The agent cannot execute a decision that violates an active policy.</li>
+        <li><strong>Human-in-the-Loop Framework</strong>: Configurable confidence thresholds that route low-confidence or high-impact decisions to human review with full context.</li>
+        <li><strong>Examiner Dashboard</strong>: Read-only interface for regulators to query audit trails, view model documentation, and inspect governance records without engineering support.</li>
       </ul>
 
       <h2>5. What Examiners Look For</h2>
       <p>Based on recent OCC and Fed examination patterns, here is what examiners focus on when reviewing AI systems:</p>
       <ul>
-        <li>"Show me your model inventory" — they want a complete list within minutes, not days</li>
-        <li>"Show me the validation report for this agent" — independent validation, not self-assessment</li>
-        <li>"Walk me through a decision" — end-to-end traceability from input to output to audit record</li>
-        <li>"What changed since last examination?" — governed change management with approval records</li>
-        <li>"What happens when this agent is wrong?" — escalation procedures, human override records, incident history</li>
+        <li>"Show me your model inventory", they want a complete list within minutes, not days</li>
+        <li>"Show me the validation report for this agent", independent validation, not self-assessment</li>
+        <li>"Walk me through a decision", end-to-end traceability from input to output to audit record</li>
+        <li>"What changed since last examination?", governed change management with approval records</li>
+        <li>"What happens when this agent is wrong?", escalation procedures, human override records, incident history</li>
       </ul>
 
       <p>If you cannot answer these questions in real-time with documented evidence, you will receive findings.</p>
@@ -231,7 +231,7 @@
   <section class="py-24 bg-blue-950/20 border-t border-blue-900/20">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="text-3xl font-black text-white mb-6">Are Your AI Agents Examination-Ready?</h2>
-      <p class="text-slate-400 mb-8 max-w-xl mx-auto">Most banks discover SR 11-7 gaps during an examination — not before. Let us run the diagnostic first.</p>
+      <p class="text-slate-400 mb-8 max-w-xl mx-auto">Most banks discover SR 11-7 gaps during an examination, not before. Let us run the diagnostic first.</p>
       <a href="contact.html" class="btn-primary text-white px-8 py-4 rounded-sm font-bold text-lg inline-block">Request an SR 11-7 Gap Assessment →</a>
     </div>
   </section>
