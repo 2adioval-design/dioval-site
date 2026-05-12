@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why 89% of Certified Security Professionals Fail in Production | Dioval Group</title>
+    <meta name="description" content="An open letter from Aurelio Dioval on why current cybersecurity certifications teach professionals to pass exams, not survive production. Introducing the Certified Cybersecurity Operator (CCO).">
+    <meta name="keywords" content="cybersecurity certification, CCO, CISSP alternative, OSCP alternative, Security+ alternative, cybersecurity operator, production security, Dioval Group, Aurelio Dioval">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="https://dioval.com/certified-cybersecurity-operator.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Why 89% of Certified Security Professionals Fail in Production">
+    <meta property="og:description" content="An open letter on why current cybersecurity certifications are broken and what replaces them. Introducing the CCO.">
+    <meta property="og:url" content="https://dioval.com/certified-cybersecurity-operator.html">
+    <meta property="og:site_name" content="Dioval Group">
+    <meta property="og:image" content="https://dioval.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:site" content="@DiovalAure23458">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why 89% of Certified Security Professionals Fail in Production">
+    <meta name="twitter:description" content="An open letter on why current cybersecurity certifications are broken and what replaces them. Introducing the CCO.">
+    <meta name="twitter:image" content="https://dioval.com/og-image.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Why 89% of Certified Security Professionals Fail in Production",
+      "author": {"@type": "Person", "name": "Aurelio Dioval"},
+      "publisher": {"@type": "Organization", "name": "Dioval Group", "url": "https://dioval.com"},
+      "datePublished": "2026-05-12",
+      "description": "An open letter on why current cybersecurity certifications teach professionals to pass exams, not survive production. Introducing the Certified Cybersecurity Operator."
+    }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  .glass { background: rgba(15,23,42,0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+  .glass-light { background: rgba(30,41,59,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+  .gradient-text { background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-grid { background-image: linear-gradient(rgba(239,68,68,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(239,68,68,0.03) 1px, transparent 1px); background-size: 60px 60px; }
+  .nav-link { position:relative; }
+  .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:#3b82f6; transition: width 0.3s ease; }
+  .nav-link:hover::after { width:100%; }
+  .btn-primary { background: linear-gradient(135deg, #2563eb, #1d4ed8); transition: all 0.3s ease; }
+  .btn-primary:hover { background: linear-gradient(135deg, #3b82f6, #2563eb); transform: translateY(-1px); box-shadow: 0 8px 25px rgba(37,99,235,0.4); }
+  .mobile-menu { display:none; }
+  .mobile-menu.open { display:block; }
+  .prose h2 { font-size: 1.5rem; font-weight: 900; color: white; margin-top: 2.5rem; margin-bottom: 1rem; }
+  .prose h3 { font-size: 1.25rem; font-weight: 700; color: white; margin-top: 2rem; margin-bottom: 0.75rem; }
+  .prose p { color: #94a3b8; line-height: 1.8; margin-bottom: 1.25rem; }
+  .prose ul { color: #94a3b8; margin-bottom: 1.25rem; padding-left: 1.5rem; }
+  .prose li { margin-bottom: 0.5rem; line-height: 1.7; }
+  .prose code { font-family: 'JetBrains Mono', monospace; background: rgba(30,41,59,0.8); padding: 2px 6px; border-radius: 3px; font-size: 0.875rem; color: #60a5fa; }
+  .prose strong { color: white; }
+  .prose blockquote { border-left: 3px solid #3b82f6; padding-left: 1.5rem; margin: 2rem 0; font-style: italic; color: #cbd5e1; }
+  .tier-card { transition: all 0.3s ease; }
+  .tier-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+</style>
+</head>
+<body class="bg-slate-950 text-slate-300 antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-blue-600 focus:text-white focus:px-4 focus:py-2 focus:rounded focus:text-sm focus:font-bold">Skip to main content</a>
+
+<nav aria-label="Main navigation" class="fixed w-full z-50 glass border-b border-slate-800/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
+        <div class="w-8 h-8 bg-blue-600 rounded-sm flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <span class="text-2xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+      </a>
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="about.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">About</a>
+        <a href="audits.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Audits</a>
+        <a href="cases.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Case Studies</a>
+        <a href="books.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Books</a>
+        <a href="pricing.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Pricing</a>
+        <a href="blog.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Blog</a>
+        <a href="booking.html" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Free Diagnostic</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="btn-primary text-white px-6 py-2.5 rounded-sm font-bold text-sm">Book an Audit</a>
+        <button class="lg:hidden text-slate-400 hover:text-white p-2" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu lg:hidden glass border-t border-slate-800/60">
+    <div class="px-4 py-6 space-y-4">
+      <a href="about.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">About</a>
+      <a href="audits.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Audits</a>
+      <a href="cases.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Case Studies</a>
+      <a href="books.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Books</a>
+      <a href="pricing.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Pricing</a>
+      <a href="blog.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Blog</a>
+      <a href="booking.html" class="block text-sm font-semibold text-slate-400 hover:text-white py-2">Free Diagnostic</a>
+      <a href="contact.html" class="block btn-primary text-white px-6 py-3 rounded-sm font-bold text-sm text-center mt-4">Book an Audit</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content" class="flex-grow">
+
+  <!-- HERO: The Manifesto -->
+  <section class="relative pt-44 pb-20 hero-grid overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-block mb-6 px-4 py-1.5 border border-red-500/30 bg-red-500/5 rounded-sm">
+        <span class="text-red-400 text-xs font-bold tracking-wider uppercase mono">An Open Letter from Aurelio Dioval</span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-[1.1] tracking-tight mb-6">Why 89% of Certified<br>Security Professionals<br><span class="gradient-text">Fail in Production</span></h1>
+      <p class="text-xl text-slate-400 max-w-2xl mx-auto">The cybersecurity certification industry was built for a world that no longer exists. It is time for something that tests whether you can actually operate.</p>
+      <p class="text-sm text-slate-600 mt-4">May 2026</p>
+    </div>
+  </section>
+
+  <!-- THE MANIFESTO -->
+  <section class="py-24 bg-slate-950">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose">
+
+      <p class="text-lg">To every CISO who signed off on a training budget and still got breached. To every SOC analyst who passed three certifications and froze during their first real incident. To every penetration tester who can recite the OWASP Top 10 but has never bypassed an active EDR in a live environment.</p>
+
+      <p class="text-lg">This letter is for you.</p>
+
+      <h2>The Certification Industry Has a Dirty Secret</h2>
+
+      <p>The global cybersecurity certification market will exceed $20 billion by 2027. Companies are spending more on credentials than ever before. And breaches are at an all-time high. These two facts are not a coincidence. They are cause and effect.</p>
+
+      <p>The dominant certifications in our industry were designed for a different era. They test whether you can define a firewall, not whether you can architect a Zero Trust environment that survives a supply chain attack. They test whether you can list the phases of incident response, not whether you can threat-hunt an advanced persistent threat while the network is burning. They test whether you can memorize compliance frameworks, not whether you can make an AI agent pass a Federal Reserve examination.</p>
+
+      <p>We have built an entire credentialing ecosystem around the ability to pass multiple-choice tests about concepts from 2015. Then we act surprised when certified professionals cannot operate in 2026.</p>
+
+      <h2>The Gap Between Certified and Competent</h2>
+
+      <p>Here is what the current certification landscape actually tests:</p>
+
+      <ul>
+        <li><strong>Vocabulary recognition.</strong> Can you match the term to the definition? Can you identify the correct acronym? This is a reading comprehension test, not a security test.</li>
+        <li><strong>Framework memorization.</strong> Can you recall which NIST control maps to which CIS benchmark? Useful in an audit meeting. Useless at 2 AM when your SIEM is lighting up with lateral movement alerts.</li>
+        <li><strong>Theoretical process recall.</strong> Can you list the six steps of incident response in order? You passed. But have you ever actually contained a breach while stakeholders are calling your phone, the CEO wants a status update, and the attacker is still inside your network? No exam tests that.</li>
+      </ul>
+
+      <p>The result: organizations hire "certified" professionals who have never operated under pressure, never built a detection rule that caught a real adversary, never traced a TLS 1.3 handshake to diagnose a production failure, and never calculated FAIR risk metrics that a board would actually act on.</p>
+
+      <p>The certification says they are qualified. Production says otherwise.</p>
+
+      <h2>The World Changed. Certifications Did Not.</h2>
+
+      <p>The 2026 threat landscape looks nothing like the environment these certifications were designed for:</p>
+
+      <ul>
+        <li><strong>AI-powered attacks are here.</strong> Adversaries are using large language models to generate polymorphic malware, deepfake social engineering, and automated vulnerability discovery. Your certification does not cover any of this.</li>
+        <li><strong>Cloud-native is the default.</strong> Most enterprise workloads now run in multi-cloud environments with serverless functions, container orchestration, and ephemeral infrastructure. Your certification still tests on-premise network diagrams.</li>
+        <li><strong>Multi-agent AI systems are in production.</strong> Enterprises are deploying autonomous AI agents that make decisions, access sensitive data, and interact with customers. These systems introduce entirely new attack surfaces. Your certification does not know they exist.</li>
+        <li><strong>Quantum computing is approaching.</strong> Post-quantum cryptography is not a theoretical concern anymore. NIST finalized its post-quantum standards. Your certification still focuses on RSA and AES without addressing the transition timeline.</li>
+        <li><strong>Regulatory complexity has exploded.</strong> The EU AI Act, updated SR 11-7 guidance for AI, DORA, NIS2. The compliance surface area has tripled in two years. Your certification covers frameworks that predate all of them.</li>
+      </ul>
+
+      <p>We are credentialing professionals for a world that no longer exists, then deploying them into a world they have never been tested against.</p>
+
+      <h2>What "Operator" Actually Means</h2>
+
+      <p>There is a reason we chose the word <strong>Operator</strong> instead of Professional, Practitioner, or Specialist. An operator does not just understand concepts. An operator executes under real conditions.</p>
+
+      <ul>
+        <li>An <strong>operator</strong> can spot the architectural flaw in an AWS Landing Zone before it becomes a breach vector.</li>
+        <li>An <strong>operator</strong> can bypass a Web Application Firewall, exploit a TOCTTOU race condition, and extract credentials from LSASS memory, because that is what the adversaries are doing.</li>
+        <li>An <strong>operator</strong> can write custom YARA rules, Sigma detections, and containment playbooks while the threat is still active, because real incidents do not wait for you to review the textbook.</li>
+      </ul>
+
+      <p>The Certified Cybersecurity Operator does not care what you can define. It cares what you can do.</p>
+
+    </div>
+  </section>
+
+  <!-- THE CCO FRAMEWORK -->
+  <section class="py-24 bg-slate-900/40 border-y border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="inline-block mb-4 px-4 py-1.5 border border-blue-500/30 bg-blue-500/5 rounded-sm">
+          <span class="text-blue-400 text-xs font-bold tracking-wider uppercase mono">Introducing</span>
+        </div>
+        <h2 class="text-4xl sm:text-5xl font-black text-white tracking-tight mb-4">The Certified Cybersecurity Operator</h2>
+        <p class="text-xl text-slate-400 max-w-2xl mx-auto">Three levels. Zero fluff. Pure operational capability.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- CCO-F -->
+        <div class="tier-card glass-light rounded-sm p-8 flex flex-col">
+          <div class="mb-6">
+            <div class="inline-block px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-sm mb-4">
+              <span class="text-blue-400 text-xs font-bold tracking-wider uppercase mono">Level 1</span>
+            </div>
+            <h3 class="text-2xl font-black text-white mb-1">CCO-F</h3>
+            <p class="text-sm text-slate-500 mb-4">Certified Cybersecurity Operator: Foundations</p>
+            <p class="text-3xl font-black text-white">$399 <span class="text-sm font-normal text-slate-500">exam voucher</span></p>
+          </div>
+          <div class="border-t border-slate-700/50 pt-6 flex-grow">
+            <p class="text-sm text-slate-400 mb-4"><strong class="text-white">The Exam:</strong> 3 hours. Scenario-based. You will architect Zero Trust environments, calculate FAIR risk metrics, trace TLS 1.3 handshakes, and identify flaws in cloud landing zones.</p>
+            <p class="text-sm text-slate-400 mb-4"><strong class="text-white">Who It's For:</strong> Junior to mid-level security engineers, network architects, SOC analysts, and risk managers.</p>
+            <p class="text-sm text-slate-400 mb-4"><strong class="text-white">Study Guide:</strong> <em>The Agentic AI Professional Series, Book 1: The Foundation</em></p>
+            <p class="text-sm text-yellow-400/80 italic">"Most foundational certs test whether you can define a firewall. The CCO-F tests whether you can architect a Zero Trust environment."</p>
+          </div>
+        </div>
+
+        <!-- CCO-A -->
+        <div class="tier-card glass-light rounded-sm p-8 flex flex-col border border-red-500/20">
+          <div class="mb-6">
+            <div class="inline-block px-3 py-1 bg-red-500/10 border border-red-500/20 rounded-sm mb-4">
+              <span class="text-red-400 text-xs font-bold tracking-wider uppercase mono">Level 2</span>
+            </div>
+            <h3 class="text-2xl font-black text-white mb-1">CCO-A</h3>
+            <p class="text-sm text-slate-500 mb-4">Certified Cybersecurity Operator: Attacker</p>
+            <p class="text-3xl font-black text-white">$1,299 <span class="text-sm font-normal text-slate-500">lab + exam</span></p>
+          </div>
+          <div class="border-t border-slate-700/50 pt-6 flex-grow">
+            <p class="text-sm text-slate-400 mb-4"><strong class="text-white">The Exam:</strong> 24 hours. Live practical lab. You are dropped into a simulated enterprise network. Bypass the WAF, exploit TOCTTOU vulnerabilities, extract credentials from LSASS, and submit a professional penetration test report.</p>
+            <p class="text-sm text-slate-400 mb-4"><strong class="text-white">Who It's For:</strong> Red teamers, penetration testers, and offensive security engineers.</p>
+            <p class="text-sm text-slate-400 mb-4"><strong class="text-white">Includes:</strong> 30 days of lab access + 1 exam attempt</p>
+            <p class="text-sm text-slate-400 mb-4"><strong class="text-white">Study Guide:</strong> <em>Book 2: The Arsenal</em></p>
+            <p class="text-sm text-red-400/80 italic">"We do not care if you know the definition of a buffer overflow. We care if you can bypass an active EDR in a live environment."</p>
+          </div>
+        </div>
+
+        <!-- CCO-D -->
+        <div class="tier-card glass-light rounded-sm p-8 flex flex-col border border-green-500/20">
+          <div class="mb-6">
+            <div class="inline-block px-3 py-1 bg-green-500/10 border border-green-500/20 rounded-sm mb-4">
+              <span class="text-green-400 text-xs font-bold tracking-wider uppercase mono">Level 3</span>
+            </div>
+            <h3 class="text-2xl font-black text-white mb-1">CCO-D</h3>
+            <p class="text-sm text-slate-500 mb-4">Certified Cybersecurity Operator: Defender</p>
+            <p class="text-3xl font-black text-white">$1,499 <span class="text-sm font-normal text-slate-500">lab + exam</span></p>
+          </div>
+          <div class="border-t border-slate-700/50 pt-6 flex-grow">
+            <p class="text-sm text-slate-400 mb-4"><strong class="text-white">The Exam:</strong> 24 hours. Live defense. You are given a SIEM and EDR telemetry from an actively compromised network. Threat-hunt the adversary, write 5 custom YARA/Sigma detection rules, and execute a full containment playbook.</p>
+            <p class="text-sm text-slate-400 mb-4"><strong class="text-white">Who It's For:</strong> Senior SOC analysts, incident responders, blue team leads, and threat hunters.</p>
+            <p class="text-sm text-slate-400 mb-4"><strong class="text-white">Includes:</strong> Defensive lab environment + 1 exam attempt</p>
+            <p class="text-sm text-slate-400 mb-4"><strong class="text-white">Study Guide:</strong> <em>Book 3: The Bastion</em></p>
+            <p class="text-sm text-green-400/80 italic">"Attackers operate in real-time. So does our exam. The CCO-D proves you can stop an advanced persistent threat while the network is burning."</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- THE STANDARD -->
+  <section class="py-24 bg-slate-950">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose">
+
+      <h2>What Makes This Different</h2>
+
+      <p>Every claim here comes down to one principle: <strong>the exam tests what the job requires.</strong></p>
+
+      <ul>
+        <li><strong>No multiple choice.</strong> Level 2 and Level 3 are entirely practical. You operate in live environments against real attack scenarios. Either you can do it or you cannot. There is no guessing your way to a passing score.</li>
+        <li><strong>Built for 2026.</strong> AI-powered threats, cloud-native architecture, multi-agent systems, post-quantum cryptography, EU AI Act, SR 11-7. The curriculum covers the threat landscape you actually face today, not the one from a decade ago.</li>
+        <li><strong>Professional-grade deliverables.</strong> Passing the CCO-A requires submitting a penetration test report that meets professional standards. Passing the CCO-D requires executing a containment playbook under time pressure. These are the deliverables your employer needs from you on day one.</li>
+        <li><strong>Backed by operational depth.</strong> The CCO curriculum comes from the same team that runs $25,000 production audits and $15,000/month orchestration retainers for Fortune 500 companies. This is not academic theory packaged as a credential. This is what we do every day, distilled into a certification.</li>
+      </ul>
+
+      <h2>The Beta Cohort</h2>
+
+      <p>We are giving away <strong>50 free CCO-F exam vouchers</strong> to experienced cybersecurity professionals who want to be the first to earn the credential. If you have been in the field long enough to know that current certifications do not reflect the reality of production security, this is your chance to prove it with a credential that does.</p>
+
+      <p>Here is who we are looking for:</p>
+      <ul>
+        <li>Active security practitioners (not students, not career changers, not recruiters)</li>
+        <li>Professionals who can provide honest, detailed feedback on the exam experience</li>
+        <li>People who are willing to share their CCO badge publicly if they earn it</li>
+      </ul>
+
+      <p>The beta cohort is first-come, first-served. When the 50 vouchers are gone, they are gone.</p>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 bg-blue-950/20 border-t border-blue-900/20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">The CCO Is Coming</h2>
+      <p class="text-slate-400 mb-8 max-w-xl mx-auto">The first certification built for operators, not test-takers. Join the waitlist to get notified when the CCO-F exam opens, or apply for the free beta cohort.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="contact.html" class="btn-primary text-white px-8 py-4 rounded-sm font-bold text-lg inline-block">Apply for the Beta Cohort</a>
+        <a href="books.html" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white px-8 py-4 rounded-sm font-bold text-lg inline-block transition">Get the Study Guide</a>
+      </div>
+      <p class="text-sm text-slate-600 mt-6">Questions? <a href="contact.html" class="text-blue-400 hover:text-blue-300">Contact our team</a> or reach out on <a href="https://x.com/DiovalAure23458" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">X</a>.</p>
+    </div>
+  </section>
+
+  <!-- SIGNATURE -->
+  <section class="py-16 bg-slate-950">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-6">
+        <img src="images/aurelio-dioval-square.png" alt="Aurelio Dioval" class="w-20 h-20 rounded-sm object-cover">
+        <div>
+          <p class="text-white font-bold text-lg">Aurelio Dioval</p>
+          <p class="text-slate-500 text-sm">Founder &amp; Principal Architect, Dioval Group</p>
+          <div class="flex gap-3 mt-2">
+            <a href="https://x.com/DiovalAure23458" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-white transition">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/aurelio-d-b73ab570" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-white transition">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-slate-950 border-t border-slate-800 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 bg-blue-600 rounded-sm flex items-center justify-center">
+        <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <span class="text-xl font-black text-white tracking-tighter">DIOVAL<span class="text-blue-500">.</span></span>
+    </div>
+    <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+      <a href="about.html" class="hover:text-white transition">About</a>
+      <a href="audits.html" class="hover:text-white transition">Audits</a>
+      <a href="cases.html" class="hover:text-white transition">Case Studies</a>
+      <a href="books.html" class="hover:text-white transition">Books</a>
+      <a href="blog.html" class="hover:text-white transition">Blog</a>
+      <a href="contact.html" class="hover:text-white transition">Contact</a>
+      <a href="privacy.html" class="hover:text-white transition">Privacy Policy</a>
+      <a href="terms.html" class="hover:text-white transition">Terms of Service</a>
+      <span>&copy; 2026 Dioval Group. All rights reserved.</span>
+    </div>
+    <div class="flex gap-4 items-center">
+      <a href="https://x.com/DiovalAure23458" target="_blank" rel="noopener noreferrer" aria-label="Dioval Group on X (Twitter)" class="text-slate-500 hover:text-white transition">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/aurelio-d-b73ab570" target="_blank" rel="noopener noreferrer" aria-label="Aurelio Dioval on LinkedIn" class="text-slate-500 hover:text-white transition">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-consent" style="display:none" class="fixed bottom-0 left-0 right-0 z-[9998] bg-slate-900 border-t border-slate-700 px-4 py-4 sm:px-6">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-sm text-slate-300">We use cookies for analytics to improve your experience. By clicking "Accept," you consent to our use of cookies. <a href="/privacy.html" class="text-blue-400 hover:underline">Privacy Policy</a></p>
+    <div class="flex gap-3 flex-shrink-0">
+      <button onclick="acceptCookies()" class="bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold px-5 py-2 rounded-sm transition">Accept</button>
+      <button onclick="declineCookies()" class="bg-slate-700 hover:bg-slate-600 text-slate-300 text-sm font-bold px-5 py-2 rounded-sm transition">Decline</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') { loadGA(); }
+  else if (consent !== 'declined') { document.getElementById('cookie-consent').style.display = 'block'; }
+})();
+function loadGA(){
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-7JKBJJES0V';
+  document.head.appendChild(s);
+  s.onload = function(){
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7JKBJJES0V');
+  };
+}
+function acceptCookies(){ localStorage.setItem('cookie_consent','accepted'); document.getElementById('cookie-consent').style.display='none'; loadGA(); }
+function declineCookies(){ localStorage.setItem('cookie_consent','declined'); document.getElementById('cookie-consent').style.display='none'; }
+</script>
+
+</body>
+</html>
