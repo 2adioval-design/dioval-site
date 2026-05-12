@@ -2,6 +2,11 @@
 <html lang="en" class="scroll-smooth">
 <head>
 <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
@@ -20,6 +25,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
+    <meta name="twitter:site" content="@DiovalAure23458">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="About Dioval Group - We Engineer Trust, Not Demos">
     <meta name="twitter:description" content="Meet the team that helps enterprises bridge the gap between AI demo and AI production. Specialists in reliability, orchestration, and governance.">
@@ -39,13 +45,30 @@
       }
 }
     </script>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7JKBJJES0V"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-7JKBJJES0V');
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aurelio Dioval",
+      "jobTitle": "Founder & Principal Architect",
+      "worksFor": {
+            "@type": "Organization",
+            "name": "Dioval Group",
+            "url": "https://dioval.com"
+      },
+      "url": "https://dioval.com/about.html",
+      "image": "https://dioval.com/images/aurelio-dioval-portrait.png",
+      "sameAs": [
+            "https://x.com/DiovalAure23458"
+      ],
+      "knowsAbout": [
+            "Enterprise AI Architecture",
+            "Multi-Agent Orchestration",
+            "AI Compliance",
+            "Production AI Systems"
+      ],
+      "description": "Author of The Agentic AI Professional Series. Frontier AI Architect specializing in enterprise AI reliability, orchestration, and governance."
+}
     </script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -68,8 +91,9 @@
 </style>
 </head>
 <body class="bg-slate-950 text-slate-300 antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-blue-600 focus:text-white focus:px-4 focus:py-2 focus:rounded focus:text-sm focus:font-bold">Skip to main content</a>
 
-<nav class="fixed w-full z-50 glass border-b border-slate-800/60">
+<nav aria-label="Main navigation" class="fixed w-full z-50 glass border-b border-slate-800/60">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-20">
       <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
@@ -109,7 +133,7 @@
   </div>
 </nav>
 
-<main class="flex-grow">
+<main id="main-content" class="flex-grow">
   <!-- HERO -->
   <section class="relative pt-44 pb-20 hero-grid overflow-hidden">
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_30%_0%,rgba(37,99,235,0.14),transparent)]"></div>
@@ -227,6 +251,34 @@
     </div>
   </section>
 
+
+  <!-- FOUNDER -->
+  <section class="py-24 bg-slate-950">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-blue-400 text-sm mono font-bold tracking-[0.2em] uppercase mb-4">THE ARCHITECT</p>
+      <h2 class="text-4xl md:text-5xl font-black text-white mb-12">Meet Aurelio Dioval</h2>
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div class="relative">
+          <img src="/images/aurelio-dioval-portrait.png" alt="Aurelio Dioval, Founder and Principal Architect at Dioval Group" class="rounded-xl w-full max-w-md mx-auto" loading="lazy" width="600" height="821">
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold text-white mb-4">Founder & Principal Architect</h3>
+          <div class="space-y-4 text-slate-300 leading-relaxed">
+            <p>Aurelio Dioval is the founder of Dioval Group and the author of <em class="text-slate-200">The Agentic AI Professional Series</em> — 7 volumes and 139,000+ words of original research on enterprise AI production readiness.</p>
+            <p>He founded Dioval Group to address a systemic market failure: thousands of engineers know how to build an AI demo, but very few know how to ship an agentic system that survives contact with enterprise reality — regulators, edge cases, stale data, and conflicting agents included.</p>
+            <p>His work sits at the intersection of complex multi-agent orchestration, enterprise-grade compliance architecture, and mission-critical knowledge infrastructure.</p>
+          </div>
+          <div class="mt-6">
+            <a href="https://x.com/DiovalAure23458" target="_blank" rel="noopener noreferrer" aria-label="Aurelio Dioval on X" class="inline-flex items-center gap-2 text-slate-400 hover:text-blue-400 transition-colors text-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              @DiovalAure23458
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="py-24 bg-slate-950">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -259,5 +311,38 @@
     </div>
   </div>
 </footer>
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-consent" style="display:none" class="fixed bottom-0 left-0 right-0 z-[9998] bg-slate-900 border-t border-slate-700 px-4 py-4 sm:px-6">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-sm text-slate-300">We use cookies for analytics to improve your experience. By clicking "Accept," you consent to our use of cookies. <a href="/privacy.html" class="text-blue-400 hover:underline">Privacy Policy</a></p>
+    <div class="flex gap-3 flex-shrink-0">
+      <button onclick="acceptCookies()" class="bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold px-5 py-2 rounded-sm transition">Accept</button>
+      <button onclick="declineCookies()" class="bg-slate-700 hover:bg-slate-600 text-slate-300 text-sm font-bold px-5 py-2 rounded-sm transition">Decline</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') { loadGA(); }
+  else if (consent !== 'declined') { document.getElementById('cookie-consent').style.display = 'block'; }
+})();
+function loadGA(){
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-7JKBJJES0V';
+  document.head.appendChild(s);
+  s.onload = function(){
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7JKBJJES0V');
+  };
+}
+function acceptCookies(){ localStorage.setItem('cookie_consent','accepted'); document.getElementById('cookie-consent').style.display='none'; loadGA(); }
+function declineCookies(){ localStorage.setItem('cookie_consent','declined'); document.getElementById('cookie-consent').style.display='none'; }
+</script>
+
 </body>
 </html>

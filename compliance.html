@@ -2,6 +2,11 @@
 <html lang="en" class="scroll-smooth">
 <head>
 <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
@@ -20,6 +25,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
+    <meta name="twitter:site" content="@DiovalAure23458">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AI Compliance Architecture | SR 11-7 & EU AI Act - Dioval Group">
     <meta name="twitter:description" content="Compliance-native AI architecture for banking (SR 11-7), EU AI Act, and SEC Rule 17a-4. Immutable audit trails for every agent action.">
@@ -40,13 +46,42 @@
       "serviceType": "AI Compliance Consulting"
 }
     </script>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7JKBJJES0V"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-7JKBJJES0V');
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you make AI agents EU AI Act compliant?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We implement the Compliance Proxy Pattern — a middleware layer that wraps every agent decision in an immutable audit trail, automated explainability reports, OPA policy enforcement, and human-in-the-loop gates. This architecture maps directly to EU AI Act Articles 13–15 and Annex IV requirements."
+        }
+      },\n      {
+        "@type": "Question",
+        "name": "What is the SR 11-7 framework for AI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SR 11-7 is the Federal Reserve's guidance on Model Risk Management. It requires banks and financial institutions to validate, document, and govern all models — including AI agents. We build the compliance infrastructure so your AI systems are examination-ready before regulators arrive."
+        }
+      },\n      {
+        "@type": "Question",
+        "name": "Can AI agents produce audit trails?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not by default — most agent frameworks produce no immutable records. We instrument every agent with ClickHouse-backed audit trails that capture inputs, outputs, reasoning chains, confidence scores, and policy decisions. Every decision is traceable and tamper-proof."
+        }
+      },\n      {
+        "@type": "Question",
+        "name": "What regulations apply to enterprise AI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The major frameworks include the EU AI Act (risk classification + transparency), SR 11-7 (model risk management for financial services), SOC 2 Type II (security controls), SEC Rule 17a-4 (records retention), and ISO 42001 (AI management systems). The specific mix depends on your industry and jurisdiction."
+        }
+      }
+      ]
+}
     </script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -70,8 +105,9 @@
 </style>
 </head>
 <body class="bg-slate-950 text-slate-300 antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-blue-600 focus:text-white focus:px-4 focus:py-2 focus:rounded focus:text-sm focus:font-bold">Skip to main content</a>
 
-<nav class="fixed w-full z-50 glass border-b border-slate-800/60">
+<nav aria-label="Main navigation" class="fixed w-full z-50 glass border-b border-slate-800/60">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-20">
       <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
@@ -111,7 +147,7 @@
   </div>
 </nav>
 
-<main class="flex-grow">
+<main id="main-content" class="flex-grow">
   <section class="relative pt-44 pb-20 hero-grid overflow-hidden">
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_20%_0%,rgba(239,68,68,0.1),transparent)]"></div>
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -346,6 +382,31 @@
       <a href="contact.html" class="btn-primary text-white px-10 py-4 rounded-sm font-bold text-lg shadow-xl shadow-blue-500/20">Book Your Compliance Assessment →</a>
     </div>
   </section>
+
+  <!-- FAQ -->
+  <section class="py-24 bg-slate-900/30 border-t border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-black text-white mb-12 text-center">Frequently Asked Questions</h2>
+      <div class="grid gap-6">
+        <div class="border border-slate-700/50 rounded-lg p-6 hover:border-blue-500/30 transition-colors">
+          <h3 class="text-lg font-bold text-white mb-3">How do you make AI agents EU AI Act compliant?</h3>
+          <p class="text-slate-400 leading-relaxed text-sm">We implement the Compliance Proxy Pattern — a middleware layer that wraps every agent decision in an immutable audit trail, automated explainability reports, OPA policy enforcement, and human-in-the-loop gates. This architecture maps directly to EU AI Act Articles 13–15 and Annex IV requirements.</p>
+        </div>
+        <div class="border border-slate-700/50 rounded-lg p-6 hover:border-blue-500/30 transition-colors">
+          <h3 class="text-lg font-bold text-white mb-3">What is the SR 11-7 framework for AI?</h3>
+          <p class="text-slate-400 leading-relaxed text-sm">SR 11-7 is the Federal Reserve's guidance on Model Risk Management. It requires banks and financial institutions to validate, document, and govern all models — including AI agents. We build the compliance infrastructure so your AI systems are examination-ready before regulators arrive.</p>
+        </div>
+        <div class="border border-slate-700/50 rounded-lg p-6 hover:border-blue-500/30 transition-colors">
+          <h3 class="text-lg font-bold text-white mb-3">Can AI agents produce audit trails?</h3>
+          <p class="text-slate-400 leading-relaxed text-sm">Not by default — most agent frameworks produce no immutable records. We instrument every agent with ClickHouse-backed audit trails that capture inputs, outputs, reasoning chains, confidence scores, and policy decisions. Every decision is traceable and tamper-proof.</p>
+        </div>
+        <div class="border border-slate-700/50 rounded-lg p-6 hover:border-blue-500/30 transition-colors">
+          <h3 class="text-lg font-bold text-white mb-3">What regulations apply to enterprise AI?</h3>
+          <p class="text-slate-400 leading-relaxed text-sm">The major frameworks include the EU AI Act (risk classification + transparency), SR 11-7 (model risk management for financial services), SOC 2 Type II (security controls), SEC Rule 17a-4 (records retention), and ISO 42001 (AI management systems). The specific mix depends on your industry and jurisdiction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer class="bg-slate-950 border-t border-slate-800 py-12">
@@ -370,5 +431,38 @@
     </div>
   </div>
 </footer>
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-consent" style="display:none" class="fixed bottom-0 left-0 right-0 z-[9998] bg-slate-900 border-t border-slate-700 px-4 py-4 sm:px-6">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-sm text-slate-300">We use cookies for analytics to improve your experience. By clicking "Accept," you consent to our use of cookies. <a href="/privacy.html" class="text-blue-400 hover:underline">Privacy Policy</a></p>
+    <div class="flex gap-3 flex-shrink-0">
+      <button onclick="acceptCookies()" class="bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold px-5 py-2 rounded-sm transition">Accept</button>
+      <button onclick="declineCookies()" class="bg-slate-700 hover:bg-slate-600 text-slate-300 text-sm font-bold px-5 py-2 rounded-sm transition">Decline</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') { loadGA(); }
+  else if (consent !== 'declined') { document.getElementById('cookie-consent').style.display = 'block'; }
+})();
+function loadGA(){
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-7JKBJJES0V';
+  document.head.appendChild(s);
+  s.onload = function(){
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7JKBJJES0V');
+  };
+}
+function acceptCookies(){ localStorage.setItem('cookie_consent','accepted'); document.getElementById('cookie-consent').style.display='none'; loadGA(); }
+function declineCookies(){ localStorage.setItem('cookie_consent','declined'); document.getElementById('cookie-consent').style.display='none'; }
+</script>
+
 </body>
 </html>
