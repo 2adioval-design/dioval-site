@@ -2,6 +2,11 @@
 <html lang="en" class="scroll-smooth">
 <head>
 <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
@@ -20,6 +25,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
+    <meta name="twitter:site" content="@DiovalAure23458">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Multi-Agent Orchestration | MCP & A2A Protocols - Dioval Group">
     <meta name="twitter:description" content="Enterprise multi-agent coordination using MCP and A2A protocols. Hierarchical supervision, semantic handoff, and conflict resolution for AI agent networks.">
@@ -40,13 +46,42 @@
       "serviceType": "AI Orchestration Consulting"
 }
     </script>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7JKBJJES0V"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-7JKBJJES0V');
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is multi-agent orchestration?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Multi-agent orchestration is the practice of coordinating multiple AI agents to work together on complex enterprise tasks without losing context, duplicating work, or making conflicting decisions. It involves protocol integration (MCP, A2A), supervisor architectures, and semantic handoff systems."
+        }
+      },\n      {
+        "@type": "Question",
+        "name": "What is the difference between single-agent and multi-agent orchestration?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A single agent handles tasks independently — fine for simple workflows. Multi-agent orchestration coordinates specialized agents (research, compliance, execution) into a coherent network with shared context, conflict resolution, and lossless handoffs. Enterprises with complex workflows need multi-agent systems."
+        }
+      },\n      {
+        "@type": "Question",
+        "name": "What are MCP and A2A protocols?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "MCP (Model Context Protocol) and A2A (Agent-to-Agent) are emerging standards for how AI agents communicate. MCP handles tool and context sharing; A2A handles inter-agent messaging and task delegation. Dioval implements both with strict schema validation to prevent context decay."
+        }
+      },\n      {
+        "@type": "Question",
+        "name": "How do you prevent context loss between agents?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We implement the Semantic Handoff Protocol (SHP) — a 5-layer validation schema using strict Pydantic models. Every handoff preserves constraints, priorities, partial state, and reasoning chains. Zero context loss means zero cascading failures downstream."
+        }
+      }
+      ]
+}
     </script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -71,8 +106,9 @@
 </style>
 </head>
 <body class="bg-slate-950 text-slate-300 antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-blue-600 focus:text-white focus:px-4 focus:py-2 focus:rounded focus:text-sm focus:font-bold">Skip to main content</a>
 
-<nav class="fixed w-full z-50 glass border-b border-slate-800/60">
+<nav aria-label="Main navigation" class="fixed w-full z-50 glass border-b border-slate-800/60">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-20">
       <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
@@ -112,7 +148,7 @@
   </div>
 </nav>
 
-<main class="flex-grow">
+<main id="main-content" class="flex-grow">
   <section class="relative pt-44 pb-20 hero-grid overflow-hidden">
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_80%_10%,rgba(139,92,246,0.12),transparent)]"></div>
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -274,6 +310,31 @@
       <a href="contact.html" class="btn-primary text-white px-10 py-4 rounded-sm font-bold text-lg shadow-xl shadow-blue-500/20">Start with an Audit →</a>
     </div>
   </section>
+
+  <!-- FAQ -->
+  <section class="py-24 bg-slate-900/30 border-t border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-black text-white mb-12 text-center">Frequently Asked Questions</h2>
+      <div class="grid gap-6">
+        <div class="border border-slate-700/50 rounded-lg p-6 hover:border-blue-500/30 transition-colors">
+          <h3 class="text-lg font-bold text-white mb-3">What is multi-agent orchestration?</h3>
+          <p class="text-slate-400 leading-relaxed text-sm">Multi-agent orchestration is the practice of coordinating multiple AI agents to work together on complex enterprise tasks without losing context, duplicating work, or making conflicting decisions. It involves protocol integration (MCP, A2A), supervisor architectures, and semantic handoff systems.</p>
+        </div>
+        <div class="border border-slate-700/50 rounded-lg p-6 hover:border-blue-500/30 transition-colors">
+          <h3 class="text-lg font-bold text-white mb-3">What is the difference between single-agent and multi-agent orchestration?</h3>
+          <p class="text-slate-400 leading-relaxed text-sm">A single agent handles tasks independently — fine for simple workflows. Multi-agent orchestration coordinates specialized agents (research, compliance, execution) into a coherent network with shared context, conflict resolution, and lossless handoffs. Enterprises with complex workflows need multi-agent systems.</p>
+        </div>
+        <div class="border border-slate-700/50 rounded-lg p-6 hover:border-blue-500/30 transition-colors">
+          <h3 class="text-lg font-bold text-white mb-3">What are MCP and A2A protocols?</h3>
+          <p class="text-slate-400 leading-relaxed text-sm">MCP (Model Context Protocol) and A2A (Agent-to-Agent) are emerging standards for how AI agents communicate. MCP handles tool and context sharing; A2A handles inter-agent messaging and task delegation. Dioval implements both with strict schema validation to prevent context decay.</p>
+        </div>
+        <div class="border border-slate-700/50 rounded-lg p-6 hover:border-blue-500/30 transition-colors">
+          <h3 class="text-lg font-bold text-white mb-3">How do you prevent context loss between agents?</h3>
+          <p class="text-slate-400 leading-relaxed text-sm">We implement the Semantic Handoff Protocol (SHP) — a 5-layer validation schema using strict Pydantic models. Every handoff preserves constraints, priorities, partial state, and reasoning chains. Zero context loss means zero cascading failures downstream.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer class="bg-slate-950 border-t border-slate-800 py-12">
@@ -298,5 +359,38 @@
     </div>
   </div>
 </footer>
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-consent" style="display:none" class="fixed bottom-0 left-0 right-0 z-[9998] bg-slate-900 border-t border-slate-700 px-4 py-4 sm:px-6">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-sm text-slate-300">We use cookies for analytics to improve your experience. By clicking "Accept," you consent to our use of cookies. <a href="/privacy.html" class="text-blue-400 hover:underline">Privacy Policy</a></p>
+    <div class="flex gap-3 flex-shrink-0">
+      <button onclick="acceptCookies()" class="bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold px-5 py-2 rounded-sm transition">Accept</button>
+      <button onclick="declineCookies()" class="bg-slate-700 hover:bg-slate-600 text-slate-300 text-sm font-bold px-5 py-2 rounded-sm transition">Decline</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') { loadGA(); }
+  else if (consent !== 'declined') { document.getElementById('cookie-consent').style.display = 'block'; }
+})();
+function loadGA(){
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-7JKBJJES0V';
+  document.head.appendChild(s);
+  s.onload = function(){
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7JKBJJES0V');
+  };
+}
+function acceptCookies(){ localStorage.setItem('cookie_consent','accepted'); document.getElementById('cookie-consent').style.display='none'; loadGA(); }
+function declineCookies(){ localStorage.setItem('cookie_consent','declined'); document.getElementById('cookie-consent').style.display='none'; }
+</script>
+
 </body>
 </html>
